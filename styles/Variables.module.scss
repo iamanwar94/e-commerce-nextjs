@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+
+$yellow: rgb(188, 88, 1);
+$dark-grey: rgb(51, 51, 51);
+$grey: rgb(63, 64, 69);
+$light-grey: rgb(90, 90, 90);
+$extra-light-grey: rgb(204, 205, 206);
+$xs-grey: rgb(244, 244, 244);
+$red: rgb(181, 0, 37);
+$open-sans: "Open Sans", sans-serif;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@mixin flex-around-start {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin flex-between-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+@mixin flex-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@mixin flex-column-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

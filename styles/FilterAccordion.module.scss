@@ -1,0 +1,12 @@
+@import "./Variables.module.scss";
+
+
+
+.accordion-item {
+  border-left: 0 !important;
+  border-right: 0 !important;
+
+  .accordion-button:focus {
+    outline: 0 !important;
+  }
+}

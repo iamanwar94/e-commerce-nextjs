@@ -1,0 +1,24 @@
+@import "./Variables.module.scss";
+
+
+.category_wrapper {
+  width: 95%;
+  .category_six_cards_wrapper {
+    width: 100%;
+    @include flex-around;
+    .six_card_item {
+      width: 13%;
+      margin: 10px 0;
+      img {
+        width: 100%;
+        border-radius: 50%;
+        height: 180px;
+      }
+      p {
+        font-weight: 800;
+        margin: 10px 0;
+      }
+      text-align: center;
+    }
+  }
+}

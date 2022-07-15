@@ -1,0 +1,105 @@
+@import "./Variables.module.scss";
+
+
+// .tracking_wrapper {
+//   width: 100%;
+//   margin: 40px 0 0 0;
+//   background-color: rgb(247, 247, 247);
+//   @include flex-center;
+
+//   .tracking_form {
+//     width: 80%;
+//     margin: 16px 0;
+//     border-top: 1px solid $extra-light-grey;
+//     position: relative;
+//     padding: 20px;
+//     .or {
+//       position: absolute;
+//       background-color: rgb(247, 247, 247);
+//       top: -15px;
+//       right: 44%;
+//       width: 20px;
+//       padding: 0 30px;
+//       @include flex-center;
+//       h4 {
+//         font-weight: 600;
+//         font-size: 22px;
+//       }
+//     }
+
+//     .check_order {
+//       width: 100%;
+//       @include flex-between;
+//       margin: 20px 0;
+
+//       h4 {
+//         font-weight: 700;
+//         font-size: 18px;
+//       }
+
+//       .radio {
+//         input {
+//           margin: 0 5px;
+//           transform: scale(1.5);
+//           color: $yellow;
+//         }
+//         label {
+//           margin-right: 20px;
+//         }
+//       }
+//     }
+
+//     p {
+//       margin: 20px 0;
+//     }
+
+//     .req {
+//       font-size: 13px;
+//     }
+
+//     .inputs_wrapper {
+//       width: 100%;
+//       .inputs {
+//         width: 100%;
+//         @include flex-column-start;
+
+//         label {
+//           font-size: 14px;
+//           font-weight: 600;
+//         }
+//         input {
+//           width: 100%;
+//           padding: 5px 12px;
+//           border-bottom: 1px solid $grey;
+//           margin: 10px 0;
+//           background-color: rgb(247, 247, 247);
+
+//           &:focus {
+//             outline: 0;
+//           }
+
+//           &::placeholder {
+//             font-size: 12px;
+//           }
+//         }
+//       }
+
+//       button {
+//         margin: 16px 0;
+//         background-color: $yellow;
+//         color: white;
+//         padding: 8px 12px;
+//         border-radius: 4px;
+//         width: 180px;
+//         font-style: 18px;
+//         font-weight: 600;
+
+//         &:hover {
+//           color: $yellow;
+//           border: 1px solid $yellow;
+//           background-color: white;
+//         }
+//       }
+//     }
+//   }
+// }

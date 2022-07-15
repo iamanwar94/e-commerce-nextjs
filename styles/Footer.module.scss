@@ -1,0 +1,118 @@
+@import "./Variables.module.scss";
+
+
+.footer_wrapper {
+  width: 100%;
+  @include flex-column;
+  font-family: $open-sans;
+
+  .footer_search_wrapper {
+    width: 95%;
+    border-bottom: 3px solid $extra-light-grey;
+    border-top: 3px solid $extra-light-grey;
+    padding: 30px 0;
+    margin: 30px 0;
+    @include flex-center;
+    .search_para_wrapper p {
+      font-weight: 700;
+      text-transform: capitalize;
+      color: $dark-grey;
+      margin: 0 10px;
+      @include flex-center;
+      .icon {
+        margin: 0 10px;
+        background-color: $yellow;
+        color: white;
+        width: 40px;
+        text-align: center;
+      }
+    }
+    .search_btn {
+      position: relative;
+    }
+    .search_btn input {
+      width: 380px;
+      height: 36px;
+      border: 1px solid $yellow;
+      border-radius: 4px;
+      padding: 5px 20px;
+
+      &:focus {
+        outline: 0;
+      }
+
+    }
+    .search_btn button {
+      height: 36px;
+      background-color: $yellow;
+      border: 0;
+      border-radius: 0 4px 4px 0;
+      position: absolute;
+      color: white;
+      width: 30%;
+      right: 0px;
+    }
+  }
+  .footer_links_wrapper {
+    width: 100%;
+    @include flex-around;
+    align-items: flex-start;
+
+    .footer_links {
+      @include flex-column-start;
+      width: 30%;
+      height: 100%;
+      h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: black;
+        margin: 8px 0;
+      }
+
+      .links {
+        text-decoration: none;
+        color: black;
+        font-size: 14px;
+        font-family: $open-sans;
+        line-height: 28px;
+        font-weight: 400;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .footer_bottom_links {
+    width: 100%;
+    padding: 30px 0;
+    .country {
+      @include flex-around;
+      width: 11%;
+      margin: 20px 0 20px 10px;
+      .links {
+        color: black;
+        text-decoration: none;
+        font-size: 14px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .footer_bottom_link_items {
+      @include flex-around;
+      width: 70%;
+      margin: 20px 0;
+
+      .links {
+        text-decoration: none;
+        color: black;
+        font-size: 14px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

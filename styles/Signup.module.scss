@@ -1,0 +1,93 @@
+@import "./Variables.module.scss";
+
+
+.signup_wrapper {
+  width: 100%;
+  margin: 30px 0;
+  font-family: $open-sans;
+
+  .signup_form_wrapper {
+    width: 95%;
+    margin: auto;
+
+    .heading_para {
+      width: 100%;
+      h2 {
+        font-size: 28px;
+        font-weight: 400;
+      }
+      p {
+        font-size: 14px;
+        margin: 10px 0;
+      }
+    }
+
+    .signup_form {
+      width: 50%;
+      margin-top: 20px;
+      margin-left: 20px;
+
+      .input_wrapper {
+        width: 70%;
+        margin: 10px 0;
+        @include flex-column-start;
+
+        label {
+          font-weight: 600;
+          font-size: 13px;
+          color: black;
+        }
+
+        input {
+          border: 1px solid $extra-light-grey;
+          width: 100%;
+          padding: 5px 12px;
+
+          &:focus {
+            outline: 0;
+          }
+        }
+      }
+      .chex {
+        width: 70%;
+        margin: 16px 0;
+        @include flex-start;
+
+        label {
+          font-size: 14px;
+          margin: 0 10px;
+          padding: 0;
+        }
+        input {
+          transform: scale(1.2);
+          margin-top: 5px;
+        }
+      }
+      .button {
+        width: 70%;
+        margin: 20px 0;
+        @include flex-start;
+        justify-content: flex-end;
+
+        button {
+          height: 50px;
+          width: 120px;
+          padding: 5px 10px;
+          background-color: rgb(102, 140, 217);
+          color: white;
+          font-weight: 600;
+          text-transform: uppercase;
+          font-size: 18px;
+          letter-spacing: 3px;
+          border-radius: 4px;
+
+          &:hover {
+            background-color: white;
+            color: rgb(102, 140, 217);
+            border: 1px solid rgb(102, 140, 217);
+          }
+        }
+      }
+    }
+  }
+}

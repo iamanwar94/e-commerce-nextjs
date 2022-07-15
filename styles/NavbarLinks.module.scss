@@ -1,0 +1,56 @@
+@import "./Variables.module.scss";
+
+
+.navbar_links_items_wrapper {
+  @include flex-around;
+  border-top: 1px solid $extra-light-grey;
+  border-bottom: 1px solid $extra-light-grey;
+  padding: 20px 40px;
+
+  .links_wrapper {
+    margin: 0;
+    position: relative;
+    .links {
+      text-decoration: none;
+      color: black;
+      font-size: 14px;
+      text-transform: uppercase;
+      &:hover {
+        font-weight: 600;
+      }
+    }
+
+    .dropdown {
+      padding: 20px 0;
+      @include flex-column-start;
+      align-items: flex-start;
+      top: 30px;
+      left: -20px;
+      width: 220px;
+      border: 1px solid $xs-grey;
+      box-shadow: 0 0 5px $extra-light-grey;
+      position: absolute;
+      background-color: white;
+      z-index: 100;
+      display: none;
+      .dropdown_link {
+        margin: 8px 0;
+
+        &:hover {
+          font-weight: 600;
+          color: black;
+          display: flex;
+        }
+      }
+    }
+    &:hover .dropdown,
+    &:active .dropdown,
+    &:focus .dropdown {
+      display: flex;
+      @include flex-column;
+    }
+    .red {
+      color: $red;
+    }
+  }
+}

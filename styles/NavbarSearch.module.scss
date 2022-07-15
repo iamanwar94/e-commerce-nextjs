@@ -1,0 +1,100 @@
+@import "./Variables.module.scss";
+
+
+.navbar_search_wrapper {
+  height: 100px;
+  @include flex-around;
+  font-family: $open-sans;
+
+  .logo {
+    @include flex-center;
+
+    img {
+      height: 75px;
+      width: 144px;
+    }
+  }
+  .zip {
+    @include flex-column;
+    p {
+      margin: 0;
+    }
+    h5 {
+      margin: 0;
+    }
+  }
+  .navbar_search_input {
+    position: relative;
+    input {
+      width: 520px;
+      height: 40px;
+      border-radius: 50px;
+      border: 1px solid rgb(232, 232, 232);
+      color: rgb(94, 91, 91);
+      padding: 0 30px;
+
+      &:focus {
+        outline: 0;
+      }
+
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+
+    .icon {
+      position: absolute;
+      right: 30px;
+      bottom: 5px;
+      color: rgba(94, 91, 91, 0.712);
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+  .navbar_links_wrapper {
+    @include flex-around;
+
+    p {
+      margin: 0 8px;
+      font-size: 14px;
+      width: 100px;
+      padding: 0 5px;
+      text-align: center;
+      .links {
+        color: black;
+        text-decoration: none;
+        height: 100%;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .icon_wrapper {
+      margin: 0 10px;
+      .cart_icon {
+        @include flex-around;
+        font-size: 20px;
+        color: rgba(94, 91, 91, 0.712);
+        padding: 0;
+        position: relative;
+        .icon {
+          font-size: 30px;
+        }
+        .badge {
+          @include flex-center;
+          position: absolute;
+          top: -8px;
+          right: -10px;
+          border-radius: 50%;
+          padding: 5px;
+          height: 20px;
+          width: 20px;
+          font-size: 12px;
+          background-color: $red !important;
+        }
+      }
+    }
+  }
+}

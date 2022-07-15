@@ -1,0 +1,172 @@
+@import "./Variables.module.scss";
+
+
+.navbar_wrapper {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+
+  .navbar_kids_page_navigator_wrapper {
+    height: 40px;
+    margin: 0;
+    @include flex-between;
+    .header {
+      // @include flex-center;
+
+      width: 90%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      p {
+        padding: 0 20px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        @include flex-center;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .ashley {
+        background-color: $dark-grey;
+        color: white;
+        height: 100%;
+      }
+      .baby {
+        font-weight: 500;
+        height: 100%;
+      }
+    }
+    .mobile_app {
+      width: 10%;
+      @include flex-center;
+      .icon {
+        font-size: 20px;
+        font-weight: lighters;
+      }
+      p {
+        font-size: 13px;
+        margin: 0 5px;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .navbar_features {
+    width: 100%;
+    @include flex-around;
+    color: white;
+
+    .features_items {
+      height: 100%;
+      cursor: pointer;
+      @include flex-column;
+      height: 42px;
+    }
+
+    .yellow {
+      background-color: $yellow;
+      width: 34%;
+      @include flex-center;
+      h3 {
+        margin: 0;
+        font-weight: 500;
+        font-size: 15px;
+      }
+      .links_div {
+        @include flex-center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        .links {
+          color: white;
+          display: none;
+          margin: 0;
+          padding: 0;
+          transition: all 0.3s ease-in;
+        }
+      }
+    }
+    .grey {
+      background-color: $grey;
+      width: 33%;
+      @include flex-center;
+      font-size: 14px;
+
+      h3 {
+        margin: 0;
+        font-weight: 500;
+        font-size: 15px;
+      }
+      .links_div {
+        @include flex-center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        .links {
+          display: none;
+          height: 20px;
+          margin: 0;
+          padding: 0;
+          color: white;
+        }
+      }
+    }
+    .light-grey {
+      background-color: $extra-light-grey;
+      width: 33%;
+      @include flex-center;
+      font-size: 15px;
+      color: black;
+      h3 {
+        margin: 0;
+        font-weight: 500;
+        font-size: 15px;
+      }
+      .links_div {
+        @include flex-center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        .links {
+          display: none;
+          height: 20px;
+          margin: 0;
+          padding: 0;
+          color: black;
+        }
+      }
+    }
+  }
+  .navbar_chat {
+    height: 40px;
+    background-color: $light-grey;
+    margin: 0;
+    @include flex-center;
+    p {
+      margin: 0px;
+      color: white;
+      text-align: center;
+      font-size: 16px;
+      text-transform: capitalize;
+      @include flex-center;
+      .icon {
+        margin: 0 10px;
+      }
+    }
+  }
+
+  .discount_line {
+    width: 95%;
+    background-color: $red;
+    height: 40px;
+    color: white;
+    text-align: center;
+    @include flex-center;
+    font-size: 18px;
+    font-weight: 500;
+    margin: auto;
+  }
+}

@@ -1,0 +1,21 @@
+@import "./Variables.module.scss";
+
+
+
+.carousal_wrapper {
+  padding: 0 0 200px 0;
+  width: 95%;
+  margin: auto;
+  @include flex-column;
+  .carousal {
+    margin: 10px auto;
+
+
+    img{
+      height: 500px;
+      width: 95vw;
+      object-position: center;
+      object-fit: cover;
+    }
+  }
+}

@@ -1,0 +1,197 @@
+@import "./Variables.module.scss";
+
+
+.about_wrapper {
+  width: 100%;
+  @include flex-column;
+
+  .about_heading {
+    width: 95%;
+    margin: 30px 0 20px 0;
+    h1 {
+      font-size: 32px;
+      margin: 0;
+    }
+  }
+
+  .about_banner {
+    width: 95%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 480px;
+    color: white;
+
+    .about_banner_content {
+      @include flex-column;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.37);
+      align-items: flex-start;
+      padding-left: 100px;
+
+      h4 {
+        font-size: 18px;
+        margin: 0;
+        font-weight: 600;
+        width: 40%;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+      }
+      h2 {
+        font-size: 42px;
+        font-weight: 700;
+        margin: 0;
+        width: 40%;
+        text-transform: lowercase;
+        letter-spacing: 5px;
+        line-height: 36px;
+      }
+
+      p {
+        margin: 10px 0;
+        width: 30%;
+        line-height: 30px;
+      }
+    }
+  }
+
+  .purpose {
+    margin: 30px 0;
+    width: 95%;
+    @include flex-column;
+    h3 {
+      font-size: 22px;
+      font-weight: 600;
+      text-transform: uppercase;
+      line-height: 30px;
+      text-align: center;
+      letter-spacing: 5px;
+    }
+    h1 {
+      text-align: center;
+      width: 52%;
+      line-height: 40px;
+      font-size: 40px;
+      font-weight: 700;
+    }
+  }
+
+  .history {
+    width: 95%;
+    margin: 30px 0;
+    height: 420px;
+    @include flex-between;
+
+    .info {
+      width: 40%;
+      @include flex-column;
+      background-color: $xs-grey;
+      height: 100%;
+
+      h3 {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        width: 80%;
+        font-weight: 700;
+      }
+      h2 {
+        font-size: 36px;
+        width: 80%;
+        font-weight: 700;
+      }
+      p {
+        width: 80%;
+        margin: 10px 0;
+        font-weight: 500;
+        font-size: 17px;
+      }
+    }
+
+    .img {
+      width: 60%;
+      img {
+        height: 420px;
+        width: 100%;
+      }
+    }
+  }
+
+  .why {
+    width: 95%;
+    margin: 30px 0;
+    @include flex-around;
+
+    .card {
+      border: 0;
+      width: 48%;
+      @include flex-column;
+      img {
+        width: 95%;
+      }
+      .logo {
+        font-size: 36px;
+        margin: 20px;
+      }
+      h1 {
+        font-size: 30px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        margin: 10px 0;
+      }
+      p {
+        width: 80%;
+        font-weight: 500;
+        text-align: center;
+        margin: 10px 0;
+      }
+    }
+  }
+  .help {
+    width: 95%;
+    margin: 30px 0;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      text-align: center;
+    }
+    h2{
+        font-size: 32px;
+        font-weight: 700;
+        text-align: center;
+    }
+    .card_wrapper {
+      @include flex-around;
+      margin: 30px 0;
+      .card {
+        border: 0;
+        width: 48%;
+        @include flex-column;
+        img {
+          width: 95%;
+        }
+        .logo {
+          display: none;
+        }
+        h1 {
+          font-size: 30px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 5px;
+          margin: 10px 0;
+        }
+        p {
+          width: 90%;
+          font-weight: 500;
+          text-align: center;
+          margin: 10px 0;
+        }
+      }
+    }
+  }
+}
