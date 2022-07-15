@@ -86,7 +86,7 @@ const Tracking = () => {
               onChange={orderChangeHandler}
             />
           </div>
-          <div className={tracking.zip + " " + inputs}>
+          <div className={tracking.zip + " " + tracking.inputs}>
             <label htmlFor="zip">Billing Zip Code*</label>
             <input
               type="number"

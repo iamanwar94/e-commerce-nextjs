@@ -1,6 +1,5 @@
 @import "./Variables.module.scss";
 
-
 .about_wrapper {
   width: 100%;
   @include flex-column;
@@ -21,6 +20,7 @@
     background-repeat: no-repeat;
     height: 480px;
     color: white;
+    background-image: url("../pages/assets/henry-ascroft-4RJYV_rkoeM-unsplash\ \(1\).jpg");
 
     .about_banner_content {
       @include flex-column;
@@ -160,10 +160,10 @@
       letter-spacing: 5px;
       text-align: center;
     }
-    h2{
-        font-size: 32px;
-        font-weight: 700;
-        text-align: center;
+    h2 {
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
     }
     .card_wrapper {
       @include flex-around;

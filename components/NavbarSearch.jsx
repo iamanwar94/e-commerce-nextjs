@@ -1,16 +1,15 @@
 import React from "react";
-import navsearch from "./NavbarSearch.module.scss";
-import logo from "../images/Ashley-Logo-Vertical.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import Link from 'next/link'
+import navsearch from "../styles/NavbarSearch.module.scss";
+import logo from "./assets/Ashley-Logo-Vertical.svg";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
 
 const NavbarSearch = () => {
   return (
     <div className={navsearch.navbar_search_wrapper}>
       <div className={navsearch.logo}>
-        <Link to="/">
+        <Link href="/">
           <img src={logo} alt="logo" />
         </Link>
       </div>
@@ -21,27 +20,27 @@ const NavbarSearch = () => {
       <div className={navsearch.navbar_search_input}>
         <input type="text" placeholder="Search..." />
         <div className={navsearch.icon}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <FiSearch/>
         </div>
       </div>
       <div className={navsearch.navbar_links_wrapper}>
         <p>
-          <Link to="/login" className={navsearch.links}>
+          <Link href="/login" className={navsearch.links}>
             Login Account
           </Link>
         </p>
         <p>
-          <Link to="/login" className={navsearch.links}>
+          <Link href="/login" className={navsearch.links}>
             Delivery Tracking
           </Link>
         </p>
         <p>
-          <Link to="/" className={navsearch.links}>
+          <Link href="/" className={navsearch.links}>
             Prequalify for Financing
           </Link>
         </p>
         <div className={navsearch.icon_wrapper}>
-          <Link to="/cart">
+          <Link href="/cart">
             <span className={navsearch.cart_icon}>
               <AiOutlineShoppingCart className={navsearch.icon} />
               <span className={navsearch.badge}>0</span>

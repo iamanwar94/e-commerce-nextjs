@@ -1,8 +1,9 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import flag from "./images/USflag.svg";
+import Image from "next/image";
+
+import { RiHomeLine } from "react-icons/ri";
+
+import flag from "./assets/USflag.svg";
 
 import footer from "../styles/Footer.module.scss";
 
@@ -13,7 +14,7 @@ const Footer = () => {
         <div className={search_para_wrapper}>
           <p>
             <span className={icon}>
-              <FontAwesomeIcon icon={faHouse} />
+              <RiHomeLine />
             </span>
             Get up to $100 off* your first order when you sign up for emails
           </p>
@@ -125,7 +126,7 @@ const Footer = () => {
       {/* footer links ends  */}
       <div className={footer_bottom_links}>
         <div className={country}>
-          <img src={flag} alt="flag" />
+          <Image src={flag} alt="flag" />
           <Link to="/" className={footer.links}>
             United States
           </Link>

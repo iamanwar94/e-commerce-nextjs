@@ -1,19 +1,21 @@
 import React from "react";
+
+import FilterAccordion from "../components/FilterAccordion";
+import ProductCard from "../components/ProductCard";
+
 import image from "./assets/image.jpg";
-import "./Products.scss";
-import ProductCard from "../../Components/ProductCard/ProductCard";
-import FilterAccordion from "../../Components/FilterAccordion/FilterAccordion";
+import product from "../styles/Products.module.scss";
 
 const Products = () => {
   return (
-    <div className="products_wrapper">
-      <div className="filter_products_wrapper">
-        <div className="filters_wrapper">
-          <div className="filter_heading">
+    <div className={product.products_wrapper}>
+      <div className={product.filter_products_wrapper}>
+        <div className={product.filters_wrapper}>
+          <div className={product.filter_heading}>
             <h3>Beds</h3>
             <p>1 - 16 of 605 products</p>
           </div>
-          <div className="filters_cat">
+          <div className={product.filters_cat}>
             <h3>Category title</h3>
             <p>Category List</p>
             <p>Category List</p>
@@ -22,17 +24,17 @@ const Products = () => {
             <p>Category List</p>
             <p>Category List</p>
           </div>
-          <div className="filter_cats">
+          <div className={product.filter_cats}>
             <FilterAccordion />
           </div>
         </div>
         {/* filters ends here  */}
-        <div className="products_item_wrapper">
-          <div className="categories_wrapper">
+        <div className={product.products_item_wrapper}>
+          <div className={product.categories_wrapper}>
             <img src={image} alt="cat-img" />
           </div>
           {/* cats ends here  */}
-          <div className="products_cards_wrapper">
+          <div className={product.products_cards_wrapper}>
             <ProductCard />
             <ProductCard />
             <ProductCard />

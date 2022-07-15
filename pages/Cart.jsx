@@ -1,40 +1,45 @@
 import React from "react";
-import cart from "../styles/Cart.scss";
-import cart from "./assets/fur18.jpg";
+import cart from "../styles/Cart.module.scss";
+import cartimage from "./assets/fur18.jpg";
+import Image from "next/image";
 
 const Cart = () => {
   return (
-    <div className="cart_wrapper">
-      <div className="cart_content">
-        <div className="cart_heading">
+    <div className={cart.cart_wrapper}>
+      <div className={cart.cart_content}>
+        <div className={cart.cart_heading}>
           <h2>
             My Cart <span>(n items)</span>
           </h2>
         </div>
-        <div className="delivery_instructions">
+        <div className={cart.delivery_instructions}>
           <p>Please review your cart for any changes...</p>
         </div>
-        <div className="cart">
-          <div className="cart_items">
-            <div className="cart_item_heading">
+        <div className={cart.cart}>
+          <div className={cart.cart_items}>
+            <div className={cart.cart_item_heading}>
               <p>Item</p>
               <p>Availability and Delivery Options based on zip code</p>
             </div>
-            <div className="cart_item">
-              <div className="card">
-                <div className="card_img_info">
-                  <div className="img">
-                    <img src={cart} alt="cart-img" />
+            <div className={cart.cart_item}>
+              <div className={cart.card}>
+                <div className={cart.card_img_info}>
+                  <div className={cart.img}>
+                    <Image
+                      src={cartimage}
+                      alt="cart-img"
+                      className={cart.img}
+                    />
                   </div>
-                  <div className="info">
-                    <div className="name_color_size">
+                  <div className={cart.info}>
+                    <div className={cart.name_color_size}>
                       <h3>Product Name</h3>
                       <p>Product Item Code</p>
                       <p>Product Color</p>
                       <p>Product Size</p>
                     </div>
-                    <div className="qty_price">
-                      <div className="qty">
+                    <div className={cart.qty_price}>
+                      <div className={cart.qty}>
                         <p>Qty</p>
                         <span>
                           <p>-</p>
@@ -42,62 +47,62 @@ const Cart = () => {
                           <p>+</p>
                         </span>
                       </div>
-                      <div className="price">
+                      <div className={cart.price}>
                         <p>Item Price</p>
                         <h4>Rs. 499.99</h4>
                       </div>
-                      <div className="total">
+                      <div className={cart.total}>
                         <p>Item Total</p>
                         <h3>Rs. 499.99</h3>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="remove_btn">
+                <div className={cart.remove_btn}>
                   <button>Save for Later</button>
                   <button>Remove Item</button>
                 </div>
               </div>
-              <div className="services">
-                <div className="img">
-                  <img src={cart} alt="cart" />
+              <div className={cart.services}>
+                <div className={cart.img}>
+                  <Image src={cartimage} alt="cartimage" className={cart.img} />
                 </div>
-                <div className="expert_service">
+                <div className={cart.expert_service}>
                   <h4>Add Expert Service</h4>
-                  <div className="checkbox">
+                  <div className={cart.checkbox}>
                     <input type="checkbox" name="services" id="services" />
-                    <label htmlFor="services" className="checkbox">
-                      Expert Assembly & Installation by Handy
+                    <label htmlFor="services" className={cart.checkbox}>
+                      Expert Assembly Installation by Handy
                     </label>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="cart_summary_wrapper">
-            <div className="cart_summary">
+          <div className={cart.cart_summary_wrapper}>
+            <div className={cart.cart_summary}>
               <h3>Order Summary</h3>
-              <div className="subtotal">
+              <div className={cart.subtotal}>
                 <h4>Subtotal (2 items)</h4>
                 <p>$539.99</p>
               </div>
-              <div className="taxes">
+              <div className={cart.taxes}>
                 <h4>Taxes</h4>
                 <p>$39.15</p>
               </div>
-              <div className="total">
+              <div className={cart.total}>
                 <h4>Total</h4>
                 <p>$579.13</p>
               </div>
-              <div className="accordion">
+              <div className={cart.accordion}>
                 <p>Apply Promo Code</p>
-                <p className="icon">+</p>
+                <p className={cart.icon}>+</p>
               </div>
-              <div className="checkout_btn">
+              <div className={cart.checkout_btn}>
                 <button>Checkout</button>
               </div>
             </div>
-            <div className="payment_terms">
+            <div className={cart.payment_terms}>
               <h6>
                 Your actual amount invoiced may be different from your order
                 summary above.

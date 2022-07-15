@@ -1,64 +1,66 @@
 import React from "react";
-import "./ProductDetail.scss";
+import Image from "next/image";
 import { AiFillStar } from "react-icons/ai";
 import { RiToolsFill } from "react-icons/ri";
 import { TbCircle1 } from "react-icons/tb";
-import bed from "./assets/bed.webp";
+
+import bed from "./assets/fur12.jpg";
+import product from "../styles/ProductDetail.module.scss";
 import dimension from "./assets/dimensions.webp";
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
 const ProductDetail = () => {
   return (
-    <div className="product_detail_wrapper">
-      <div className="img_and_detail">
-        <div className="carousel">
-          <img src={bed} alt="bed" />
+    <div className={product.product_detail_wrapper}>
+      <div className={product.img_and_detail}>
+        <div className={product.carousel}>
+          <Image src={bed} alt="bed" />
         </div>
-        <div className="product_detail">
-          <div className="name_price">
+        <div className={product.product_detail}>
+          <div className={product.name_price}>
             <h4>Brand Name</h4>
             <h2>Product Name</h2>
             <p>Item Code: ED1201301-1013</p>
-            <div className="flex reviews">
-              <span className="flex">
-                <AiFillStar className="icon" />
-                <AiFillStar className="icon" />
-                <AiFillStar className="icon" />
-                <AiFillStar className="icon" />
-                <AiFillStar className="icon" />
+            <div className={product.flex + " " + product.reviews}>
+              <span className={product.flex}>
+                <AiFillStar className={product.icon} />
+                <AiFillStar className={product.icon} />
+                <AiFillStar className={product.icon} />
+                <AiFillStar className={product.icon} />
+                <AiFillStar className={product.icon} />
               </span>
               <p>98 Reviews</p>
             </div>
-            <div className="flex price">
+            <div className={product.flex + " " + product.price}>
               <h3>Rs. 599.99</h3>
-              <span className="mx-2">
-                <RiToolsFill className="setting_icon" />
+              <span className={product.mx - 2}>
+                <RiToolsFill className={product.setting_icon} />
               </span>
               <h3>Assembly Required</h3>
             </div>
           </div>
-          <div className="color_size">
-            <div className="color flex">
-              <TbCircle1 className="icon" />
+          <div className={product.color_size}>
+            <div className={product.color + " " + product.flex}>
+              <TbCircle1 className={product.icon} />
               <h4>Color:</h4>
               <p>Pink, Yellow, Red</p>
             </div>
-            <div className="size flex">
-              <TbCircle1 className="icon" />
+            <div className={product.size + " " + product.flex}>
+              <TbCircle1 className={product.icon} />
               <h4>Size:</h4>
               <p>King, Queen, Medium, Small</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="product_features_and_subtotal">
-        <div className="features">
-          <div className="feature_heading">
+      <div className={product.product_features_and_subtotal}>
+        <div className={product.features}>
+          <div className={product.feature_heading}>
             <h4>Details and Overview</h4>
             <h4>Products Reviews</h4>
             <h4>Customer Care</h4>
           </div>
-          <div className="overview">
-            <div className="description">
+          <div className={product.overview}>
+            <div className={product.description}>
               <h3>Details and Overview</h3>
               <h4>Description</h4>
               <p>
@@ -107,7 +109,7 @@ const ProductDetail = () => {
               <h4>Weight</h4>
               <p>189.81 lbs. (86.1 kgs.)</p>
             </div>
-            <div className="dimenstion">
+            <div className={product.dimenstion}>
               <h4>Dimensions</h4>
               <img src={dimension} alt="" />
               <ul>
@@ -129,24 +131,24 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          <div className="reviews"></div>
-          <div className="customer_care"></div>
+          <div className={product.reviews}></div>
+          <div className={product.customer_care}></div>
         </div>
-        <div className="subtotal">
+        <div className={product.subtotal}>
           <h3>Subtotal: Rs. 1799.99</h3>
-          <div className="qty_wrapper">
+          <div className={product.qty_wrapper}>
             <h3>Qty:</h3>
-            <div className="qty">
-              <AiOutlineMinus className="icon" />
+            <div className={product.qty}>
+              <AiOutlineMinus className={product.icon} />
               <span>1</span>
-              <AiOutlinePlus className="icon" />
+              <AiOutlinePlus className={product.icon} />
             </div>
             <button>Add Items to Cart</button>
-            <div className="icon">
-              <AiOutlineHeart className="heart"/>
+            <div className={product.icon}>
+              <AiOutlineHeart className={product.heart} />
             </div>
           </div>
-          <div className="delivery">
+          <div className={product.delivery}>
             <h6>Delivery Options</h6>
             <p>Free Ground Shipping</p>
             <p>Usually ships in 1 to 2 weeks</p>

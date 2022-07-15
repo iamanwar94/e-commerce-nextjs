@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./Signup.scss";
+
+import signup from "../styles/Signup.module.scss";
 
 const Signup = () => {
   const data = {
@@ -38,17 +39,17 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup_wrapper">
-      <div className="signup_form_wrapper">
-        <div className="heading_para">
+    <div className={signup.signup_wrapper}>
+      <div className={signup.signup_form_wrapper}>
+        <div className={signup.heading_para}>
           <h2>Create an Account</h2>
           <p>
             Creating an account is easy. Just fill out the form below and enjoy
             the benefits of being a registered customer.
           </p>
         </div>
-        <div className="signup_form">
-          <div className="fname input_wrapper">
+        <div className={signup.signup_form}>
+          <div className={signup.fname + " " + signup.input_wrapper}>
             <label htmlFor="fname">First Name*</label>
             <input
               type="text"
@@ -58,7 +59,7 @@ const Signup = () => {
               onChange={signupChangeHandler}
             />
           </div>
-          <div className="lname input_wrapper">
+          <div className={signup.lname + " " + signup.input_wrapper}>
             <label htmlFor="lname">Last Name*</label>
             <input
               type="text"
@@ -68,7 +69,7 @@ const Signup = () => {
               onChange={signupChangeHandler}
             />
           </div>
-          <div className="email input_wrapper">
+          <div className={signup.email + " " + signup.input_wrapper}>
             <label htmlFor="email">Email*</label>
             <input
               type="email"
@@ -78,7 +79,7 @@ const Signup = () => {
               onChange={signupChangeHandler}
             />
           </div>
-          <div className="phone input_wrapper">
+          <div className={signup.phone + " " + signup.input_wrapper}>
             <label htmlFor="phone">Phone*</label>
             <input
               type="phone"
@@ -88,7 +89,7 @@ const Signup = () => {
               onChange={signupChangeHandler}
             />
           </div>
-          <div className="password input_wrapper">
+          <div className={signup.password + " " + signup.input_wrapper}>
             <label htmlFor="password">Password*</label>
             <input
               type="password"
@@ -98,7 +99,7 @@ const Signup = () => {
               onChange={signupChangeHandler}
             />
           </div>
-          <div className="age_confirm chex">
+          <div className={signup.age_confirm + " " + signup.chex}>
             <input
               type="checkbox"
               id="age_confirm"
@@ -111,7 +112,7 @@ const Signup = () => {
               am 18 years of age or older.*
             </label>
           </div>
-          <div className="offers chex">
+          <div className={signup.offers + " " + signup.chex}>
             <input
               type="checkbox"
               id="offers"
@@ -123,7 +124,7 @@ const Signup = () => {
               Yes! I'd like to receive emails with special offers and sales
             </label>
           </div>
-          <div className="button">
+          <div className={signup.button}>
             <button onClick={signupClickHandler}>submit</button>
           </div>
         </div>

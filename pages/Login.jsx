@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Tracking from "../../Components/Tracking/Tracking";
+import Link from "next/link";
 
-import "./Login.scss";
+import Tracking from "../components/Tracking";
+
+import login from "../styles/Login.module.scss";
 
 const Login = () => {
   const data = { email: "", password: "", remember: false };
@@ -27,21 +28,21 @@ const Login = () => {
     }
   };
   return (
-    <div className="login_wrapper">
-      <div className="login_form_wrapper">
-        <div className="heading_para">
+    <div className={login.login_wrapper}>
+      <div className={login.login_form_wrapper}>
+        <div className={login.heading_para}>
           <h2>Account Login</h2>
         </div>
-        <div className="login_signup">
-          <div className="login_track">
-            <div className="login_form">
+        <div className={login.login_signup}>
+          <div className={login.login_track}>
+            <div className={login.login_form}>
               <p>Returning Customer</p>
               <p>
                 If you are a registered user, please enter your email and
                 password.
               </p>
               <p>Required*</p>
-              <div className="email input_wrapper">
+              <div className={login.email + " " + login.input_wrapper}>
                 <label htmlFor="email">Email*</label>
                 <input
                   type="email"
@@ -51,7 +52,7 @@ const Login = () => {
                   onChange={loginChangeHandler}
                 />
               </div>
-              <div className="password input_wrapper">
+              <div className={login.password + " " + login.input_wrapper}>
                 <label htmlFor="password">Password*</label>
                 <input
                   type="password"
@@ -61,14 +62,14 @@ const Login = () => {
                   onChange={loginChangeHandler}
                 />
               </div>
-              <div className="button">
+              <div className={login.button}>
                 <button onClick={loginClickHandler}>login</button>
               </div>
-              <div className="forgot">
-                <div className="forgot_password">
+              <div className={login.forgot}>
+                <div className={login.forgot_password}>
                   <p>Forgot Password</p>
                 </div>
-                <div className="rememberme chex">
+                <div className={login.rememberme + " " + login.chex}>
                   <input
                     type="checkbox"
                     id="remember"
@@ -81,14 +82,17 @@ const Login = () => {
               </div>
             </div>
             <Tracking />
-            {/* <div className="tracking_wrapper">
-              <div className="tracking_form">
-                <div className="or">
+
+
+
+            {/* <div className={login.tracking_wrapper}>
+              <div className={login.tracking_form}>
+                <div className={login.or}>
                   <h4>or</h4>
                 </div>
-                <div className="check_order">
+                <div className={login.check_order}>
                   <h4>Check Order</h4>
-                  <div className="radio">
+                  <div className={login.radio}>
                     <input type="radio" name="store" id="store" value="store" />
                     <label htmlFor="store">In-Store</label>
                     <input
@@ -104,9 +108,9 @@ const Login = () => {
                   See your order even if you are not a registered user. Enter
                   the order number and the billing address ZIP code.
                 </p>
-                <p className="req">Required Information*</p>
-                <div className="inputs_wrapper">
-                  <div className="order_num inputs">
+                <p className={login.req}>Required Information*</p>
+                <div className={login.inputs_wrapper}>
+                  <div className={login.order_num + " " + login.inputs}>
                     <label htmlFor="order_num.">Order Number*</label>
                     <input
                       type="phone"
@@ -115,7 +119,7 @@ const Login = () => {
                       placeholder="Order Number"
                     />
                   </div>
-                  <div className="order_email inputs">
+                  <div className={login.order_email + " " + login.inputs}>
                     <label htmlFor="order_email.">Order Email*</label>
                     <input
                       type="email"
@@ -124,7 +128,7 @@ const Login = () => {
                       placeholder="Order Email"
                     />
                   </div>
-                  <div className="zip inputs">
+                  <div className={login.zip + " " + login.inputs}>
                     <label htmlFor="zip">Billing Zip Code*</label>
                     <input
                       type="number"
@@ -137,16 +141,19 @@ const Login = () => {
                 </div>
               </div>
             </div> */}
+
+
+
           </div>
-          <div className="signup">
+          <div className={login.signup}>
             <p>New Customers</p>
             <p>
               Create an Ashley online account today! You'll be able to access
               express checkout, create and save shopping lists, view order
               history and much more...
             </p>
-            <div className="button">
-              <Link to="/signup">
+            <div className={login.button}>
+              <Link href="/signup">
                 <button>create account now</button>
               </Link>
             </div>
@@ -166,7 +173,7 @@ const Login = () => {
               Save your billing and shipping information to make it easier to
               buy your favorite gear.
             </p>
-            <p className="readmore">(read more about security)</p>
+            <p className={login.readmore}>(read more about security)</p>
           </div>
         </div>
       </div>

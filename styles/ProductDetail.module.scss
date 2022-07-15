@@ -14,7 +14,6 @@
       width: 58%;
       @include flex-center;
       align-items: flex-start;
-      overflow: scroll;
 
       img {
         cursor: crosshair;
@@ -150,7 +149,7 @@
     .features {
       width: 58%;
       padding: 0 15px;
-      overflow: scroll;
+      // overflow: scroll;
       background-color: $xs-grey;
       border-radius: 4px;
 
@@ -179,6 +178,7 @@
         padding: 10px;
         @include flex-between;
         .description {
+          height: 130vh;
           width: 48%;
           background-color: white;
           border-radius: 4px;
@@ -285,6 +285,7 @@
           width: 180px;
           font-size: 16px;
           font-weight: 600;
+          border: 0;
 
           &:hover {
             background-color: white;

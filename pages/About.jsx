@@ -1,13 +1,14 @@
 import React from "react";
 import about from "../styles/About.module.scss";
 import banner from "./assets/henry-ascroft-4RJYV_rkoeM-unsplash (1).jpg";
+import Image from 'next/image'
 
 const About = () => {
   const Card = () => {
     return (
-      <div className="card">
-        <img src={banner} alt="card" />
-        <h1 className="logo">BRAND LOGO</h1>
+      <div className={about.card}>
+        <Image className={about.img} src={banner} alt="card" />
+        <h1 className={about.logo}>BRAND LOGO</h1>
         <h1>why ashley</h1>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum minima
@@ -20,17 +21,17 @@ const About = () => {
   };
 
   return (
-    <div className="about_wrapper">
-      <div className="about_heading">
+    <div className={about.about_wrapper}>
+      <div className={about.about_heading}>
         <h1>About us</h1>
       </div>
       <div
-        className="about_banner"
+        className={about.about_banner}
         style={{
-          backgroundImage: `url('${banner}')`,
+          // backgroundImage: `url('${banner}')`,
         }}
       >
-        <div className="about_banner_content">
+        <div className={about.about_banner_content}>
           <h4>Who We Are</h4>
           <h2>About us</h2>
           <p>
@@ -41,17 +42,17 @@ const About = () => {
           </p>
         </div>
       </div>
-      <div className="purpose">
+      <div className={about.purpose}>
         <h3>our purpose</h3>
         <h1>
           to inspire the love of home and enrich the lives of those around us
         </h1>
       </div>
-      <div className="history">
-        <div className="img">
-          <img src={banner} alt="banner" />
+      <div className={about.history}>
+        <div className={about.img}>
+          <Image className={about.img} src={banner} alt="banner" />
         </div>
-        <div className="info">
+        <div className={about.info}>
           <h3>The legacy</h3>
           <h2>our history</h2>
           <p>
@@ -65,15 +66,15 @@ const About = () => {
           </p>
         </div>
       </div>
-      <div className="why">
+      <div className={about.why}>
         <Card />
         <Card />
       </div>
 
-      <div className="help">
+      <div className={about.help}>
         <h3>here to help</h3>
         <h2>how we are making difference</h2>
-        <div className="card_wrapper">
+        <div className={about.card_wrapper}>
           <Card />
           <Card />
           <Card />

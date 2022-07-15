@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMobileScreen, faComment } from "@fortawesome/free-solid-svg-icons";
-
-import NavbarSearch from "./NavbarSearch/NavbarSearch";
-import NavbarLinks from "./NavbarLinks/NavbarLinks";
+import Link from "next/link";
+import { AiOutlineMobile } from "react-icons/ai";
+import { FaComment } from "react-icons/fa";
+import NavbarSearch from "./NavbarSearch";
+import NavbarLinks from "./NavbarLinks";
 
 import navbar from "../styles/Navbar.module.scss";
 
@@ -18,7 +17,7 @@ const Navbar = () => {
         </div>
         <div className={navbar.mobile_app}>
           <p className={navbar.icon}>
-            <FontAwesomeIcon icon={faMobileScreen} />
+            <AiOutlineMobile />
           </p>
           <p>Mobile App</p>
         </div>
@@ -28,23 +27,23 @@ const Navbar = () => {
         <div className={navbar.features_items + navbar.yellow}>
           <h3>In Stock and Ready to Ship</h3>
           <div className={navbar.links_div}>
-            <Link to="/" className={navbar.links}>
+            <Link href="/" className={navbar.links}>
               Shop Now
             </Link>
           </div>
         </div>
-        <div className={navbar.features_items + navbar.grey}>
+        <div className={navbar.features_items + " " + navbar.grey}>
           <h3>Save upto $200 on selected Dining Sets - Online Only</h3>
           <div className={navbar.links_div}>
-            <Link to="/" className={navbar.links}>
+            <Link href="/" className={navbar.links}>
               Shop Now
             </Link>
           </div>
         </div>
-        <div className={navbar.features_items + navbar.light - grey}>
+        <div className={navbar.features_items + " " + navbar.light_grey}>
           <h3>Extra 10% off* Desks!</h3>
           <div className={navbar.links_div}>
-            <Link to="/" className={navbar.links}>
+            <Link href="/" className={navbar.links}>
               Shop Now
             </Link>
           </div>
@@ -55,7 +54,7 @@ const Navbar = () => {
       <div className={navbar.navbar_chat}>
         <p>
           <span className={navbar.icon}>
-            <FontAwesomeIcon icon={faComment} />
+            <FaComment />
           </span>
           chat with a personal online sales assistant
         </p>
