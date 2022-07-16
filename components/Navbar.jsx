@@ -28,7 +28,7 @@ const Navbar = () => {
           <h3>In Stock and Ready to Ship</h3>
           <div className={navbar.links_div}>
             <Link href="/" className={navbar.links}>
-              Shop Now
+              <a>Shop Now</a>
             </Link>
           </div>
         </div>
@@ -36,7 +36,7 @@ const Navbar = () => {
           <h3>Save upto $200 on selected Dining Sets - Online Only</h3>
           <div className={navbar.links_div}>
             <Link href="/" className={navbar.links}>
-              Shop Now
+              <a>Shop Now</a>
             </Link>
           </div>
         </div>
@@ -44,7 +44,7 @@ const Navbar = () => {
           <h3>Extra 10% off* Desks!</h3>
           <div className={navbar.links_div}>
             <Link href="/" className={navbar.links}>
-              Shop Now
+              <a>Shop Now</a>
             </Link>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { RiHomeLine } from "react-icons/ri";
 
@@ -9,146 +10,146 @@ import footer from "../styles/Footer.module.scss";
 
 const Footer = () => {
   return (
-    <div className={footer_wrapper}>
-      <div className={footer_search_wrapper}>
-        <div className={search_para_wrapper}>
+    <div className={footer.footer_wrapper}>
+      <div className={footer.footer_search_wrapper}>
+        <div className={footer.search_para_wrapper}>
           <p>
-            <span className={icon}>
+            <span className={footer.icon}>
               <RiHomeLine />
             </span>
             Get up to $100 off* your first order when you sign up for emails
           </p>
         </div>
-        <div className={search_btn}>
+        <div className={footer.search_btn}>
           <input type="text" placeholder="Enter Email Address" />
           <button>Sign Up</button>
         </div>
       </div>
       {/* footer search ends  */}
-      <div className={footer_links_wrapper}>
-        <div className={footer_links}>
+      <div className={footer.footer_links_wrapper}>
+        <div className={footer.footer_links}>
           <h3>Get To Know Us</h3>
-          <Link to="/" className={footer.links}>
-            About Ashley
+          <Link href="/" className={footer.links}>
+            <a>About Ashley</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Our History
+          <Link href="/" className={footer.links}>
+            <a>Our History</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            About Ashley Furniture Industries
+          <Link href="/" className={footer.links}>
+            <a>About Ashley Furniture Industries</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Careers
+          <Link href="/" className={footer.links}>
+            <a>Careers</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            News
+          <Link href="/" className={footer.links}>
+            <a>News</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Social Responsibility
+          <Link href="/" className={footer.links}>
+            <a>Social Responsibility</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Store Locations
+          <Link href="/" className={footer.links}>
+            <a>Store Locations</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Trade Program
+          <Link href="/" className={footer.links}>
+            <a>Trade Program</a>
           </Link>
         </div>
-        <div className={footer_links}>
+        <div className={footer.footer_links}>
           <h3>Customer Care</h3>
-          <Link to="/" className={footer.links}>
-            Help Center
+          <Link href="/" className={footer.links}>
+            <a>Help Center</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Apply for Financing
+          <Link href="/" className={footer.links}>
+            <a>Apply for Financing</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Prequalify for Financing
+          <Link href="/" className={footer.links}>
+            <a>Prequalify for Financing</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Lease to Own Option
+          <Link href="/" className={footer.links}>
+            <a>Lease to Own Option</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Buy Now Pay Later
+          <Link href="/" className={footer.links}>
+            <a>Buy Now Pay Later</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Returns
+          <Link href="/" className={footer.links}>
+            <a>Returns</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Accessibility
+          <Link href="/" className={footer.links}>
+            <a>Accessibility</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Consumer Notifications
+          <Link href="/" className={footer.links}>
+            <a>Consumer Notifications</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            FAQ
+          <Link href="/" className={footer.links}>
+            <a>FAQ</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Price Match
+          <Link href="/" className={footer.links}>
+            <a>Price Match</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Child Safety
+          <Link href="/" className={footer.links}>
+            <a>Child Safety</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Warranty Information
+          <Link href="/" className={footer.links}>
+            <a>Warranty Information</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Product Care & Cleaning
+          <Link href="/" className={footer.links}>
+            <a>Product Care & Cleaning</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Furniture Protection Plan
+          <Link href="/" className={footer.links}>
+            <a>Furniture Protection Plan</a>
           </Link>
         </div>
-        <div className={footer_links}>
+        <div className={footer.footer_links}>
           <h3>Get Inspired</h3>
-          <Link to="/" className={footer.links}>
-            Blog
+          <Link href="/" className={footer.links}>
+            <a>Blog</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Home Ideas
+          <Link href="/" className={footer.links}>
+            <a>Home Ideas</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Digital Catalog
+          <Link href="/" className={footer.links}>
+            <a>Digital Catalog</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            3D Room Design
+          <Link href="/" className={footer.links}>
+            <a>3D Room Design</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Hope to Dream
+          <Link href="/" className={footer.links}>
+            <a>Hope to Dream</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Refer a Friend
+          <Link href="/" className={footer.links}>
+            <a>Refer a Friend</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Design Services
+          <Link href="/" className={footer.links}>
+            <a>Design Services</a>
           </Link>
         </div>
       </div>
       {/* footer links ends  */}
-      <div className={footer_bottom_links}>
-        <div className={country}>
+      <div className={footer.footer_bottom_links}>
+        <div className={footer.country}>
           <Image src={flag} alt="flag" />
-          <Link to="/" className={footer.links}>
-            United States
+          <Link href="/" className={footer.links}>
+            <a>United States</a>
           </Link>
         </div>
-        <div className={footer_bottom_link_items}>
-          <Link to="/" className={footer.links}>
-            Offers & Details*
+        <div className={footer.footer_bottom_link_items}>
+          <Link href="/" className={footer.links}>
+            <a>Offers & Details*</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Terms & Conditions
+          <Link href="/" className={footer.links}>
+            <a>Terms & Conditions</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Terms of Use
+          <Link href="/" className={footer.links}>
+            <a>Terms of Use</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Privacy Policy
+          <Link href="/" className={footer.links}>
+            <a>Privacy Policy</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Interest-Based Ads
+          <Link href="/" className={footer.links}>
+            <a>Interest-Based Ads</a>
           </Link>
-          <Link to="/" className={footer.links}>
-            Do not sell my Personal Information
+          <Link href="/" className={footer.links}>
+            <a>Do not sell my Personal Information</a>
           </Link>
         </div>
       </div>

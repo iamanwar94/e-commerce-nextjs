@@ -7,381 +7,407 @@ const NavbarLinks = () => {
   return (
     <div className={navbar.navbar_links_items_wrapper}>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/furniture">
-          Furniture
+        <Link className={navbar.links} href="/furniture">
+          <a>Furniture</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/mattress">
-          Mattress
+        <Link className={navbar.links} href="/mattress">
+          <a>Mattress</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/outdoor">
-          Outdoor
+        <Link className={navbar.links} href="/outdoor">
+          <a>Outdoor</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/kids">
-          Kids
+        <Link className={navbar.links} href="/kids">
+          <a>Kids</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/baby">
-          Baby & Toddler
+        <Link className={navbar.links} href="/baby">
+          <a>Baby & Toddler</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/organization">
-          Organization
+        <Link className={navbar.links} href="/organization">
+          <a>Organization</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/">
-          Bath
+        <Link className={navbar.links} href="/">
+          <a>Bath</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/bath">
-          Bedding
+        <Link className={navbar.links} href="/bath">
+          <a>Bedding</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/decor">
-          Decor
+        <Link className={navbar.links} href="/decor">
+          <a>Decor</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/rugs">
-          Rugs
+        <Link className={navbar.links} href="/rugs">
+          <a>Rugs</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/lighting">
-          Lighting
+        <Link className={navbar.links} href="/lighting">
+          <a>Lighting</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} to="/shopby">
-          Shop By
+        <Link className={navbar.links} href="/shopby">
+          <a>Shop By</a>
         </Link>
         <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
           <Link href="/" className={navbar.dropdown_link}>
-            Add Category Here
+            <a>Add Category Here</a>
           </Link>
         </div>
       </div>
       <div className={navbar.links_wrapper}>
-        <Link className={navbar.links + " " + navbar.red} to="/deals">
-          Deals
+        <Link className={navbar.links + " " + navbar.red} href="/deals">
+          <a>Deals</a>
         </Link>
+        <div className={navbar.dropdown}>
+          <Link href="/" className={navbar.dropdown_link}>
+            <a>Add Category Here</a>
+          </Link>
+          <Link href="/" className={navbar.dropdown_link}>
+            <a>Add Category Here</a>
+          </Link>
+          <Link href="/" className={navbar.dropdown_link}>
+            <a>Add Category Here</a>
+          </Link>
+          <Link href="/" className={navbar.dropdown_link}>
+            <a>Add Category Here</a>
+          </Link>
+          <Link href="/" className={navbar.dropdown_link}>
+            <a>Add Category Here</a>
+          </Link>
+          <Link href="/" className={navbar.dropdown_link}>
+            <a>Add Category Here</a>
+          </Link>
+          <Link href="/" className={navbar.dropdown_link}>
+            <a>Add Category Here</a>
+          </Link>
+          <Link href="/" className={navbar.dropdown_link}>
+            <a>Add Category Here</a>
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -83,8 +83,6 @@ const Login = () => {
             </div>
             <Tracking />
 
-
-
             {/* <div className={login.tracking_wrapper}>
               <div className={login.tracking_form}>
                 <div className={login.or}>
@@ -141,9 +139,6 @@ const Login = () => {
                 </div>
               </div>
             </div> */}
-
-
-
           </div>
           <div className={login.signup}>
             <p>New Customers</p>
@@ -154,7 +149,9 @@ const Login = () => {
             </p>
             <div className={login.button}>
               <Link href="/signup">
-                <button>create account now</button>
+                <a>
+                  <button>create account now</button>
+                </a>
               </Link>
             </div>
             <p>Benefits of Creating an Account</p>

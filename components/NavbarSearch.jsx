@@ -1,5 +1,5 @@
 import React from "react";
-import Link from 'next/link'
+import Link from "next/link";
 import navsearch from "../styles/NavbarSearch.module.scss";
 import logo from "./assets/Ashley-Logo-Vertical.svg";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -10,7 +10,9 @@ const NavbarSearch = () => {
     <div className={navsearch.navbar_search_wrapper}>
       <div className={navsearch.logo}>
         <Link href="/">
-          <img src={logo} alt="logo" />
+          <a>
+            <img src={logo} alt="logo" />
+          </a>
         </Link>
       </div>
       {/* <div className={navsearch.zip">
@@ -20,31 +22,33 @@ const NavbarSearch = () => {
       <div className={navsearch.navbar_search_input}>
         <input type="text" placeholder="Search..." />
         <div className={navsearch.icon}>
-          <FiSearch/>
+          <FiSearch />
         </div>
       </div>
       <div className={navsearch.navbar_links_wrapper}>
         <p>
           <Link href="/login" className={navsearch.links}>
-            Login Account
+            <a>Login Account</a>
           </Link>
         </p>
         <p>
           <Link href="/login" className={navsearch.links}>
-            Delivery Tracking
+            <a>Delivery Tracking</a>
           </Link>
         </p>
         <p>
           <Link href="/" className={navsearch.links}>
-            Prequalify for Financing
+            <a>Prequalify for Financing</a>
           </Link>
         </p>
         <div className={navsearch.icon_wrapper}>
           <Link href="/cart">
-            <span className={navsearch.cart_icon}>
-              <AiOutlineShoppingCart className={navsearch.icon} />
-              <span className={navsearch.badge}>0</span>
-            </span>
+            <a>
+              <span className={navsearch.cart_icon}>
+                <AiOutlineShoppingCart className={navsearch.icon} />
+                <span className={navsearch.badge}>0</span>
+              </span>
+            </a>
           </Link>
         </div>
       </div>
