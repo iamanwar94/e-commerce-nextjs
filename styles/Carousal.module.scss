@@ -3,12 +3,11 @@
 
 
 .carousal_wrapper {
-  padding: 0 0 20px 0;
-  width: 95%;
-  margin: auto;
+  width: 100%;
   @include flex-column;
   .carousal {
     margin: 10px auto;
+    width: 95%;
 
 
     img{

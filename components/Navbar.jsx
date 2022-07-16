@@ -24,29 +24,29 @@ const Navbar = () => {
       </div>
       {/* baby ends  */}
       <div className={navbar.navbar_features}>
-        <div className={navbar.features_items + navbar.yellow}>
+        <div className={navbar.features_items+" "+ navbar.yellow}>
           <h3>In Stock and Ready to Ship</h3>
-          <div className={navbar.links_div}>
+          {/* <div className={navbar.links_div}>
             <Link href="/" className={navbar.links}>
               <a>Shop Now</a>
             </Link>
-          </div>
+          </div> */}
         </div>
         <div className={navbar.features_items + " " + navbar.grey}>
           <h3>Save upto $200 on selected Dining Sets - Online Only</h3>
-          <div className={navbar.links_div}>
+          {/* <div className={navbar.links_div}>
             <Link href="/" className={navbar.links}>
               <a>Shop Now</a>
             </Link>
-          </div>
+          </div> */}
         </div>
         <div className={navbar.features_items + " " + navbar.light_grey}>
           <h3>Extra 10% off* Desks!</h3>
-          <div className={navbar.links_div}>
+          {/* <div className={navbar.links_div}>
             <Link href="/" className={navbar.links}>
               <a>Shop Now</a>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
       <NavbarSearch />

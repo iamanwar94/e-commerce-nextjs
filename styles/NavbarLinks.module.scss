@@ -1,6 +1,5 @@
 @import "./Variables.module.scss";
 
-
 .navbar_links_items_wrapper {
   @include flex-around;
   border-top: 1px solid $extra-light-grey;
@@ -21,18 +20,28 @@
     }
 
     .dropdown {
-      padding: 20px 0;
+      // padding: 20px 0;
       @include flex-column-start;
       align-items: flex-start;
       top: 30px;
       left: -20px;
       width: 220px;
-      border: 1px solid $xs-grey;
+      // border: 1px solid $xs-grey;
       box-shadow: 0 0 5px $extra-light-grey;
       position: absolute;
       background-color: white;
-      z-index: 100;
-      display: none;
+      z-index: 1000;
+      // display: none;
+      position: absolute;
+      overflow: hidden;
+      left: 0;
+      height: 0;
+      width: 200px;
+      line-height: 40px;
+      box-sizing: border-box;
+      transition: all 0.3s ease-in-out;
+      transition-delay: 0.1s;
+      left: 50%;
       .dropdown_link {
         margin: 8px 0;
 
@@ -43,11 +52,8 @@
         }
       }
     }
-    &:hover .dropdown,
-    &:active .dropdown,
-    &:focus .dropdown {
-      display: flex;
-      @include flex-column;
+    &:hover .dropdown {
+      height: 200px;
     }
     .red {
       color: $red;

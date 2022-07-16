@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import navsearch from "../styles/NavbarSearch.module.scss";
 import logo from "./assets/Ashley-Logo-Vertical.svg";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -11,7 +12,7 @@ const NavbarSearch = () => {
       <div className={navsearch.logo}>
         <Link href="/">
           <a>
-            <img src={logo} alt="logo" />
+            <Image src={logo} alt="logo" className={navsearch.img} />
           </a>
         </Link>
       </div>

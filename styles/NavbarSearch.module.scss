@@ -1,6 +1,5 @@
 @import "./Variables.module.scss";
 
-
 .navbar_search_wrapper {
   height: 100px;
   @include flex-around;
@@ -9,9 +8,13 @@
   .logo {
     @include flex-center;
 
-    img {
+    a {
       height: 75px;
-      width: 144px;
+        width: 144px;
+      // .img {
+      //   height: 75px;
+      //   width: 144px;
+      // }
     }
   }
   .zip {
