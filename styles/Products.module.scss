@@ -50,20 +50,20 @@
           }
         }
       }
-      .filter_cats {
-        width: 100%;
-        padding-bottom: 20px;
+      // .filter_cats {
+      //   width: 100%;
+      //   padding-bottom: 20px;
 
-        h4 {
-          font-size: 16px;
-          font-weight: bold;
-          height: 60px;
-          border-bottom: 1px solid $extra-light-grey;
-          @include flex-center;
-          justify-content: flex-start;
-          cursor: pointer;
-        }
-      }
+      //   h4 {
+      //     font-size: 16px;
+      //     font-weight: bold;
+      //     height: 60px;
+      //     border-bottom: 1px solid $extra-light-grey;
+      //     @include flex-center;
+      //     justify-content: flex-start;
+      //     cursor: pointer;
+      //   }
+      // }
     }
     .products_item_wrapper {
       width: 80%;

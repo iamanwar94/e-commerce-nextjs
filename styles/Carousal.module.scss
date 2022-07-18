@@ -6,15 +6,13 @@
   width: 100%;
   @include flex-column;
   .carousal {
-    margin: 10px auto;
-    width: 95%;
+    width: 100%;
 
 
     img{
-      height: 500px;
-      width: 95vw;
       object-position: center;
-      object-fit: cover;
+      object-fit: contain;
+      width: 100%;
     }
   }
 }

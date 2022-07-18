@@ -1,0 +1,18 @@
+@import "./Variables.module.scss";
+
+
+.category_wrapper {
+  flex: 1;
+  margin: 0 40px;
+  cursor: pointer;
+
+  .img  {
+    height: 100px;
+    width: 100px;
+  }
+  h4{
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+  }
+}

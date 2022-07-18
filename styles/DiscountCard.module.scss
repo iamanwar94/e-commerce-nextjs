@@ -1,0 +1,12 @@
+@import "../styles/Variables.module.scss";
+
+.discount_card{
+    flex: 1;
+    margin: 0 5px;
+    border-radius: 2px;
+    height: fit-content;
+
+    .img    {
+        border-radius: 2px;
+    }
+}

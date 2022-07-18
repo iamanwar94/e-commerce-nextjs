@@ -2,6 +2,7 @@
 
 .navbar_search_wrapper {
   height: 100px;
+  padding: 0 50px;
   @include flex-around;
   font-family: $open-sans;
 
@@ -27,17 +28,27 @@
     }
   }
   .navbar_search_input {
+    flex: 1;
+    margin: 0 30px;
     position: relative;
+    display: flex;
+    // align-items: center;
     input {
-      width: 520px;
       height: 40px;
+      flex: 1;
       border-radius: 50px;
       border: 1px solid rgb(232, 232, 232);
       color: rgb(94, 91, 91);
       padding: 0 30px;
+      display: flex;
+      align-items: center;
 
       &:focus {
         outline: 0;
+
+        &::placeholder{
+          visibility: hidden;
+        }
       }
 
       &::placeholder {
@@ -48,8 +59,8 @@
     .icon {
       position: absolute;
       right: 30px;
-      bottom: 5px;
-      color: rgba(94, 91, 91, 0.712);
+      top: 2px;
+      color: rgba(94, 91, 91, 0.178);
       font-size: 20px;
       cursor: pointer;
     }
@@ -96,6 +107,7 @@
           width: 20px;
           font-size: 12px;
           background-color: $red !important;
+          color: white;
         }
       }
     }

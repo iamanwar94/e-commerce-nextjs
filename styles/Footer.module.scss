@@ -5,6 +5,13 @@
   width: 100%;
   @include flex-column;
   font-family: $open-sans;
+  a{
+    &:hover{
+      color: black;
+      text-decoration: underline;
+      
+    }
+  }
 
   .footer_search_wrapper {
     width: 95%;
@@ -54,8 +61,8 @@
     }
   }
   .footer_links_wrapper {
-    width: 100%;
-    @include flex-around;
+    width: 95%;
+    @include flex-between;
     align-items: flex-start;
 
     .footer_links {

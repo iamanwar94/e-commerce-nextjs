@@ -1,12 +1,40 @@
 @import "./Variables.module.scss";
 
+.accordion_wrapper {
+  width: 100%;
+  border-top: 1px solid $extra-light-grey;
 
+  .accordion_item {
+    border-bottom: 1px solid $extra-light-grey;
+    width: 100%;
+    padding: 10px;
+    .accordion_heading {
+      @include flex-between;
+      align-items: center;
+      width: 100%;
+      cursor: pointer;
+      h4 {
+        font-size: 18px;
+        margin: 10px 0;
+        font-weight: 600;
+      }
 
-.accordion-item {
-  border-left: 0 !important;
-  border-right: 0 !important;
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 10px;
+        .accordion_icon {
+          margin: 0;
+          font-weight: 600;
+          font-size: 22px;
+        }
+      }
+    }
 
-  .accordion-button:focus {
-    outline: 0 !important;
+    .accordion_content {
+      height: 0;
+      overflow: hidden;
+    }
   }
 }

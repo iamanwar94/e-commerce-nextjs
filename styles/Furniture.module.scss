@@ -1,240 +1,263 @@
 @import "./Variables.module.scss";
 
-
 .furniture_wrapper {
   width: 100%;
   font-family: $open-sans;
+  margin: 10px 0;
+  @include flex-center;
 
-  .furn_heading {
-    h1 {
-      width: 95%;
-      margin: auto;
-      font-size: 24px;
-      font-weight: 600;
-    }
-  }
-  .three_cards_wrapper {
+  .furniture_container {
     width: 95%;
-    margin: auto;
-    @include flex-column;
+    margin: 10px 0;
 
-    .three_cards_heading {
-      h2 {
-        margin: 30px auto;
-        font-size: 24px;
-        font-weight: 800;
-      }
-    }
-    .three_cards {
-      @include flex-between;
-
-      .three_card_item {
-        width: 30%;
-        box-shadow: 0 0 10px $extra-light-grey;
-        .img {
-          width: 100%;
-        }
-        h3 {
-          font-weight: 600;
-          margin: 10px 20px;
-        }
-        p {
-          margin: 10px 20px;
-          font-weight: 600;
-        }
-        button {
-          border: 0;
-          background-color: white;
-          border: 1px solid black;
-          font-weight: 700;
-          padding: 10px 20px;
-          margin: 10px 20px;
-
-          &:hover {
-            background-color: black;
-            color: white;
-            font-weight: 400;
-          }
-        }
-      }
-    }
-  }
-
-  .one_card_wrapper {
-    width: 95%;
-    margin: 20px auto;
-    @include flex-center;
-    background: rgb(244, 244, 244);
-
-    .one_card {
+    .discount_cards {
       width: 100%;
-      box-shadow: 0 0 10px $extra-light-grey;
       @include flex-between;
-      .one_card_image {
-        width: 75%;
-        .img {
-          width: 100%;
-          height: 480px;
-        }
-      }
-      .one_card_info {
-        @include flex-column-start;
-        width: 25%;
-        padding: 30px 50px;
-
-        h5 {
-          margin: 0;
-          text-transform: uppercase;
-          font-weight: 600;
-          font-size: 16px;
-          letter-spacing: 3px;
-        }
-        h3 {
-          text-transform: capitalize;
-          font-weight: 900;
-          font-size: 32px;
-        }
-        p {
-          font-weight: 600;
-          font-size: 16px;
-        }
-        button {
-          border: 0;
-          background-color: white;
-          border: 1px solid black;
-          font-weight: 700;
-          padding: 10px 20px;
-          &:hover {
-            background-color: black;
-            color: white;
-            font-weight: 400;
-          }
-        }
-      }
+      justify-content: space-evenly;
+      margin: 20px 0;
     }
-  }
-  .one_reverse_card_wrapper {
-    width: 95%;
-    margin: 20px auto;
-    @include flex-center;
-    background: rgb(225, 237, 213);
-
-    .one_card_reverse {
+    .category_cards {
       width: 100%;
-      box-shadow: 0 0 10px $extra-light-grey;
       @include flex-between;
-      .one_card_image {
-        width: 75%;
-        .img {
-          width: 100%;
-          height: 480px;
-        }
-      }
-      .one_card_info {
-        @include flex-column-start;
-        width: 25%;
-        padding: 30px 50px;
-
-        h5 {
-          margin: 0;
-          text-transform: uppercase;
-          font-weight: 600;
-          font-size: 16px;
-          letter-spacing: 3px;
-        }
-        h3 {
-          text-transform: capitalize;
-          font-weight: 900;
-          font-size: 32px;
-        }
-        p {
-          font-weight: 600;
-          font-size: 16px;
-        }
-        button {
-          border: 0;
-          background-color: white;
-          border: 1px solid black;
-          font-weight: 700;
-          padding: 10px 20px;
-          &:hover {
-            background-color: black;
-            color: white;
-            font-weight: 400;
-          }
-        }
-      }
+      justify-content: space-evenly;
+      margin: 20px 0;
     }
-  }
-  .four_cards_wrapper {
-    @include flex-between;
-    width: 95%;
-    margin: 20px auto;
-    .four_cards_item {
-      width: 22%;
-      @include flex-column;
-      box-shadow: 0 0 10px $extra-light-grey;
-      .img {
-        width: 100%;
-      }
-      h3 {
-        font-weight: 400;
-        margin: 10px 20px;
-        font-size: 24px;
-      }
-      p {
-        margin: 10px 20px;
-        font-weight: 600;
-      }
-      button {
-        border: 0;
-        background-color: white;
-        border: 1px solid black;
-        font-weight: 700;
-        padding: 10px 20px;
-        margin: 10px 20px;
-
-        &:hover {
-          background-color: black;
-          color: white;
-          font-weight: 400;
-        }
-      }
+    .banner_card_wrapper{
+      display: flex;
+      margin: 20px 0;
     }
   }
 
-  .big_card_wrapper {
-    width: 95%;
-    margin: 20px auto;
-    @include flex-between;
+  // .furn_heading {
+  //   h1 {
+  //     width: 95%;
+  //     margin: auto;
+  //     font-size: 24px;
+  //     font-weight: 600;
+  //   }
+  // }
+  // .three_cards_wrapper {
+  //   width: 95%;
+  //   margin: auto;
+  //   @include flex-column;
 
-    .big_card_img {
-      width: 50%;
+  //   .three_cards_heading {
+  //     h2 {
+  //       margin: 30px auto;
+  //       font-size: 24px;
+  //       font-weight: 800;
+  //     }
+  //   }
+  //   .three_cards {
+  //     @include flex-between;
 
-      .img {
-        width: 100%;
-      }
-    }
-    .big_cards_items_wrapper {
-      width: 50%;
+  //     .three_card_item {
+  //       width: 30%;
+  //       box-shadow: 0 0 10px $extra-light-grey;
+  //       .img {
+  //         width: 100%;
+  //       }
+  //       h3 {
+  //         font-weight: 600;
+  //         margin: 10px 20px;
+  //       }
+  //       p {
+  //         margin: 10px 20px;
+  //         font-weight: 600;
+  //       }
+  //       button {
+  //         border: 0;
+  //         background-color: white;
+  //         border: 1px solid black;
+  //         font-weight: 700;
+  //         padding: 10px 20px;
+  //         margin: 10px 20px;
 
-      .big_card_items {
-        @include flex-between;
-        flex-wrap: wrap;
-        .four_cards_item {
-          width: 50%;
-          .img {
-            width: 100%;
-            height: 362px;
-          }
-          h3 {
-            display: none;
-          }
-          button {
-            display: none;
-          }
-        }
-      }
-    }
-  }
+  //         &:hover {
+  //           background-color: black;
+  //           color: white;
+  //           font-weight: 400;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  // .one_card_wrapper {
+  //   width: 95%;
+  //   margin: 20px auto;
+  //   @include flex-center;
+  //   background: rgb(244, 244, 244);
+
+  //   .one_card {
+  //     width: 100%;
+  //     box-shadow: 0 0 10px $extra-light-grey;
+  //     @include flex-between;
+  //     .one_card_image {
+  //       width: 75%;
+  //       .img {
+  //         width: 100%;
+  //         height: 480px;
+  //       }
+  //     }
+  //     .one_card_info {
+  //       @include flex-column-start;
+  //       width: 25%;
+  //       padding: 30px 50px;
+
+  //       h5 {
+  //         margin: 0;
+  //         text-transform: uppercase;
+  //         font-weight: 600;
+  //         font-size: 16px;
+  //         letter-spacing: 3px;
+  //       }
+  //       h3 {
+  //         text-transform: capitalize;
+  //         font-weight: 900;
+  //         font-size: 32px;
+  //       }
+  //       p {
+  //         font-weight: 600;
+  //         font-size: 16px;
+  //       }
+  //       button {
+  //         border: 0;
+  //         background-color: white;
+  //         border: 1px solid black;
+  //         font-weight: 700;
+  //         padding: 10px 20px;
+  //         &:hover {
+  //           background-color: black;
+  //           color: white;
+  //           font-weight: 400;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // .one_reverse_card_wrapper {
+  //   width: 95%;
+  //   margin: 20px auto;
+  //   @include flex-center;
+  //   background: rgb(225, 237, 213);
+
+  //   .one_card_reverse {
+  //     width: 100%;
+  //     box-shadow: 0 0 10px $extra-light-grey;
+  //     @include flex-between;
+  //     .one_card_image {
+  //       width: 75%;
+  //       .img {
+  //         width: 100%;
+  //         height: 480px;
+  //       }
+  //     }
+  //     .one_card_info {
+  //       @include flex-column-start;
+  //       width: 25%;
+  //       padding: 30px 50px;
+
+  //       h5 {
+  //         margin: 0;
+  //         text-transform: uppercase;
+  //         font-weight: 600;
+  //         font-size: 16px;
+  //         letter-spacing: 3px;
+  //       }
+  //       h3 {
+  //         text-transform: capitalize;
+  //         font-weight: 900;
+  //         font-size: 32px;
+  //       }
+  //       p {
+  //         font-weight: 600;
+  //         font-size: 16px;
+  //       }
+  //       button {
+  //         border: 0;
+  //         background-color: white;
+  //         border: 1px solid black;
+  //         font-weight: 700;
+  //         padding: 10px 20px;
+  //         &:hover {
+  //           background-color: black;
+  //           color: white;
+  //           font-weight: 400;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // .four_cards_wrapper {
+  //   @include flex-between;
+  //   width: 95%;
+  //   margin: 20px auto;
+  //   .four_cards_item {
+  //     width: 22%;
+  //     @include flex-column;
+  //     box-shadow: 0 0 10px $extra-light-grey;
+  //     .img {
+  //       width: 100%;
+  //     }
+  //     h3 {
+  //       font-weight: 400;
+  //       margin: 10px 20px;
+  //       font-size: 24px;
+  //     }
+  //     p {
+  //       margin: 10px 20px;
+  //       font-weight: 600;
+  //     }
+  //     button {
+  //       border: 0;
+  //       background-color: white;
+  //       border: 1px solid black;
+  //       font-weight: 700;
+  //       padding: 10px 20px;
+  //       margin: 10px 20px;
+
+  //       &:hover {
+  //         background-color: black;
+  //         color: white;
+  //         font-weight: 400;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // .big_card_wrapper {
+  //   width: 95%;
+  //   margin: 20px auto;
+  //   @include flex-between;
+
+  //   .big_card_img {
+  //     width: 50%;
+
+  //     .img {
+  //       width: 100%;
+  //     }
+  //   }
+  //   .big_cards_items_wrapper {
+  //     width: 50%;
+
+  //     .big_card_items {
+  //       @include flex-between;
+  //       flex-wrap: wrap;
+  //       .four_cards_item {
+  //         width: 50%;
+  //         .img {
+  //           width: 100%;
+  //           height: 362px;
+  //         }
+  //         h3 {
+  //           display: none;
+  //         }
+  //         button {
+  //           display: none;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }
