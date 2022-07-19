@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  scroll-behavior: smooth;
+  transition: all 0.3s ease-in-out;
+}
+
 html,
 body {
   padding: 0;
@@ -15,4 +21,13 @@ a {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }

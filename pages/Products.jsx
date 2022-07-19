@@ -12,17 +12,18 @@ const Products = () => {
       <div className={product.filter_products_wrapper}>
         <div className={product.filters_wrapper}>
           <div className={product.filter_heading}>
-            <h3>Beds</h3>
-            <p>1 - 16 of 605 products</p>
+            <h3>Category Heading</h3>
+            <p>N of Ns Products Showing</p>
           </div>
           <div className={product.filters_cat}>
-            <h3>Category title</h3>
+            <h3>Category </h3>
             <p>Category List</p>
             <p>Category List</p>
             <p>Category List</p>
             <p>Category List</p>
             <p>Category List</p>
             <p>Category List</p>
+           
           </div>
           <div className={product.filter_cats}>
             <FilterAccordion />
@@ -35,6 +36,11 @@ const Products = () => {
           </div>
           {/* cats ends here  */}
           <div className={product.products_cards_wrapper}>
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <br />
             <ProductCard />
             <ProductCard />
             <ProductCard />

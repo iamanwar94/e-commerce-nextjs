@@ -1,10 +1,10 @@
 @import "./Variables.module.scss";
 
-
 .products_card {
+  // flex: 1;
   width: 24%;
   @include flex-column;
-  margin: 10px;
+  margin: 10px 0;
   border-right: 1px solid $extra-light-grey;
   border-bottom: 1px solid $extra-light-grey;
 
@@ -14,10 +14,10 @@
     justify-content: flex-start;
     color: $yellow;
 
-    &:hover .display{
+    &:hover .display {
       display: block;
     }
-    .display{
+    .display {
       display: none;
       margin-left: 20px;
     }
@@ -83,9 +83,9 @@
       font-weight: 600;
       margin: 10px 0;
     }
-    .delovery_detail{
-        font-size: 14px;
-        color: $light-grey;
+    .delovery_detail {
+      font-size: 14px;
+      color: $light-grey;
     }
   }
 }
