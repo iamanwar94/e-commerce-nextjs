@@ -34,16 +34,19 @@
     }
 
     .accordion_content {
-      height: 0;
+      max-height: 0;
       overflow: hidden;
-
-      .content_filter_wrapper{
+      .content_filter_wrapper {
         margin: 10px 0;
-        input{
+        input {
           margin: 10px;
           transform: scale(1.5);
         }
       }
+    }
+    .accordion_content.show {
+      max-height: 9999px;
+      transition: max-height 3s ease-in-out 0s;
     }
   }
 }

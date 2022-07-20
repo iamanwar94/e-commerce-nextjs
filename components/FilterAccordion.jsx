@@ -9,6 +9,7 @@ const FilterAccordion = () => {
     {
       id: 1,
       title: "price",
+      type: "radio",
       filters: [
         { type: "radio", input: "Under $25" },
         { type: "radio", input: "$26 to $50" },
@@ -20,6 +21,7 @@ const FilterAccordion = () => {
     {
       id: 2,
       title: "Size",
+      type: "checkbox",
       filters: [
         { type: "checkbox", input: "Twin" },
         { type: "checkbox", input: "Full" },
@@ -31,6 +33,7 @@ const FilterAccordion = () => {
     {
       id: 3,
       title: "Color",
+      type: "checkbox",
       filters: [
         { type: "checkbox", input: "Red" },
         { type: "checkbox", input: "Blue" },
@@ -47,25 +50,96 @@ const FilterAccordion = () => {
     {
       id: 4,
       title: "Brand",
+      type: "checkbox",
       filters: [
-        { type: "checkbox", input: "Red" },
-        { type: "checkbox", input: "Blue" },
-        { type: "checkbox", input: "White" },
-        { type: "checkbox", input: "Black" },
-        { type: "checkbox", input: "Gold" },
-        { type: "checkbox", input: "Bronze" },
-        { type: "checkbox", input: "Silver" },
-        { type: "checkbox", input: "Purple" },
-        { type: "checkbox", input: "Cream" },
-        { type: "checkbox", input: "Green" },
+        { type: "checkbox", input: "Apple" },
+        { type: "checkbox", input: "Samsung" },
+        { type: "checkbox", input: "Xiaomi" },
+        { type: "checkbox", input: "Oneplus" },
+        { type: "checkbox", input: "Infinix" },
+        { type: "checkbox", input: "Tecno" },
+        { type: "checkbox", input: "Moto" },
+        { type: "checkbox", input: "Qmobile" },
+        { type: "checkbox", input: "LG" },
+        { type: "checkbox", input: "Nokia" },
       ],
     },
   ];
+  // const mappedData = filters
+  //   .filter((filterdData) => {
+  //     filterdData.type === "checkbox";
+  //   })
+  //   .map((mappedData) => {
+  //     mappedData.filters;
+  //   })
+  //   .map((data) => {
+  //     return data[input];
+  //   });
+  const data = {
+    name: "Nokia",
+    checked: false,
+    name: "LG",
+    checked: false,
+    name: "Qmobile",
+    checked: false,
+    name: "Moto",
+    checked: false,
+    name: "Tecno",
+    checked: false,
+    name: "Infinix",
+    checked: false,
+    name: "Oneplus",
+    checked: false,
+    name: "Xiaomi",
+    checked: false,
+    name: "Samsung",
+    checked: false,
+    name: "Apple",
+    checked: false,
+    name: "Green",
+    checked: false,
+    name: "Cream",
+    checked: false,
+    name: "Purple",
+    checked: false,
+    name: "Silver",
+    checked: false,
+    name: "Bronze",
+    checked: false,
+    name: "Gold",
+    checked: false,
+    name: "Black",
+    checked: false,
+    name: "White",
+    checked: false,
+    name: "Blue",
+    checked: false,
+    name: "Red",
+    checked: false,
+    name: "Others",
+    checked: false,
+    name: "Kings",
+    checked: false,
+    name: "Queen",
+    checked: false,
+    name: "Full",
+    checked: false,
+    name: "Twin",
+    checked: false,
+  };
 
   const [filterState, setFilterState] = useState(filters);
-  const [show, setShow] = useState(false);
+  const [activeCurrentIndex, setActiveCurrentIndex] = useState();
   const [radio, setRadio] = useState("");
-  const [checkbox, setCheckbox] = useState(false);
+  const [checkbox, setCheckbox] = useState(data.checked);
+
+  const toggleShowAccordion = (id) => {
+    if (activeCurrentIndex === id) {
+      setActiveCurrentIndex();
+    } else {
+      setActiveCurrentIndex(id);
+    }
+  };
 
   return (
     <div className={styles.accordion_wrapper}>
@@ -73,11 +147,11 @@ const FilterAccordion = () => {
         <div className={styles.accordion_item} key={filter.id}>
           <div
             className={styles.accordion_heading}
-            onClick={() => setShow(!show)}
+            onClick={() => toggleShowAccordion(filter.id)}
           >
             <h4>{filter.title} </h4>
             <span>
-              {show ? (
+              {activeCurrentIndex === filter.id ? (
                 <FiChevronUp className={styles.accordion_icon} />
               ) : (
                 <FiChevronDown className={styles.accordion_icon} />
@@ -86,8 +160,11 @@ const FilterAccordion = () => {
           </div>
 
           <div
-            className={styles.accordion_content}
-            style={show ? { height: "auto" } : { height: "0" }}
+            className={
+              activeCurrentIndex !== filter.id
+                ? styles.accordion_content
+                : styles.accordion_content + " " + styles.show
+            }
           >
             {filter.filters.map((box, i) => (
               <div className={styles.content_filter_wrapper} key={i}>
@@ -102,46 +179,16 @@ const FilterAccordion = () => {
                   onChange={(e) =>
                     box.type === "radio"
                       ? setRadio(e.target.value)
-                      : setCheckbox({...checkbox, [e.target.name]: e.target.checked })
+                      : e.target.name===checkbox.name&& setCheckbox(e.target.checked)
+                      // setCheckbox({
+                      //     ...checkbox,
+                      //     [e.target.name]: e.target.checked,
+                      //   })
                   }
                 />
                 <label htmlFor={box.input}>{box.input}</label>
               </div>
             ))}
-
-            {/* <div className={styles.content_filter_wrapper}>
-              <input
-                type="radio"
-                name="26to50"
-                id="26to50"
-                value="26to50"
-                checked={radio === "26to50"}
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label htmlFor="26to50">$ 26 to $ 50</label>
-            </div>
-            <div className={styles.content_filter_wrapper}>
-              <input
-                type="radio"
-                name="50to100"
-                id="50to100"
-                value="50to100"
-                checked={radio === "50to100"}
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label htmlFor="50to100">$ 50 to $ 100</label>
-            </div>
-            <div className={styles.content_filter_wrapper}>
-              <input
-                type="radio"
-                name="100to500"
-                id="100to500"
-                value="100to500"
-                checked={radio === "100to500"}
-                onChange={(e) => setRadio(e.target.value)}
-              />
-              <label htmlFor="100to500">$ 100 to $ 500</label>
-            </div> */}
           </div>
         </div>
       ))}

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image'
 
 import FilterAccordion from "../components/FilterAccordion";
 import ProductCard from "../components/ProductCard";
@@ -32,7 +33,7 @@ const Products = () => {
         {/* filters ends here  */}
         <div className={product.products_item_wrapper}>
           <div className={product.categories_wrapper}>
-            <img src={image} alt="cat-img" />
+            <Image src={image} alt="cat-img" />
           </div>
           {/* cats ends here  */}
           <div className={product.products_cards_wrapper}>
