@@ -1,6 +1,8 @@
 @import "./Variables.module.scss";
 
 .navbar_links_items_wrapper {
+  width: 95%;
+  margin: auto;
   @include flex-around;
   border-top: 1px solid $extra-light-grey;
   border-bottom: 1px solid $extra-light-grey;

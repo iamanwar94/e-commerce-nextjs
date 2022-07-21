@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import navsearch from "../styles/NavbarSearch.module.scss";
-import logo from "./assets/Ashley-Logo-Vertical.svg";
+import logo from '../components/assets/m_logo_360.png'
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 
@@ -16,10 +16,10 @@ const NavbarSearch = () => {
           </a>
         </Link>
       </div>
-      {/* <div className={navsearch.zip">
+      <div className={navsearch.zip}>
         <p>Your closest Ashley</p>
         <h5>Please Enter Zip Code</h5>
-      </div> */}
+      </div>
       <div className={navsearch.navbar_search_input}>
         <input type="text" placeholder="Search..." />
         <div className={navsearch.icon}>
@@ -35,11 +35,6 @@ const NavbarSearch = () => {
         <p>
           <Link href="/login" className={navsearch.links}>
             <a>Delivery Tracking</a>
-          </Link>
-        </p>
-        <p>
-          <Link href="/" className={navsearch.links}>
-            <a>Prequalify for Financing</a>
           </Link>
         </p>
         <div className={navsearch.icon_wrapper}>

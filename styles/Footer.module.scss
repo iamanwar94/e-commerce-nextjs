@@ -27,11 +27,15 @@
       margin: 0 10px;
       @include flex-center;
       .icon {
+        @include flex-center;
         margin: 0 10px;
         background-color: $yellow;
         color: white;
-        width: 40px;
+        width: 50px;
         text-align: center;
+        font-size: 28px;
+        height: 30px;
+        padding: 0;
       }
     }
     .search_btn {

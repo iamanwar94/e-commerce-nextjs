@@ -1,4 +1,5 @@
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
+// import STATUSES from "./productSlice";
 
 export const STATUSES = Object.freeze({
   IDLE: "idle",
@@ -6,8 +7,8 @@ export const STATUSES = Object.freeze({
   LOADING: "loading",
 });
 
-const productSlice = createSlice({
-  name: "product",
+const categorySlice = createSlice({
+  name: "category",
   initialState: {
     data: null,
     status: STATUSES.IDLE,
@@ -22,27 +23,25 @@ const productSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProducts.pending, (state, action) => {
+      .addCase(fetchCategory.pending, (state) => {
         state.status = STATUSES.LOADING;
       })
-      .addCase(fetchProducts.fulfilled, (state, action) => {
+      .addCase(fetchCategory.fulfilled, (state, action) => {
         state.data = action.payload;
         state.status = STATUSES.IDLE;
       })
-      .addCase(fetchProducts.rejected, (state, action) => {
+      .addCase(fetchCategory.rejected, (state) => {
         state.status = STATUSES.ERROR;
       });
   },
 });
 
-export const { setProducts, setStatus } = productSlice.actions;
-export default productSlice.reducer;
-export const selectProducts = (state) => state.product.data;
+export default categorySlice.reducer;
+export const selectCategory = (state) => state.category.data;
 
 // Thunks
-export const fetchProducts = createAsyncThunk("products/fetch", async () => {
-  // const res = await fetch('https://fakestoreapi.com/products/categories');
-  const res = await fetch("https://ashley-api.herokuapp.com/products");
+export const fetchCategory = createAsyncThunk("category/fetch", async () => {
+  const res = await fetch("https://ashley-api.herokuapp.com/categories");
   const data = await res.json();
   return data;
 });

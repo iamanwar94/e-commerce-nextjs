@@ -1,5 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { fetchProducts } from "../App/Features/productSlice";
+import { fetchCategory } from "../App/Features/categorySlice";
+import { selectProducts } from "../App/Features/productSlice";
+import { selectCategory } from "../App/Features/categorySlice";
 
 import styles from "../styles/Home.module.scss";
 import model from "./assets/model.jpg";
@@ -15,6 +22,19 @@ import CategoryCard from "../components/CategoryCard";
 import ThinBannerCard from "../components/ThinBannerCard";
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const products = useSelector(selectProducts);
+  const categories = useSelector(selectCategory);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+    dispatch(fetchCategory());
+    console.log(categories);
+    // return () => {
+    //   second
+    // }
+  }, [dispatch]);
+
   return (
     <div className="index_wrapper">
       <Head>
@@ -42,20 +62,14 @@ export default function Home() {
         <div className={styles.categories_wrapper}>
           <h3>Shop By Categories</h3>
           <div className={styles.categories}>
-            <CategoriesCard img={catchair} title="Title" />
-            <CategoriesCard img={catchair} title="Title" />
-            <CategoriesCard img={catchair} title="Title" />
-            <CategoriesCard img={catchair} title="Title" />
-            <CategoriesCard img={catchair} title="Title" />
-            <CategoriesCard img={catchair} title="Title" />
+            {categories?.categories?.slice(0, 6).map((category) => (
+              <CategoriesCard key={category._id} img={catchair} title={category.title} />
+            ))}
           </div>
           <div className={styles.categories}>
-            <CategoriesCard img={catchair} title="Title" />
-            <CategoriesCard img={catchair} title="Title" />
-            <CategoriesCard img={catchair} title="Title" />
-            <CategoriesCard img={catchair} title="Title" />
-            <CategoriesCard img={catchair} title="Title" />
-            <CategoriesCard img={catchair} title="Title" />
+            {categories?.categories?.slice(6, 12).map((category) => (
+              <CategoriesCard key={category._id} img={catchair} title={category.title} />
+            ))}
           </div>
         </div>
         <div className={styles.banner_card_wrapper}>

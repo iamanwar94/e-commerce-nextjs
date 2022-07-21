@@ -31,6 +31,7 @@
         }
         p {
           font-size: 16px;
+          margin: 0;
         }
       }
       .filters_cat {
@@ -47,6 +48,7 @@
           width: 100%;
           font-size: 16px;
           font-weight: 500;
+          margin: 0;
           &:hover {
             font-weight: 600;
             background: $yellow-light;
@@ -59,9 +61,11 @@
       width: 80%;
 
       .categories_wrapper {
-        width: 95%;
+        width: 100%;
         margin: 30px auto;
         cursor: pointer;
+        display: flex;
+        justify-content: space-evenly;
 
         img {
           width: 100%;
@@ -70,7 +74,7 @@
       }
 
       .products_cards_wrapper {
-        @include flex-between;
+        @include flex-center;
         border-left: 1px solid $extra-light-grey;
         border-top: 1px solid $extra-light-grey;
         flex-wrap: wrap;

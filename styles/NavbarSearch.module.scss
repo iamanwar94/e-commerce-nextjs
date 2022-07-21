@@ -2,6 +2,8 @@
 
 .navbar_search_wrapper {
   height: 100px;
+  width: 95%;
+  margin: auto;
   padding: 0 50px;
   @include flex-around;
   font-family: $open-sans;
@@ -10,8 +12,9 @@
     @include flex-center;
 
     a {
-      height: 75px;
-        width: 144px;
+      @include flex-center;
+      height: 130px;
+      width: 250px;
       // .img {
       //   height: 75px;
       //   width: 144px;
@@ -20,11 +23,16 @@
   }
   .zip {
     @include flex-column;
+    cursor: pointer;
+    color: $light-grey;
+    margin: 0 20px;
     p {
       margin: 0;
+      font-size: 12px;
     }
     h5 {
       margin: 0;
+      font-size: 14px;
     }
   }
   .navbar_search_input {
@@ -46,7 +54,7 @@
       &:focus {
         outline: 0;
 
-        &::placeholder{
+        &::placeholder {
           visibility: hidden;
         }
       }
@@ -63,6 +71,10 @@
       color: rgba(94, 91, 91, 0.178);
       font-size: 20px;
       cursor: pointer;
+
+      &:hover{
+        color: $grey
+      }
     }
   }
   .navbar_links_wrapper {
@@ -74,21 +86,35 @@
       width: 100px;
       padding: 0 5px;
       text-align: center;
+      a {
+        &:hover {
+          text-decoration: underline;
+          color: black;
+        }
+      }
       .links {
         color: black;
         text-decoration: none;
         height: 100%;
-
-        &:hover {
-          text-decoration: underline;
-        }
       }
     }
 
     .icon_wrapper {
       margin: 0 10px;
+      width: 60px;
+      @include flex-center;
+      height: 60px;
+      border-radius: 50%;
+      padding-right: 10px;
+
+      &:hover{
+        background-color: rgba(128, 128, 128, 0.11);
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.123);
+      }
       .cart_icon {
-        @include flex-around;
+        // @include flex-around;
         font-size: 20px;
         color: rgba(94, 91, 91, 0.712);
         padding: 0;
@@ -106,8 +132,12 @@
           height: 20px;
           width: 20px;
           font-size: 12px;
+          margin: 0;
+          padding: 0;
+          @include flex-center;
           background-color: $red !important;
           color: white;
+          font-weight: 800;
         }
       }
     }

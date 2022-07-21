@@ -3,8 +3,10 @@
 .products_card {
   // flex: 1;
   width: 24%;
+  height: 500px;
   @include flex-column;
-  margin: 10px 0;
+  justify-content: space-evenly;
+  margin: 10px 5px;
   border-right: 1px solid $extra-light-grey;
   border-bottom: 1px solid $extra-light-grey;
 
@@ -59,6 +61,7 @@
         text-align: center;
         background: $yellow;
         color: white;
+
       }
     }
   }

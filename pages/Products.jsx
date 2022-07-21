@@ -1,13 +1,35 @@
 import React from "react";
-import Image from 'next/image'
+import Image from "next/image";
+
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { fetchProducts } from "../App/Features/productSlice";
+// import { fetchCategory } from "../App/Features/categorySlice";
+import { selectProducts } from "../App/Features/productSlice";
+// import { selectCategory } from "../App/Features/categorySlice";
 
 import FilterAccordion from "../components/FilterAccordion";
 import ProductCard from "../components/ProductCard";
 
-import image from "./assets/image.jpg";
 import product from "../styles/Products.module.scss";
+import CategoriesCard from "../components/CategoriesCard";
+import catchair from "../components/assets/chair3.png";
 
 const Products = () => {
+  const dispatch = useDispatch();
+  const products = useSelector(selectProducts);
+  // const categories = useSelector(selectCategory);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+    // dispatch(fetchCategory());
+    // console.log(categories);
+    // return () => {
+    //   second
+    // }
+  }, [dispatch]);
+
   return (
     <div className={product.products_wrapper}>
       <div className={product.filter_products_wrapper}>
@@ -24,7 +46,6 @@ const Products = () => {
             <p>Category List</p>
             <p>Category List</p>
             <p>Category List</p>
-           
           </div>
           <div className={product.filter_cats}>
             <FilterAccordion />
@@ -33,19 +54,17 @@ const Products = () => {
         {/* filters ends here  */}
         <div className={product.products_item_wrapper}>
           <div className={product.categories_wrapper}>
-            <Image src={image} alt="cat-img" />
+            <CategoriesCard img={catchair} title="" />
+            <CategoriesCard img={catchair} title="" />
+            <CategoriesCard img={catchair} title="" />
+            <CategoriesCard img={catchair} title="" />
+            <CategoriesCard img={catchair} title="" />
           </div>
           {/* cats ends here  */}
           <div className={product.products_cards_wrapper}>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <br />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {products?.products.map((product) => (
+              <ProductCard key={product._id} products={product} />
+            ))}
           </div>
           {/* products cards ends here  */}
         </div>

@@ -15,12 +15,12 @@ const Navbar = () => {
           <p className={navbar.ashley}>Ashley</p>
           <p className={navbar.baby}>Baby & Kids</p>
         </div>
-        <div className={navbar.mobile_app}>
+        {/* <div className={navbar.mobile_app}>
           <p className={navbar.icon}>
             <AiOutlineMobile />
           </p>
           <p>Mobile App</p>
-        </div>
+        </div> */}
       </div>
       {/* baby ends  */}
       <div className={navbar.navbar_features}>
