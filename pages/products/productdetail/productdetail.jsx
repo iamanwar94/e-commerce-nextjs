@@ -4,9 +4,9 @@ import { AiFillStar } from "react-icons/ai";
 import { RiToolsFill } from "react-icons/ri";
 import { TbCircle1 } from "react-icons/tb";
 
-import bed from "./assets/fur12.jpg";
-import product from "../styles/ProductDetail.module.scss";
-import dimension from "./assets/dimensions.webp";
+import bed from "../../assets/fur12.jpg";
+import product from "../../../styles/ProductDetail.module.scss";
+import dimension from "../..//assets/dimensions.webp";
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
 const ProductDetail = () => {
   return (

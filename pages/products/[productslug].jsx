@@ -1,33 +1,32 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchProducts } from "../App/Features/productSlice";
+import { fetchProducts } from "../../App/Features/productSlice";
 // import { fetchCategory } from "../App/Features/categorySlice";
-import { selectProducts } from "../App/Features/productSlice";
+import { selectProducts } from "../../App/Features/productSlice";
 // import { selectCategory } from "../App/Features/categorySlice";
 
-import FilterAccordion from "../components/FilterAccordion";
-import ProductCard from "../components/ProductCard";
+import FilterAccordion from "../../components/FilterAccordion";
+import ProductCard from "../../components/ProductCard";
 
-import product from "../styles/Products.module.scss";
-import CategoriesCard from "../components/CategoriesCard";
-import catchair from "../components/assets/chair3.png";
+import product from "../../styles/Products.module.scss";
+import CategoriesCard from "../../components/CategoriesCard";
+import catchair from "../../components/assets/chair3.png";
 
 const Products = () => {
+  const router = useRouter();
+  const { productslug } = router.query;
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   // const categories = useSelector(selectCategory);
 
   useEffect(() => {
     dispatch(fetchProducts());
-    // dispatch(fetchCategory());
-    // console.log(categories);
-    // return () => {
-    //   second
-    // }
+    console.log(productslug);
   }, [dispatch]);
 
   return (
