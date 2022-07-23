@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Link from "next/link";
 
 import Tracking from "../components/Tracking";
@@ -19,11 +20,25 @@ const Login = () => {
       setLoginData({ ...loginData, remember: checked });
     }
   };
-  const loginClickHandler = () => {
+  const loginClickHandler = async () => {
     if (!loginData.email || !loginData.password) {
       alert("please type email and password correctly");
     } else {
-      console.log(loginData);
+      const config = {
+        url: "https://ashley-api.herokuapp.com/users/login",
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        data: {
+          email: loginData.email,
+          password: loginData.password,
+        },
+      };
+      const response = await axios(config);
+      console.log(response);
+      console.log(response.data.message);
+      // console.log(loginData);
       setLoginData(data);
     }
   };

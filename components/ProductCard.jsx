@@ -9,12 +9,13 @@ import bed1 from "./assets/bed_PNG17418.png";
 import bed2 from "./assets/APK-B643-QUB-10x8-CROP.webp";
 
 const ProductCard = ({ products }) => {
-// const img = products.map(product=>product.variants).map()
+  
+  // const img = products.map(product=>product.variants).map()
 
   const imageURL = "https://ashley-api.herokuapp.com/uploads/";
-  const src = imageURL + img;
+  const src = imageURL;
   return (
-    <Link href="/products/productdetail/productdetail">
+    <Link href={`/products/productdetail/${products.slug}`}>
       <a className={product.products_card}>
         <div className={product.heart}>
           <h4 className={product.icon}>

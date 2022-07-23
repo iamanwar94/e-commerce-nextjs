@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { AiFillStar } from "react-icons/ai";
 import { RiToolsFill } from "react-icons/ri";
 import { TbCircle1 } from "react-icons/tb";
@@ -9,6 +10,12 @@ import product from "../../../styles/ProductDetail.module.scss";
 import dimension from "../..//assets/dimensions.webp";
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
 const ProductDetail = () => {
+  const router = useRouter();
+  const { productdetail } = router.query;
+  useEffect(() => {
+    console.log(productdetail);
+  }, []);
+
   return (
     <div className={product.product_detail_wrapper}>
       <div className={product.img_and_detail}>
