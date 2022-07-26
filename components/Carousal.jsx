@@ -1,26 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 // import Image from "next/image";
 import Carousel from "react-material-ui-carousel";
 import carousal from "../styles/Carousal.module.scss";
 
-const Carousal = ({height}) => {
-  var items = [
-    {
-      name: "Random Name #1",
-      description: "Probably the most random thing you have ever seen!",
-      img: "https://mdbcdn.b-cdn.net/img/new/slides/042.webp",
-    },
-    {
-      name: "Random Name #2",
-      description: "Hello World!",
-      img: "https://mdbcdn.b-cdn.net/img/new/slides/041.webp",
-    },
-    {
-      name: "Random Name #2",
-      description: "Hello World!",
-      img: "https://mdbcdn.b-cdn.net/img/new/slides/043.webp",
-    },
-  ];
+const Carousal = ({ height, slider, url }) => {
+  // const [slider, setSlider] = useState([]);
+
+  // useEffect(() => {
+  //   async function getSLider() {
+  //     try {
+  //       const response = await axios.get('https://ashley-api.herokuapp.com/sliders');
+  //       console.log(response);
+  //       setSlider(response.data.sliders)
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+  //   getSLider();
+  // }, []);
+
+  // var items = [
+  //   {
+  //     name: "Random Name #1",
+  //     description: "Probably the most random thing you have ever seen!",
+  //     img: "https://mdbcdn.b-cdn.net/img/new/slides/042.webp",
+  //   },
+  //   {
+  //     name: "Random Name #2",
+  //     description: "Hello World!",
+  //     img: "https://mdbcdn.b-cdn.net/img/new/slides/041.webp",
+  //   },
+  //   {
+  //     name: "Random Name #2",
+  //     description: "Hello World!",
+  //     img: "https://mdbcdn.b-cdn.net/img/new/slides/043.webp",
+  //   },
+  // ];
   return (
     <div className={carousal.carousal_wrapper}>
       <div className={carousal.carousal}>
@@ -31,8 +47,12 @@ const Carousal = ({height}) => {
           navButtonsAlwaysVisible={true}
           height={height}
         >
-          {items.map((item, i) => (
-            <img src={item.img} key={i} />
+          {slider?.map((sliderImage) => (
+            <img
+              src={`${url}${sliderImage.image}`}
+              key={sliderImage._id}
+              alt={sliderImage.title}
+            />
           ))}
         </Carousel>
         {/* <div

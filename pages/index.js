@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 import { fetchProducts } from "../App/Features/productSlice";
 import { fetchCategory } from "../App/Features/categorySlice";
@@ -22,6 +23,7 @@ import CategoryCard from "../components/CategoryCard";
 import ThinBannerCard from "../components/ThinBannerCard";
 
 export default function Home() {
+  const [slider, setSlider] = useState([]);
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   const categories = useSelector(selectCategory);
@@ -34,6 +36,20 @@ export default function Home() {
     //   second
     // }
   }, [dispatch]);
+  useEffect(() => {
+    async function getSLider() {
+      try {
+        const response = await axios.get(
+          "https://ashley-api.herokuapp.com/sliders"
+        );
+        console.log(response);
+        setSlider(response.data.sliders);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getSLider();
+  }, []);
 
   return (
     <div className="index_wrapper">
@@ -43,7 +59,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.home_wrapper}>
-        <Carousal height={460} />
+        <Carousal height={460} slider={slider} url="https://ashley-api.herokuapp.com/uploads/slider/"/>
         <div className={styles.discount_cards_wrapper}>
           <div className={styles.discount_cards_heading}>
             <h2>Discount in full bloom</h2>

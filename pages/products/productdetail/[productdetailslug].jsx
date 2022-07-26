@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 // import axios from "axios";
 
@@ -13,8 +13,24 @@ import product from "../../../styles/ProductDetail.module.scss";
 import dimension from "../..//assets/dimensions.webp";
 
 const ProductDetail = ({ productDetail }) => {
+  const [sizeID, setSizeID] = useState(0);
+  const [colorID, setColorID] = useState(0);
   // const router = useRouter();
   // const { productdetail } = router.query;
+  // const variants = productDetail.variants.map((variant) => {
+  //   return variant;
+  // });
+  const sizeChangeHandler = (i) => {
+    setSizeID(i);
+    // console.log(sizeID);
+  };
+  const colorChangeHandler = (i) => {
+    setColorID(i);
+    // console.log(colorID);
+    console.log(slider);
+    console.log(images);
+  };
+
   const sizes = productDetail.variants.map((variant) => {
     return variant.size;
   });
@@ -26,17 +42,27 @@ const ProductDetail = ({ productDetail }) => {
       return feature.color;
     });
   });
-  useEffect(() => {
-    // console.log(sizes);
-    console.log(price);
-  }, []);
+
+  const images = productDetail.variants
+    .slice(sizeID, sizeID + 1)
+    .map((variant) => {
+      return variant.features.slice(colorID, colorID + 1).map((feature) => {
+        return feature.images.map((images) => {
+          return images;
+        });
+      });
+    });
+    const slider = images
 
   return (
     <div className={product.product_detail_wrapper}>
       <div className={product.img_and_detail} key={productDetail._id}>
         <div className={product.carousel}>
           {/* <Image src={bed} alt="bed" /> */}
-          <Carousal />
+          <Carousal
+            slider={images}
+            url="https://ashley-api.herokuapp.com/uploads/"
+          />
         </div>
         <div className={product.product_detail}>
           <div className={product.name_price}>
@@ -51,31 +77,44 @@ const ProductDetail = ({ productDetail }) => {
                 <AiFillStar className={product.icon} />
                 <AiFillStar className={product.icon} />
               </span>
-              <p>98 Reviews</p>
+              <p>121 Reviews</p>
             </div>
             <div className={product.flex + " " + product.price}>
               {/* {price.map((price) => ( */}
-                <h3>Rs.{price.slice(0,1)}</h3>
+              <h3>${price.slice(sizeID, sizeID + 1)}</h3>
               {/* ))} */}
-              <span className={product.mx - 2}>
-                <RiToolsFill className={product.setting_icon} />
-              </span>
-              <h3>Assembly Required</h3>
+              {/* <span className={product.mx - 2}> */}
+              {/* <RiToolsFill className={product.setting_icon} /> */}
+              {/* </span> */}
+              {/* <h3>Assembly Required</h3> */}
             </div>
           </div>
           <div className={product.color_size}>
             <div className={product.color + " " + product.flex}>
-              <TbCircle1 className={product.icon} />
+              {/* <TbCircle1 className={product.icon} /> */}
               <h4>Colors:</h4>
-              {colors.map((color, i) => (
-                <p key={i}>{color[i]}</p>
+              {/* {features.map((feature,i) => (
+                <p key={feature._id}>{feature.color[i].map((color)=>(
+
+                ))}</p>
+              ))} */}
+              {colors[sizeID].map((color, i) => (
+                <p
+                  key={i}
+                  style={{ backgroundColor: color, color: "white" }}
+                  onClick={() => colorChangeHandler(i)}
+                >
+                  {color}
+                </p>
               ))}
             </div>
             <div className={product.size + " " + product.flex}>
-              <TbCircle1 className={product.icon} />
-              <h4>Size:</h4>
+              {/* <TbCircle1 className={product.icon} /> */}
+              <h4>Sizes:</h4>
               {sizes.map((size, i) => (
-                <p key={i}>{size}</p>
+                <p key={i} onClick={() => sizeChangeHandler(i)}>
+                  {size}
+                </p>
               ))}
             </div>
           </div>
