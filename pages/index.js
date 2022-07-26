@@ -43,7 +43,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.home_wrapper}>
-        <Carousal />
+        <Carousal height={460} />
         <div className={styles.discount_cards_wrapper}>
           <div className={styles.discount_cards_heading}>
             <h2>Discount in full bloom</h2>

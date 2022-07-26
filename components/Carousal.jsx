@@ -1,11 +1,41 @@
 import React from "react";
+// import Image from "next/image";
+import Carousel from "react-material-ui-carousel";
 import carousal from "../styles/Carousal.module.scss";
 
-const Carousal = () => {
+const Carousal = ({height}) => {
+  var items = [
+    {
+      name: "Random Name #1",
+      description: "Probably the most random thing you have ever seen!",
+      img: "https://mdbcdn.b-cdn.net/img/new/slides/042.webp",
+    },
+    {
+      name: "Random Name #2",
+      description: "Hello World!",
+      img: "https://mdbcdn.b-cdn.net/img/new/slides/041.webp",
+    },
+    {
+      name: "Random Name #2",
+      description: "Hello World!",
+      img: "https://mdbcdn.b-cdn.net/img/new/slides/043.webp",
+    },
+  ];
   return (
     <div className={carousal.carousal_wrapper}>
       <div className={carousal.carousal}>
-        <div
+        <Carousel
+          interval={4000}
+          animation="slide"
+          duration={1200}
+          navButtonsAlwaysVisible={true}
+          height={height}
+        >
+          {items.map((item, i) => (
+            <img src={item.img} key={i} />
+          ))}
+        </Carousel>
+        {/* <div
           id="carouselExampleIndicators"
           className="carousel slide relative mt-2 mb-4"
           data-bs-ride="carousel"
@@ -79,7 +109,7 @@ const Carousal = () => {
             ></span>
             <span className="visually-hidden">Next</span>
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
 

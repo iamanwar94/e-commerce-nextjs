@@ -1,31 +1,47 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
 import { useRouter } from "next/router";
+// import axios from "axios";
+
 import { AiFillStar } from "react-icons/ai";
 import { RiToolsFill } from "react-icons/ri";
 import { TbCircle1 } from "react-icons/tb";
+import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
 
-import bed from "../../assets/fur12.jpg";
+import Carousal from "../../../components/Carousal.jsx";
+// import bed from "../../assets/fur12.jpg";
 import product from "../../../styles/ProductDetail.module.scss";
 import dimension from "../..//assets/dimensions.webp";
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
-const ProductDetail = () => {
-  const router = useRouter();
-  const { productdetail } = router.query;
+
+const ProductDetail = ({ productDetail }) => {
+  // const router = useRouter();
+  // const { productdetail } = router.query;
+  const sizes = productDetail.variants.map((variant) => {
+    return variant.size;
+  });
+  const price = productDetail.variants.map((variant) => {
+    return variant.price;
+  });
+  const colors = productDetail.variants.map((variant) => {
+    return variant.features.map((feature) => {
+      return feature.color;
+    });
+  });
   useEffect(() => {
-    console.log(productdetail);
+    // console.log(sizes);
+    console.log(price);
   }, []);
 
   return (
     <div className={product.product_detail_wrapper}>
-      <div className={product.img_and_detail}>
+      <div className={product.img_and_detail} key={productDetail._id}>
         <div className={product.carousel}>
-          <Image src={bed} alt="bed" />
+          {/* <Image src={bed} alt="bed" /> */}
+          <Carousal />
         </div>
         <div className={product.product_detail}>
           <div className={product.name_price}>
-            <h4>Brand Name</h4>
-            <h2>Product Name</h2>
+            <h4>{productDetail.brand_id.title}</h4>
+            <h2> {productDetail.title} </h2>
             <p>Item Code: ED1201301-1013</p>
             <div className={product.flex + " " + product.reviews}>
               <span className={product.flex}>
@@ -38,7 +54,9 @@ const ProductDetail = () => {
               <p>98 Reviews</p>
             </div>
             <div className={product.flex + " " + product.price}>
-              <h3>Rs. 599.99</h3>
+              {/* {price.map((price) => ( */}
+                <h3>Rs.{price.slice(0,1)}</h3>
+              {/* ))} */}
               <span className={product.mx - 2}>
                 <RiToolsFill className={product.setting_icon} />
               </span>
@@ -48,17 +66,22 @@ const ProductDetail = () => {
           <div className={product.color_size}>
             <div className={product.color + " " + product.flex}>
               <TbCircle1 className={product.icon} />
-              <h4>Color:</h4>
-              <p>Pink, Yellow, Red</p>
+              <h4>Colors:</h4>
+              {colors.map((color, i) => (
+                <p key={i}>{color[i]}</p>
+              ))}
             </div>
             <div className={product.size + " " + product.flex}>
               <TbCircle1 className={product.icon} />
               <h4>Size:</h4>
-              <p>King, Queen, Medium, Small</p>
+              {sizes.map((size, i) => (
+                <p key={i}>{size}</p>
+              ))}
             </div>
           </div>
         </div>
       </div>
+
       <div className={product.product_features_and_subtotal}>
         <div className={product.features}>
           <div className={product.feature_heading}>
@@ -165,5 +188,20 @@ const ProductDetail = () => {
     </div>
   );
 };
+
+export async function getServerSideProps(context) {
+  const { productdetailslug } = context.query;
+
+  const res = await fetch(
+    `https://ashley-api.herokuapp.com/products/${productdetailslug}`
+  );
+  const data = await res.json();
+  console.log(data);
+  const productDetail = data.product;
+
+  return {
+    props: { productDetail }, // will be passed to the page component as props
+  };
+}
 
 export default ProductDetail;

@@ -1,15 +1,13 @@
 @import "./Variables.module.scss";
 
-
-
 .carousal_wrapper {
+  margin-top:10px ;
   width: 100%;
   @include flex-column;
   .carousal {
     width: 100%;
 
-
-    img{
+    img {
       object-position: center;
       object-fit: contain;
       width: 100%;

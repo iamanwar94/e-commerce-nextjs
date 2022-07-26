@@ -55,7 +55,7 @@ const ProductCard = ({ products }) => {
           <p
             className={product.delivery_detail}
             dangerouslySetInnerHTML={{
-              __html: products.detail_2.slice(0, 100),
+              __html: products.detail_1.slice(0, 100),
             }}
           >
             {/* {products.detail_2.slice(0,100)} */}
