@@ -3,7 +3,7 @@ import Image from "next/image";
 import categories from "../styles/CategoriesCard.module.scss";
 import cardimage from "./assets/fur12.jpg";
 const CategoriesCard = ({ img, title }) => {
-  const imageURL = "https://ashley-api.herokuapp.com/uploads/";
+  const imageURL = "https://ashley-api.herokuapp.com/uploads/categories/";
 
   const src = imageURL + img;
 

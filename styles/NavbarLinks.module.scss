@@ -10,6 +10,7 @@
 
   .links_wrapper {
     margin: 0;
+    transition: all 0.3s ease-in-out;
     position: relative;
     .links {
       text-decoration: none;
@@ -22,40 +23,34 @@
     }
 
     .dropdown {
-      padding:0 16px;
+      z-index: 10;
       @include flex-column-start;
       align-items: flex-start;
-      top: 30px;
-      // left: -20px;
+      // top: 44px;
       width: 220px;
-      // border: 1px solid $xs-grey;
       box-shadow: 0 0 5px $extra-light-grey;
-      position: absolute;
       background-color: white;
-      z-index: 1000;
-      // display: none;
       position: absolute;
       overflow: hidden;
       left: 0;
       height: 0;
-      width: 180px;
-      line-height: 40px;
+      line-height: 30px;
       box-sizing: border-box;
       transition: all 0.3s ease-in-out;
       transition-delay: 0.1s;
-      // left: 50%;
       .dropdown_link {
         margin: 8px 0;
 
         &:hover {
           font-weight: 600;
-          color: black;
           display: flex;
         }
       }
     }
     &:hover .dropdown {
-      height: 200px;
+      height: auto;
+      transition: all 0.3s ease-in-out;
+      padding: 20px 12px;
     }
     .red {
       color: $red;

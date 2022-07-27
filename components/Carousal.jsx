@@ -47,11 +47,11 @@ const Carousal = ({ height, slider, url }) => {
           navButtonsAlwaysVisible={true}
           height={height}
         >
-          {slider?.map((sliderImage) => (
+          {slider?.map((sliderImage,i) => (
             <img
-              src={`${url}${sliderImage.image}`}
-              key={sliderImage._id}
-              alt={sliderImage.title}
+              src={`${url}${sliderImage ? sliderImage : sliderImage.image}`}
+              key={sliderImage._id?sliderImage._id:i}
+              alt={sliderImage.title?sliderImage.title:i}
             />
           ))}
         </Carousel>

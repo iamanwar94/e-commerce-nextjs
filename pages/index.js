@@ -28,27 +28,30 @@ export default function Home() {
   const products = useSelector(selectProducts);
   const categories = useSelector(selectCategory);
 
+  const mainCategories = categories?.categories.filter((cat) => {
+    return cat.parent_id === "";
+  });
+
   useEffect(() => {
-    dispatch(fetchProducts());
     dispatch(fetchCategory());
-    console.log(categories);
-    // return () => {
-    //   second
-    // }
+    dispatch(fetchProducts());
   }, [dispatch]);
+
+
   useEffect(() => {
     async function getSLider() {
       try {
         const response = await axios.get(
           "https://ashley-api.herokuapp.com/sliders"
         );
-        console.log(response);
+        // console.log(response);
         setSlider(response.data.sliders);
       } catch (error) {
         console.error(error);
       }
     }
     getSLider();
+    console.log(mainCategories)
   }, []);
 
   return (
@@ -59,7 +62,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.home_wrapper}>
-        <Carousal height={460} slider={slider} url="https://ashley-api.herokuapp.com/uploads/slider/"/>
+        <Carousal
+          height={460}
+          slider={slider}
+          url="https://ashley-api.herokuapp.com/uploads/slider/"
+        />
         <div className={styles.discount_cards_wrapper}>
           <div className={styles.discount_cards_heading}>
             <h2>Discount in full bloom</h2>

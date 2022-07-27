@@ -15,8 +15,7 @@
       @include flex-center;
       img {
         cursor: crosshair;
-        // width: 80%;
-        // height: 400px;
+        
       }
       &:hover img {
         transform: scale(1.3);

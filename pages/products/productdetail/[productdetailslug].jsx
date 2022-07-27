@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
+// import Carousel from "react-material-ui-carousel";
+
 // import axios from "axios";
 
 import { AiFillStar } from "react-icons/ai";
-import { RiToolsFill } from "react-icons/ri";
-import { TbCircle1 } from "react-icons/tb";
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
 
 import Carousal from "../../../components/Carousal.jsx";
-// import bed from "../../assets/fur12.jpg";
+import bed from "../../assets/fur12.jpg";
 import product from "../../../styles/ProductDetail.module.scss";
 import dimension from "../..//assets/dimensions.webp";
 
@@ -27,8 +28,8 @@ const ProductDetail = ({ productDetail }) => {
   const colorChangeHandler = (i) => {
     setColorID(i);
     // console.log(colorID);
-    console.log(slider);
-    console.log(images);
+    console.log(slider[0]);
+    // console.log(images);
   };
 
   const sizes = productDetail.variants.map((variant) => {
@@ -52,17 +53,56 @@ const ProductDetail = ({ productDetail }) => {
         });
       });
     });
-    const slider = images
+  const slider = images[0];
+  // const slider = images.map((singleImage) => {
+  //   return singleImage;
+  // });
 
   return (
     <div className={product.product_detail_wrapper}>
       <div className={product.img_and_detail} key={productDetail._id}>
         <div className={product.carousel}>
-          {/* <Image src={bed} alt="bed" /> */}
           <Carousal
-            slider={images}
+            // height={260}
+            slider={slider[0]}
             url="https://ashley-api.herokuapp.com/uploads/"
           />
+
+          {/* <Carousel
+            interval={4000}
+            animation="slide"
+            duration={1200}
+            navButtonsAlwaysVisible={true}
+            height={300}
+          >
+            {slider.map((image, i) => (
+              <img
+                src={`https://ashley-api.herokuapp.com/uploads/${image}`}
+                key={i}
+                alt={image}
+              />
+            ))}
+          </Carousel> */}
+
+          {/* <Carousel
+            interval={4000}
+            animation="slide"
+            duration={1200}
+            navButtonsAlwaysVisible={true}
+            height={260}
+          > */}
+          {/* {slider.map((image, i) => (
+              <img
+                src={`https://ashley-api.herokuapp.com/uploads/${image[i]}`}
+                key={i}
+                alt={image + i}
+                width={400}
+              />
+            ))} */}
+          {/* <img src={bed} alt="bed" width={500} height={500} />
+            <img src={bed} alt="bed" width={500} height={500} />
+            <img src={bed} alt="bed" width={500} height={500} />
+          </Carousel> */}
         </div>
         <div className={product.product_detail}>
           <div className={product.name_price}>
