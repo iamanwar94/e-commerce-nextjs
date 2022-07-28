@@ -1,5 +1,4 @@
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
-// import STATUSES from "./productSlice";
 
 export const STATUSES = Object.freeze({
   IDLE: "idle",

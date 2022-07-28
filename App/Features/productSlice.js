@@ -1,10 +1,11 @@
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
+import { STATUSES } from "./categorySlice";
 
-export const STATUSES = Object.freeze({
-  IDLE: "idle",
-  ERROR: "error",
-  LOADING: "loading",
-});
+// export const STATUSES = Object.freeze({
+//   IDLE: "idle",
+//   ERROR: "error",
+//   LOADING: "loading",
+// });
 
 const productSlice = createSlice({
   name: "product",
@@ -22,20 +23,19 @@ const productSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProducts.pending, (state, action) => {
+      .addCase(fetchProducts.pending, (state) => {
         state.status = STATUSES.LOADING;
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.data = action.payload;
         state.status = STATUSES.IDLE;
       })
-      .addCase(fetchProducts.rejected, (state, action) => {
+      .addCase(fetchProducts.rejected, (state) => {
         state.status = STATUSES.ERROR;
       });
   },
 });
 
-export const { setProducts, setStatus } = productSlice.actions;
 export default productSlice.reducer;
 export const selectProducts = (state) => state.product.data;
 

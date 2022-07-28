@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-// import Carousel from "react-material-ui-carousel";
-
-// import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../App/Features/cartSlice";
 
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
@@ -14,8 +13,22 @@ import product from "../../../styles/ProductDetail.module.scss";
 import dimension from "../..//assets/dimensions.webp";
 
 const ProductDetail = ({ productDetail }) => {
+  const cartData = {
+    _id: "",
+    title: "",
+    size: "",
+    color: "",
+    price: "",
+    quantity: "",
+    image: "",
+  };
+
   const [sizeID, setSizeID] = useState(0);
   const [colorID, setColorID] = useState(0);
+  const [cartDetail, setCartDetail] = useState(cartData);
+  const [productQuantity, setProductQuantity] = useState(1);
+  const dispatch = useDispatch();
+
   // const router = useRouter();
   // const { productdetail } = router.query;
   // const variants = productDetail.variants.map((variant) => {
@@ -23,13 +36,47 @@ const ProductDetail = ({ productDetail }) => {
   // });
   const sizeChangeHandler = (i) => {
     setSizeID(i);
+    setCartDetail({
+      ...cartDetail,
+      _id: productDetail._id,
+      title: productDetail.title,
+      price: Number(price.slice(sizeID, sizeID + 1).map((price) => price)[0]),
+      size: sizes[sizeID],
+      color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
+      image: images[0].map((image) => image[0])[0],
+      quantity: productQuantity,
+    });
+
+    console.log(cartDetail);
     // console.log(sizeID);
   };
   const colorChangeHandler = (i) => {
     setColorID(i);
+    setCartDetail({
+      ...cartDetail,
+      _id: productDetail._id,
+      title: productDetail.title,
+      price: Number(price.slice(sizeID, sizeID + 1).map((price) => price)[0]),
+      size: sizes[sizeID],
+      color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
+      image: images[0].map((image) => image[0])[0],
+      quantity: productQuantity,
+    });
+
+    console.log(cartDetail);
     // console.log(colorID);
-    console.log(slider[0]);
+    // console.log(slider[0]);
     // console.log(images);
+    // console.log(productDetail);
+  };
+
+  const decQuantity = () => {
+    productQuantity > 1
+      ? setProductQuantity(productQuantity - 1)
+      : productQuantity;
+  };
+  const incQuantity = () => {
+    setProductQuantity(productQuantity + 1);
   };
 
   const sizes = productDetail.variants.map((variant) => {
@@ -54,9 +101,24 @@ const ProductDetail = ({ productDetail }) => {
       });
     });
   const slider = images[0];
-  // const slider = images.map((singleImage) => {
-  //   return singleImage;
-  // });
+
+  const addToCartHandler = () => {
+    setCartDetail({
+      ...cartDetail,
+      _id: productDetail._id,
+      title: productDetail.title,
+      price: Number(price.slice(sizeID, sizeID + 1).map((price) => price)[0]),
+      size: sizes[sizeID],
+      color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
+      image: images[0].map((image) => image[0])[0],
+      quantity: productQuantity,
+    });
+
+    console.log(cartDetail);
+    // console.log(images[0]);
+    dispatch(addToCart(cartDetail));
+    setProductQuantity(1)
+  };
 
   return (
     <div className={product.product_detail_wrapper}>
@@ -244,15 +306,15 @@ const ProductDetail = ({ productDetail }) => {
           <div className={product.customer_care}></div>
         </div>
         <div className={product.subtotal}>
-          <h3>Subtotal: Rs. 1799.99</h3>
+          <h3>Subtotal: $ {productQuantity * cartDetail.price}</h3>
           <div className={product.qty_wrapper}>
             <h3>Qty:</h3>
             <div className={product.qty}>
-              <AiOutlineMinus className={product.icon} />
-              <span>1</span>
-              <AiOutlinePlus className={product.icon} />
+              <p onClick={decQuantity}>-</p>
+              <p>{productQuantity}</p>
+              <p onClick={incQuantity}>+</p>
             </div>
-            <button>Add Items to Cart</button>
+            <button onClick={addToCartHandler}>Add Items to Cart</button>
             <div className={product.icon}>
               <AiOutlineHeart className={product.heart} />
             </div>

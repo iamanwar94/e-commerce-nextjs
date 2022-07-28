@@ -266,6 +266,23 @@
           border-radius: 4px;
           border: 1px solid rgba(128, 128, 128, 0.5);
           @include flex-around;
+          align-items: center;
+          p{
+            margin: 0;
+            font-size: 24px;
+            cursor: pointer;
+            flex: 1;
+            padding: 0;
+            @include flex-center;
+            border-right: 1px solid $extra-light-grey;
+            border-left: 1px solid $extra-light-grey;
+
+            &:nth-child(odd){
+              font-size: 36px;
+              font-weight: 600;
+              border: 0;
+            }
+          }
           .icon {
             border-right: 1px solid rgba(128, 128, 128, 0.5);
             border-left: 1px solid rgba(128, 128, 128, 0.5);

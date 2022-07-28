@@ -1,14 +1,11 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import { useRouter } from "next/router";
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchProducts } from "../../App/Features/productSlice";
-// import { fetchCategory } from "../App/Features/categorySlice";
-import { selectProducts } from "../../App/Features/productSlice";
-// import { selectCategory } from "../App/Features/categorySlice";
+import { fetchProducts, selectProducts } from "../../App/Features/productSlice";
 
 import FilterAccordion from "../../components/FilterAccordion";
 import ProductCard from "../../components/ProductCard";
@@ -19,15 +16,10 @@ import catchair from "../../components/assets/chair3.png";
 
 const Products = () => {
   const router = useRouter();
-  const { productslug } = router.query;
-  const dispatch = useDispatch();
+  // const { productslug } = router.query;
+  // const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   // const categories = useSelector(selectCategory);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-    console.log(productslug);
-  }, [dispatch]);
 
   return (
     <div className={product.products_wrapper}>

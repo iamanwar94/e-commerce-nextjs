@@ -1,7 +1,10 @@
 import React from "react";
+import Image from "next/image";
+
+import CartItems from "../components/CartItems";
+
 import cart from "../styles/Cart.module.scss";
 import cartimage from "./assets/fur18.jpg";
-import Image from "next/image";
 
 const Cart = () => {
   return (
@@ -18,11 +21,12 @@ const Cart = () => {
         <div className={cart.cart}>
           <div className={cart.cart_items}>
             <div className={cart.cart_item_heading}>
-              <p>Item</p>
-              <p>Availability and Delivery Options based on zip code</p>
+              {/* <p>Item</p> */}
+              {/* <p>Availability and Delivery Options based on zip code</p> */}
             </div>
             <div className={cart.cart_item}>
-              <div className={cart.card}>
+              <CartItems />
+              {/* <div className={cart.card}>
                 <div className={cart.card_img_info}>
                   <div className={cart.img}>
                     <Image
@@ -62,8 +66,8 @@ const Cart = () => {
                   <button>Save for Later</button>
                   <button>Remove Item</button>
                 </div>
-              </div>
-              <div className={cart.services}>
+              </div> */}
+              {/* <div className={cart.services}>
                 <div className={cart.img}>
                   <Image src={cartimage} alt="cartimage" className={cart.img} />
                 </div>
@@ -76,7 +80,7 @@ const Cart = () => {
                     </label>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className={cart.cart_summary_wrapper}>

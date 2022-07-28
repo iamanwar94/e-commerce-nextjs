@@ -1,12 +1,18 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useSelector } from "react-redux";
+import { selectCart } from "../App/Features/cartSlice";
 import navsearch from "../styles/NavbarSearch.module.scss";
-import logo from '../components/assets/m_logo_360.png'
+import logo from "../components/assets/m_logo_360.png";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
+import CartItems from "./CartItems";
 
 const NavbarSearch = () => {
+  const selectCartDetail = useSelector(selectCart);
+  const cartCount = selectCartDetail.length;
+
   return (
     <div className={navsearch.navbar_search_wrapper}>
       <div className={navsearch.logo}>
@@ -46,6 +52,9 @@ const NavbarSearch = () => {
               </span>
             </a>
           </Link>
+          <div className={navsearch.cart_detail}>
+            <CartItems />
+          </div>
         </div>
       </div>
     </div>

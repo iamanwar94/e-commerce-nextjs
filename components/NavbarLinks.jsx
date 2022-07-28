@@ -58,7 +58,7 @@ const NavbarLinks = () => {
                 (filteredCats) => filteredCats.parent_id === mainCategory._id
               )
               .map((subCats) => (
-                <Link href="/" className={navbar.dropdown_link}>
+                <Link href="/" className={navbar.dropdown_link} key={subCats._id}>
                   <a>{subCats.title}</a>
                 </Link>
               ))}

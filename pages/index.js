@@ -1,17 +1,22 @@
+// from installed libraries
+
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-import { fetchProducts } from "../App/Features/productSlice";
-import { fetchCategory } from "../App/Features/categorySlice";
-import { selectProducts } from "../App/Features/productSlice";
-import { selectCategory } from "../App/Features/categorySlice";
+// from redux slices
 
+import { fetchProducts } from "../App/Features/productSlice";
+import { fetchCategory, selectCategory } from "../App/Features/categorySlice";
+
+//from assets and styles
 import styles from "../styles/Home.module.scss";
 import model from "./assets/model.jpg";
 import sofa from "./assets/fur12.jpg";
+
+//from components
 
 import Carousal from "../components/Carousal";
 import CategoriesCard from "../components/CategoriesCard";
@@ -25,7 +30,7 @@ import ThinBannerCard from "../components/ThinBannerCard";
 export default function Home() {
   const [slider, setSlider] = useState([]);
   const dispatch = useDispatch();
-  const products = useSelector(selectProducts);
+  // const products = useSelector(selectProducts);
   const categories = useSelector(selectCategory);
 
   const mainCategories = categories?.categories.filter((cat) => {
@@ -37,21 +42,18 @@ export default function Home() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-
   useEffect(() => {
     async function getSLider() {
       try {
         const response = await axios.get(
           "https://ashley-api.herokuapp.com/sliders"
         );
-        // console.log(response);
         setSlider(response.data.sliders);
       } catch (error) {
         console.error(error);
       }
     }
     getSLider();
-    console.log(mainCategories)
   }, []);
 
   return (
@@ -85,7 +87,7 @@ export default function Home() {
         <div className={styles.categories_wrapper}>
           <h3>Shop By Categories</h3>
           <div className={styles.categories}>
-            {categories?.categories?.slice(0, 6).map((category) => (
+            {categories?.categories?.slice(0).map((category) => (
               <CategoriesCard
                 key={category._id}
                 img={category.image ? category.image : catchair}
@@ -94,7 +96,7 @@ export default function Home() {
             ))}
           </div>
           <div className={styles.categories}>
-            {categories?.categories?.slice(6, 12).map((category) => (
+            {categories?.categories?.slice(6).map((category) => (
               <CategoriesCard
                 key={category._id}
                 img={category.image ? category.image : catchair}

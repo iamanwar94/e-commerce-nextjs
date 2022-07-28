@@ -72,8 +72,8 @@
       font-size: 20px;
       cursor: pointer;
 
-      &:hover{
-        color: $grey
+      &:hover {
+        color: $grey;
       }
     }
   }
@@ -106,12 +106,29 @@
       height: 60px;
       border-radius: 50%;
       padding-right: 10px;
+      position: relative;
 
-      &:hover{
+      .cart_detail {
+        height: 0;
+        width: 300px;
+        overflow: hidden;
+        background: rgb(155, 152, 152);
+        position: absolute;
+        top: 80px;
+        right: 0;
+        z-index: 1000;
+      }
+
+      &:hover {
         background-color: rgba(128, 128, 128, 0.11);
         color: white;
         cursor: pointer;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.123);
+
+        .cart_detail{
+          height: auto;
+        }
+
       }
       .cart_icon {
         // @include flex-around;
