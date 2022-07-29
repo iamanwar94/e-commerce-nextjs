@@ -87,7 +87,7 @@ export default function Home() {
         <div className={styles.categories_wrapper}>
           <h3>Shop By Categories</h3>
           <div className={styles.categories}>
-            {categories?.categories?.slice(0).map((category) => (
+            {categories?.categories?.slice(0, 6).map((category) => (
               <CategoriesCard
                 key={category._id}
                 img={category.image ? category.image : catchair}
@@ -95,15 +95,15 @@ export default function Home() {
               />
             ))}
           </div>
-          <div className={styles.categories}>
-            {categories?.categories?.slice(6).map((category) => (
+          {/* <div className={styles.categories}>
+            {categories?.categories?.slice(6, 12).map((category) => (
               <CategoriesCard
                 key={category._id}
                 img={category.image ? category.image : catchair}
                 title={category.title}
               />
             ))}
-          </div>
+          </div> */}
         </div>
         <div className={styles.banner_card_wrapper}>
           <BannerCard

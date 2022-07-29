@@ -9,7 +9,7 @@ const CategoryCard = ({ img, title, feature }) => {
       <div className={category.info}>
         <h4>{title}</h4>
         <p>{feature}</p>
-        <Link href="/products">
+        <Link href="/products/products">
           <a>
             <button>Shop Now</button>
           </a>

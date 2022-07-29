@@ -39,7 +39,7 @@ const NavbarSearch = () => {
           </Link>
         </p>
         <p>
-          <Link href="/login" className={navsearch.links}>
+          <Link href="/deliverytracking" className={navsearch.links}>
             <a>Delivery Tracking</a>
           </Link>
         </p>
@@ -48,7 +48,7 @@ const NavbarSearch = () => {
             <a>
               <span className={navsearch.cart_icon}>
                 <AiOutlineShoppingCart className={navsearch.icon} />
-                <span className={navsearch.badge}>0</span>
+                <span className={navsearch.badge}>{cartCount}</span>
               </span>
             </a>
           </Link>

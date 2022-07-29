@@ -36,38 +36,9 @@ const ProductDetail = ({ productDetail }) => {
   // });
   const sizeChangeHandler = (i) => {
     setSizeID(i);
-    setCartDetail({
-      ...cartDetail,
-      _id: productDetail._id,
-      title: productDetail.title,
-      price: Number(price.slice(sizeID, sizeID + 1).map((price) => price)[0]),
-      size: sizes[sizeID],
-      color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
-      image: images[0].map((image) => image[0])[0],
-      quantity: productQuantity,
-    });
-
-    console.log(cartDetail);
-    // console.log(sizeID);
   };
   const colorChangeHandler = (i) => {
     setColorID(i);
-    setCartDetail({
-      ...cartDetail,
-      _id: productDetail._id,
-      title: productDetail.title,
-      price: Number(price.slice(sizeID, sizeID + 1).map((price) => price)[0]),
-      size: sizes[sizeID],
-      color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
-      image: images[0].map((image) => image[0])[0],
-      quantity: productQuantity,
-    });
-
-    console.log(cartDetail);
-    // console.log(colorID);
-    // console.log(slider[0]);
-    // console.log(images);
-    // console.log(productDetail);
   };
 
   const decQuantity = () => {
@@ -102,7 +73,7 @@ const ProductDetail = ({ productDetail }) => {
     });
   const slider = images[0];
 
-  const addToCartHandler = () => {
+  useEffect(() => {
     setCartDetail({
       ...cartDetail,
       _id: productDetail._id,
@@ -111,13 +82,26 @@ const ProductDetail = ({ productDetail }) => {
       size: sizes[sizeID],
       color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
       image: images[0].map((image) => image[0])[0],
-      quantity: productQuantity,
+      quantity: Number(productQuantity),
     });
+  }, [sizeID, colorID, productQuantity]);
+
+  const addToCartHandler = () => {
+    // setCartDetail({
+    //   ...cartDetail,
+    //   _id: productDetail._id,
+    //   title: productDetail.title,
+    //   price: Number(price.slice(sizeID, sizeID + 1).map((price) => price)[0]),
+    //   size: sizes[sizeID],
+    //   color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
+    //   image: images[0].map((image) => image[0])[0],
+    //   quantity: productQuantity,
+    // });
 
     console.log(cartDetail);
     // console.log(images[0]);
     dispatch(addToCart(cartDetail));
-    setProductQuantity(1)
+    setProductQuantity(1);
   };
 
   return (

@@ -55,20 +55,32 @@
           @include flex-between;
           border-bottom: 1px solid $extra-light-grey;
           padding: 10px 0;
-          .card {
-            @include flex-column;
-            border: 0;
-            width: 50%;
 
+          .main {
+            width: 100%;
+            h3 {
+              text-align: center;
+              width: 100%;
+            }
+          }
+          .card {
+            width: 100%;
+            border: 0;
             .card_img_info {
               // @include flex-between;
               display: flex;
+              // flex-wrap: wrap;
+              flex: 1;
 
               .img {
-                margin: 0 10px;
+                // margin: 0 10px;
                 height: 240px;
-                flex: 1;
                 @include flex-start;
+                object-fit: contain;
+                @include flex-center;
+                img{
+                  width: 100%;
+                }
               }
 
               .info {
@@ -78,13 +90,16 @@
                   width: 100%;
                   h3 {
                     font-weight: 700;
-                    margin: 0;
-                    font-size: 22px;
+                    margin: 0 10px;
+                    font-size: 20px;
+                    text-transform: capitalize;
+                    text-align: left;
                   }
                   p {
                     font-size: 14px;
-                    margin: 10px 0;
+                    margin: 10px;
                     font-weight: 700;
+                    text-transform: capitalize;
 
                     &:nth-child(2){
                       font-size: 12px;
@@ -159,14 +174,19 @@
               }
             }
             .remove_btn {
-              @include flex-start;
+              @include flex-center;
               width: 100%;
               button {
-                font-size: 12px;
+                font-size: 14px;
                 margin: 0 10px;
                 text-decoration: underline;
                 background-color: white;
                 border: 0;
+
+                &:hover{
+                  color: $light-grey;
+                  transform: scale(1.1);
+                }
               }
             }
           }

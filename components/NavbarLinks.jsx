@@ -49,7 +49,7 @@ const NavbarLinks = () => {
 
       {mainCategories?.map((mainCategory) => (
         <div className={navbar.links_wrapper} key={mainCategory._id}>
-          <Link className={navbar.links} href="/furniture">
+          <Link className={navbar.links} href={`/${mainCategory._id}`}>
             <a>{mainCategory.title} </a>
           </Link>
           <div className={navbar.dropdown}>
@@ -58,31 +58,10 @@ const NavbarLinks = () => {
                 (filteredCats) => filteredCats.parent_id === mainCategory._id
               )
               .map((subCats) => (
-                <Link href="/" className={navbar.dropdown_link} key={subCats._id}>
+                <Link href="/products/products" className={navbar.dropdown_link} key={subCats._id}>
                   <a>{subCats.title}</a>
                 </Link>
               ))}
-            {/* <Link href="/" className={navbar.dropdown_link}>
-              <a>Add Category Here</a>
-            </Link>
-            <Link href="/" className={navbar.dropdown_link}>
-              <a>Add Category Here</a>
-            </Link>
-            <Link href="/" className={navbar.dropdown_link}>
-              <a>Add Category Here</a>
-            </Link>
-            <Link href="/" className={navbar.dropdown_link}>
-              <a>Add Category Here</a>
-            </Link>
-            <Link href="/" className={navbar.dropdown_link}>
-              <a>Add Category Here</a>
-            </Link>
-            <Link href="/" className={navbar.dropdown_link}>
-              <a>Add Category Here</a>
-            </Link>
-            <Link href="/" className={navbar.dropdown_link}>
-              <a>Add Category Here</a>
-            </Link> */}
           </div>
         </div>
       ))}
