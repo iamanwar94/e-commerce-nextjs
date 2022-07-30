@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import Tracking from "../components/Tracking";
 
@@ -9,6 +10,8 @@ import login from "../styles/Login.module.scss";
 const Login = () => {
   const data = { email: "", password: "", remember: false };
   const [loginData, setLoginData] = useState(data);
+
+  const router = useRouter();
 
   const loginChangeHandler = (e) => {
     const { name, value, checked } = e.target;
@@ -40,7 +43,20 @@ const Login = () => {
       console.log(response.data.message);
       // console.log(loginData);
       setLoginData(data);
+      response.data.success &&
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            user_id: response.data.user._id,
+            first_name: response.data.user.first_name,
+            last_name: response.data.user.last_name,
+            email: response.data.user.email,
+          })
+        );
+      localStorage.setItem("token", response.data.session.token);
     }
+
+    router.push("/");
   };
   return (
     <div className={login.login_wrapper}>
