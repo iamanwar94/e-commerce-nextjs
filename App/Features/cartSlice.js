@@ -8,17 +8,24 @@ const cartSlice = createSlice({
       state.push(action.payload);
     },
     removeFromCart(state, action) {
-      return state.filter((item) => item._id !== action.payload);
+      return state.filter((item) => item.sku !== action.payload);
     },
     incQuantity(state, action) {
-      return state.map((item) =>
-        item._id !== action.payload ? (item.quantity += 1) : item.quantity
-      );
+      [
+        ...state,
+        state.map((item) => item.sku == action.payload && (item.quantity += 1)),
+      ];
     },
     decQuantity(state, action) {
-      return state.map((item) =>
-        item._id !== action.payload ? (item.quantity -= 1) : item.quantity
-      );
+      [
+        ...state,
+        state.map(
+          (item) =>
+            item.sku == action.payload &&
+            item.quantity > 1 &&
+            (item.quantity -= 1)
+        ),
+      ];
     },
   },
 });

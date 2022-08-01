@@ -1,5 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+
+// from redux slices
+
+import { fetchProducts } from "../App/Features/productSlice";
+import { fetchCategory, selectCategory } from "../App/Features/categorySlice";
 
 import CartItems from "../components/CartItems";
 
@@ -7,6 +14,13 @@ import cart from "../styles/Cart.module.scss";
 import cartimage from "./assets/fur18.jpg";
 
 const Cart = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategory());
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
   return (
     <div className={cart.cart_wrapper}>
       <div className={cart.cart_content}>
@@ -20,67 +34,11 @@ const Cart = () => {
         </div>
         <div className={cart.cart}>
           <div className={cart.cart_items}>
-            <div className={cart.cart_item_heading}>
-              {/* <p>Item</p> */}
-              {/* <p>Availability and Delivery Options based on zip code</p> */}
-            </div>
+            <div className={cart.cart_item_heading}></div>
             <div className={cart.cart_item}>
+
+              
               <CartItems />
-              {/* <div className={cart.card}>
-                <div className={cart.card_img_info}>
-                  <div className={cart.img}>
-                    <Image
-                      src={cartimage}
-                      alt="cart-img"
-                      className={cart.img}
-                    />
-                  </div>
-                  <div className={cart.info}>
-                    <div className={cart.name_color_size}>
-                      <h3>Product Name</h3>
-                      <p>Product Item Code</p>
-                      <p>Product Color</p>
-                      <p>Product Size</p>
-                    </div>
-                    <div className={cart.qty_price}>
-                      <div className={cart.qty}>
-                        <p>Qty</p>
-                        <span>
-                          <p>-</p>
-                          <p>1</p>
-                          <p>+</p>
-                        </span>
-                      </div>
-                      <div className={cart.price}>
-                        <p>Item Price</p>
-                        <h4>Rs. 499.99</h4>
-                      </div>
-                      <div className={cart.total}>
-                        <p>Item Total</p>
-                        <h3>Rs. 499.99</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className={cart.remove_btn}>
-                  <button>Save for Later</button>
-                  <button>Remove Item</button>
-                </div>
-              </div> */}
-              {/* <div className={cart.services}>
-                <div className={cart.img}>
-                  <Image src={cartimage} alt="cartimage" className={cart.img} />
-                </div>
-                <div className={cart.expert_service}>
-                  <h4>Add Expert Service</h4>
-                  <div className={cart.checkbox}>
-                    <input type="checkbox" name="services" id="services" />
-                    <label htmlFor="services" className={cart.checkbox}>
-                      Expert Assembly Installation by Handy
-                    </label>
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
           <div className={cart.cart_summary_wrapper}>
@@ -103,7 +61,11 @@ const Cart = () => {
                 <p className={cart.icon}>+</p>
               </div>
               <div className={cart.checkout_btn}>
-                <button>Checkout</button>
+                <Link href="/checkout">
+                  <a>
+                    <button>Checkout</button>
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={cart.payment_terms}>

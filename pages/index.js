@@ -2,9 +2,9 @@
 
 import Head from "next/head";
 import Image from "next/image";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
 
 // from redux slices
 

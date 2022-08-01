@@ -66,21 +66,18 @@
           .card {
             width: 100%;
             border: 0;
+            margin: 10px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid $extra-light-grey;
+            flex-wrap: wrap;
             .card_img_info {
-              // @include flex-between;
               display: flex;
-              // flex-wrap: wrap;
               flex: 1;
 
               .img {
-                // margin: 0 10px;
-                height: 240px;
-                @include flex-start;
-                object-fit: contain;
-                @include flex-center;
-                img{
-                  width: 100%;
-                }
+                width: 30%;
+                position: relative;
+                max-height: 220px;
               }
 
               .info {
@@ -101,10 +98,9 @@
                     font-weight: 700;
                     text-transform: capitalize;
 
-                    &:nth-child(2){
+                    &:nth-child(2) {
                       font-size: 12px;
                       font-weight: 500;
-                      
                     }
                   }
                 }
@@ -112,7 +108,6 @@
                 .qty_price {
                   @include flex-between;
                   flex-wrap: wrap;
-                  // margin: 20px 0;
                   .qty {
                     height: 100px;
                     @include flex-column;
@@ -123,11 +118,9 @@
                       text-align: center;
                       align-self: center;
                       cursor: pointer;
-
                     }
                     span {
                       @include flex-between;
-
 
                       p {
                         border: 1px solid $extra-light-grey;
@@ -140,7 +133,7 @@
                     flex: 1;
                     height: 100px;
                     @include flex-column;
-                    justify-content:center;
+                    justify-content: center;
                     p {
                       font-weight: 600;
                       text-align: center;
@@ -158,16 +151,20 @@
                     border-top: 1px solid $extra-light-grey;
                     border-bottom: 1px solid $extra-light-grey;
                     margin: 10px 0;
-                    @include flex-around;
+                    @include flex-between;
                     p {
                       margin: 5px 0;
                       font-weight: 600;
+                      flex: 1;
+                      text-align: center;
                     }
                     h3 {
                       font-size: 20px;
+                      flex: 1;
                       font-weight: 700;
                       margin: 5px 10px 5px 0;
-                      
+                      text-align: center;
+
                     }
                   }
                 }
@@ -183,8 +180,8 @@
                 background-color: white;
                 border: 0;
 
-                &:hover{
-                  color: $light-grey;
+                &:hover {
+                  color: $red;
                   transform: scale(1.1);
                 }
               }

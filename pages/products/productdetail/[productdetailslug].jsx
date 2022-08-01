@@ -21,6 +21,7 @@ const ProductDetail = ({ productDetail }) => {
     price: "",
     quantity: "",
     image: "",
+    sku: "",
   };
 
   const [sizeID, setSizeID] = useState(0);
@@ -29,11 +30,6 @@ const ProductDetail = ({ productDetail }) => {
   const [productQuantity, setProductQuantity] = useState(1);
   const dispatch = useDispatch();
 
-  // const router = useRouter();
-  // const { productdetail } = router.query;
-  // const variants = productDetail.variants.map((variant) => {
-  //   return variant;
-  // });
   const sizeChangeHandler = (i) => {
     setSizeID(i);
   };
@@ -61,6 +57,11 @@ const ProductDetail = ({ productDetail }) => {
       return feature.color;
     });
   });
+  const sku = productDetail.variants.map((variant) => {
+    return variant.features.map((feature) => {
+      return feature.sku;
+    });
+  });
 
   const images = productDetail.variants
     .slice(sizeID, sizeID + 1)
@@ -81,25 +82,14 @@ const ProductDetail = ({ productDetail }) => {
       price: Number(price.slice(sizeID, sizeID + 1).map((price) => price)[0]),
       size: sizes[sizeID],
       color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
+      sku: sku.slice(sizeID, sizeID + 1).map((sku) => sku[colorID])[0],
       image: images[0].map((image) => image[0])[0],
       quantity: Number(productQuantity),
     });
   }, [sizeID, colorID, productQuantity]);
 
   const addToCartHandler = () => {
-    // setCartDetail({
-    //   ...cartDetail,
-    //   _id: productDetail._id,
-    //   title: productDetail.title,
-    //   price: Number(price.slice(sizeID, sizeID + 1).map((price) => price)[0]),
-    //   size: sizes[sizeID],
-    //   color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
-    //   image: images[0].map((image) => image[0])[0],
-    //   quantity: productQuantity,
-    // });
-
     console.log(cartDetail);
-    // console.log(images[0]);
     dispatch(addToCart(cartDetail));
     setProductQuantity(1);
   };
@@ -109,46 +99,9 @@ const ProductDetail = ({ productDetail }) => {
       <div className={product.img_and_detail} key={productDetail._id}>
         <div className={product.carousel}>
           <Carousal
-            // height={260}
             slider={slider[0]}
             url="https://ashley-api.herokuapp.com/uploads/"
           />
-
-          {/* <Carousel
-            interval={4000}
-            animation="slide"
-            duration={1200}
-            navButtonsAlwaysVisible={true}
-            height={300}
-          >
-            {slider.map((image, i) => (
-              <img
-                src={`https://ashley-api.herokuapp.com/uploads/${image}`}
-                key={i}
-                alt={image}
-              />
-            ))}
-          </Carousel> */}
-
-          {/* <Carousel
-            interval={4000}
-            animation="slide"
-            duration={1200}
-            navButtonsAlwaysVisible={true}
-            height={260}
-          > */}
-          {/* {slider.map((image, i) => (
-              <img
-                src={`https://ashley-api.herokuapp.com/uploads/${image[i]}`}
-                key={i}
-                alt={image + i}
-                width={400}
-              />
-            ))} */}
-          {/* <img src={bed} alt="bed" width={500} height={500} />
-            <img src={bed} alt="bed" width={500} height={500} />
-            <img src={bed} alt="bed" width={500} height={500} />
-          </Carousel> */}
         </div>
         <div className={product.product_detail}>
           <div className={product.name_price}>
@@ -166,24 +119,12 @@ const ProductDetail = ({ productDetail }) => {
               <p>121 Reviews</p>
             </div>
             <div className={product.flex + " " + product.price}>
-              {/* {price.map((price) => ( */}
               <h3>${price.slice(sizeID, sizeID + 1)}</h3>
-              {/* ))} */}
-              {/* <span className={product.mx - 2}> */}
-              {/* <RiToolsFill className={product.setting_icon} /> */}
-              {/* </span> */}
-              {/* <h3>Assembly Required</h3> */}
             </div>
           </div>
           <div className={product.color_size}>
             <div className={product.color + " " + product.flex}>
-              {/* <TbCircle1 className={product.icon} /> */}
               <h4>Colors:</h4>
-              {/* {features.map((feature,i) => (
-                <p key={feature._id}>{feature.color[i].map((color)=>(
-
-                ))}</p>
-              ))} */}
               {colors[sizeID].map((color, i) => (
                 <p
                   key={i}
@@ -195,7 +136,6 @@ const ProductDetail = ({ productDetail }) => {
               ))}
             </div>
             <div className={product.size + " " + product.flex}>
-              {/* <TbCircle1 className={product.icon} /> */}
               <h4>Sizes:</h4>
               {sizes.map((size, i) => (
                 <p key={i} onClick={() => sizeChangeHandler(i)}>

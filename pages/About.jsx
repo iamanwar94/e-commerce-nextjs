@@ -1,9 +1,27 @@
-import React from "react";
+import React, {useEffect} from "react";
 import about from "../styles/About.module.scss";
 import banner from "./assets/henry-ascroft-4RJYV_rkoeM-unsplash (1).jpg";
 import Image from 'next/image'
+import { useDispatch, useSelector } from "react-redux";
+
+// from redux slices
+
+import { fetchProducts } from "../App/Features/productSlice";
+import { fetchCategory, selectCategory } from "../App/Features/categorySlice";
+
 
 const About = () => {
+  const dispatch = useDispatch();
+
+
+  
+  useEffect(() => {
+    dispatch(fetchCategory());
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+
+
   const Card = () => {
     return (
       <div className={about.card}>

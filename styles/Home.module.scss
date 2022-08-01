@@ -5,6 +5,7 @@
   font-family: $open-sans;
   width: 100%;
   background-color: rgb(250, 250, 252);
+  position: relative;
   .discount_cards_wrapper {
     width: 95%;
     margin: 10px 0;
@@ -59,7 +60,7 @@
     background-color: white;
     padding: 20px 0;
     margin: 20px 0;
-    .category_cards{
+    .category_cards {
       display: flex;
       justify-content: space-evenly;
       width: 100%;
@@ -73,7 +74,7 @@
       text-align: center;
     }
   }
-  .thin_banner_wrapper{
+  .thin_banner_wrapper {
     width: 95%;
     margin: 20px 0;
   }

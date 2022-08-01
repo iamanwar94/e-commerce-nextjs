@@ -37,26 +37,28 @@ const CartItems = () => {
           <div className={cart.card} key={cartDetail._id}>
             <div className={cart.card_img_info}>
               <div className={cart.img}>
-                <img
+                <Image
                   src={`${imageURL}${cartDetail.image}`}
                   alt={cartDetail.title}
                   className={cart.img}
+                  layout="fill"
+                  objectFit="contain"
                 />
               </div>
               <div className={cart.info}>
                 <div className={cart.name_color_size}>
-                  <h3>{cartDetail.title}</h3>
-                  <p>Product Item Code</p>
-                  <p>{cartDetail.color}</p>
-                  <p>{cartDetail.size}</p>
+                  <h3>Product Name: {cartDetail.title}</h3>
+                  <p>Product Item Code: {cartDetail.sku}</p>
+                  <p>Color: {cartDetail.color}</p>
+                  <p>Size:  {cartDetail.size}</p>
                 </div>
                 <div className={cart.qty_price}>
                   <div className={cart.qty}>
                     <p>Qty</p>
                     <span>
-                      <p onClick={() => decQty(cartDetail._id)}>-</p>
+                      <p onClick={() => decQty(cartDetail.sku)}>-</p>
                       <p>{cartDetail.quantity}</p>
-                      <p onClick={() => incQty(cartDetail._id)}>+</p>
+                      <p onClick={() => incQty(cartDetail.sku)}>+</p>
                     </span>
                   </div>
                   <div className={cart.price}>
@@ -72,7 +74,7 @@ const CartItems = () => {
             </div>
             <div className={cart.remove_btn}>
               {/* <button>Save for Later</button> */}
-              <button onClick={() => handleRemove(cartDetail._id)}>
+              <button onClick={() => handleRemove(cartDetail.sku)}>
                 Remove Item
               </button>
             </div>
