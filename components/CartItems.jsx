@@ -7,7 +7,7 @@ import {
   incQuantity,
   decQuantity,
 } from "../App/Features/cartSlice";
-import cartimage from "../pages/assets/fur18.jpg";
+// import cartimage from "../pages/assets/fur18.jpg";
 
 import cart from "../styles/Cart.module.scss";
 
@@ -50,7 +50,7 @@ const CartItems = () => {
                   <h3>Product Name: {cartDetail.title}</h3>
                   <p>Product Item Code: {cartDetail.sku}</p>
                   <p>Color: {cartDetail.color}</p>
-                  <p>Size:  {cartDetail.size}</p>
+                  <p>Size: {cartDetail.size}</p>
                 </div>
                 <div className={cart.qty_price}>
                   <div className={cart.qty}>

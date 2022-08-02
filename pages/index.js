@@ -30,6 +30,7 @@ import ThinBannerCard from "../components/ThinBannerCard";
 export default function Home() {
   const [slider, setSlider] = useState([]);
   const dispatch = useDispatch();
+
   // const products = useSelector(selectProducts);
   const categories = useSelector(selectCategory);
 

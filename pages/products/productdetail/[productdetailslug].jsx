@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
 import { addToCart } from "../../../App/Features/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../../App/Features/productSlice";
+import { fetchCategory } from "../../../App/Features/categorySlice";
 
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
@@ -75,6 +77,11 @@ const ProductDetail = ({ productDetail }) => {
   const slider = images[0];
 
   useEffect(() => {
+    dispatch(fetchCategory());
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  useEffect(() => {
     setCartDetail({
       ...cartDetail,
       _id: productDetail._id,
@@ -89,7 +96,6 @@ const ProductDetail = ({ productDetail }) => {
   }, [sizeID, colorID, productQuantity]);
 
   const addToCartHandler = () => {
-    console.log(cartDetail);
     dispatch(addToCart(cartDetail));
     setProductQuantity(1);
   };

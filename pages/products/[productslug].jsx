@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 // import Image from "next/image";
 import { useRouter } from "next/router";
 
 // import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchCategory } from "../../App/Features/categorySlice";
 
 import { fetchProducts, selectProducts } from "../../App/Features/productSlice";
 
@@ -16,10 +17,17 @@ import catchair from "../../components/assets/chair3.png";
 
 const Products = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+
   // const { productslug } = router.query;
   // const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   // const categories = useSelector(selectCategory);
+
+  useEffect(() => {
+    dispatch(fetchCategory());
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <div className={product.products_wrapper}>

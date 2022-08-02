@@ -45,6 +45,11 @@ function getStepContent(step) {
 }
 
 const theme = createTheme();
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -60,21 +65,6 @@ export default function Checkout() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {/* <AppBar
-        position="absolute"
-        color="default"
-        elevation={0}
-        sx={{
-          position: 'relative',
-          borderBottom: (t) => `1px solid ${t.palette.divider}`,
-        }}
-      >
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Company name
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper
           variant="outlined"
@@ -124,7 +114,6 @@ export default function Checkout() {
             )}
           </React.Fragment>
         </Paper>
-        {/* <Copyright /> */}
       </Container>
     </ThemeProvider>
   );
