@@ -16,19 +16,6 @@ import AddressForm from "../components/AddressForm";
 import PaymentForm from "../components/PaymentForm";
 import Review from "../components/Review";
 
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
-
 const steps = ["Shipping address", "Payment details", "Review your order"];
 
 function getStepContent(step) {
