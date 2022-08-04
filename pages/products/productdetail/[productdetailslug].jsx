@@ -52,7 +52,7 @@ const ProductDetail = ({ productDetail }) => {
     return variant.size;
   });
   const price = productDetail.variants.map((variant) => {
-    return variant.price;
+    return variant.sale_price;
   });
   const colors = productDetail.variants.map((variant) => {
     return variant.features.map((feature) => {

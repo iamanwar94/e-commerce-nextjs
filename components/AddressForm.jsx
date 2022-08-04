@@ -1,29 +1,48 @@
 import * as React from "react";
 import { useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import { next, back, selectStep } from "../App/Features/stepSlice";
+
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+
+const steps = ["Shipping address", "Payment details", "Review your order"];
 
 const data = {
   firstName: "",
   lastName: "",
-  address1: "",
-  address2: "",
+  address: "",
   city: "",
   state: "",
   zip: "",
   country: "",
-  // saveAddress: false,
 };
 
 export default function AddressForm() {
   const [addressData, setAddressData] = useState(data);
 
+  const dispatch = useDispatch();
+  const activeStep = useSelector(selectStep);
+
   const inputChangeHandler = (e) => {
     const { name, value } = e.target;
     setAddressData({ ...addressData, [name]: value });
+  };
+
+  const handleNext = () => {
+    // setActiveStep(activeStep + 1);
+    // console.log("object");
+    dispatch(next());
+    console.log(addressData);
+  };
+
+  const handleBack = () => {
+    // setActiveStep(activeStep - 1);
+    dispatch(back());
   };
 
   return (
@@ -61,25 +80,13 @@ export default function AddressForm() {
         <Grid item xs={12}>
           <TextField
             required
-            id="address1"
-            name="address1"
-            label="Address line 1"
+            id="address"
+            name="address"
+            label="Address"
             fullWidth
-            autoComplete="shipping address-line1"
+            autoComplete="shipping address"
             variant="standard"
-            value={addressData.address1}
-            onChange={inputChangeHandler}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
-            fullWidth
-            autoComplete="shipping address-line2"
-            variant="standard"
-            value={addressData.address2}
+            value={addressData.address}
             onChange={inputChangeHandler}
           />
         </Grid>
@@ -133,19 +140,21 @@ export default function AddressForm() {
             onChange={inputChangeHandler}
           />
         </Grid>
-        {/* <Grid item xs={12}>
-          <FormControlLabel
-            control={
-              <Checkbox
-                color="secondary"
-                name="saveAddress"
-                value={addressData.saveAddress}
-                checked={addressData.saveAddress}
-              />
-            }
-            label="Use this address for payment details"
-          />
-        </Grid> */}
+        <Box sx={{ display: "flex", justifyContent: "flex-end", mx: 2 }}>
+          {activeStep !== 0 && (
+            <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+              Back
+            </Button>
+          )}
+
+          <Button
+            variant="contained"
+            onClick={handleNext}
+            sx={{ mt: 3, ml: 1 }}
+          >
+            {activeStep === steps.length - 1 ? "Place order" : "Next"}
+          </Button>
+        </Box>
       </Grid>
     </React.Fragment>
   );

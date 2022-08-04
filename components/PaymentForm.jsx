@@ -1,8 +1,13 @@
 import * as React from "react";
 import { useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import { next, back, selectStep } from "../App/Features/stepSlice";
+
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
+import {Box, Button}  from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
@@ -12,13 +17,30 @@ const data = {
   expDate: "",
   cvv: "",
 };
+const steps = ["Shipping address", "Payment details", "Review your order"];
+
 
 export default function PaymentForm() {
   const [paymentData, setPaymentData] = useState(data);
 
+  const dispatch = useDispatch();
+  const activeStep = useSelector(selectStep);
+
   const paymentDataChangeHandler = (e) => {
     const { name, value } = e.target;
     setPaymentData({ ...paymentData, [name]: value });
+  };
+
+  const handleNext = () => {
+    // setActiveStep(activeStep + 1);
+    // console.log("object");
+    dispatch(next());
+    console.log(paymentData);
+  };
+
+  const handleBack = () => {
+    // setActiveStep(activeStep - 1);
+    dispatch(back());
   };
 
   return (
@@ -86,6 +108,21 @@ export default function PaymentForm() {
             label="Remember credit card details for next time"
           />
         </Grid> */}
+        <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+          {activeStep !== 0 && (
+            <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+              Back
+            </Button>
+          )}
+
+          <Button
+            variant="contained"
+            onClick={handleNext}
+            sx={{ mt: 3, ml: 1 }}
+          >
+            {activeStep === steps.length - 1 ? "Place order" : "Next"}
+          </Button>
+        </Box>
       </Grid>
     </React.Fragment>
   );

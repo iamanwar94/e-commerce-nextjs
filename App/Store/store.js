@@ -14,6 +14,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "../Features/cartSlice";
 import productReducer from "../Features/productSlice";
 import categoryReducer from "../Features/categorySlice";
+import checkoutReducer from "../Features/checkoutSlice";
+import stepReducer from "../Features/stepSlice";
 
 // const persistConfig = {
 //   key: "root",
@@ -29,6 +31,8 @@ const store = configureStore({
     cart: cartReducer,
     product: productReducer,
     category: categoryReducer,
+    checkout: checkoutReducer,
+    activeStep: stepReducer,
   },
   // middleware: (getDefaultMiddleware) =>
   //   getDefaultMiddleware({

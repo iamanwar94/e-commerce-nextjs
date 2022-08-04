@@ -14,11 +14,12 @@
       h2 {
         font-size: 24px;
         font-weight: 700;
-        color: $light-grey;
+        color: $grey;
         letter-spacing: 0.5px;
 
         span {
-          font-size: 14px;
+          font-size: 12px;
+          color: $light-grey;
         }
       }
     }
@@ -28,7 +29,6 @@
       p {
         font-weight: 600;
         margin: 10px 0;
-        color: $red;
       }
     }
     .cart {
@@ -247,10 +247,12 @@
             h4 {
               font-weight: 700;
               font-size: 14px;
+              margin: 0;
             }
             p {
               font-size: 14px;
               font-weight: 500;
+              margin: 0;
             }
           }
           .taxes {
@@ -260,10 +262,13 @@
             h4 {
               font-weight: 700;
               font-size: 14px;
+              margin: 0;
+
             }
             p {
               font-size: 14px;
               font-weight: 500;
+              margin: 0;
             }
           }
           .total {
@@ -275,10 +280,12 @@
             h4 {
               font-weight: 700;
               font-size: 14px;
+              margin: 0;
             }
             p {
               font-size: 14px;
               font-weight: 500;
+              margin: 0;
             }
           }
 

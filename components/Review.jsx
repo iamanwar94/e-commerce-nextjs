@@ -5,9 +5,15 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 
-import { useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
+import { next, back, selectStep } from "../App/Features/stepSlice";
+
+import { useSelector, useDispatch } from "react-redux";
 import { selectCart } from "../App/Features/cartSlice";
+import { selectCheckout } from "../App/Features/checkoutSlice";
 
 const products = [
   {
@@ -41,12 +47,28 @@ const payments = [
   { name: "Expiry date", detail: "04/2024" },
 ];
 
+const steps = ["Shipping address", "Payment details", "Review your order"];
+
 export default function Review() {
-  const  selectCartDetail  = useSelector(selectCart);
+  const selectCartDetail = useSelector(selectCart);
+  const selectCheckoutDetail = useSelector(selectCheckout);
+  const activeStep = useSelector(selectStep);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(selectCartDetail);
+    // console.log(selectCartDetail);
   }, [selectCartDetail]);
+
+  const handleNext = () => {
+    // setActiveStep(activeStep + 1);
+    // console.log("object");
+    dispatch(next());
+  };
+
+  const handleBack = () => {
+    // setActiveStep(activeStep - 1);
+    dispatch(back());
+  };
 
   return (
     <React.Fragment>
@@ -54,17 +76,33 @@ export default function Review() {
         Order summary
       </Typography>
       <List disablePadding>
-        {selectCartDetail.map((product) => (
+        {selectCartDetail?.map((product) => (
           <ListItem key={product._id} sx={{ py: 1, px: 0 }}>
-            <ListItemText primary={product.title} secondary={product.quantity} />
+            <ListItemText
+              primary={product.title}
+              secondary={product.quantity}
+            />
             <Typography variant="body2">$ {product.price}</Typography>
           </ListItem>
         ))}
 
-        <ListItem sx={{ py: 1, px: 0 }}>
+        <ListItem sx={{ py: 1, px: 0, borderTop: 1 }}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            $34.06
+            $ {selectCheckoutDetail && selectCheckoutDetail.total}
+          </Typography>
+        </ListItem>
+        <ListItem sx={{ py: 1, px: 0 }}>
+          <ListItemText primary="Taxes" />
+          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+            $ {selectCheckoutDetail && selectCheckoutDetail.taxes.toFixed(2)}
+          </Typography>
+        </ListItem>
+        <ListItem sx={{ py: 1, px: 0 }}>
+          <ListItemText primary="Grand Total" />
+          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+            ${" "}
+            {selectCheckoutDetail && selectCheckoutDetail.grandTotal.toFixed(2)}
           </Typography>
         </ListItem>
       </List>
@@ -93,6 +131,21 @@ export default function Review() {
             ))}
           </Grid>
         </Grid>
+        <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+          {activeStep !== 0 && (
+            <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+              Back
+            </Button>
+          )}
+
+          <Button
+            variant="contained"
+            onClick={handleNext}
+            sx={{ mt: 3, ml: 1 }}
+          >
+            {activeStep === steps.length - 1 ? "Place order" : "Next"}
+          </Button>
+        </Box>
       </Grid>
     </React.Fragment>
   );

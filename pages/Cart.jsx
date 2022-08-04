@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
+import { addToCheckout } from "../App/Features/checkoutSlice";
+import { selectCart } from "../App/Features/cartSlice";
 
 // from redux slices
 
 import { fetchProducts } from "../App/Features/productSlice";
-import { fetchCategory, selectCategory } from "../App/Features/categorySlice";
+import { fetchCategory } from "../App/Features/categorySlice";
 
 import CartItems from "../components/CartItems";
 
@@ -15,18 +18,53 @@ import cartimage from "./assets/fur18.jpg";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const selectCartDetail = useSelector(selectCart);
+  const router = useRouter();
 
   useEffect(() => {
     dispatch(fetchCategory());
     dispatch(fetchProducts());
   }, [dispatch]);
 
+  const total =
+    selectCartDetail.length >= 1 &&
+    selectCartDetail
+      .map((detail) => {
+        return detail.price * detail.quantity;
+      })
+      .reduce((a, b) => {
+        return a + b;
+      });
+
+  const taxes = total * 0.17;
+  const grandTotal = total + taxes;
+  const productName = selectCartDetail.map((detail) => {
+    return detail.title;
+  });
+  const productQty = selectCartDetail.map((detail) => {
+    return detail.quantity;
+  });
+  const productPrice = selectCartDetail.map((detail) => {
+    return detail.price;
+  });
+
+  const checkout = { total, taxes, grandTotal };
+
+  const checkoutHandler = () => {
+    if (selectCartDetail.length >= 1) {
+      dispatch(addToCheckout(checkout));
+      router.push("/checkout");
+    } else {
+      alert("please add items to cart");
+    }
+  };
+
   return (
     <div className={cart.cart_wrapper}>
       <div className={cart.cart_content}>
         <div className={cart.cart_heading}>
           <h2>
-            My Cart <span>(n items)</span>
+            My Cart <span>{selectCartDetail.length} item(s) in cart</span>
           </h2>
         </div>
         <div className={cart.delivery_instructions}>
@@ -36,8 +74,6 @@ const Cart = () => {
           <div className={cart.cart_items}>
             <div className={cart.cart_item_heading}></div>
             <div className={cart.cart_item}>
-
-              
               <CartItems />
             </div>
           </div>
@@ -45,27 +81,23 @@ const Cart = () => {
             <div className={cart.cart_summary}>
               <h3>Order Summary</h3>
               <div className={cart.subtotal}>
-                <h4>Subtotal (2 items)</h4>
-                <p>$539.99</p>
+                <h4>Subtotal ({selectCartDetail.length} items)</h4>
+                <p>$ {total} </p>
               </div>
               <div className={cart.taxes}>
-                <h4>Taxes</h4>
-                <p>$39.15</p>
+                <h4>Taxes (if any)</h4>
+                <p>$ {taxes.toFixed(2)}</p>
               </div>
               <div className={cart.total}>
                 <h4>Total</h4>
-                <p>$579.13</p>
+                <p>$ {grandTotal.toFixed(2)}</p>
               </div>
               <div className={cart.accordion}>
                 <p>Apply Promo Code</p>
                 <p className={cart.icon}>+</p>
               </div>
               <div className={cart.checkout_btn}>
-                <Link href="/checkout">
-                  <a>
-                    <button>Checkout</button>
-                  </a>
-                </Link>
+                <button onClick={checkoutHandler}>Checkout</button>
               </div>
             </div>
             <div className={cart.payment_terms}>
