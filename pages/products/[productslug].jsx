@@ -19,10 +19,7 @@ const Products = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  // const { productslug } = router.query;
-  // const dispatch = useDispatch();
   const products = useSelector(selectProducts);
-  // const categories = useSelector(selectCategory);
 
   useEffect(() => {
     dispatch(fetchCategory());

@@ -7,7 +7,16 @@ import ActionProvider from "../chatBot/ActionProvider";
 
 const ChatBot = () => {
   return (
-    <div>
+    <div
+      style={{
+        // border: "1px solid grey",
+        width: "fit-content",
+        margin: "auto",
+        marginTop: 20,
+        borderRadius: 5,
+        boxShadow:"0 0 2px grey"
+      }}
+    >
       <Chatbot
         config={config}
         messageParser={MessageParser}

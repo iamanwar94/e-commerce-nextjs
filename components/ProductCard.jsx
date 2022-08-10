@@ -9,8 +9,19 @@ import bed1 from "./assets/bed_PNG17418.png";
 import bed2 from "./assets/APK-B643-QUB-10x8-CROP.webp";
 
 const ProductCard = ({ products }) => {
-  
-  // const img = products.map(product=>product.variants).map()
+  const price = products.variants.map((variant) => {
+    return variant.sale_price;
+  });
+  const desc = products.variants.map((variant) => {
+    return variant.description.slice(0,10);
+  });
+
+  const maxPrice = price.reduce((a, b) => {
+    return Math.max(a, b);
+  });
+  const minPrice = price.reduce((a, b) => {
+    return Math.min(a, b);
+  });
 
   const imageURL = "https://ashley-api.herokuapp.com/uploads/";
   const src = imageURL;
@@ -33,6 +44,7 @@ const ProductCard = ({ products }) => {
         <div className={product.card_info}>
           <h4>{products.title}</h4>
           <div className={product.ratings}>
+            {console.log(maxPrice)}
             <div className={product.span}>
               <AiFillStar />
             </div>
@@ -49,16 +61,17 @@ const ProductCard = ({ products }) => {
               <AiFillStar />
             </div>
           </div>
-
-          <p>{products.variants.map((price) => "$" + price.price + " - ")}</p>
+          <p>
+            $ {minPrice} - $ {maxPrice}
+          </p>
 
           <p
             className={product.delivery_detail}
-            dangerouslySetInnerHTML={{
-              __html: products.detail_1.slice(0, 100),
-            }}
+            // dangerouslySetInnerHTML={{
+            //   __html: desc,
+            // }}
           >
-            {/* {products.detail_2.slice(0,100)} */}
+            {desc.slice(0,10)} 
           </p>
         </div>
       </a>
