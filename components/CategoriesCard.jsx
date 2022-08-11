@@ -2,8 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import categories from "../styles/CategoriesCard.module.scss";
-import cardimage from "./assets/fur12.jpg";
-const CategoriesCard = ({ img, title }) => {
+const CategoriesCard = ({ img, title, slug }) => {
   const imageURL = "https://ashley-api.herokuapp.com/uploads/categories/";
 
   const src = imageURL + img;
@@ -11,14 +10,15 @@ const CategoriesCard = ({ img, title }) => {
   return (
     <div className={categories.category_wrapper}>
       <div className={categories.img}>
-        <Link href="/categories">
+        <Link href={`/products/${slug}`}>
           <a>
             <Image
               loader={() => src}
               src={src}
               alt={title}
-              height={50}
-              width={50}
+              layout="fill"
+              objectFit="fill"
+              style={{ borderRadius: "50%" }}
             />
           </a>
         </Link>

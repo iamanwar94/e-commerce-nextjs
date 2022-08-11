@@ -104,8 +104,9 @@ export default function Home() {
               {categories?.categories?.slice(0, 6).map((category) => (
                 <CategoriesCard
                   key={category._id}
-                  img={category.image ? category.image : catchair}
+                  img={category.image}
                   title={category.title}
+                  slug={category.slug}
                 />
               ))}
             </div>

@@ -1,22 +1,25 @@
 @import "./Variables.module.scss";
 
-
 .category_wrapper {
   flex: 1;
   margin: 0 40px;
   cursor: pointer;
 
-  .img  {
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  .img {
     @include flex-center;
     height: 120px;
     width: 120px;
     border-radius: 50%;
-    object-fit: cover;
     margin-bottom: 10px;
     padding: 20px;
     box-shadow: 0 0 1000px $extra-light-grey;
+    position: relative;
   }
-  h4{
+  h4 {
     text-align: center;
     font-weight: 700;
     font-size: 16px;

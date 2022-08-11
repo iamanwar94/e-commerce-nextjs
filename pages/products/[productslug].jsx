@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 // import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -20,6 +20,10 @@ const Products = () => {
   const dispatch = useDispatch();
 
   const products = useSelector(selectProducts);
+
+  const filteredProducts = products?.products.filter((fp) => {
+    return fp.category_id.slug === router.query.productslug;
+  });
 
   useEffect(() => {
     dispatch(fetchCategory());
@@ -58,9 +62,13 @@ const Products = () => {
           </div>
           {/* cats ends here  */}
           <div className={product.products_cards_wrapper}>
-            {products?.products.map((product) => (
-              <ProductCard key={product._id} products={product} />
-            ))}
+            {filteredProducts.length < 1 ? (
+              <h5 style={{margin:'80px auto'}}>No Products Found</h5>
+            ) : (
+              filteredProducts.map((product) => (
+                <ProductCard key={product._id} products={product} />
+              ))
+            )}
           </div>
           {/* products cards ends here  */}
         </div>

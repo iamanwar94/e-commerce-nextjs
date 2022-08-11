@@ -64,7 +64,7 @@ const ProductCard = ({ products }) => {
           <p>
             $ {minPrice} - $ {maxPrice}
           </p>
-
+{/* 
           <p
             className={product.delivery_detail}
             // dangerouslySetInnerHTML={{
@@ -72,7 +72,7 @@ const ProductCard = ({ products }) => {
             // }}
           >
             {desc.slice(0,10)} 
-          </p>
+          </p> */}
         </div>
       </a>
     </Link>

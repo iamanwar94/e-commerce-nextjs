@@ -13,6 +13,7 @@ import Carousal from "../../../components/Carousal.jsx";
 import bed from "../../assets/fur12.jpg";
 import product from "../../../styles/ProductDetail.module.scss";
 import dimension from "../..//assets/dimensions.webp";
+import { display } from "@mui/system";
 
 const ProductDetail = ({ productDetail }) => {
   const cartData = {
@@ -56,7 +57,7 @@ const ProductDetail = ({ productDetail }) => {
   });
   const colors = productDetail.variants.map((variant) => {
     return variant.features.map((feature) => {
-      return feature.color;
+      return feature.color.title;
     });
   });
   const sku = productDetail.variants.map((variant) => {
@@ -113,7 +114,10 @@ const ProductDetail = ({ productDetail }) => {
           <div className={product.name_price}>
             <h4>{productDetail.brand_id.title}</h4>
             <h2> {productDetail.title} </h2>
-            <p>Item Code: ED1201301-1013</p>
+            <p>
+              Item Code:{" "}
+              {sku.slice(sizeID, sizeID + 1).map((sku) => sku[colorID])[0]}
+            </p>
             <div className={product.flex + " " + product.reviews}>
               <span className={product.flex}>
                 <AiFillStar className={product.icon} />
@@ -134,7 +138,21 @@ const ProductDetail = ({ productDetail }) => {
               {colors[sizeID].map((color, i) => (
                 <p
                   key={i}
-                  style={{ backgroundColor: color, color: "white" }}
+                  style={{
+                    backgroundColor: color,
+                    color: "whitesmoke",
+                    height: 60,
+                    fontSize: 10,
+                    fontWeight: 600,
+                    width: 60,
+                    borderRadius: "50%",
+                    padding: 2,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    boxShadow: "0 0 2px grey",
+                    textShadow: "0 0 5px grey",
+                  }}
                   onClick={() => colorChangeHandler(i)}
                 >
                   {color}
