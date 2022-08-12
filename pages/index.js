@@ -12,6 +12,7 @@ import { fetchProducts } from "../App/Features/productSlice";
 import { fetchCategory, selectCategory } from "../App/Features/categorySlice";
 
 //from assets and styles
+
 import styles from "../styles/Home.module.scss";
 import model from "./assets/model.jpg";
 import sofa from "./assets/fur12.jpg";
@@ -23,7 +24,6 @@ import Carousal from "../components/Carousal";
 import CategoriesCard from "../components/CategoriesCard";
 import DiscountCard from "../components/DiscountCard";
 import cardimage from "../components/assets/fur12.jpg";
-import catchair from "../components/assets/chair3.png";
 import BannerCard from "../components/BannerCard";
 import CategoryCard from "../components/CategoryCard";
 import ThinBannerCard from "../components/ThinBannerCard";
@@ -32,7 +32,6 @@ export default function Home() {
   const [slider, setSlider] = useState([]);
   const dispatch = useDispatch();
 
-  // const products = useSelector(selectProducts);
   const categories = useSelector(selectCategory);
 
   const mainCategories = categories?.categories.filter((cat) => {

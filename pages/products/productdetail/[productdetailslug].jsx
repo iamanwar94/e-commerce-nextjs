@@ -9,7 +9,7 @@ import { fetchCategory } from "../../../App/Features/categorySlice";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
 
-import Carousal from "../../../components/Carousal.jsx";
+import ProductCarousal from "../../../components/productCarousal.jsx";
 import bed from "../../assets/fur12.jpg";
 import product from "../../../styles/ProductDetail.module.scss";
 import dimension from "../..//assets/dimensions.webp";
@@ -105,7 +105,7 @@ const ProductDetail = ({ productDetail }) => {
     <div className={product.product_detail_wrapper}>
       <div className={product.img_and_detail} key={productDetail._id}>
         <div className={product.carousel}>
-          <Carousal
+          <ProductCarousal
             slider={slider[0]}
             url="https://ashley-api.herokuapp.com/uploads/"
           />
@@ -285,7 +285,6 @@ export async function getServerSideProps(context) {
     `https://ashley-api.herokuapp.com/products/${productdetailslug}`
   );
   const data = await res.json();
-  console.log(data);
   const productDetail = data.product;
 
   return {

@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-// import Image from "next/image";
 import { useRouter } from "next/router";
 
-// import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategory } from "../../App/Features/categorySlice";
 
@@ -63,7 +61,7 @@ const Products = () => {
           {/* cats ends here  */}
           <div className={product.products_cards_wrapper}>
             {filteredProducts.length < 1 ? (
-              <h5 style={{margin:'80px auto'}}>No Products Found</h5>
+              <h5 style={{ margin: "80px auto" }}>No Products Found</h5>
             ) : (
               filteredProducts.map((product) => (
                 <ProductCard key={product._id} products={product} />

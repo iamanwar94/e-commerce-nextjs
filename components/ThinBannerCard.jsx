@@ -1,9 +1,9 @@
 import React from "react";
-import Image from "next/image";
+import Link from "next/link";
 import banner from "../styles/ThinBannerCard.module.scss";
 import bg from "../components/assets/fur16.jpg";
 
-const ThinBannerCard = ({ title, feature }) => {
+const ThinBannerCard = ({ title, feature,img, slug }) => {
   return (
     <div
       className={banner.thin_banner_card}
@@ -14,7 +14,11 @@ const ThinBannerCard = ({ title, feature }) => {
         <p>{feature}</p>
         <h4>{title}</h4>
       </div>
-      <button>Shop Now</button>
+      <Link href='/'>
+        <a>
+          <button>Shop Now</button>
+        </a>
+      </Link>
     </div>
   );
 };
