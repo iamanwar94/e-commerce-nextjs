@@ -32,13 +32,13 @@ const Products = () => {
     return currentCat.slug === router.query.productslug;
   });
 
-  const curCat = currentCategory[0];
+  const curCat = currentCategory ? currentCategory[0] : "";
 
   const parentCategory = category?.categories.filter((parentCat) => {
     return parentCat._id === curCat.parent_id;
   });
 
-  const parentCat = parentCategory[0];
+  const parentCat = parentCategory ? parentCategory[0] : "";
 
   const siblingCategory = category?.categories.filter((siblingsCats) => {
     return siblingsCats.parent_id === parentCat._id;
@@ -54,7 +54,9 @@ const Products = () => {
       <div className={product.filter_products_wrapper}>
         <div className={product.filters_wrapper}>
           <div className={product.filter_heading}>
-            <h3>{filteredProducts[0].category_id.title} </h3>
+            <h3>
+              {filteredProducts ? filteredProducts[0].category_id.title : ""}
+            </h3>
             <p>N of Ns Products Showing</p>
           </div>
           <div className={product.filters_cat}>
@@ -79,10 +81,10 @@ const Products = () => {
           </div> */}
           {/* cats ends here  */}
           <div className={product.products_cards_wrapper}>
-            {filteredProducts.length < 1 ? (
+            {filteredProducts ? (
               <h5 style={{ margin: "80px auto" }}>No Products Found</h5>
             ) : (
-              filteredProducts.map((product) => (
+              filteredProducts?.map((product) => (
                 <ProductCard key={product._id} products={product} />
               ))
             )}
