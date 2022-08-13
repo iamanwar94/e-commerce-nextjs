@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCategory } from "../../App/Features/categorySlice";
+import {
+  fetchCategory,
+  selectCategory,
+} from "../../App/Features/categorySlice";
 
 import { fetchProducts, selectProducts } from "../../App/Features/productSlice";
 
@@ -12,15 +15,33 @@ import ProductCard from "../../components/ProductCard";
 import product from "../../styles/Products.module.scss";
 import CategoriesCard from "../../components/CategoriesCard";
 import catchair from "../../components/assets/chair3.png";
+import { RouterTwoTone } from "@mui/icons-material";
 
 const Products = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
   const products = useSelector(selectProducts);
+  const category = useSelector(selectCategory);
 
   const filteredProducts = products?.products.filter((fp) => {
     return fp.category_id.slug === router.query.productslug;
+  });
+
+  const currentCategory = category?.categories.filter((currentCat) => {
+    return currentCat.slug === router.query.productslug;
+  });
+
+  const curCat = currentCategory[0];
+
+  const parentCategory = category?.categories.filter((parentCat) => {
+    return parentCat._id === curCat.parent_id;
+  });
+
+  const parentCat = parentCategory[0];
+
+  const siblingCategory = category?.categories.filter((siblingsCats) => {
+    return siblingsCats.parent_id === parentCat._id;
   });
 
   useEffect(() => {
@@ -33,17 +54,15 @@ const Products = () => {
       <div className={product.filter_products_wrapper}>
         <div className={product.filters_wrapper}>
           <div className={product.filter_heading}>
-            <h3>Category Heading</h3>
+            <h3>{filteredProducts[0].category_id.title} </h3>
             <p>N of Ns Products Showing</p>
           </div>
           <div className={product.filters_cat}>
-            <h3>Category </h3>
-            <p>Category List</p>
-            <p>Category List</p>
-            <p>Category List</p>
-            <p>Category List</p>
-            <p>Category List</p>
-            <p>Category List</p>
+            <h3>{parentCat.title} </h3>
+
+            {siblingCategory?.map((siblingCats) => (
+              <p key={siblingCats._id}>{siblingCats.title} </p>
+            ))}
           </div>
           <div className={product.filter_cats}>
             <FilterAccordion />
@@ -51,13 +70,13 @@ const Products = () => {
         </div>
         {/* filters ends here  */}
         <div className={product.products_item_wrapper}>
-          <div className={product.categories_wrapper}>
+          {/* <div className={product.categories_wrapper}>
             <CategoriesCard img={catchair} title="" />
             <CategoriesCard img={catchair} title="" />
             <CategoriesCard img={catchair} title="" />
             <CategoriesCard img={catchair} title="" />
             <CategoriesCard img={catchair} title="" />
-          </div>
+          </div> */}
           {/* cats ends here  */}
           <div className={product.products_cards_wrapper}>
             {filteredProducts.length < 1 ? (

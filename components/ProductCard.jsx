@@ -44,7 +44,6 @@ const ProductCard = ({ products }) => {
         <div className={product.card_info}>
           <h4>{products.title}</h4>
           <div className={product.ratings}>
-            {console.log(maxPrice)}
             <div className={product.span}>
               <AiFillStar />
             </div>

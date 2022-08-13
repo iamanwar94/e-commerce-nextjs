@@ -107,7 +107,7 @@ const ProductDetail = ({ productDetail }) => {
         <div className={product.carousel}>
           <ProductCarousal
             slider={slider[0]}
-            url="https://ashley-api.herokuapp.com/uploads/"
+            url="https://ashley-api.herokuapp.com/uploads/products/"
           />
         </div>
         <div className={product.product_detail}>

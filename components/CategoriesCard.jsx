@@ -13,7 +13,7 @@ const CategoriesCard = ({ img, title, slug }) => {
         <Link href={`/products/${slug}`}>
           <a>
             <Image
-              loader={() => src}
+              // loader={() => src}
               src={src}
               alt={title}
               layout="fill"
