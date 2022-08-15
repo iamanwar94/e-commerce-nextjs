@@ -28,6 +28,7 @@ const ProductDetail = ({ productDetail }) => {
   };
 
   const [sizeID, setSizeID] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
   const [colorID, setColorID] = useState(0);
   const [cartDetail, setCartDetail] = useState(cartData);
   const [productQuantity, setProductQuantity] = useState(1);
@@ -55,9 +56,20 @@ const ProductDetail = ({ productDetail }) => {
   const price = productDetail.variants.map((variant) => {
     return variant.sale_price;
   });
+  const desc = productDetail.variants.map((variant) => {
+    return variant.description;
+  });
+  const dimension = productDetail.variants.map((variant) => {
+    return variant.dimensions;
+  });
   const colors = productDetail.variants.map((variant) => {
     return variant.features.map((feature) => {
-      return feature.color.title;
+      return feature.color_id.title;
+    });
+  });
+  const colorImg = productDetail.variants.map((variant) => {
+    return variant.features.map((feature) => {
+      return feature.color_id.image;
     });
   });
   const sku = productDetail.variants.map((variant) => {
@@ -101,11 +113,22 @@ const ProductDetail = ({ productDetail }) => {
     setProductQuantity(1);
   };
 
+  const activeLinkHandler = (id) => {
+    // if (activeIndex === id) {
+    //   setActiveIndex();
+    // } else {
+    //   setActiveIndex(id);
+    // }
+    console.log(id);
+    setActiveIndex(id);
+  };
+
   return (
     <div className={product.product_detail_wrapper}>
       <div className={product.img_and_detail} key={productDetail._id}>
         <div className={product.carousel}>
           <ProductCarousal
+            height={300}
             slider={slider[0]}
             url="https://ashley-api.herokuapp.com/uploads/products/"
           />
@@ -158,6 +181,13 @@ const ProductDetail = ({ productDetail }) => {
                   {color}
                 </p>
               ))}
+              {/* <span style={{ height: 50, width: 50, position: "relative" }}>
+                <Image
+                  src={`https://ashley-api.herokuapp.com/uploads/products/${colorImg}`}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </span> */}
             </div>
             <div className={product.size + " " + product.flex}>
               <h4>Sizes:</h4>
@@ -174,12 +204,40 @@ const ProductDetail = ({ productDetail }) => {
       <div className={product.product_features_and_subtotal}>
         <div className={product.features}>
           <div className={product.feature_heading}>
-            <h4>Details and Overview</h4>
-            <h4>Products Reviews</h4>
-            <h4>Customer Care</h4>
+            <h4
+              onClick={() => activeLinkHandler(1)}
+              style={
+                activeIndex === 1
+                  ? { color: "grey", borderBottom: "3px solid grey" }
+                  : { color: "black" }
+              }
+            >
+              Details and Overview
+            </h4>
+            <h4
+              onClick={() => activeLinkHandler(2)}
+              style={
+                activeIndex === 2
+                  ? { color: "grey", borderBottom: "3px solid grey" }
+                  : { color: "black" }
+              }
+            >
+              Products Reviews
+            </h4>
+            <h4
+              onClick={() => activeLinkHandler(3)}
+              style={
+                activeIndex === 3
+                  ? { color: "grey", borderBottom: "3px solid grey" }
+                  : { color: "black" }
+              }
+            >
+              Customer Care
+            </h4>
           </div>
-          <div className={product.overview}>
-            <div className={product.description}>
+          {activeIndex === 1 && (
+            <div className={product.overview}>
+              {/* <div className={product.description}>
               <h3>Details and Overview</h3>
               <h4>Description</h4>
               <p>
@@ -227,9 +285,20 @@ const ProductDetail = ({ productDetail }) => {
               </ul>
               <h4>Weight</h4>
               <p>189.81 lbs. (86.1 kgs.)</p>
-            </div>
-            <div className={product.dimenstion}>
-              <h4>Dimensions</h4>
+            </div> */}
+              <div
+                className={product.description}
+                dangerouslySetInnerHTML={{
+                  __html: desc.slice(sizeID, sizeID + 1),
+                }}
+              ></div>
+              <div
+                className={product.dimenstion}
+                dangerouslySetInnerHTML={{
+                  __html: dimension.slice(sizeID, sizeID + 1),
+                }}
+              >
+                {/* <h4>Dimensions</h4>
               <img src={dimension} alt="" />
               <ul>
                 <li>Width: 150</li>
@@ -246,12 +315,19 @@ const ProductDetail = ({ productDetail }) => {
                 <li>Queen upholstered footboard Width: 64.00"</li>
               </ul>
               <h4>Assembly Instructions</h4>
-              <p>Please Download this Guide</p>
+              <p>Please Download this Guide</p> */}
+              </div>
             </div>
-          </div>
+          )}
 
-          <div className={product.reviews}></div>
-          <div className={product.customer_care}></div>
+          {activeIndex === 2 && (
+            <div className={product.reviews}>This is review section</div>
+          )}
+          {activeIndex === 3 && (
+            <div className={product.customer_care}>
+              This is Customer Care Section
+            </div>
+          )}
         </div>
         <div className={product.subtotal}>
           <h3>Subtotal: $ {productQuantity * cartDetail.price}</h3>

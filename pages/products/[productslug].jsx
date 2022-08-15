@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +18,8 @@ import catchair from "../../components/assets/chair3.png";
 import { RouterTwoTone } from "@mui/icons-material";
 
 const Products = () => {
+  const [proByCat, setproByCat] = useState([]);
+
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -44,6 +46,17 @@ const Products = () => {
     return siblingsCats.parent_id === parentCat._id;
   });
 
+  const catClickHandler = (slug) => {
+    console.log(slug);
+
+    const pros = products?.products.filter((fp) => {
+      return fp.category_id.slug === slug;
+    });
+
+    setproByCat(pros);
+    console.log(proByCat);
+  };
+
   useEffect(() => {
     dispatch(fetchCategory());
     dispatch(fetchProducts());
@@ -63,7 +76,12 @@ const Products = () => {
             <h3>{parentCat.title} </h3>
 
             {siblingCategory?.map((siblingCats) => (
-              <p key={siblingCats._id}>{siblingCats.title} </p>
+              <p
+                key={siblingCats._id}
+                onClick={() => catClickHandler(siblingCats.slug)}
+              >
+                {siblingCats.title}
+              </p>
             ))}
           </div>
           <div className={product.filter_cats}>
@@ -81,12 +99,14 @@ const Products = () => {
           </div> */}
           {/* cats ends here  */}
           <div className={product.products_cards_wrapper}>
-            {filteredProducts ? (
+            {!filteredProducts ? (
               <h5 style={{ margin: "80px auto" }}>No Products Found</h5>
             ) : (
-              filteredProducts?.map((product) => (
-                <ProductCard key={product._id} products={product} />
-              ))
+              (proByCat.length > 1 ? proByCat : filteredProducts)?.map(
+                (product) => (
+                  <ProductCard key={product._id} products={product} />
+                )
+              )
             )}
           </div>
           {/* products cards ends here  */}
