@@ -9,9 +9,9 @@ import {
 } from "../App/Features/cartSlice";
 // import cartimage from "../pages/assets/fur18.jpg";
 
-import cart from "../styles/Cart.module.scss";
+import cart from "../styles/HoverCart.module.scss";
 
-const CartItems = () => {
+const HoverCart = () => {
   const selectCartDetail = useSelector(selectCart);
   const dispatch = useDispatch();
 
@@ -36,37 +36,36 @@ const CartItems = () => {
         selectCartDetail?.map((cartDetail) => (
           <div className={cart.card} key={cartDetail._id}>
             <div className={cart.card_img_info}>
-              <div className={cart.img}>
+              <div className={cart.pic}>
                 <Image
                   src={`${imageURL}${cartDetail.image}`}
                   alt={cartDetail.title}
-                  className={cart.img}
                   layout="fill"
-                  objectFit="contain"
+                  objectFit="cover"
                 />
               </div>
               <div className={cart.info}>
                 <div className={cart.name_color_size}>
-                  <h3>Product Name: {cartDetail.title}</h3>
-                  <p>Product Item Code: {cartDetail.sku}</p>
+                  <h6>{cartDetail.title}</h6>
+                  {/* <p>Product Item Code: {cartDetail.sku}</p> */}
                   <p>Color: {cartDetail.color}</p>
                   <p>Size: {cartDetail.size}</p>
                 </div>
                 <div className={cart.qty_price}>
                   <div className={cart.qty}>
-                    <p>Qty</p>
-                    <span>
+                    <p>Qty:</p>
+                    <div>
                       <p onClick={() => decQty(cartDetail.sku)}>-</p>
                       <p>{cartDetail.quantity}</p>
                       <p onClick={() => incQty(cartDetail.sku)}>+</p>
-                    </span>
+                    </div>
                   </div>
                   <div className={cart.price}>
-                    <p>Item Price</p>
-                    <h4>{cartDetail.price}</h4>
+                    <p>Item Price:</p>
+                    <h4>$ {cartDetail.price}</h4>
                   </div>
                   <div className={cart.total}>
-                    <p>Item Total</p>
+                    <p>Item Total:</p>
                     <h3>$ {cartDetail.price * cartDetail.quantity}</h3>
                   </div>
                 </div>
@@ -85,4 +84,4 @@ const CartItems = () => {
   );
 };
 
-export default CartItems;
+export default HoverCart;

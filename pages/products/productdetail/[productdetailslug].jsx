@@ -99,7 +99,9 @@ const ProductDetail = ({ productDetail }) => {
       ...cartDetail,
       _id: productDetail._id,
       title: productDetail.title,
-      price: Number(price.slice(sizeID, sizeID + 1).map((price) => price)[0]),
+      price: Number(
+        price.slice(sizeID, sizeID + 1).map((price) => price)[0]
+      ).toFixed(0),
       size: sizes[sizeID],
       color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
       sku: sku.slice(sizeID, sizeID + 1).map((sku) => sku[colorID])[0],
@@ -119,7 +121,7 @@ const ProductDetail = ({ productDetail }) => {
     // } else {
     //   setActiveIndex(id);
     // }
-    console.log(id);
+    // console.log(id);
     setActiveIndex(id);
   };
 
@@ -148,6 +150,7 @@ const ProductDetail = ({ productDetail }) => {
                 <AiFillStar className={product.icon} />
                 <AiFillStar className={product.icon} />
                 <AiFillStar className={product.icon} />
+                {console.log(cartDetail)}
               </span>
               <p>121 Reviews</p>
             </div>

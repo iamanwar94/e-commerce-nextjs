@@ -5,8 +5,27 @@ const cartSlice = createSlice({
   initialState: [],
   reducers: {
     addToCart(state, action) {
-      state.push(action.payload);
+      // if (!state.length) {
+      //   state.push(action.payload);
+      // } else {
+      //   // state.push(action.payload);
+      //   state.map((item) =>
+      //     item.sku === action.payload.sku
+      //       ? (item.quantity += action.payload.quantity)
+      //       : state.push(action.payload)
+      //   );
+      // }
+      state.length >= 1
+        ? state.map(
+            (item) =>
+              item.sku === action.payload.sku &&
+              (item.quantity += action.payload.quantity)
+          )
+        : state.push(action.payload);
     },
+    // addToCart(state, action) {
+    //   state.push(action.payload);
+    // },
     removeFromCart(state, action) {
       return state.filter((item) => item.sku !== action.payload);
     },

@@ -7,7 +7,7 @@ import navsearch from "../styles/NavbarSearch.module.scss";
 import logo from "../components/assets/m_logo_360.png";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
-import CartItems from "./CartItems";
+import HoverCart from "./HoverCart";
 
 const NavbarSearch = () => {
   const selectCartDetail = useSelector(selectCart);
@@ -53,7 +53,7 @@ const NavbarSearch = () => {
             </a>
           </Link>
           <div className={navsearch.cart_detail}>
-            <CartItems />
+            <HoverCart />
           </div>
         </div>
       </div>
