@@ -76,7 +76,7 @@ export default function Home() {
           <Image src={loader} alt="Loading..." height={100} width={100} />
         </h1>
       ) : (
-        <div className={styles.home_wrapper}>
+        <div className={styles.home_wrapper} style={{}}>
           <Carousal
             height={460}
             slider={slider}

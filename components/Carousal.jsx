@@ -7,7 +7,7 @@ import carousal from "../styles/Carousal.module.scss";
 const Carousal = ({ height, slider, url }) => {
   return (
     <div className={carousal.carousal_wrapper}>
-      <div className={carousal.carousal}>
+      <div className={carousal.carousal} style={{ position: "relative" }}>
         <Carousel
           interval={4000}
           animation="slide"
@@ -25,7 +25,7 @@ const Carousal = ({ height, slider, url }) => {
               key={sliderImage._id ? sliderImage._id : i}
               alt={sliderImage.title ? sliderImage.title : i}
               layout="fill"
-              objectFit="contain"
+              objectFit="cover"
             />
             // <img
             //   src={`${url}${sliderImage ? sliderImage : sliderImage.image}`}

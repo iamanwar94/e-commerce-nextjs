@@ -62,6 +62,8 @@ const Products = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
+  const url = process.env.NEXT_PUBLIC_BASE_URL;
+
   return (
     <div className={product.products_wrapper}>
       <div className={product.filter_products_wrapper}>

@@ -2,12 +2,12 @@ import * as React from "react";
 import { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { next, back, selectStep } from "../App/Features/stepSlice";
+import { next, back, selectStep, addPayment } from "../App/Features/stepSlice";
 
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-import {Box, Button}  from "@mui/material";
+import { Box, Button } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
@@ -18,7 +18,6 @@ const data = {
   cvv: "",
 };
 const steps = ["Shipping address", "Payment details", "Review your order"];
-
 
 export default function PaymentForm() {
   const [paymentData, setPaymentData] = useState(data);
@@ -36,6 +35,7 @@ export default function PaymentForm() {
     // console.log("object");
     dispatch(next());
     console.log(paymentData);
+    dispatch(addPayment(paymentData));
   };
 
   const handleBack = () => {
@@ -77,10 +77,11 @@ export default function PaymentForm() {
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
+            type="date"
             required
             id="expDate"
             name="expDate"
-            label="Expiry date"
+            // label="Expiry date"
             fullWidth
             autoComplete="cc-exp"
             variant="standard"

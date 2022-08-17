@@ -14,6 +14,7 @@ import { next, back, selectStep } from "../App/Features/stepSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCart } from "../App/Features/cartSlice";
 import { selectCheckout } from "../App/Features/checkoutSlice";
+import { selectAddress, selectPayment } from "../App/Features/stepSlice";
 
 const products = [
   {
@@ -39,21 +40,30 @@ const products = [
   { name: "Shipping", desc: "", price: "Free" },
 ];
 
-const addresses = ["1 MUI Drive", "Reactville", "Anytown", "99999", "USA"];
-const payments = [
-  { name: "Card type", detail: "Visa" },
-  { name: "Card holder", detail: "Mr John Smith" },
-  { name: "Card number", detail: "xxxx-xxxx-xxxx-1234" },
-  { name: "Expiry date", detail: "04/2024" },
-];
-
 const steps = ["Shipping address", "Payment details", "Review your order"];
 
 export default function Review() {
   const selectCartDetail = useSelector(selectCart);
   const selectCheckoutDetail = useSelector(selectCheckout);
   const activeStep = useSelector(selectStep);
+  const address = useSelector(selectAddress);
+  const payment = useSelector(selectPayment);
   const dispatch = useDispatch();
+
+  const addresses = [
+    address.address,
+    address.city,
+    address.state,
+    address.zip,
+    address.country,
+  ];
+  // const addresses = ["1 MUI Drive", "Reactville", "Anytown", "99999", "USA"];
+  const payments = [
+    { name: "Card type", detail: "Visa" },
+    { name: "Card holder", detail: payment.cardName },
+    { name: "Card number", detail: payment.cardNumber },
+    { name: "Expiry date", detail: payment.expDate },
+  ];
 
   useEffect(() => {
     // console.log(selectCartDetail);
@@ -111,7 +121,9 @@ export default function Review() {
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Shipping
           </Typography>
-          <Typography gutterBottom>John Smith</Typography>
+          <Typography gutterBottom>
+            {address.firstName + " " + address.lastName}{" "}
+          </Typography>
           <Typography gutterBottom>{addresses.join(", ")}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
