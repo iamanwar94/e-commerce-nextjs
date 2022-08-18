@@ -41,7 +41,7 @@ export const selectProducts = (state) => state.product.data;
 
 // Thunks
 export const fetchProducts = createAsyncThunk("products/fetch", async () => {
-  // const res = await fetch('https://fakestoreapi.com/products/categories');
+  // const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}products`);
   const res = await fetch("https://ashley-api.herokuapp.com/products");
   const data = await res.json();
   return data;

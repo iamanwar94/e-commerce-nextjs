@@ -18,7 +18,7 @@
         cursor: crosshair;
       }
       &:hover img {
-        transform: scale(1.3);
+        transform: scale(1.5);
         transition: all 0.3s ease-out;
       }
     }
@@ -330,17 +330,40 @@
           }
         }
       }
-      .delivery {
+      .delivery,
+      .expert_service {
         margin: 10px 0;
         background-color: white;
-        padding: 30px;
+        padding: 20px;
         color: grey;
         h6 {
           font-weight: 600;
           font-size: 14px;
+          margin: 0;
         }
         p {
           font-size: 12px;
+          margin: 0;
+        }
+      }
+
+      .expert_service {
+        h6 {
+          color: $yellow;
+        }
+        h5 {
+          font-size: 16px;
+          font-weight: 600;
+        }
+        div {
+          margin: 0;
+          div {
+            margin: 0;
+            @include flex-start;
+            p {
+              margin: 10px ;
+            }
+          }
         }
       }
     }

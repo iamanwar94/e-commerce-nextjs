@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -47,7 +47,6 @@ const HoverCart = () => {
               <div className={cart.info}>
                 <div className={cart.name_color_size}>
                   <h6>{cartDetail.title}</h6>
-                  {/* <p>Product Item Code: {cartDetail.sku}</p> */}
                   <p>Color: {cartDetail.color}</p>
                   <p>Size: {cartDetail.size}</p>
                 </div>
@@ -72,7 +71,6 @@ const HoverCart = () => {
               </div>
             </div>
             <div className={cart.remove_btn}>
-              {/* <button>Save for Later</button> */}
               <button onClick={() => handleRemove(cartDetail.sku)}>
                 Remove Item
               </button>

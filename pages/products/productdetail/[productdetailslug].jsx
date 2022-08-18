@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import Switch from "@mui/material/Switch";
 import Image from "next/image";
 import { addToCart } from "../../../App/Features/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,10 +10,7 @@ import { AiFillStar } from "react-icons/ai";
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
 
 import ProductCarousal from "../../../components/productCarousal.jsx";
-import bed from "../../assets/fur12.jpg";
 import product from "../../../styles/ProductDetail.module.scss";
-import dimension from "../..//assets/dimensions.webp";
-import { display } from "@mui/system";
 
 const ProductDetail = ({ productDetail }) => {
   const cartData = {
@@ -33,6 +30,13 @@ const ProductDetail = ({ productDetail }) => {
   const [cartDetail, setCartDetail] = useState(cartData);
   const [productQuantity, setProductQuantity] = useState(1);
   const dispatch = useDispatch();
+
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+    console.log(checked);
+  };
 
   const sizeChangeHandler = (i) => {
     setSizeID(i);
@@ -116,12 +120,6 @@ const ProductDetail = ({ productDetail }) => {
   };
 
   const activeLinkHandler = (id) => {
-    // if (activeIndex === id) {
-    //   setActiveIndex();
-    // } else {
-    //   setActiveIndex(id);
-    // }
-    // console.log(id);
     setActiveIndex(id);
   };
 
@@ -165,32 +163,39 @@ const ProductDetail = ({ productDetail }) => {
                 <p
                   key={i}
                   style={{
-                    backgroundColor: color,
-                    color: "whitesmoke",
-                    height: 60,
-                    fontSize: 10,
-                    fontWeight: 600,
-                    width: 60,
-                    borderRadius: "50%",
-                    padding: 2,
+                    // backgroundColor: color,
+                    // color: "whitesmoke",
+                    // height: 60,
+                    // fontSize: 10,
+                    // fontWeight: 600,
+                    // width: 60,
+                    // borderRadius: "50%",
+                    // padding: 2,
                     display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    boxShadow: "0 0 2px grey",
-                    textShadow: "0 0 5px grey",
+                    justifyContent: "space-around",
+                    // alignItems: "center",
+                    // boxShadow: "0 0 2px grey",
+                    // textShadow: "0 0 5px grey",
                   }}
                   onClick={() => colorChangeHandler(i)}
                 >
-                  {color}
+                  <span>{color}</span>
+                  <span
+                    style={{
+                      backgroundColor: color,
+                      height: 20,
+                      width: 20,
+                      fontWeight: 600,
+                      borderRadius: "50%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      boxShadow: "0 0 2px grey",
+                      margin: "0 10px",
+                    }}
+                  ></span>
                 </p>
               ))}
-              {/* <span style={{ height: 50, width: 50, position: "relative" }}>
-                <Image
-                  src={`https://ashley-api.herokuapp.com/uploads/products/${colorImg}`}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </span> */}
             </div>
             <div className={product.size + " " + product.flex}>
               <h4>Sizes:</h4>
@@ -240,55 +245,6 @@ const ProductDetail = ({ productDetail }) => {
           </div>
           {activeIndex === 1 && (
             <div className={product.overview}>
-              {/* <div className={product.description}>
-              <h3>Details and Overview</h3>
-              <h4>Description</h4>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Accusantium, corrupti. Saepe animi maiores modi quas perferendis
-                asperiores assumenda voluptatibus nobis ipsa non minus tempore
-                provident nisi adipisci eaque, reprehenderit ratione.
-              </p>
-              <ul>
-                <li>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Rerum, molestiae! Lorem ipsum dolor, sit amet consectetur
-                  adipisicing elit. Non, dolorem?
-                </li>
-                <li>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Rerum, molestiae! Lorem ipsum dolor, sit amet consectetur
-                  adipisicing elit. Non, dolorem?
-                </li>
-                <li>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Rerum, molestiae! Lorem ipsum dolor, sit amet consectetur
-                  adipisicing elit. Non, dolorem?
-                </li>
-                <li>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Rerum, molestiae! Lorem ipsum dolor, sit amet consectetur
-                  adipisicing elit. Non, dolorem?
-                </li>
-                <li>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Rerum, molestiae! Lorem ipsum dolor, sit amet consectetur
-                  adipisicing elit. Non, dolorem?
-                </li>
-                <li>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Rerum, molestiae! Lorem ipsum dolor, sit amet consectetur
-                  adipisicing elit. Non, dolorem?
-                </li>
-                <li>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Rerum, molestiae! Lorem ipsum dolor, sit amet consectetur
-                  adipisicing elit. Non, dolorem?
-                </li>
-              </ul>
-              <h4>Weight</h4>
-              <p>189.81 lbs. (86.1 kgs.)</p>
-            </div> */}
               <div
                 className={product.description}
                 dangerouslySetInnerHTML={{
@@ -300,31 +256,166 @@ const ProductDetail = ({ productDetail }) => {
                 dangerouslySetInnerHTML={{
                   __html: dimension.slice(sizeID, sizeID + 1),
                 }}
-              >
-                {/* <h4>Dimensions</h4>
-              <img src={dimension} alt="" />
-              <ul>
-                <li>Width: 150</li>
-                <li>Height: 150</li>
-                <li>Depth: 140</li>
-              </ul>
-              <h4>Additional Dimensions</h4>
-              <ul>
-                <li>Queen upholstered footboard Width: 64.00"</li>
-                <li>Queen upholstered footboard Width: 64.00"</li>
-                <li>Queen upholstered footboard Width: 64.00"</li>
-                <li>Queen upholstered footboard Width: 64.00"</li>
-                <li>Queen upholstered footboard Width: 64.00"</li>
-                <li>Queen upholstered footboard Width: 64.00"</li>
-              </ul>
-              <h4>Assembly Instructions</h4>
-              <p>Please Download this Guide</p> */}
-              </div>
+              ></div>
             </div>
           )}
 
           {activeIndex === 2 && (
-            <div className={product.reviews}>This is review section</div>
+            <div className={product.reviews}>
+              <div
+                className={product.overall_ratings}
+                style={{ display: "flex", justifyContent:'space-between', borderBottom:'1px solid black' }}
+              >
+                <div className={product.total_rating}>
+                  <h1>
+                    5.0 <span>/5.0</span>
+                  </h1>
+                  <span
+                    style={{
+                      fontSize: "30px",
+                      margin: "0 10px 0 0",
+                      color: "gold",
+                    }}
+                  >
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                  </span>
+                  <span>5 Ratings</span>
+                </div>
+                <div>
+                  <div
+                    className={product.rating_by_stars}
+                    style={{ display: "flex" }}
+                  >
+                    <span style={{ margin: "", color: "gold" }}>
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+
+                    </span>
+                    <div
+                      style={{
+                        height: 10,
+                        width: 100,
+                        backgroundColor: "gold",
+                        margin: "10px",
+                      }}
+                    ></div>
+                    <span>5</span>
+                  </div>
+                  <div
+                    className={product.rating_by_stars}
+                    style={{ display: "flex" }}
+                  >
+                    <span style={{ margin: "", color: "gold" }}>
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+
+                    </span>
+                    <div
+                      style={{
+                        height: 10,
+                        width: 100,
+                        backgroundColor: "gold",
+                        margin: "10px",
+                      }}
+                    ></div>
+                    <span>5</span>
+                  </div>
+                  <div
+                    className={product.rating_by_stars}
+                    style={{ display: "flex" }}
+                  >
+                    <span style={{ margin: "", color: "gold" }}>
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+
+                    </span>
+                    <div
+                      style={{
+                        height: 10,
+                        width: 100,
+                        backgroundColor: "gold",
+                        margin: "10px",
+                      }}
+                    ></div>
+                    <span>5</span>
+                  </div>
+                  <div
+                    className={product.rating_by_stars}
+                    style={{ display: "flex" }}
+                  >
+                    <span style={{ margin: "", color: "gold" }}>
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+
+                      <AiFillStar />
+                    </span>
+                    <div
+                      style={{
+                        height: 10,
+                        width: 100,
+                        backgroundColor: "gold",
+                        margin: "10px",
+                      }}
+                    ></div>
+                    <span>5</span>
+                  </div>
+                  <div
+                    className={product.rating_by_stars}
+                    style={{ display: "flex" }}
+                  >
+                    <span style={{ margin: "", color: "gold" }}>
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+                      <AiFillStar />
+                    </span>
+                    <div
+                      style={{
+                        height: 10,
+                        width: 100,
+                        backgroundColor: "gold",
+                        margin: "10px",
+                      }}
+                    ></div>
+                    <span>5</span>
+                  </div>
+                </div>
+              </div>
+              <div className={product.review_by_customer}>
+                <h5>Reviews</h5>
+                <div>
+                  <span style={{ margin: "", color: "gold" }}>
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                  </span>
+                </div>
+                <h6>By Customer Name</h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
+                  iusto quos quibusdam totam officiis, ipsa aliquid quas
+                  doloribus enim! Quidem.
+                </p>
+              </div>
+            </div>
           )}
           {activeIndex === 3 && (
             <div className={product.customer_care}>
@@ -350,6 +441,29 @@ const ProductDetail = ({ productDetail }) => {
             <h6>Delivery Options</h6>
             <p>Free Ground Shipping</p>
             <p>Usually ships in 1 to 2 weeks</p>
+          </div>
+          <div className={product.expert_service}>
+            <div style={{ position: "relative", display: "flex" }}>
+              {" "}
+              <Image
+                src="/../../assets/expert.png"
+                alt="expert"
+                layout="fill"
+              />{" "}
+            </div>
+            <div>
+              {" "}
+              <h6>Add Expert Service</h6>{" "}
+              <h5>Expert Assembly & Installation by Handy</h5>
+              <div>
+                <Switch
+                  checked={checked}
+                  onChange={handleChange}
+                  inputProps={{ "aria-label": "controlled" }}
+                />
+                <p>Add Service - $91.50 (applies per item)</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
