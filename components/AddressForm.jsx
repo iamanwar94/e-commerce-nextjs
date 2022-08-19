@@ -34,15 +34,12 @@ export default function AddressForm() {
   };
 
   const handleNext = () => {
-    // setActiveStep(activeStep + 1);
-    // console.log("object");
     dispatch(next());
     console.log(addressData);
     dispatch(addAddress(addressData));
   };
 
   const handleBack = () => {
-    // setActiveStep(activeStep - 1);
     dispatch(back());
   };
 

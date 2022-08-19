@@ -84,7 +84,7 @@ const Products = () => {
               >
                 {siblingCats.title}
               </p>
-            ))}
+            ))} 
           </div>
           <div className={product.filter_cats}>
             <FilterAccordion />

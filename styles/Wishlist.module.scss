@@ -1,0 +1,74 @@
+@import "./Variables.module.scss";
+
+.wishlist_wrapper {
+  width: 50%;
+  margin: 10px auto;
+  @include flex-column;
+
+  .wishlist_heading {
+    width: 100%;
+    border-bottom: 1px solid $extra-light-grey;
+
+    h2,
+    h1 {
+      color: $light-grey;
+      text-align: center;
+    }
+  }
+  .wishlist_cards_wrapper {
+    width: 100%;
+    .wishlist_card {
+      width: 100%;
+      @include flex-start;
+      align-items: center;
+      border-bottom: 1px solid $extra-light-grey;
+
+      .wishlist_card_img {
+        position: relative;
+        height: 200px;
+        width: 40%;
+      }
+      .wishlist_card_info {
+        flex: 1;
+        height: 200px;
+        padding: 10px 0;
+        color: $light-grey;
+        margin: 0 20px;
+        h3 {
+          font-size: 20px;
+          margin: 10px 0;
+        }
+        h6 {
+          margin: 10px 0;
+        }
+        .btn {
+          .dlt {
+            &:hover {
+              color: $red;
+              background-color: white;
+              border: 1px solid $red;
+            }
+          }
+          .add {
+            background-color: $yellow;
+            color: white;
+            margin-left: 10px;
+            &:hover {
+              color: $yellow;
+              background-color: white;
+              border: 1px solid $yellow;
+            }
+          }
+          button {
+            color: white;
+            background-color: $red;
+            border: 0;
+            outline: 0;
+            padding: 5px 10px;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+}
