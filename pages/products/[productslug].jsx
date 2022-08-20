@@ -30,6 +30,7 @@ const Products = () => {
     return fp.category_id.slug === router.query.productslug;
   });
 
+
   const currentCategory = category?.categories.filter((currentCat) => {
     return currentCat.slug === router.query.productslug;
   });
@@ -69,9 +70,7 @@ const Products = () => {
       <div className={product.filter_products_wrapper}>
         <div className={product.filters_wrapper}>
           <div className={product.filter_heading}>
-            <h3>
-              {filteredProducts ? filteredProducts[0].category_id.title : ""}
-            </h3>
+            {/* <h3>{filteredProducts && filteredProducts[0].category_id.title}</h3> */}
             <p>N of Ns Products Showing</p>
           </div>
           <div className={product.filters_cat}>
@@ -84,7 +83,7 @@ const Products = () => {
               >
                 {siblingCats.title}
               </p>
-            ))} 
+            ))}
           </div>
           <div className={product.filter_cats}>
             <FilterAccordion />

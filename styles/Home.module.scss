@@ -27,18 +27,105 @@
   }
 
   .categories_wrapper {
+    background: #fff;
     width: 95%;
     @include flex-column;
+    margin: 30px 0;
+
     h3 {
       font-weight: 600;
-      margin-bottom: 20px;
+      margin: 30px 0;
     }
+
+    .shopby_categories_headings {
+      width: 100%;
+      @include flex-center;
+      justify-content: space-around;
+      margin: 10px 0;
+
+      p {
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: $grey;
+        
+      }
+    }
+    .shopby_categories_content {
+      width: 100%;
+      @include flex-between;
+
+      .shopby_categories_bigcard {
+        width: 66%;
+        height: 648px;
+        box-shadow: 0 0 5px $light-grey;
+
+        @include flex-column;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        .shopby_categories_card_image {
+          position: relative;
+          height: 580px;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        .shopby_categories_cart_link {
+          background-color: rgb(243, 243, 243);
+          @include flex-center;
+          justify-content: flex-end;
+          width: 100%;
+          height: 70px;
+          padding-right: 10px;
+          font-size: 24px;
+          color: $light-grey;
+          cursor: pointer;
+          span {
+            color: $grey;
+            margin: 0;
+            margin-left: 10px;
+            font-size: 30px;
+          }
+        }
+      }
+
+      .shopby_categories_small_cards {
+        flex: 1;
+        height: 660px;
+        margin-left: 10px;
+        @include flex-between;
+        flex-wrap: wrap;
+        align-items: center;
+        .shopby_categories_small_card {
+          box-shadow: 0 0 5px $light-grey;
+          width: 49%;
+          height: 210px;
+          background-color: rgb(243, 243, 243);
+          @include flex-column;
+          justify-content: space-between;
+          margin: 0;
+
+          .shopby_categories_card_image {
+            position: relative;
+            width: 70%;
+            height: 80%;
+          }
+
+          p {
+            font-weight: 500;
+            margin: 0;
+            padding: 5px;
+          }
+        }
+      }
+    }
+
     .categories {
       display: flex;
       justify-content: space-evenly;
       margin: 10px 0;
     }
   }
+
   .banner_card_wrapper {
     display: flex;
     margin: 20px 0;

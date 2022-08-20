@@ -5,6 +5,7 @@ import Image from "next/image";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 // from redux slices
 
@@ -30,6 +31,7 @@ import ThinBannerCard from "../components/ThinBannerCard";
 
 export default function Home() {
   const [slider, setSlider] = useState([]);
+  const [catIndex, setCatIndex] = useState(1);
   const dispatch = useDispatch();
 
   const categories = useSelector(selectCategory);
@@ -56,6 +58,11 @@ export default function Home() {
     }
     getSLider();
   }, []);
+
+  const catClickHandler = (index) => {
+    setCatIndex(index);
+    console.log(index);
+  };
 
   return (
     <div className="index_wrapper">
@@ -99,7 +106,156 @@ export default function Home() {
           </div>
           <div className={styles.categories_wrapper}>
             <h3>Shop By Categories</h3>
-            <div className={styles.categories}>
+            <div className={styles.shopby_categories_headings}>
+              <p
+                onClick={() => catClickHandler(1)}
+                style={
+                  catIndex === 1
+                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
+                    : { border: 0 }
+                }
+              >
+                Bedroom
+              </p>
+              <p
+                onClick={() => catClickHandler(2)}
+                style={
+                  catIndex === 2
+                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
+                    : { border: 0 }
+                }
+              >
+                living room
+              </p>
+              <p
+                onClick={() => catClickHandler(3)}
+                style={
+                  catIndex === 3
+                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
+                    : { border: 0 }
+                }
+              >
+                dining
+              </p>
+              <p
+                onClick={() => catClickHandler(4)}
+                style={
+                  catIndex === 4
+                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
+                    : { border: 0 }
+                }
+              >
+                outdoor
+              </p>
+              <p
+                onClick={() => catClickHandler(5)}
+                style={
+                  catIndex === 5
+                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
+                    : { border: 0 }
+                }
+              >
+                mattress
+              </p>
+              <p
+                onClick={() => catClickHandler(6)}
+                style={
+                  catIndex === 6
+                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
+                    : { border: 0 }
+                }
+              >
+                home office
+              </p>
+            </div>
+            <div className={styles.shopby_categories_content}>
+              <div className={styles.shopby_categories_bigcard}>
+                <div className={styles.shopby_categories_card_image}>
+                  <Image
+                    src={sofa}
+                    alt="sofa"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <div className={styles.shopby_categories_cart_link}>
+                  Shop All Bedroom{" "}
+                  <span>
+                    <IoIosArrowDroprightCircle />
+                  </span>
+                </div>
+              </div>
+              <div className={styles.shopby_categories_small_cards}>
+                <div className={styles.shopby_categories_small_card}>
+                  <div className={styles.shopby_categories_card_image}>
+                    <Image
+                      src={sofa}
+                      alt="sofa"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </div>
+                  <p>Product Name</p>
+                </div>
+                <div className={styles.shopby_categories_small_card}>
+                  <div className={styles.shopby_categories_card_image}>
+                    <Image
+                      src={sofa}
+                      alt="sofa"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </div>
+                  <p>Product Name</p>
+                </div>
+                <div className={styles.shopby_categories_small_card}>
+                  <div className={styles.shopby_categories_card_image}>
+                    <Image
+                      src={sofa}
+                      alt="sofa"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </div>
+                  <p>Product Name</p>
+                </div>
+                <div className={styles.shopby_categories_small_card}>
+                  <div className={styles.shopby_categories_card_image}>
+                    <Image
+                      src={sofa}
+                      alt="sofa"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </div>
+                  <p>Product Name</p>
+                </div>
+                <div className={styles.shopby_categories_small_card}>
+                  <div className={styles.shopby_categories_card_image}>
+                    <Image
+                      src={sofa}
+                      alt="sofa"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </div>
+                  <p>Product Name</p>
+                </div>
+                <div className={styles.shopby_categories_small_card}>
+                  <div className={styles.shopby_categories_card_image}>
+                    <Image
+                      src={sofa}
+                      alt="sofa"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </div>
+                  <p>Product Name</p>
+                </div>
+              </div>
+            </div>
+
+            {/* <div className={styles.categories}>
               {categories?.categories?.slice(0, 6).map((category) => (
                 <CategoriesCard
                   key={category._id}
@@ -108,9 +264,9 @@ export default function Home() {
                   slug={category.slug}
                 />
               ))}
-            </div>
+            </div> */}
           </div>
-          <div className={styles.banner_card_wrapper}>
+          {/* <div className={styles.banner_card_wrapper}>
             <BannerCard
               img={model}
               cat="Category"
@@ -188,7 +344,7 @@ export default function Home() {
 
           <div className={styles.thin_banner_wrapper}>
             <ThinBannerCard title="outdoor" feature="reintroducing" />
-          </div>
+          </div> */}
         </div>
       )}
     </div>
