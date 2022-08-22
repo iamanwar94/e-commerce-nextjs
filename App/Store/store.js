@@ -12,6 +12,7 @@ import { configureStore } from "@reduxjs/toolkit";
 // import storage from "redux-persist/lib/storage";
 
 import cartReducer from "../Features/cartSlice";
+import wishlistReducer from "../Features/wishlistSlice";
 import productReducer from "../Features/productSlice";
 import categoryReducer from "../Features/categorySlice";
 import checkoutReducer from "../Features/checkoutSlice";
@@ -33,6 +34,7 @@ const store = configureStore({
     category: categoryReducer,
     checkout: checkoutReducer,
     activeStep: stepReducer,
+    wishlist: wishlistReducer,
   },
   // middleware: (getDefaultMiddleware) =>
   //   getDefaultMiddleware({

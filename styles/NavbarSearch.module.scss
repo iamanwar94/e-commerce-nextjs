@@ -141,6 +141,10 @@
         position: relative;
         .icon {
           font-size: 30px;
+
+          &:hover{
+            color: $red
+          }
         }
         .badge {
           @include flex-center;

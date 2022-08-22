@@ -5,7 +5,8 @@ import Image from "next/image";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { BsChatDots } from "react-icons/bs";
+import { AiOutlineDown } from "react-icons/ai";
 
 // from redux slices
 
@@ -28,10 +29,12 @@ import cardimage from "../components/assets/fur12.jpg";
 import BannerCard from "../components/BannerCard";
 import CategoryCard from "../components/CategoryCard";
 import ThinBannerCard from "../components/ThinBannerCard";
+import ShopByCategories from "../components/ShopByCategories";
+import ChatBot from "../components/ChatBot";
 
 export default function Home() {
   const [slider, setSlider] = useState([]);
-  const [catIndex, setCatIndex] = useState(1);
+  const [botShow, setBotShow] = useState(false);
   const dispatch = useDispatch();
 
   const categories = useSelector(selectCategory);
@@ -59,11 +62,6 @@ export default function Home() {
     getSLider();
   }, []);
 
-  const catClickHandler = (index) => {
-    setCatIndex(index);
-    console.log(index);
-  };
-
   return (
     <div className="index_wrapper">
       <Head>
@@ -89,6 +87,7 @@ export default function Home() {
             slider={slider}
             url="https://ashley-api.herokuapp.com/uploads/slider/"
           />
+          <ShopByCategories />
           <div className={styles.discount_cards_wrapper}>
             <div className={styles.discount_cards_heading}>
               <h2>Discount in full bloom</h2>
@@ -104,169 +103,8 @@ export default function Home() {
               <DiscountCard img={cardimage} />
             </div>
           </div>
-          <div className={styles.categories_wrapper}>
-            <h3>Shop By Categories</h3>
-            <div className={styles.shopby_categories_headings}>
-              <p
-                onClick={() => catClickHandler(1)}
-                style={
-                  catIndex === 1
-                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
-                    : { border: 0 }
-                }
-              >
-                Bedroom
-              </p>
-              <p
-                onClick={() => catClickHandler(2)}
-                style={
-                  catIndex === 2
-                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
-                    : { border: 0 }
-                }
-              >
-                living room
-              </p>
-              <p
-                onClick={() => catClickHandler(3)}
-                style={
-                  catIndex === 3
-                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
-                    : { border: 0 }
-                }
-              >
-                dining
-              </p>
-              <p
-                onClick={() => catClickHandler(4)}
-                style={
-                  catIndex === 4
-                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
-                    : { border: 0 }
-                }
-              >
-                outdoor
-              </p>
-              <p
-                onClick={() => catClickHandler(5)}
-                style={
-                  catIndex === 5
-                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
-                    : { border: 0 }
-                }
-              >
-                mattress
-              </p>
-              <p
-                onClick={() => catClickHandler(6)}
-                style={
-                  catIndex === 6
-                    ? { borderBottom: "2px solid grey", fontWeight: "bolder" }
-                    : { border: 0 }
-                }
-              >
-                home office
-              </p>
-            </div>
-            <div className={styles.shopby_categories_content}>
-              <div className={styles.shopby_categories_bigcard}>
-                <div className={styles.shopby_categories_card_image}>
-                  <Image
-                    src={sofa}
-                    alt="sofa"
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </div>
-                <div className={styles.shopby_categories_cart_link}>
-                  Shop All Bedroom{" "}
-                  <span>
-                    <IoIosArrowDroprightCircle />
-                  </span>
-                </div>
-              </div>
-              <div className={styles.shopby_categories_small_cards}>
-                <div className={styles.shopby_categories_small_card}>
-                  <div className={styles.shopby_categories_card_image}>
-                    <Image
-                      src={sofa}
-                      alt="sofa"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </div>
-                  <p>Product Name</p>
-                </div>
-                <div className={styles.shopby_categories_small_card}>
-                  <div className={styles.shopby_categories_card_image}>
-                    <Image
-                      src={sofa}
-                      alt="sofa"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </div>
-                  <p>Product Name</p>
-                </div>
-                <div className={styles.shopby_categories_small_card}>
-                  <div className={styles.shopby_categories_card_image}>
-                    <Image
-                      src={sofa}
-                      alt="sofa"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </div>
-                  <p>Product Name</p>
-                </div>
-                <div className={styles.shopby_categories_small_card}>
-                  <div className={styles.shopby_categories_card_image}>
-                    <Image
-                      src={sofa}
-                      alt="sofa"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </div>
-                  <p>Product Name</p>
-                </div>
-                <div className={styles.shopby_categories_small_card}>
-                  <div className={styles.shopby_categories_card_image}>
-                    <Image
-                      src={sofa}
-                      alt="sofa"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </div>
-                  <p>Product Name</p>
-                </div>
-                <div className={styles.shopby_categories_small_card}>
-                  <div className={styles.shopby_categories_card_image}>
-                    <Image
-                      src={sofa}
-                      alt="sofa"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </div>
-                  <p>Product Name</p>
-                </div>
-              </div>
-            </div>
 
-            {/* <div className={styles.categories}>
-              {categories?.categories?.slice(0, 6).map((category) => (
-                <CategoriesCard
-                  key={category._id}
-                  img={category.image}
-                  title={category.title}
-                  slug={category.slug}
-                />
-              ))}
-            </div> */}
-          </div>
-          {/* <div className={styles.banner_card_wrapper}>
+          <div className={styles.banner_card_wrapper}>
             <BannerCard
               img={model}
               cat="Category"
@@ -274,7 +112,7 @@ export default function Home() {
               feature="This is the features of the product"
             />
           </div>
-          <div className={styles.category_cards}>
+          {/* <div className={styles.category_cards}>
             <CategoryCard
               img={sofa}
               title="Something"
@@ -295,7 +133,7 @@ export default function Home() {
               title="Something"
               feature="something under something"
             />
-          </div>
+          </div> */}
           <div className={styles.free_shipping}>
             <h4>Swith it up</h4>
             <h2>Update your happy Place</h2>
@@ -342,9 +180,18 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.thin_banner_wrapper}>
+          {/* <div className={styles.thin_banner_wrapper}>
             <ThinBannerCard title="outdoor" feature="reintroducing" />
           </div> */}
+          <div className={styles.chatbot_wrapper}>
+            <div className={styles.chatbot}>{botShow && <ChatBot />}</div>
+            <div
+              className={styles.chatbot_icon}
+              onClick={() => setBotShow(!botShow)}
+            >
+              {botShow ? <AiOutlineDown /> : <BsChatDots />}
+            </div>
+          </div>
         </div>
       )}
     </div>

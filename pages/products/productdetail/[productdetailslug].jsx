@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import Switch from "@mui/material/Switch";
 import Image from "next/image";
 import { addToCart } from "../../../App/Features/cartSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchProducts } from "../../../App/Features/productSlice";
 import { fetchCategory } from "../../../App/Features/categorySlice";
+import { addToWishlist } from "../../../App/Features/wishlistSlice";
 
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
@@ -117,6 +118,9 @@ const ProductDetail = ({ productDetail }) => {
   const addToCartHandler = () => {
     dispatch(addToCart(cartDetail));
     setProductQuantity(1);
+  };
+  const addToWishHandler = () => {
+    dispatch(addToWishlist(cartDetail));
   };
 
   const activeLinkHandler = (id) => {
@@ -264,7 +268,11 @@ const ProductDetail = ({ productDetail }) => {
             <div className={product.reviews}>
               <div
                 className={product.overall_ratings}
-                style={{ display: "flex", justifyContent:'space-between', borderBottom:'1px solid black' }}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  borderBottom: "1px solid black",
+                }}
               >
                 <div className={product.total_rating}>
                   <h1>
@@ -296,7 +304,6 @@ const ProductDetail = ({ productDetail }) => {
                       <AiFillStar />
                       <AiFillStar />
                       <AiFillStar />
-
                     </span>
                     <div
                       style={{
@@ -318,7 +325,6 @@ const ProductDetail = ({ productDetail }) => {
                       <AiFillStar />
                       <AiFillStar />
                       <AiFillStar />
-
                     </span>
                     <div
                       style={{
@@ -340,7 +346,6 @@ const ProductDetail = ({ productDetail }) => {
                       <AiFillStar />
                       <AiFillStar />
                       <AiFillStar />
-
                     </span>
                     <div
                       style={{
@@ -433,7 +438,16 @@ const ProductDetail = ({ productDetail }) => {
               <p onClick={incQuantity}>+</p>
             </div>
             <button onClick={addToCartHandler}>Add Items to Cart</button>
-            <div className={product.icon}>
+            <div
+              className={product.icon}
+              onClick={addToWishHandler}
+              style={{
+                height: 50,
+                width: 50,
+                borderRadius: "50%",
+                boxShadow:"0 0 2px grey"
+              }}
+            >
               <AiOutlineHeart className={product.heart} />
             </div>
           </div>

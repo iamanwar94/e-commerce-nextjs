@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { selectCart } from "../App/Features/cartSlice";
 import navsearch from "../styles/NavbarSearch.module.scss";
 import logo from "../components/assets/m_logo_360.png";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 import HoverCart from "./HoverCart";
 
@@ -55,6 +55,16 @@ const NavbarSearch = () => {
           <div className={navsearch.cart_detail}>
             <HoverCart />
           </div>
+        </div>
+        <div className={navsearch.icon_wrapper} style={{padding:0}}>
+          <Link href="/wishlist">
+            <a>
+              <span className={navsearch.cart_icon}>
+                <AiOutlineHeart className={navsearch.icon} />
+                {/* <span className={navsearch.badge}>{cartCount}</span> */}
+              </span>
+            </a>
+          </Link>
         </div>
       </div>
     </div>

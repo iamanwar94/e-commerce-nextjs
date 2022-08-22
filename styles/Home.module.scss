@@ -47,7 +47,7 @@
         letter-spacing: 4px;
         text-transform: uppercase;
         color: $grey;
-        
+        cursor: pointer;
       }
     }
     .shopby_categories_content {
@@ -57,11 +57,14 @@
       .shopby_categories_bigcard {
         width: 66%;
         height: 648px;
-        box-shadow: 0 0 5px $light-grey;
-
         @include flex-column;
         align-items: flex-start;
         justify-content: space-between;
+
+        &:hover {
+          box-shadow: 0 0 5px $extra-light-grey;
+          cursor: pointer;
+        }
 
         .shopby_categories_card_image {
           position: relative;
@@ -95,14 +98,20 @@
         @include flex-between;
         flex-wrap: wrap;
         align-items: center;
+        // align-content: space-between;
         .shopby_categories_small_card {
-          box-shadow: 0 0 5px $light-grey;
+          // box-shadow: 0 0 5px $light-grey;
+          cursor: pointer;
           width: 49%;
           height: 210px;
           background-color: rgb(243, 243, 243);
           @include flex-column;
           justify-content: space-between;
           margin: 0;
+
+          &:hover {
+            box-shadow: 0 0 5px $extra-light-grey;
+          }
 
           .shopby_categories_card_image {
             position: relative;
@@ -164,5 +173,40 @@
   .thin_banner_wrapper {
     width: 95%;
     margin: 20px 0;
+  }
+
+  .chatbot_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $grey;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px black;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 1000000;
+
+    .chatbot_icon {
+      font-size: 30px;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 4px;
+      color: white;
+      &:hover {
+        transform: scale(1.2);
+      } 
+    }
+    .chatbot {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      box-shadow: 0 0 10px black;
+      padding: 0;
+      margin: 0;
+    }
   }
 }
