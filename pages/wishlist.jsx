@@ -11,7 +11,7 @@ import styles from "../styles/Wishlist.module.scss";
 import wishlistimg from "./assets/fur12.jpg";
 import { AiOutlineDelete, AiOutlineHeart } from "react-icons/ai";
 
-const wishlist = () => {
+const Wishlist = () => {
   const wishList = useSelector(selectWishlist);
   const dispatch = useDispatch();
   const deleteHandler = (id) => {
@@ -61,4 +61,4 @@ const wishlist = () => {
   );
 };
 
-export default wishlist;
+export default Wishlist;

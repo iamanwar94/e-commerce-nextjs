@@ -174,9 +174,9 @@ const Login = () => {
           <div className={login.signup}>
             <p>New Customers</p>
             <p>
-              Create an Ashley online account today! You'll be able to access
-              express checkout, create and save shopping lists, view order
-              history and much more...
+              Create an Ashley online account today! You will be able to
+              access express checkout, create and save shopping lists, view
+              order history and much more...
             </p>
             <div className={login.button}>
               <Link href="/signup">

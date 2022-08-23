@@ -162,7 +162,7 @@ const tnc = () => {
         return of curbside delivery item(s) within 30 days of delivery. Please
         note, return shipping fees may apply. For Curbside Deliveries where a
         manufacturing defect is discovered after the 30-day return period,
-        consult the manufacturer's warranty, if any.
+        consult the manufacturers warranty, if any.
       </p>
       <h4 style={{ textAlign: "start", marginTop: "20px" }}>
         No-Hassle Delivery + Assembly Fees
@@ -249,7 +249,7 @@ const tnc = () => {
         will work with you to repair, replace or pick up the item for a return.
         Items ordered online for No-Hassle Delivery + Assembly with
         manufacturing defects discovered after the 72 hour return period may be
-        covered by the manufacturer's warranty, if any; please contact the
+        covered by the manufacturers warranty, if any; please contact the
         customer service number listed in your emailed order confirmation for
         assistance.
       </p>

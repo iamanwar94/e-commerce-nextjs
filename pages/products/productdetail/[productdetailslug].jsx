@@ -113,7 +113,19 @@ const ProductDetail = ({ productDetail }) => {
       image: images[0].map((image) => image[0])[0],
       quantity: Number(productQuantity),
     });
-  }, [sizeID, colorID, productQuantity]);
+  }, [
+    sizeID,
+    colorID,
+    productQuantity,
+    cartDetail,
+    productDetail._id,
+    productDetail.title,
+    price,
+    sizes,
+    colors,
+    sku,
+    images,
+  ]);
 
   const addToCartHandler = () => {
     dispatch(addToCart(cartDetail));
@@ -445,7 +457,7 @@ const ProductDetail = ({ productDetail }) => {
                 height: 50,
                 width: 50,
                 borderRadius: "50%",
-                boxShadow:"0 0 2px grey"
+                boxShadow: "0 0 2px grey",
               }}
             >
               <AiOutlineHeart className={product.heart} />

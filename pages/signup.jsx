@@ -152,7 +152,7 @@ const Signup = () => {
               onChange={checkChangeHandler}
             />
             <label htmlFor="offers">
-              Yes! I'd like to receive emails with special offers and sales
+              Yes! I would like to receive emails with special offers and sales
             </label>
           </div>
           <div className={signup.button}>
