@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectWishlist,
   removeToWishlist,
-} from "../app/Features/wishlistSlice";
+} from "../app/features/wishlistSlice";
 
 import styles from "../styles/Wishlist.module.scss";
 import wishlistimg from "./assets/fur12.jpg";
