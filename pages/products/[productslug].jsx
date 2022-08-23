@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchCategory,
   selectCategory,
-} from "../../App/Features/categorySlice";
+} from "../../app/features/categorySlice";
 
-import { fetchProducts, selectProducts } from "../../App/Features/productSlice";
+import { fetchProducts, selectProducts } from "../../app/features/productSlice";
 
 import FilterAccordion from "../../components/FilterAccordion";
 import ProductCard from "../../components/ProductCard";
@@ -29,7 +29,6 @@ const Products = () => {
   const filteredProducts = products?.products.filter((fp) => {
     return fp.category_id.slug === router.query.productslug;
   });
-
 
   const currentCategory = category?.categories.filter((currentCat) => {
     return currentCat.slug === router.query.productslug;

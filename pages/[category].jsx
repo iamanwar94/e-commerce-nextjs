@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 // from redux slices
 
-import { fetchProducts } from "../App/Features/productSlice";
-import { fetchCategory, selectCategory } from "../App/Features/categorySlice";
+import { fetchProducts } from "../app/features/productSlice";
+import { fetchCategory, selectCategory } from "../app/features/categorySlice";
 
 import CategoryCard from "../components/CategoryCard";
 
@@ -17,9 +17,8 @@ import furniture from "../styles/Furniture.module.scss";
 import BannerCard from "../components/BannerCard";
 
 const Furniture = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
+  const dispatch = useDispatch();a
+  fseEffect(() => {
     dispatch(fetchCategory());
     dispatch(fetchProducts());
   }, [dispatch]);

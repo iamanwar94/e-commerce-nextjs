@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import store from "../app/Store/store";
+import store from "../app/store/store";
 import { ToastContainer } from "react-toastify";
 // import { persistStore } from "redux-persist";
 // import { PersistGate } from "redux-persist/integration/react";

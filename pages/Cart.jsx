@@ -3,13 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCheckout } from "../App/Features/checkoutSlice";
-import { selectCart } from "../App/Features/cartSlice";
+import { addToCheckout } from "../app/features/checkoutSlice";
+import { selectCart } from "../app/features/cartSlice";
 
 // from redux slices
 
-import { fetchProducts } from "../App/Features/productSlice";
-import { fetchCategory } from "../App/Features/categorySlice";
+import { fetchProducts } from "../app/features/productSlice";
+import { fetchCategory } from "../app/features/categorySlice";
 
 import CartItems from "../components/CartItems";
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectCategory } from "../App/Features/categorySlice";
+import { selectCategory } from "../app/features/categorySlice";
 
 import Link from "next/link";
 
@@ -19,7 +19,7 @@ const NavbarLinks = () => {
         <Link className={navbar.links} href="/">
           <a>Home</a>
         </Link>
-        <div className={navbar.dropdown}>
+        {/* <div className={navbar.dropdown}>
           <Link href="/" className={navbar.dropdown_link}>
             <a>Add Category Here</a>
           </Link>
@@ -44,7 +44,7 @@ const NavbarLinks = () => {
           <Link href="/" className={navbar.dropdown_link}>
             <a>Add Category Here</a>
           </Link>
-        </div>
+        </div> */}
       </div>
 
       {mainCategories?.map((mainCategory) => (

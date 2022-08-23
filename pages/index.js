@@ -10,8 +10,8 @@ import { AiOutlineDown } from "react-icons/ai";
 
 // from redux slices
 
-import { fetchProducts } from "../App/Features/productSlice";
-import { fetchCategory, selectCategory } from "../App/Features/categorySlice";
+import { fetchProducts } from "../app/features/productSlice";
+import { fetchCategory, selectCategory } from "../app/features/categorySlice";
 
 //from assets and styles
 

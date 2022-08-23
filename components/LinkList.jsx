@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../styles/LinkList.module.scss";
 
 const LinkList = (props) => {
+  console.log(props);
   const linkMarkup = props.options.map((link) => (
     <li key={link.id} className={styles.link_list_item}>
       <a

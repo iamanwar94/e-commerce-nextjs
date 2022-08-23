@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { next, back, selectStep, addPayment } from "../App/Features/stepSlice";
+import { next, back, selectStep, addPayment } from "../app/features/stepSlice";
 
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";

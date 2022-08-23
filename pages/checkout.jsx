@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { useSelector } from "react-redux";
-import { selectStep } from "../App/Features/stepSlice";
+import { selectStep } from "../app/features/stepSlice";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
@@ -56,8 +56,8 @@ export default function Checkout() {
   }
 
   // const handleNext = () => {
-    // setActiveStep(activeStep + 1);
-    // console.log("object");
+  // setActiveStep(activeStep + 1);
+  // console.log("object");
   // };
 
   // const handleBack = () => {

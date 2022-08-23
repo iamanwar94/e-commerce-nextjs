@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSelector } from "react-redux";
-import { selectCart } from "../App/Features/cartSlice";
+import { selectCart } from "../app/features/cartSlice";
 import navsearch from "../styles/NavbarSearch.module.scss";
 import logo from "../components/assets/m_logo_360.png";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";

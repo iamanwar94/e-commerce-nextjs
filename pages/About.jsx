@@ -1,26 +1,21 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import about from "../styles/About.module.scss";
 import banner from "./assets/henry-ascroft-4RJYV_rkoeM-unsplash (1).jpg";
-import Image from 'next/image'
+import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 
 // from redux slices
 
-import { fetchProducts } from "../App/Features/productSlice";
-import { fetchCategory, selectCategory } from "../App/Features/categorySlice";
-
+import { fetchProducts } from "../app/features/productSlice";
+import { fetchCategory, selectCategory } from "../app/features/categorySlice";
 
 const About = () => {
   const dispatch = useDispatch();
 
-
-  
   useEffect(() => {
     dispatch(fetchCategory());
     dispatch(fetchProducts());
   }, [dispatch]);
-
-
 
   const Card = () => {
     return (
@@ -45,9 +40,11 @@ const About = () => {
       </div>
       <div
         className={about.about_banner}
-        style={{
-          // backgroundImage: `url('${banner}')`,
-        }}
+        style={
+          {
+            // backgroundImage: `url('${banner}')`,
+          }
+        }
       >
         <div className={about.about_banner_content}>
           <h4>Who We Are</h4>

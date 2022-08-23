@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Switch from "@mui/material/Switch";
 import Image from "next/image";
-import { addToCart } from "../../../App/Features/cartSlice";
+import { addToCart } from "../../../app/features/cartSlice";
 import { useDispatch } from "react-redux";
-import { fetchProducts } from "../../../App/Features/productSlice";
-import { fetchCategory } from "../../../App/Features/categorySlice";
-import { addToWishlist } from "../../../App/Features/wishlistSlice";
+import { fetchProducts } from "../../../app/features/productSlice";
+import { fetchCategory } from "../../../app/features/categorySlice";
+import { addToWishlist } from "../../../app/features/wishlistSlice";
 
 import { AiFillStar } from "react-icons/ai";
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 
 import ProductCarousal from "../../../components/productCarousal.jsx";
 import product from "../../../styles/ProductDetail.module.scss";

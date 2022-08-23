@@ -6,7 +6,7 @@ import {
   removeFromCart,
   incQuantity,
   decQuantity,
-} from "../App/Features/cartSlice";
+} from "../app/features/cartSlice";
 // import cartimage from "../pages/assets/fur18.jpg";
 
 import cart from "../styles/HoverCart.module.scss";

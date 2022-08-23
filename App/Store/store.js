@@ -11,12 +11,12 @@ import { configureStore } from "@reduxjs/toolkit";
 // } from "redux-persist";
 // import storage from "redux-persist/lib/storage";
 
-import cartReducer from "../Features/cartSlice";
-import wishlistReducer from "../Features/wishlistSlice";
-import productReducer from "../Features/productSlice";
-import categoryReducer from "../Features/categorySlice";
-import checkoutReducer from "../Features/checkoutSlice";
-import stepReducer from "../Features/stepSlice";
+import cartReducer from "../features/cartSlice";
+import wishlistReducer from "../features/wishlistSlice";
+import productReducer from "../features/productSlice";
+import categoryReducer from "../features/categorySlice";
+import checkoutReducer from "../features/checkoutSlice";
+import stepReducer from "../features/stepSlice";
 
 // const persistConfig = {
 //   key: "root",

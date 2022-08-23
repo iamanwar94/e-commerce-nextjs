@@ -5,7 +5,7 @@ const LearningOptions = (props) => {
   const options = [
     {
       text: "Javascript",
-      handler: props.actionProvider.handleJavascriptList,
+      handler: props.actionProvider.handleJS,
       id: 1,
     },
     { text: "Data visualization", handler: () => {}, id: 2 },

@@ -9,12 +9,12 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
 // import { useDispatch, useSelector } from "react-redux";
-import { next, back, selectStep } from "../App/Features/stepSlice";
+import { next, back, selectStep } from "../app/features/stepSlice";
 
 import { useSelector, useDispatch } from "react-redux";
-import { selectCart } from "../App/Features/cartSlice";
-import { selectCheckout } from "../App/Features/checkoutSlice";
-import { selectAddress, selectPayment } from "../App/Features/stepSlice";
+import { selectCart } from "../app/features/cartSlice";
+import { selectCheckout } from "../app/features/checkoutSlice";
+import { selectAddress, selectPayment } from "../app/features/stepSlice";
 
 const products = [
   {
