@@ -32,7 +32,7 @@ import ThinBannerCard from "../components/ThinBannerCard";
 import ShopByCategories from "../components/ShopByCategories";
 import ChatBot from "../components/ChatBot";
 
-export default function Home() {
+export default function Home({ categoriesData }) {
   const [slider, setSlider] = useState([]);
   const [botShow, setBotShow] = useState(false);
   const dispatch = useDispatch();
@@ -87,7 +87,7 @@ export default function Home() {
             slider={slider}
             url="https://ashley-api.herokuapp.com/uploads/slider/"
           />
-          <ShopByCategories />
+          <ShopByCategories categoriesData={categoriesData} />
           <div className={styles.discount_cards_wrapper}>
             <div className={styles.discount_cards_heading}>
               <h2>Discount in full bloom</h2>
@@ -196,4 +196,19 @@ export default function Home() {
       )}
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  // const { productdetailslug } = context.query;
+
+  const res = await fetch(
+    `https://ashley-api.herokuapp.com/categories/fetch/categories`
+  );
+  const data = await res.json();
+  const categoriesData = data.categories;
+  console.log(categoriesData);
+
+  return {
+    props: { categoriesData }, // will be passed to the page component as props
+  };
 }

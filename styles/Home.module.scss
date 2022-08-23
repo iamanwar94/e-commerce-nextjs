@@ -123,6 +123,8 @@
             font-weight: 500;
             margin: 0;
             padding: 5px;
+            width: 80%;
+            text-align: center;
           }
         }
       }
@@ -202,8 +204,8 @@
     }
     .chatbot {
       position: absolute;
-      bottom: 80px;
-      right: 0;
+      bottom: 0;
+      right: 70px;
       box-shadow: 0 0 10px black;
       padding: 0;
       margin: 0;
