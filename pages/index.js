@@ -37,6 +37,8 @@ export default function Home({ categoriesData }) {
   const [botShow, setBotShow] = useState(false);
   const dispatch = useDispatch();
 
+  const imgURL = "https://ashley-api.herokuapp.com/uploads/";
+
   const categories = useSelector(selectCategory);
 
   const mainCategories = categories?.categories.filter((cat) => {

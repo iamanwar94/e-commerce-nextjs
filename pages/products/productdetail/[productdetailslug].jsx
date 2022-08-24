@@ -36,7 +36,6 @@ const ProductDetail = ({ productDetail }) => {
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
-    console.log(checked);
   };
 
   const sizeChangeHandler = (i) => {
@@ -100,8 +99,8 @@ const ProductDetail = ({ productDetail }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    setCartDetail({
-      ...cartDetail,
+    setCartDetail((prev) => ({
+      ...prev,
       _id: productDetail._id,
       title: productDetail.title,
       price: Number(
@@ -112,20 +111,8 @@ const ProductDetail = ({ productDetail }) => {
       sku: sku.slice(sizeID, sizeID + 1).map((sku) => sku[colorID])[0],
       image: images[0].map((image) => image[0])[0],
       quantity: Number(productQuantity),
-    });
-  }, [
-    sizeID,
-    colorID,
-    productQuantity,
-    cartDetail,
-    productDetail._id,
-    productDetail.title,
-    price,
-    sizes,
-    colors,
-    sku,
-    images,
-  ]);
+    }));
+  }, [sizeID, colorID, productQuantity]);
 
   const addToCartHandler = () => {
     dispatch(addToCart(cartDetail));
@@ -164,7 +151,6 @@ const ProductDetail = ({ productDetail }) => {
                 <AiFillStar className={product.icon} />
                 <AiFillStar className={product.icon} />
                 <AiFillStar className={product.icon} />
-                {console.log(cartDetail)}
               </span>
               <p>121 Reviews</p>
             </div>

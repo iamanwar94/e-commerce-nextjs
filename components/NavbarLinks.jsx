@@ -15,42 +15,10 @@ const NavbarLinks = () => {
 
   return (
     <div className={navbar.navbar_links_items_wrapper}>
-      <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} href="/">
-          <a>Home</a>
-        </Link>
-        {/* <div className={navbar.dropdown}>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-        </div> */}
-      </div>
-
       {mainCategories?.map((mainCategory) => (
         <div className={navbar.links_wrapper} key={mainCategory._id}>
-          <Link className={navbar.links} href={`/${mainCategory._id}`}>
-            <a>{mainCategory.title} </a>
+          <Link href={`/${mainCategory._id}`}>
+            <p className={navbar.links}>{mainCategory.title}</p>
           </Link>
           <div className={navbar.dropdown}>
             {categories?.categories
@@ -58,80 +26,13 @@ const NavbarLinks = () => {
                 (filteredCats) => filteredCats.parent_id === mainCategory._id
               )
               .map((subCats) => (
-                <Link
-                  href={`/products/${subCats.slug}`}
-                  className={navbar.dropdown_link}
-                  key={subCats._id}
-                >
-                  <a>{subCats.title}</a>
+                <Link href={`/products/${subCats.slug}`} key={subCats._id}>
+                  <p className={navbar.dropdown_link}>{subCats.title}</p>
                 </Link>
               ))}
           </div>
         </div>
       ))}
-
-      <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} href="/sales">
-          <a>Sales</a>
-        </Link>
-        <div className={navbar.dropdown}>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-        </div>
-      </div>
-      <div className={navbar.links_wrapper}>
-        <Link className={navbar.links} href="/freedelivery">
-          <a>Free Delivery Items</a>
-        </Link>
-        <div className={navbar.dropdown}>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-          <Link href="/" className={navbar.dropdown_link}>
-            <a>Add Category Here</a>
-          </Link>
-        </div>
-      </div>
     </div>
   );
 };

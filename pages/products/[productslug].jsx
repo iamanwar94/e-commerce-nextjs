@@ -13,9 +13,6 @@ import FilterAccordion from "../../components/FilterAccordion";
 import ProductCard from "../../components/ProductCard";
 
 import product from "../../styles/Products.module.scss";
-import CategoriesCard from "../../components/CategoriesCard";
-import catchair from "../../components/assets/chair3.png";
-import { RouterTwoTone } from "@mui/icons-material";
 
 const Products = () => {
   const [proByCat, setproByCat] = useState([]);

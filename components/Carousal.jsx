@@ -25,7 +25,7 @@ const Carousal = ({ height, slider, url }) => {
               key={sliderImage._id ? sliderImage._id : i}
               alt={sliderImage.title ? sliderImage.title : i}
               layout="fill"
-              objectFit="cover"
+              objectFit="fill"
             />
             // <img
             //   src={`${url}${sliderImage ? sliderImage : sliderImage.image}`}

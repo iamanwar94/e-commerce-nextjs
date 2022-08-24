@@ -8,6 +8,9 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 const ShopByCategories = ({ categoriesData }) => {
   const [catIndex, setCatIndex] = useState(0);
+
+  const imgURL = "https://ashley-api.herokuapp.com/uploads/";
+
   const catClickHandler = (index) => {
     setCatIndex(index);
   };
@@ -43,7 +46,7 @@ const ShopByCategories = ({ categoriesData }) => {
         <div className={styles.shopby_categories_bigcard}>
           <div className={styles.shopby_categories_card_image}>
             <Image
-              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}categories/${newselectedCategory.image}`}
+              src={`${imgURL}categories/${newselectedCategory.image}`}
               alt="sofa"
               layout="fill"
               objectFit="cover"
@@ -62,7 +65,7 @@ const ShopByCategories = ({ categoriesData }) => {
               <div className={styles.shopby_categories_small_card}>
                 <div className={styles.shopby_categories_card_image}>
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_IMAGE_URL}categories/${item.image}`}
+                    src={`${imgURL}categories/${item.image}`}
                     alt="sofa"
                     layout="fill"
                     objectFit="contain"

@@ -33,14 +33,24 @@ const NavbarSearch = () => {
         </div>
       </div>
       <div className={navsearch.navbar_links_wrapper}>
-        <p>
+        <p className={navsearch.links}>
           <Link href="/login" className={navsearch.links}>
-            <a>Login Account</a>
+            <a>
+              Login <br /> Account
+            </a>
           </Link>
         </p>
-        <p>
+
+        <p className={navsearch.links}>
           <Link href="/deliverytracking" className={navsearch.links}>
-            <a>Delivery Tracking</a>
+            <a>
+              Delivery <br /> Tracking
+            </a>
+          </Link>
+        </p>
+        <p className={navsearch.links}>
+          <Link href="/" className={navsearch.links}>
+            <a>Help</a>
           </Link>
         </p>
         <div className={navsearch.icon_wrapper}>
@@ -56,7 +66,7 @@ const NavbarSearch = () => {
             <HoverCart />
           </div>
         </div>
-        <div className={navsearch.icon_wrapper} style={{padding:0}}>
+        <div className={navsearch.icon_wrapper} style={{ padding: 0 }}>
           <Link href="/wishlist">
             <a>
               <span className={navsearch.cart_icon}>

@@ -80,12 +80,15 @@
   .navbar_links_wrapper {
     @include flex-around;
 
-    p {
-      margin: 0 8px;
-      font-size: 14px;
-      width: 100px;
-      padding: 0 5px;
-      text-align: center;
+    p.links {
+      @include flex-center;
+      margin: 0 6px;
+      font-size: 12px;
+      font-weight: 500;
+      height: 30px;
+      text-align: left;
+      border-right: 1px solid rgba(94, 91, 91, 0.459);
+      padding-right: 10px;  
       a {
         &:hover {
           text-decoration: underline;
@@ -100,13 +103,14 @@
     }
 
     .icon_wrapper {
-      margin: 0 10px;
-      width: 60px;
+      background-color: rgba(128, 128, 128, 0.034);
+      width: 50px;
       @include flex-center;
-      height: 60px;
+      height: 50px;
       border-radius: 50%;
       padding-right: 10px;
       position: relative;
+      margin: 0 2px;
 
       .cart_detail {
         @include flex-center;
@@ -123,7 +127,6 @@
       }
 
       &:hover {
-        background-color: rgba(128, 128, 128, 0.11);
         color: white;
         cursor: pointer;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.123);
