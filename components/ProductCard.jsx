@@ -12,8 +12,23 @@ const ProductCard = ({ products }) => {
   const price = products.variants.map((variant) => {
     return variant.sale_price;
   });
-  const desc = products.variants.map((variant) => {
-    return variant.description.slice(0,10);
+  // const desc = products.variants.map((variant) => {
+  //   return variant.description.slice(0,10);
+  // });
+
+  const images = products.variants.slice(1, 2).map((variant) => {
+    return variant.features.slice(0, 1).map((feature) => {
+      return feature.images.slice(0, 1).map((images) => {
+        return images;
+      });
+    });
+  });
+  const imagesHover = products.variants.slice(0, 1).map((variant) => {
+    return variant.features.slice(1, 2).map((feature) => {
+      return feature.images.slice(0, 1).map((images) => {
+        return images;
+      });
+    });
   });
 
   const maxPrice = price.reduce((a, b) => {
@@ -24,7 +39,7 @@ const ProductCard = ({ products }) => {
   });
 
   const imageURL = "https://ashley-api.herokuapp.com/uploads/";
-  const src = imageURL;
+  // const src = imageURL;
   return (
     <Link href={`/products/productdetail/${products.slug}`}>
       <a className={product.products_card}>
@@ -35,10 +50,19 @@ const ProductCard = ({ products }) => {
           <h4 className={product.display}>Add to Wishlist</h4>
         </div>
         <div className={product.card_image}>
-          <Image src={bed1} alt="bed" className={product.img1} />
+          <Image
+            src={`${imageURL}products/${images[0][0][0]}`}
+            alt="bed"
+            layout="fill"
+            objectFit="cover"
+          />
           <div className={product.display}>
-            <Image src={bed2} alt="bed" className={product.img2} />
-            <p>QUICK VIEW</p>
+          <Image
+            src={`${imageURL}products/${imagesHover[0][0][0]}`}
+            alt="bed"
+            layout="fill"
+            objectFit="cover"
+          />
           </div>
         </div>
         <div className={product.card_info}>
@@ -63,7 +87,7 @@ const ProductCard = ({ products }) => {
           <p>
             $ {minPrice} - $ {maxPrice}
           </p>
-{/* 
+          {/* 
           <p
             className={product.delivery_detail}
             // dangerouslySetInnerHTML={{

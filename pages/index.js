@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BsChatDots } from "react-icons/bs";
 import { AiOutlineDown } from "react-icons/ai";
+import Slider from "react-slick";
 
 // from redux slices
 
@@ -19,6 +20,9 @@ import styles from "../styles/Home.module.scss";
 import model from "./assets/model.jpg";
 import sofa from "./assets/fur12.jpg";
 import loader from "../components/assets/loader.gif";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 //from components
 
@@ -35,9 +39,22 @@ import ChatBot from "../components/ChatBot";
 export default function Home({ categoriesData }) {
   const [slider, setSlider] = useState([]);
   const [botShow, setBotShow] = useState(false);
+  const [discountProducts, setDiscountProducts] = useState([]);
+  const [featProducts, setFeatProducts] = useState([]);
   const dispatch = useDispatch();
 
   const imgURL = "https://ashley-api.herokuapp.com/uploads/";
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
 
   const categories = useSelector(selectCategory);
 
@@ -49,6 +66,33 @@ export default function Home({ categoriesData }) {
     dispatch(fetchCategory());
     dispatch(fetchProducts());
   }, [dispatch]);
+
+  useEffect(() => {
+    async function getDisProducts() {
+      try {
+        const response = await axios.get(
+          "https://ashley-api.herokuapp.com/products/discounted"
+        );
+        setDiscountProducts(response.data.products);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getDisProducts();
+  }, []);
+  useEffect(() => {
+    async function getFeatProducts() {
+      try {
+        const response = await axios.get(
+          "https://ashley-api.herokuapp.com/products/featured"
+        );
+        setFeatProducts(response.data.products);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getFeatProducts();
+  }, []);
 
   useEffect(() => {
     async function getSLider() {
@@ -94,18 +138,18 @@ export default function Home({ categoriesData }) {
             <div className={styles.discount_cards_heading}>
               <h2>Discount in full bloom</h2>
             </div>
+
             <div className={styles.discount_cards}>
-              <DiscountCard img={cardimage} />
-              <DiscountCard img={cardimage} />
-              <DiscountCard img={cardimage} />
+              {discountProducts?.slice(0, 3).map((disproduct) => (
+                <DiscountCard products={disproduct} key={disproduct._id} />
+              ))}
             </div>
             <div className={styles.discount_cards}>
-              <DiscountCard img={cardimage} />
-              <DiscountCard img={cardimage} />
-              <DiscountCard img={cardimage} />
+              {discountProducts?.slice(3, 6).map((disproduct) => (
+                <DiscountCard products={disproduct} key={disproduct._id} />
+              ))}
             </div>
           </div>
-
           <div className={styles.banner_card_wrapper}>
             <BannerCard
               img={model}
@@ -114,48 +158,16 @@ export default function Home({ categoriesData }) {
               feature="This is the features of the product"
             />
           </div>
-          {/* <div className={styles.category_cards}>
-            <CategoryCard
-              img={sofa}
-              title="Something"
-              feature="something under something"
-            />
-            <CategoryCard
-              img={sofa}
-              title="Something"
-              feature="something under something"
-            />
-            <CategoryCard
-              img={sofa}
-              title="Something"
-              feature="something under something"
-            />
-            <CategoryCard
-              img={sofa}
-              title="Something"
-              feature="something under something"
-            />
-          </div> */}
           <div className={styles.free_shipping}>
             <h4>Swith it up</h4>
             <h2>Update your happy Place</h2>
-            <div className={styles.category_cards}>
-              <CategoryCard
-                img={sofa}
-                title="Something"
-                feature="something under something"
-              />
-              <CategoryCard
-                img={sofa}
-                title="Something"
-                feature="something under something"
-              />
-              <CategoryCard
-                img={sofa}
-                title="Something"
-                feature="something under something"
-              />
-            </div>
+            {/* <div className={styles.category_cards}> */}
+            <Slider {...settings}>
+              {featProducts?.map((item) => (
+                <CategoryCard products={item} key={item._id} />
+              ))}
+            </Slider>
+            {/* </div> */}
           </div>
           <div className={styles.thin_banner_wrapper}>
             <ThinBannerCard title="outdoor" feature="reintroducing" />
@@ -163,23 +175,12 @@ export default function Home({ categoriesData }) {
           <div className={styles.free_shipping}>
             <h4>Swith it up</h4>
             <h2>Update your happy Place</h2>
-            <div className={styles.category_cards}>
-              <CategoryCard
-                img={sofa}
-                title="Something"
-                feature="something under something"
-              />
-              <CategoryCard
-                img={sofa}
-                title="Something"
-                feature="something under something"
-              />
-              <CategoryCard
-                img={sofa}
-                title="Something"
-                feature="something under something"
-              />
-            </div>
+            <Slider {...settings}>
+              {featProducts?.map((item) => (
+                <CategoryCard products={item} key={item._id} />
+              ))}
+            </Slider>
+            {/* </div> */}
           </div>
 
           {/* <div className={styles.thin_banner_wrapper}>
@@ -203,13 +204,11 @@ export default function Home({ categoriesData }) {
 export async function getServerSideProps() {
   // const { productdetailslug } = context.query;
 
-  const res = await fetch(
+  const categoriesRes = await fetch(
     `https://ashley-api.herokuapp.com/categories/fetch/categories`
   );
-  const data = await res.json();
-  const categoriesData = data.categories;
-  console.log(categoriesData);
-
+  const catData = await categoriesRes.json();
+  const categoriesData = catData.categories;
   return {
     props: { categoriesData }, // will be passed to the page component as props
   };
