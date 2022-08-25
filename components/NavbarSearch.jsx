@@ -18,7 +18,7 @@ const NavbarSearch = () => {
       <div className={navsearch.logo}>
         <Link href="/">
           <a>
-            <Image src={logo} alt="logo" className={navsearch.img} />
+            <Image src={logo} alt="logo" className={navsearch.img} layout='fill' objectFit="contain" />
           </a>
         </Link>
       </div>

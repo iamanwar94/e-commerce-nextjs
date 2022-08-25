@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.scss";
-import sofa from "../pages/assets/fur12.jpg";
 
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
@@ -75,50 +74,8 @@ const ShopByCategories = ({ categoriesData }) => {
               </div>
             </Link>
           ))}
-
-          {/* <div className={styles.shopby_categories_small_card}>
-            <div className={styles.shopby_categories_card_image}>
-              <Image src={sofa} alt="sofa" layout="fill" objectFit="contain" />
-            </div>
-            <p>Product Name</p>
-          </div>
-          <div className={styles.shopby_categories_small_card}>
-            <div className={styles.shopby_categories_card_image}>
-              <Image src={sofa} alt="sofa" layout="fill" objectFit="contain" />
-            </div>
-            <p>Product Name</p>
-          </div>
-          <div className={styles.shopby_categories_small_card}>
-            <div className={styles.shopby_categories_card_image}>
-              <Image src={sofa} alt="sofa" layout="fill" objectFit="contain" />
-            </div>
-            <p>Product Name</p>
-          </div>
-          <div className={styles.shopby_categories_small_card}>
-            <div className={styles.shopby_categories_card_image}>
-              <Image src={sofa} alt="sofa" layout="fill" objectFit="contain" />
-            </div>
-            <p>Product Name</p>
-          </div>
-          <div className={styles.shopby_categories_small_card}>
-            <div className={styles.shopby_categories_card_image}>
-              <Image src={sofa} alt="sofa" layout="fill" objectFit="contain" />
-            </div>
-            <p>Product Name</p>
-          </div> */}
         </div>
       </div>
-
-      {/* <div className={styles.categories}>
-    {categories?.categories?.slice(0, 6).map((category) => (
-      <CategoriesCard
-        key={category._id}
-        img={category.image}
-        title={category.title}
-        slug={category.slug}
-      />
-    ))}
-  </div> */}
     </div>
   );
 };

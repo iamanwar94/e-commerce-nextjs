@@ -47,11 +47,11 @@
       transition: all 0.3s ease-in-out;
       transition-delay: 0.1s;
       .dropdown_link {
-        margin: 8px 0;
         cursor: pointer;
+        margin: 0;
 
         &:hover {
-          font-weight: 600;
+          color: rgb(8, 1, 39);
           display: flex;
         }
       }
