@@ -9,7 +9,7 @@ const BannerCard = ({ banner }) => {
     <div className={styles.banner_card}>
       <div className={styles.img}>
         <Image
-          src={`${imageURl}banners/${banner.image}`}
+          src={`${imageURl}banners/${banner && banner.image}`}
           alt={banner.title}
           layout="fill"
           objectFit="fill"

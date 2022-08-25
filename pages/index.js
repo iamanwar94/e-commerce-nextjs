@@ -172,7 +172,6 @@ export default function Home({ categoriesData }) {
               <BannerCard
                 key={item._id}
                 banner={item}
-                img={model}
               />
             ))}
           </div>
