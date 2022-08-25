@@ -9,22 +9,93 @@ import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 import HoverCart from "./HoverCart";
 
+// from mui
+
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  // border: "2px solid #000",
+  boxShadow: 24,
+  py: 2,
+  px: 4,
+};
+
 const NavbarSearch = () => {
   const selectCartDetail = useSelector(selectCart);
   const cartCount = selectCartDetail.length;
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div className={navsearch.navbar_search_wrapper}>
       <div className={navsearch.logo}>
         <Link href="/">
           <a>
-            <Image src={logo} alt="logo" className={navsearch.img} layout='fill' objectFit="contain" />
+            <Image
+              src={logo}
+              alt="logo"
+              className={navsearch.img}
+              layout="fill"
+              objectFit="contain"
+            />
           </a>
         </Link>
       </div>
       <div className={navsearch.zip}>
-        <p>Your closest Ashley</p>
-        <h5>Please Enter Zip Code</h5>
+        <div>
+          <div onClick={handleOpen}>
+            <p>Your closest Ashley</p>
+            <h5>Please Enter Zip Code</h5>{" "}
+          </div>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Change Location
+              </Typography>
+              <Box
+                sx={{
+                  margin: "10px 0",
+                  display: "flex",
+                }}
+              >
+                <TextField
+                  fullWidth
+                  label="Enter Zip Code Here"
+                  id="fullWidth"
+                />
+                <Button
+                  variant="outlined"
+                  sx={{
+                    margin: "0 10px",
+                    width: 120,
+                  }}
+                >
+                  Update
+                </Button>
+              </Box>
+              <Typography id="modal-modal-description" sx={{ m: 2 }}>
+                Closest Store to {"text here"} <br /> No Store Found <br /> Please try
+                another location.
+              </Typography>
+            </Box>
+          </Modal>
+        </div>
       </div>
       <div className={navsearch.navbar_search_input}>
         <input type="text" placeholder="Search..." />

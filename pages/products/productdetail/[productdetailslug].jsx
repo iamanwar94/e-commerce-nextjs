@@ -68,7 +68,7 @@ const ProductDetail = ({ productDetail }) => {
   });
   const colors = productDetail.variants.map((variant) => {
     return variant.features.map((feature) => {
-      return feature.color_id.title;
+      return feature.color_id;
     });
   });
   const colorImg = productDetail.variants.map((variant) => {
@@ -81,6 +81,7 @@ const ProductDetail = ({ productDetail }) => {
       return feature.sku;
     });
   });
+  const imgURL = "https://ashley-api.herokuapp.com/uploads/";
 
   const images = productDetail.variants
     .slice(sizeID, sizeID + 1)
@@ -138,7 +139,7 @@ const ProductDetail = ({ productDetail }) => {
         </div>
         <div className={product.product_detail}>
           <div className={product.name_price}>
-            <h4>{productDetail.brand_id.title}</h4>
+            {/* <h4>{productDetail.brand_id.title}</h4> */}
             <h2> {productDetail.title} </h2>
             <p>
               Item Code:{" "}
@@ -181,12 +182,15 @@ const ProductDetail = ({ productDetail }) => {
                   }}
                   onClick={() => colorChangeHandler(i)}
                 >
-                  <span>{color}</span>
+                  <span>{color.title}</span>
+                  {/* {console.log(slider[0])} */}
+                  {/* {console.log(color)} */}
                   <span
                     style={{
-                      backgroundColor: color,
-                      height: 20,
-                      width: 20,
+                      // backgroundColor: color,
+                      backgroundImage: `url(${imgURL}colors/${color.image})`,
+                      height: 24,
+                      width: 24,
                       fontWeight: 600,
                       borderRadius: "50%",
                       display: "flex",
@@ -194,15 +198,41 @@ const ProductDetail = ({ productDetail }) => {
                       alignItems: "center",
                       boxShadow: "0 0 2px grey",
                       margin: "0 10px",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      // position: "relative",
+                      // height: 20,
+                      // width: 20,
                     }}
-                  ></span>
+                  >
+                    {/* <Image
+                      src={`${imgURL}products/${slider[0][0]}`}
+                      alt="color"
+                      layout="fill"
+                      objectFit="cover"
+                    /> */}
+                    {console.log(colorImg)}
+                  </span>
                 </p>
               ))}
             </div>
             <div className={product.size + " " + product.flex}>
               <h4>Sizes:</h4>
               {sizes.map((size, i) => (
-                <p key={i} onClick={() => sizeChangeHandler(i)}>
+                <p
+                  key={i}
+                  onClick={() => sizeChangeHandler(i)}
+                  style={{
+                    height: 36,
+                    width: 36,
+                    display: "flex",
+                    alignItems: "center",
+                    borderRadius: "50%",
+                    boxShadow: "0 0 5px grey",
+                    justifyContent: "center",
+                  }}
+                >
                   {size}
                 </p>
               ))}
@@ -478,6 +508,35 @@ const ProductDetail = ({ productDetail }) => {
             </div>
           </div>
         </div>
+        {/* out of stock starts */}
+
+        {/* <div className={product.out_of_stock}>
+          <h4>
+            Subtotal: <span>${productQuantity * cartDetail.price}</span>
+          </h4>
+          <div className={product.heading_and_icon}>
+            <h4>Temporarily Out of Stock</h4>
+            <div
+              className={product.icon}
+              onClick={addToWishHandler}
+              style={{
+                height: 40,
+                width: 40,
+                borderRadius: "50%",
+                boxShadow: "0 0 2px grey",
+              }}
+            >
+              <AiOutlineHeart className={product.heart} />
+            </div>
+          </div>
+          <p>
+            You have great taste! This item is so popular and it just sold out.
+            Do not worry it will be back in stock soon.
+            <span> Browse Similar Products</span>
+          </p>
+        </div> */}
+
+        {/* out of stock ends */}
       </div>
     </div>
   );
