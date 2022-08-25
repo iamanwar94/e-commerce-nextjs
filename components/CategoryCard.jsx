@@ -19,14 +19,14 @@ const CategoryCard = ({ products }) => {
       <div className={category.img}>
         <Image
           src={`${imageURl}products/${imageToShow}`}
-          alt={products?.title.slice(0,20)}
+          alt={products?.title.slice(0, 20)}
           layout="fill"
           objectFit="cover"
         />
       </div>
       <div className={category.info}>
         <h6>{products && products.title}</h6>
-        <Link href="/products/products">
+        <Link href={`products/productdetail/${products.slug}`}>
           <a>
             <button>Shop Now</button>
           </a>

@@ -17,21 +17,12 @@ const Carousal = ({ height, slider, url }) => {
         >
           {slider?.map((sliderImage, i) => (
             <Image
-              src={
-                sliderImage.image
-                  ? `${url}${sliderImage.image}`
-                  : `${url}${sliderImage}`
-              }
-              key={sliderImage._id ? sliderImage._id : i}
-              alt={sliderImage.title ? sliderImage.title : i}
+              src={`${url}${sliderImage.image}`}
+              key={sliderImage._id}
+              alt={sliderImage.title}
               layout="fill"
               objectFit="fill"
             />
-            // <img
-            //   src={`${url}${sliderImage ? sliderImage : sliderImage.image}`}
-            //   key={sliderImage._id ? sliderImage._id : i}
-            //   alt={sliderImage.title ? sliderImage.title : i}
-            // />
           ))}
         </Carousel>
       </div>

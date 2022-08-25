@@ -17,6 +17,8 @@
       @include flex-center;
       h2 {
         font-weight: 600;
+        text-transform: capitalize;
+        text-shadow: 0 0 10px $extra-light-grey;
       }
     }
     .discount_cards {
@@ -56,7 +58,7 @@
       @include flex-between;
 
       .shopby_categories_bigcard {
-        width: 66%;
+        width: 75%;
         height: 648px;
         @include flex-column;
         align-items: flex-start;
@@ -116,8 +118,12 @@
 
           .shopby_categories_card_image {
             position: relative;
-            width: 70%;
+            width: 100%;
             height: 80%;
+
+            &:hover{
+              transform: scale(1.1);
+            }
           }
 
           p {
@@ -157,7 +163,7 @@
   .free_shipping {
     width: 95%;
     background-color: white;
-    padding: 20px 0;
+    padding: 50px 0;
     margin: 20px 0;
     .category_cards {
       display: flex;
@@ -171,11 +177,14 @@
     h2 {
       font-weight: 800;
       text-align: center;
+      margin: 10px 0 30px 0;
     }
   }
   .thin_banner_wrapper {
     width: 95%;
     margin: 20px 0;
+    background-color: white;
+    padding: 30px 20px;
   }
 
   .chatbot_wrapper {

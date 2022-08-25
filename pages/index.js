@@ -11,14 +11,13 @@ import Slider from "react-slick";
 
 // from redux slices
 
-import { fetchProducts } from "../app/features/productSlice";
+import { fetchProducts, selectProducts } from "../app/features/productSlice";
 import { fetchCategory, selectCategory } from "../app/features/categorySlice";
 
 //from assets and styles
 
 import styles from "../styles/Home.module.scss";
 import model from "./assets/model.jpg";
-import sofa from "./assets/fur12.jpg";
 import loader from "../components/assets/loader.gif";
 
 import "slick-carousel/slick/slick.css";
@@ -29,7 +28,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Carousal from "../components/Carousal";
 import CategoriesCard from "../components/CategoriesCard";
 import DiscountCard from "../components/DiscountCard";
-import cardimage from "../components/assets/fur12.jpg";
 import BannerCard from "../components/BannerCard";
 import CategoryCard from "../components/CategoryCard";
 import ThinBannerCard from "../components/ThinBannerCard";
@@ -57,6 +55,11 @@ export default function Home({ categoriesData }) {
   };
 
   const categories = useSelector(selectCategory);
+  const products = useSelector(selectProducts);
+
+  const filteredProducts = products?.products.filter((fp) => {
+    return fp.category_id.slug === "sheet-sets";
+  });
 
   const mainCategories = categories?.categories.filter((cat) => {
     return cat.parent_id === "";
@@ -170,13 +173,13 @@ export default function Home({ categoriesData }) {
             {/* </div> */}
           </div>
           <div className={styles.thin_banner_wrapper}>
-            <ThinBannerCard title="outdoor" feature="reintroducing" />
+            <ThinBannerCard data={categoriesData} />
           </div>
           <div className={styles.free_shipping}>
             <h4>Swith it up</h4>
             <h2>Update your happy Place</h2>
             <Slider {...settings}>
-              {featProducts?.map((item) => (
+              {filteredProducts?.map((item) => (
                 <CategoryCard products={item} key={item._id} />
               ))}
             </Slider>
