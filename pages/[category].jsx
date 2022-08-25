@@ -21,7 +21,7 @@ const Furniture = () => {
   }, [dispatch]);
 
   return (
-    <div></div>
+    <div>This Page is now cancelled by owner</div>
     // <div className={furniture.furniture_wrapper}>
     //   <div className={furniture.furniture_container}>
     //     {/*
