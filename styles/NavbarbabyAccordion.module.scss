@@ -1,0 +1,63 @@
+@import "./Variables.module.scss";
+
+.accordion_wrapper {
+  width: 100%;
+  border-top: 1px solid $extra-light-grey;
+
+  .accordion_item {
+    border-bottom: 1px solid $extra-light-grey;
+    padding: 10px;
+    width: 100%;
+    .accordion_heading {
+      @include flex-between;
+      align-items: center;
+      width: 100%;
+      cursor: pointer;
+      h4 {
+        font-size: 16px;
+        margin: 5px 0;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 10px;
+        .accordion_icon {
+          margin: 0;
+          font-weight: 600;
+          font-size: 22px;
+        }
+      }
+    }
+
+    .accordion_content {
+      max-height: 0;
+      overflow: hidden;
+   
+
+      .content_filter_wrapper {
+        // margin: 10px 0;
+        margin: 0px;
+     
+        // input {
+        //   margin: 10px;
+        //   transform: scale(1.5);
+        // }
+
+        h3 {
+         font-size: 14px;
+         padding-top: 5px;
+         padding-left: 10px;
+        }
+      }
+    }
+    .accordion_content.show {
+      max-height: 9999px;
+      transition: max-height 3s ease-in-out 0s;
+
+    }
+  }
+}

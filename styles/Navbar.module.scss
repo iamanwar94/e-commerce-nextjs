@@ -170,3 +170,82 @@
     margin: auto;
   }
 }
+
+
+
+
+@media (max-width: $breakpoint-large) {
+  .navbar_wrapper {
+    .navbar_kids_page_navigator_wrapper {
+      display: none;
+    }
+
+    .navbar_features {
+      display: none;
+    }
+
+    .navbar_chat {
+      background-color: $red;
+      // p {
+      //   display: none;
+      // }
+
+      h6 {
+        margin: 0px;
+        color: white;
+        text-align: center;
+        font-size: 16px;
+        text-transform: capitalize;
+        @include flex-center;
+      }
+    }
+
+    .discount_line {
+      background-color: $dark-grey;
+      height: 32px;
+      font-size: 17px;
+    }
+  }
+}
+
+
+@media (max-width: $breakpoint-large) {
+
+.navbar_wrapper {
+
+    .navbar_chat {
+      // display: none;
+      h6 {
+        font-size: 14px;
+      }
+    }
+
+    .discount_line {
+      height: 40px;
+      font-size: 14px;
+      // display: none;
+    }
+  }
+}
+
+
+@media (max-width: $breakpoint-small) {
+  .navbar_wrapper { 
+    .navbar_chat {
+
+      p {
+ 
+        font-size: 14px;
+        .icon {
+          margin: 0 5px;         
+        }
+      }
+    }
+
+    .discount_line {
+      height: 42px;
+      font-size: 14px;
+    }
+  
+  }
+}
