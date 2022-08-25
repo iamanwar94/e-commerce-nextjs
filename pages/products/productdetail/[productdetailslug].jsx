@@ -81,6 +81,27 @@ const ProductDetail = ({ productDetail }) => {
       return feature.sku;
     });
   });
+  const stock = productDetail.variants.map((variant) => {
+    return variant.features.map((feature) => {
+      return feature.quantity;
+    });
+  });
+  const zeroStock = productDetail.variants.map((variant) => {
+    return variant.features.map((feature) => {
+      return feature.zero_stock_msg;
+    });
+  });
+
+  const zeroStockMsg = zeroStock
+    .slice(sizeID, sizeID + 1)
+    .map((stock) => stock[colorID])[0];
+
+  const stockInHand = stock
+    .slice(sizeID, sizeID + 1)
+    .map((stock) => stock[colorID])[0];
+
+  // const stockInHand = 0;
+
   const imgURL = "https://ashley-api.herokuapp.com/uploads/";
 
   const images = productDetail.variants
@@ -144,6 +165,7 @@ const ProductDetail = ({ productDetail }) => {
             <p>
               Item Code:{" "}
               {sku.slice(sizeID, sizeID + 1).map((sku) => sku[colorID])[0]}
+              {console.log(stockInHand)}
             </p>
             <div className={product.flex + " " + product.reviews}>
               <span className={product.flex}>
@@ -183,8 +205,6 @@ const ProductDetail = ({ productDetail }) => {
                   onClick={() => colorChangeHandler(i)}
                 >
                   <span>{color.title}</span>
-                  {/* {console.log(slider[0])} */}
-                  {/* {console.log(color)} */}
                   <span
                     style={{
                       // backgroundColor: color,
@@ -212,7 +232,6 @@ const ProductDetail = ({ productDetail }) => {
                       layout="fill"
                       objectFit="cover"
                     /> */}
-                    {console.log(colorImg)}
                   </span>
                 </p>
               ))}
@@ -456,85 +475,108 @@ const ProductDetail = ({ productDetail }) => {
             </div>
           )}
         </div>
-        <div className={product.subtotal}>
-          <h3>Subtotal: $ {productQuantity * cartDetail.price}</h3>
-          <div className={product.qty_wrapper}>
-            <h3>Qty:</h3>
-            <div className={product.qty}>
-              <p onClick={decQuantity}>-</p>
-              <p>{productQuantity}</p>
-              <p onClick={incQuantity}>+</p>
+        {stockInHand >= 1 ? (
+          <div className={product.subtotal}>
+            <h3>Subtotal: $ {productQuantity * cartDetail.price}</h3>
+            {stockInHand <= 9 && (
+              <h3 style={{ color: "red" }}>
+                Hurry Up Only{" "}
+                <span
+                  style={{
+                    borderRadius: "50%",
+                    boxShadow: "0 0 5px red",
+                    padding: "2px 10px",
+                  }}
+                >
+                  {stockInHand}
+                </span>{" "}
+                Items Left
+              </h3>
+            )}
+
+            <div className={product.qty_wrapper}>
+              <h3>Qty:</h3>
+              <div className={product.qty}>
+                <p onClick={decQuantity}>-</p>
+                <p>{productQuantity}</p>
+                <p onClick={incQuantity}>+</p>
+              </div>
+              <button onClick={addToCartHandler}>Add Items to Cart</button>
+              <div
+                className={product.icon}
+                onClick={addToWishHandler}
+                style={{
+                  height: 50,
+                  width: 50,
+                  borderRadius: "50%",
+                  boxShadow: "0 0 2px grey",
+                }}
+              >
+                <AiOutlineHeart className={product.heart} />
+              </div>
             </div>
-            <button onClick={addToCartHandler}>Add Items to Cart</button>
-            <div
-              className={product.icon}
-              onClick={addToWishHandler}
-              style={{
-                height: 50,
-                width: 50,
-                borderRadius: "50%",
-                boxShadow: "0 0 2px grey",
-              }}
-            >
-              <AiOutlineHeart className={product.heart} />
+            <div className={product.delivery}>
+              <h6>Delivery Options</h6>
+              <p>Free Ground Shipping</p>
+              <p>Usually ships in 1 to 2 weeks</p>
             </div>
-          </div>
-          <div className={product.delivery}>
-            <h6>Delivery Options</h6>
-            <p>Free Ground Shipping</p>
-            <p>Usually ships in 1 to 2 weeks</p>
-          </div>
-          <div className={product.expert_service}>
-            <div style={{ position: "relative", display: "flex" }}>
-              {" "}
-              <Image
-                src="/../../assets/expert.png"
-                alt="expert"
-                layout="fill"
-              />{" "}
-            </div>
-            <div>
-              {" "}
-              <h6>Add Expert Service</h6>{" "}
-              <h5>Expert Assembly & Installation by Handy</h5>
+            <div className={product.expert_service}>
+              <div style={{ position: "relative", display: "flex" }}>
+                {" "}
+                <Image
+                  src="/../../assets/expert.png"
+                  alt="expert"
+                  layout="fill"
+                />{" "}
+              </div>
               <div>
-                <Switch
-                  checked={checked}
-                  onChange={handleChange}
-                  inputProps={{ "aria-label": "controlled" }}
-                />
-                <p>Add Service - $91.50 (applies per item)</p>
+                {" "}
+                <h6>Add Expert Service</h6>{" "}
+                <h5>Expert Assembly & Installation by Handy</h5>
+                <div>
+                  <Switch
+                    checked={checked}
+                    onChange={handleChange}
+                    inputProps={{ "aria-label": "controlled" }}
+                  />
+                  <p>Add Service - $91.50 (applies per item)</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        {/* out of stock starts */}
-
-        {/* <div className={product.out_of_stock}>
-          <h4>
-            Subtotal: <span>${productQuantity * cartDetail.price}</span>
-          </h4>
-          <div className={product.heading_and_icon}>
-            <h4>Temporarily Out of Stock</h4>
+        ) : (
+          <div className={product.out_of_stock}>
+            <h4>
+              Subtotal: <span>${productQuantity * cartDetail.price}</span>
+            </h4>
+            <div className={product.heading_and_icon}>
+              <h4>Temporarily Out of Stock</h4>
+              <div
+                className={product.icon}
+                onClick={addToWishHandler}
+                style={{
+                  height: 40,
+                  width: 40,
+                  borderRadius: "50%",
+                  boxShadow: "0 0 2px grey",
+                }}
+              >
+                <AiOutlineHeart className={product.heart} />
+              </div>
+            </div>
             <div
-              className={product.icon}
-              onClick={addToWishHandler}
-              style={{
-                height: 40,
-                width: 40,
-                borderRadius: "50%",
-                boxShadow: "0 0 2px grey",
+              dangerouslySetInnerHTML={{
+                __html: zeroStockMsg,
               }}
+              style={{padding: 10}}
             >
-              <AiOutlineHeart className={product.heart} />
+              {/* You have great taste! This item is so popular and it just sold
+              out. Do not worry it will be back in stock soon. */}
+              {/* <span> Browse Similar Products</span> */}
             </div>
           </div>
-          <p>
-            You have great taste! This item is so popular and it just sold out.
-            Do not worry it will be back in stock soon.
-            <span> Browse Similar Products</span>
-          </p>
-        </div> */}
+        )}
+        {/* out of stock starts */}
 
         {/* out of stock ends */}
       </div>

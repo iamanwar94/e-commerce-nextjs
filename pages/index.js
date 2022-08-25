@@ -39,6 +39,7 @@ export default function Home({ categoriesData }) {
   const [botShow, setBotShow] = useState(false);
   const [discountProducts, setDiscountProducts] = useState([]);
   const [featProducts, setFeatProducts] = useState([]);
+  const [banner, setBanner] = useState([]);
   const dispatch = useDispatch();
 
   const imgURL = "https://ashley-api.herokuapp.com/uploads/";
@@ -95,6 +96,19 @@ export default function Home({ categoriesData }) {
       }
     }
     getFeatProducts();
+  }, []);
+  useEffect(() => {
+    async function getBanner() {
+      try {
+        const response = await axios.get(
+          "https://ashley-api.herokuapp.com/banners"
+        );
+        setBanner(response.data.banners);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getBanner();
   }, []);
 
   useEffect(() => {
@@ -154,12 +168,13 @@ export default function Home({ categoriesData }) {
             </div>
           </div>
           <div className={styles.banner_card_wrapper}>
-            <BannerCard
-              img={model}
-              cat="Category"
-              title="Title"
-              feature="This is the features of the product"
-            />
+            {banner?.map((item) => (
+              <BannerCard
+                key={item._id}
+                banner={item}
+                img={model}
+              />
+            ))}
           </div>
           <div className={styles.free_shipping}>
             <h4>Swith it up</h4>
