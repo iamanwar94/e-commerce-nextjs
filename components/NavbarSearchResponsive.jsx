@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import responsivenavsearch from "../styles/NavbarsearchResponsive.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "./assets/Ashley-Logo-Vertical.svg";
 import newashlylogo from "./assets/newashlylogo.png";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";

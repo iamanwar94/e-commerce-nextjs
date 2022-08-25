@@ -128,11 +128,11 @@ export default function Home({ categoriesData }) {
         </h1>
       ) : (
         <div className={styles.home_wrapper} style={{}}>
-          <Carousal
-            height={460}
-            slider={slider}
-            url="https://ashley-api.herokuapp.com/uploads/slider/"
-          />
+            <Carousal
+              height={460}
+              slider={slider}
+              url="https://ashley-api.herokuapp.com/uploads/slider/"
+            />
           <ShopByCategories categoriesData={categoriesData} />
           <div className={styles.discount_cards_wrapper}>
             <div className={styles.discount_cards_heading}>
