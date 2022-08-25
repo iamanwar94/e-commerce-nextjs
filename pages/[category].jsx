@@ -21,125 +21,126 @@ const Furniture = () => {
   }, [dispatch]);
 
   return (
-    <div className={furniture.furniture_wrapper}>
-      <div className={furniture.furniture_container}>
-        {/*
-         */}
-        <div className={furniture.discount_cards}>
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-        </div>
-        <div className={furniture.banner_card_wrapper}>
-          <BannerCard
-            img={model}
-            cat="Category"
-            title="Title"
-            feature="This is the features of the product"
-          />
-        </div>
+    <div></div>
+    // <div className={furniture.furniture_wrapper}>
+    //   <div className={furniture.furniture_container}>
+    //     {/*
+    //      */}
+    //     <div className={furniture.discount_cards}>
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //     </div>
+    //     <div className={furniture.banner_card_wrapper}>
+    //       <BannerCard
+    //         img={model}
+    //         cat="Category"
+    //         title="Title"
+    //         feature="This is the features of the product"
+    //       />
+    //     </div>
 
-        <div className={furniture.category_cards}>
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-        </div>
-        <div className={furniture.banner_card_wrapper}>
-          <BannerCard
-            img={model}
-            cat="Category"
-            title="Title"
-            feature="This is the features of the product"
-          />
-        </div>
-        <div className={furniture.category_cards}>
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-        </div>
-        <div className={furniture.banner_card_wrapper}>
-          <BannerCard
-            img={model}
-            cat="Category"
-            title="Title"
-            feature="This is the features of the product"
-          />
-        </div>
-        <div className={furniture.category_cards}>
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-          <CategoryCard
-            img={sofa}
-            title="Something"
-            feature="something under something"
-          />
-        </div>
-      </div>
-    </div>
+    //     <div className={furniture.category_cards}>
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //     </div>
+    //     <div className={furniture.banner_card_wrapper}>
+    //       <BannerCard
+    //         img={model}
+    //         cat="Category"
+    //         title="Title"
+    //         feature="This is the features of the product"
+    //       />
+    //     </div>
+    //     <div className={furniture.category_cards}>
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //     </div>
+    //     <div className={furniture.banner_card_wrapper}>
+    //       <BannerCard
+    //         img={model}
+    //         cat="Category"
+    //         title="Title"
+    //         feature="This is the features of the product"
+    //       />
+    //     </div>
+    //     <div className={furniture.category_cards}>
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //       <CategoryCard
+    //         img={sofa}
+    //         title="Something"
+    //         feature="something under something"
+    //       />
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 

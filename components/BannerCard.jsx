@@ -16,8 +16,8 @@ const BannerCard = ({ banner }) => {
         />
       </div>
       <div className={styles.info}>
-        <h4>{banner.title}</h4>
-        <p>{banner.description}</p>
+        <h4>{banner && banner.title}</h4>
+        <p>{banner && banner.description}</p>
         <Link href="/">
           <a>
             <button>Shop Now</button>
