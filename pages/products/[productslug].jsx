@@ -66,9 +66,12 @@ const Products = () => {
       <div className={product.filter_products_wrapper}>
         <div className={product.filters_wrapper}>
           <div className={product.filter_heading}>
-            <h3>
-              {filteredProducts[0] && filteredProducts[0].category_id.title}
-            </h3>
+            {/* <h3>
+              {products.products &&
+                filteredProducts &&
+                filteredProducts.length >= 1 &&
+                filteredProducts[0]?.category_id.title}
+            </h3> */}
             <p>N of Ns Products Showing</p>
           </div>
           <div className={product.filters_cat}>
