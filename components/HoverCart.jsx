@@ -34,7 +34,7 @@ const HoverCart = () => {
         <h3>Cart is Empty</h3>
       ) : (
         selectCartDetail?.map((cartDetail) => (
-          <div className={cart.card} key={cartDetail._id}>
+          <div className={cart.card} key={cartDetail.sku}>
             <div className={cart.card_img_info}>
               <div className={cart.pic}>
                 <Image

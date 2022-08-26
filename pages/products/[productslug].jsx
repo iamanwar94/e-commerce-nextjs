@@ -44,14 +44,14 @@ const Products = () => {
   });
 
   const catClickHandler = (slug) => {
-    console.log(slug);
+    // console.log(slug);
 
     const pros = products?.products.filter((fp) => {
       return fp.category_id.slug === slug;
     });
 
     setproByCat(pros);
-    console.log(proByCat);
+    // console.log(proByCat);
   };
 
   useEffect(() => {
@@ -66,7 +66,9 @@ const Products = () => {
       <div className={product.filter_products_wrapper}>
         <div className={product.filters_wrapper}>
           <div className={product.filter_heading}>
-            <h3>{filteredProducts && filteredProducts[0].category_id.title}</h3>
+            <h3>
+              {filteredProducts[0] && filteredProducts[0].category_id.title}
+            </h3>
             <p>N of Ns Products Showing</p>
           </div>
           <div className={product.filters_cat}>
@@ -99,7 +101,7 @@ const Products = () => {
             {!filteredProducts ? (
               <h5 style={{ margin: "80px auto" }}>No Products Found</h5>
             ) : (
-              (proByCat.length > 1 ? proByCat : filteredProducts)?.map(
+              (proByCat.length >= 1 ? proByCat : filteredProducts)?.map(
                 (product) => (
                   <ProductCard key={product._id} products={product} />
                 )

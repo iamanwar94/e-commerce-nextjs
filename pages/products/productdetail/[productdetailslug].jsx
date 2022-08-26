@@ -121,19 +121,33 @@ const ProductDetail = ({ productDetail }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    setCartDetail((prev) => ({
-      ...prev,
+    setCartDetail({
+      ...cartDetail,
       _id: productDetail._id,
       title: productDetail.title,
       price: Number(
         price.slice(sizeID, sizeID + 1).map((price) => price)[0]
       ).toFixed(0),
       size: sizes[sizeID],
-      color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
+      color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0]
+        .title,
       sku: sku.slice(sizeID, sizeID + 1).map((sku) => sku[colorID])[0],
       image: images[0].map((image) => image[0])[0],
       quantity: Number(productQuantity),
-    }));
+    });
+    // setCartDetail((prev) => ({
+    //   ...prev,
+    //   _id: productDetail._id,
+    //   title: productDetail.title,
+    //   price: Number(
+    //     price.slice(sizeID, sizeID + 1).map((price) => price)[0]
+    //   ).toFixed(0),
+    //   size: sizes[sizeID],
+    //   color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0],
+    //   sku: sku.slice(sizeID, sizeID + 1).map((sku) => sku[colorID])[0],
+    //   image: images[0].map((image) => image[0])[0],
+    //   quantity: Number(productQuantity),
+    // }));
   }, [sizeID, colorID, productQuantity]);
 
   const addToCartHandler = () => {
@@ -160,7 +174,6 @@ const ProductDetail = ({ productDetail }) => {
         </div>
         <div className={product.product_detail}>
           <div className={product.name_price}>
-            {/* <h4>{productDetail.brand_id.title}</h4> */}
             <h2> {productDetail.title} </h2>
             <p>
               Item Code:{" "}
@@ -188,19 +201,8 @@ const ProductDetail = ({ productDetail }) => {
                 <p
                   key={i}
                   style={{
-                    // backgroundColor: color,
-                    // color: "whitesmoke",
-                    // height: 60,
-                    // fontSize: 10,
-                    // fontWeight: 600,
-                    // width: 60,
-                    // borderRadius: "50%",
-                    // padding: 2,
                     display: "flex",
                     justifyContent: "space-around",
-                    // alignItems: "center",
-                    // boxShadow: "0 0 2px grey",
-                    // textShadow: "0 0 5px grey",
                   }}
                   onClick={() => colorChangeHandler(i)}
                 >
@@ -221,18 +223,8 @@ const ProductDetail = ({ productDetail }) => {
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
-                      // position: "relative",
-                      // height: 20,
-                      // width: 20,
                     }}
-                  >
-                    {/* <Image
-                      src={`${imgURL}products/${slider[0][0]}`}
-                      alt="color"
-                      layout="fill"
-                      objectFit="cover"
-                    /> */}
-                  </span>
+                  ></span>
                 </p>
               ))}
             </div>
@@ -568,7 +560,7 @@ const ProductDetail = ({ productDetail }) => {
               dangerouslySetInnerHTML={{
                 __html: zeroStockMsg,
               }}
-              style={{padding: 10}}
+              style={{ padding: 10 }}
             >
               {/* You have great taste! This item is so popular and it just sold
               out. Do not worry it will be back in stock soon. */}
