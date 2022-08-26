@@ -169,10 +169,7 @@ export default function Home({ categoriesData }) {
           </div>
           <div className={styles.banner_card_wrapper}>
             {banner?.map((item) => (
-              <BannerCard
-                key={item._id}
-                banner={item}
-              />
+              <BannerCard key={item._id} banner={item} />
             ))}
           </div>
           <div className={styles.free_shipping}>

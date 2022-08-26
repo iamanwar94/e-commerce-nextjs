@@ -8,7 +8,11 @@ const LearningOptions = (props) => {
       handler: props.actionProvider.handleJS,
       id: 1,
     },
-    { text: "Data visualization", handler: () => {}, id: 2 },
+    {
+      text: "Data visualization",
+      handler: props.actionProvider.handleData,
+      id: 2,
+    },
     { text: "APIs", handler: () => {}, id: 3 },
     { text: "Security", handler: () => {}, id: 4 },
     { text: "Interview prep", handler: () => {}, id: 5 },

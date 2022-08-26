@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { useSelector, useDispatch } from "react-redux";
 import { selectCart } from "../app/features/cartSlice";
+import {
+  // selectSearchProducts,
+  setSearchProducts,
+} from "../app/features/searchSlice";
+import { selectProducts } from "../app/features/productSlice";
+
 import navsearch from "../styles/NavbarSearch.module.scss";
 import logo from "../components/assets/m_logo_360.png";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
@@ -32,10 +39,33 @@ const style = {
 
 const NavbarSearch = () => {
   const selectCartDetail = useSelector(selectCart);
+  const selectProductDetail = useSelector(selectProducts);
   const cartCount = selectCartDetail.length;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchedProducts, setSearchedProducts] = useState([]);
+
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const products = selectProductDetail?.products;
+
+  useEffect(() => {
+    const filteredData = products?.filter((item) =>
+      item.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+    );
+    // setFilteredBlogs(filteredData);
+    setSearchedProducts(filteredData);
+  }, [products, searchTerm]);
+
+  const searchClickHandler = () => {
+    console.log(searchTerm);
+    console.log(searchedProducts);
+    dispatch(setSearchProducts(searchedProducts));
+    router.push("/search/searchedproducts");
+  };
 
   return (
     <div className={navsearch.navbar_search_wrapper}>
@@ -56,7 +86,8 @@ const NavbarSearch = () => {
         <div>
           <div onClick={handleOpen}>
             <p>Your closest Ashley</p>
-            <h5>Please Enter Zip Code</h5>{" "}
+            <h5>Please Enter Zip Code</h5>
+            {/* {console.log(products)} */}
           </div>
           <Modal
             open={open}
@@ -90,16 +121,20 @@ const NavbarSearch = () => {
                 </Button>
               </Box>
               <Typography id="modal-modal-description" sx={{ m: 2 }}>
-                Closest Store to {"text here"} <br /> No Store Found <br /> Please try
-                another location.
+                Closest Store to {"text here"} <br /> No Store Found <br />{" "}
+                Please try another location.
               </Typography>
             </Box>
           </Modal>
         </div>
       </div>
       <div className={navsearch.navbar_search_input}>
-        <input type="text" placeholder="Search..." />
-        <div className={navsearch.icon}>
+        <input
+          type="text"
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search..."
+        />
+        <div className={navsearch.icon} onClick={searchClickHandler}>
           <FiSearch />
         </div>
       </div>

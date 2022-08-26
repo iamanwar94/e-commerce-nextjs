@@ -44,6 +44,39 @@ const config = {
             url: "https://frontendmasters.com",
             id: 3,
           },
+          {
+            text: "Tracking",
+            url: "/deliverytracking",
+            id: 4,
+          },
+        ],
+      },
+    },
+    {
+      widgetName: "datalinks",
+      widgetFunc: (props) => <LinkList {...props} />,
+      props: {
+        options: [
+          {
+            text: "Introduction to Data",
+            url: "https://www.techtarget.com/searchbusinessanalytics/definition/data-visualization#:~:text=Data%20visualization%20is%20the%20practice,outliers%20in%20large%20data%20sets.",
+            id: 1,
+          },
+          {
+            text: "Mozilla Data Guide",
+            url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+            id: 2,
+          },
+          {
+            text: "Data Masters",
+            url: "https://frontendmasters.com",
+            id: 3,
+          },
+          {
+            text: "Data Tracking",
+            url: "/deliverytracking",
+            id: 4,
+          },
         ],
       },
     },

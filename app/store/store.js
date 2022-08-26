@@ -17,6 +17,7 @@ import productReducer from "../features/productSlice";
 import categoryReducer from "../features/categorySlice";
 import checkoutReducer from "../features/checkoutSlice";
 import stepReducer from "../features/stepSlice";
+import searchReducer from "../features/searchSlice";
 
 // const persistConfig = {
 //   key: "root",
@@ -35,6 +36,7 @@ const store = configureStore({
     checkout: checkoutReducer,
     activeStep: stepReducer,
     wishlist: wishlistReducer,
+    searchProducts: searchReducer,
   },
   // middleware: (getDefaultMiddleware) =>
   //   getDefaultMiddleware({
