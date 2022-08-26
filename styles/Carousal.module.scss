@@ -13,6 +13,7 @@
     margin: 400px 0px;
 
     .img {
+      position: relative;
       object-position: center;
       object-fit: contain;
       width: 100%;
@@ -20,7 +21,6 @@
     }
   }
 }
-
 
 @media (max-width: $breakpoint-large) { 
 
@@ -37,7 +37,6 @@
     }
   }
 }
-
 
 @media (max-width: $breakpoint-medium) { 
 

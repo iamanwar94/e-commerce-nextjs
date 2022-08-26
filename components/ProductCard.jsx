@@ -5,8 +5,6 @@ import Link from "next/link";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 
 import product from "../styles/ProductCard.module.scss";
-import bed1 from "./assets/bed_PNG17418.png";
-import bed2 from "./assets/APK-B643-QUB-10x8-CROP.webp";
 
 const ProductCard = ({ products }) => {
   const price = products.variants.map((variant) => {
@@ -24,7 +22,7 @@ const ProductCard = ({ products }) => {
     });
   });
   const imagesHover = products.variants.slice(0, 1).map((variant) => {
-    return variant.features.slice(1, 2).map((feature) => {
+    return variant.features.slice(0, 1).map((feature) => {
       return feature.images.slice(0, 1).map((images) => {
         return images;
       });
@@ -57,12 +55,12 @@ const ProductCard = ({ products }) => {
             objectFit="cover"
           />
           <div className={product.display}>
-          <Image
-            src={`${imageURL}products/${imagesHover[0][0][0]}`}
-            alt="bed"
-            layout="fill"
-            objectFit="cover"
-          />
+            <Image
+              src={`${imageURL}products/${imagesHover[0][0][0]}`}
+              alt="bed"
+              layout="fill"
+              objectFit="cover"
+            />
           </div>
         </div>
         <div className={product.card_info}>
@@ -87,15 +85,6 @@ const ProductCard = ({ products }) => {
           <p>
             $ {minPrice} - $ {maxPrice}
           </p>
-          {/* 
-          <p
-            className={product.delivery_detail}
-            // dangerouslySetInnerHTML={{
-            //   __html: desc,
-            // }}
-          >
-            {desc.slice(0,10)} 
-          </p> */}
         </div>
       </a>
     </Link>
