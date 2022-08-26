@@ -26,7 +26,7 @@ const CategoryCard = ({ products }) => {
       </div>
       <div className={category.info}>
         <h6>{products && products.title}</h6>
-        <Link href={`products/productdetail/${products.slug}`}>
+        <Link href={`products/productdetail/${products && products.slug}`}>
           <a>
             <button>Shop Now</button>
           </a>

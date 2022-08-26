@@ -8,7 +8,8 @@
 
   .img {
     flex: 1;
-    // width: 70%;
+    position: relative;
+    height: 380px;
   }
   .info {
     background: rgb(245, 245, 245);
@@ -16,25 +17,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding-left: 60px;
-  }
-  h4 {
-    font-weight: 700;
-    font-size: 28px;
-  }
-  p {
-    font-weight: 600;
-    font-size: 18px;
-  }
-  button {
-    padding: 10px 16px;
-    background-color: white;
-    font-weight: 600;
-    border: 1px solid black;
+    padding: 60px;
+    h4 {
+      font-weight: 700;
+      font-size: 28px;
+    }
+    p {
+      font-weight: 600;
+      font-size: 18px;
+    }
+    button {
+      padding: 10px 16px;
+      background-color: white;
+      font-weight: 600;
+      border: 1px solid black;
 
-    &:hover {
-      color: white;
-      background-color: black;
+      &:hover {
+        color: white;
+        background-color: black;
+      }
     }
   }
 }
