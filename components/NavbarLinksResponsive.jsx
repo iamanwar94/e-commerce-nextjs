@@ -3,9 +3,9 @@ import navbarlinkresponsive from "../styles/NavbarLinksResponsive.module.scss";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GoLocation } from "react-icons/go";
 import { RiArrowRightSLine } from "react-icons/ri";
-import Link from "next/link";
-import Image from "next/image";
 import NavbarAccordion from "./NavbarAccordion";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const NavbarLinksResponsive = () => {
   const [showhide, setshowhide] = useState(false);
@@ -20,6 +20,8 @@ const NavbarLinksResponsive = () => {
     ? navbarlinkresponsive.shownavbarbylist
     : navbarlinkresponsive.hidenavbarbylist;
 
+  const router = useRouter();
+
   return (
     <div>
       {/* hamberger start */}
@@ -29,7 +31,6 @@ const NavbarLinksResponsive = () => {
             className={navbarlinkresponsive.icon}
             onClick={() => setshowhide(!showhide)}
           />
-
           <div
             className={contentClassname}
           >
@@ -38,22 +39,34 @@ const NavbarLinksResponsive = () => {
             >
               {/* parent one */}
               <div className={navbarlinkresponsive.button}>
-                <button>Log In</button>
-                <button>Delevery Tracking</button>
+                {/* <button onClick={() => router.push("/login")}>Log In</button >
+                  <button onClick={() => router.push("/deliverytracking")}>Delevery Tracking</button > */}
+                <Link href="/login">
+                  <button onClick={() => setshowhide(!showhide)}>Log In</button >
+                </Link>
+                <Link href="/deliverytracking">
+                  <button onClick={() => setshowhide(!showhide)}>Delevery Tracking</button >
+                </Link>
               </div>
 
               {/* parent two */}
 
               <div className={navbarlinkresponsive.zip}>
                 <p>
-                  <a>
-                    <GoLocation />
-                  </a>
-                  Your Closet Ashley <span>Please Enter Zip Code</span>
+                  <Link href="/location">
+                    <a onClick={() => setshowhide(!showhide)}><GoLocation /></a>
+                  </Link>
+                  Your Closet Ashley
+                  <Link href="/location">
+                    <span onClick={() => setshowhide(!showhide)}>Please Enter Zip Code</span>
+                  </Link>
                 </p>
 
                 <p className={navbarlinkresponsive.arrow}>
-                  <RiArrowRightSLine />
+                  <Link href="/location">
+                    <RiArrowRightSLine onClick={() => setshowhide(!showhide)} />
+                  </Link>
+                  {/* <RiArrowRightSLine  onClick={() => setshowhide(!showhide)}/> */}
                 </p>
               </div>
 

@@ -4,6 +4,8 @@ import Link from "next/link";
 import styles from "../styles/Home.module.scss";
 import { RiPlayListAddLine } from 'react-icons/ri';
 import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const ShopByCategories = ({ categoriesData }) => {
   const [catIndex, setCatIndex] = useState(0);
@@ -37,12 +39,20 @@ const ShopByCategories = ({ categoriesData }) => {
     styles.shopby_categories_headings
     ;
 
-
   // add responsive end
 
   return (
     <div className={styles.categories_wrapper}>
-      <h3>Shop By Categories <span onClick={toggleClass}><RiPlayListAddLine/></span> </h3>
+      <h3  onClick={toggleClass}>Shop By Categories
+        {showCategories ? (
+          <span><MdKeyboardArrowDown /></span>
+        ) : (
+          <span><MdKeyboardArrowUp /></span>
+        )}
+        {/* <span onClick={toggleClass}><MdKeyboardArrowUp /></span>
+        <span onClick={toggleClass}><MdKeyboardArrowDown /></span> */}
+        {/* <span onClick={toggleClass}><RiPlayListAddLine /></span> */}
+      </h3>
       <div className={categoriestoggle}>
         {categoriesData?.slice(0, 6).map((item, i) => (
           <p
@@ -66,6 +76,7 @@ const ShopByCategories = ({ categoriesData }) => {
               alt="sofa"
               layout="fill"
               objectFit="cover"
+              priority
             />
           </div>
           <div className={styles.shopby_categories_cart_link}>

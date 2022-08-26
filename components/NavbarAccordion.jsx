@@ -4,6 +4,14 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 import styles from "../styles/Nabaraccording.module.scss";
 
+// new work
+// import { useEffect, useState } from "react";
+// import { useSelector } from "react-redux";
+// import { selectCategory } from "../app/features/categorySlice";
+// import Link from "next/link";
+// import navbar from "../styles/NavbarLinks.module.scss";
+// new work
+
 const NavbarAccordion = ({menulisthide , setMenulisthide}) => {
   
   const filters = [
@@ -264,8 +272,7 @@ const NavbarAccordion = ({menulisthide , setMenulisthide}) => {
 
   const [filterState, setFilterState] = useState(filters);
   const [activeCurrentIndex, setActiveCurrentIndex] = useState();
-  // const [radio, setRadio] = useState("");
-  // const [checkbox, setCheckbox] = useState(data.checked);
+
 
   const toggleShowAccordion = (id) => {
     if (activeCurrentIndex === id) {
@@ -274,6 +281,14 @@ const NavbarAccordion = ({menulisthide , setMenulisthide}) => {
       setActiveCurrentIndex(id);
     }
   };
+
+// new work
+  // const categories = useSelector(selectCategory);
+
+  // const mainCategories = categories?.categories.filter((cat) => {
+  //   return cat.parent_id === "";
+  // });
+  // new work
 
   return (
     <div className={styles.accordion_wrapper}>

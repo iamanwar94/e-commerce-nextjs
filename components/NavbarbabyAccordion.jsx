@@ -152,7 +152,7 @@ const NavbarbabyAccordion = ({menulisthide , setMenulisthide}) => {
       setActiveCurrentIndex(id);
     }
   };
-
+a
   return (
     <div className={styles.accordion_wrapper}>
       {filterState?.map((filter) => (

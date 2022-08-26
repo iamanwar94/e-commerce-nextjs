@@ -34,7 +34,7 @@ import ThinBannerCard from "../components/ThinBannerCard";
 import ShopByCategories from "../components/ShopByCategories";
 import ChatBot from "../components/ChatBot";
 
-export default function Home({ categoriesData }) {
+export default function Home({ categoriesData }) {  
   const [slider, setSlider] = useState([]);
   const [botShow, setBotShow] = useState(false);
   const [discountProducts, setDiscountProducts] = useState([]);
@@ -43,7 +43,7 @@ export default function Home({ categoriesData }) {
   const dispatch = useDispatch();
 
   const imgURL = "https://ashley-api.herokuapp.com/uploads/";
-
+  
   const settings = {
     dots: true,
     infinite: true,
@@ -145,11 +145,11 @@ export default function Home({ categoriesData }) {
         </h1>
       ) : (
         <div className={styles.home_wrapper} style={{}}>
-            <Carousal
-              height={460}
-              slider={slider}
-              url="https://ashley-api.herokuapp.com/uploads/slider/"
-            />
+          <Carousal
+            height={460}
+            slider={slider}
+            url="https://ashley-api.herokuapp.com/uploads/slider/"
+          />
           <ShopByCategories categoriesData={categoriesData} />
           <div className={styles.discount_cards_wrapper}>
             <div className={styles.discount_cards_heading}>
@@ -227,7 +227,7 @@ export async function getServerSideProps() {
   const catData = await categoriesRes.json();
   const categoriesData = catData.categories;
   return {
-    props: { categoriesData }, 
+    props: { categoriesData },
     // will be passed to the page component as props
   };
 }

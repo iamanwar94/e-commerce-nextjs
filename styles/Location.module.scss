@@ -1,0 +1,90 @@
+@import "./Variables.module.scss";
+
+.location_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 30px;
+    background-color: #f4cc46;
+    height: 550px;
+
+
+    .heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            font-size: 50px;
+            text-align: center;
+        }
+    }
+
+    .img {
+        position: relative;
+        width: 40%;
+        height: 380px;
+        background-color: $yellow;
+    }
+}
+
+
+// map_wrapper
+.map_wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 850px;
+    // margin-bottom: 00px;
+
+    .map_detail {
+        width: 45%;
+
+        .map_card {
+            margin-top: 20px;
+            width: 100%;
+            // height: 18%;
+            height: 180px;
+            display: flex;
+            padding-bottom: 20px;
+            border-bottom: 1px solid grey;
+
+            .img {
+                position: relative;
+                width: 45%;
+                height: 100%;
+                background-color: $yellow;
+            }
+
+            .address {
+                width: 50%;
+
+                h6 {
+                    padding-left: 10px;
+                    // padding-top: 30px;
+                    width: 95%;
+                    line-height: 25px;
+                }
+            }
+        }
+    }
+
+    // map
+    .map {
+        width: 45%;
+        margin-top: 20px;
+        background: #000;
+        height: 800px;
+        margin-left: 20px;
+        // position: relative;
+
+        iframe {
+            // position:absolute;
+            // top: 100px;
+            width: 100%;
+            height: 800px;
+        }
+    }
+
+}

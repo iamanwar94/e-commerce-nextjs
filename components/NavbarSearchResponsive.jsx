@@ -48,13 +48,13 @@ const NavbarSearchResponsive = () => {
       </div>
       <div className={responsivenavsearch.navbar_links_wrapper}>
         {/* one */}
-        <div className={responsivenavsearch.icon_wrapper}>
+        {/* <div className={responsivenavsearch.icon_wrapper}>
           <Link href="/cart">
             <a className={responsivenavsearch.cart_icon}>
               <GoLocation className={responsivenavsearch.icon} />
             </a>
           </Link>
-        </div>
+        </div> */}
         {/* two */}
         <div className={responsivenavsearch.icon_wrapper}>
           <Link href="/cart">

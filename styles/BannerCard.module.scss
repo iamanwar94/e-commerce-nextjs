@@ -11,6 +11,7 @@
     position: relative;
     height: 380px;
   }
+
   .info {
     background: rgb(245, 245, 245);
     display: flex;
@@ -18,14 +19,17 @@
     justify-content: center;
     align-items: flex-start;
     padding: 60px;
+
     h4 {
       font-weight: 700;
       font-size: 28px;
     }
+
     p {
       font-weight: 600;
       font-size: 18px;
     }
+
     button {
       padding: 10px 16px;
       background-color: white;
@@ -35,6 +39,60 @@
       &:hover {
         color: white;
         background-color: black;
+      }
+    }
+  }
+}
+
+
+
+
+@media (max-width: $breakpoint-large) {
+  .banner_card {
+    .img {
+      height: 300px;
+    }
+
+    .info {
+      button {
+        padding: 8px 14px;
+
+      }
+    }
+  }
+}
+
+
+@media (max-width: $breakpoint-medium) {
+  .banner_card {
+    flex: auto;
+    flex-direction: column;
+
+    .img {
+      flex: auto;
+      height: 250px;
+    }
+
+    .info {
+      padding: 30px 0px;  
+      align-items: center; 
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .banner_card {
+    .img {
+      height: 200px;
+    }
+
+    .info {
+      h4 {
+        font-size: 25px;
+      }
+  
+      p {
+        font-size: 16px;
       }
     }
   }
