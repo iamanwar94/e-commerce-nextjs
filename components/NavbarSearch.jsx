@@ -56,13 +56,10 @@ const NavbarSearch = () => {
     const filteredData = products?.filter((item) =>
       item.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
     );
-    // setFilteredBlogs(filteredData);
     setSearchedProducts(filteredData);
   }, [products, searchTerm]);
 
   const searchClickHandler = () => {
-    console.log(searchTerm);
-    console.log(searchedProducts);
     dispatch(setSearchProducts(searchedProducts));
     router.push("/search/searchedproducts");
   };
