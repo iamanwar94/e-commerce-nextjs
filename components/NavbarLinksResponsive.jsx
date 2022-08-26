@@ -61,13 +61,6 @@ const NavbarLinksResponsive = () => {
                     <span onClick={() => setshowhide(!showhide)}>Please Enter Zip Code</span>
                   </Link>
                 </p>
-
-                <p className={navbarlinkresponsive.arrow}>
-                  <Link href="/location">
-                    <RiArrowRightSLine onClick={() => setshowhide(!showhide)} />
-                  </Link>
-                  {/* <RiArrowRightSLine  onClick={() => setshowhide(!showhide)}/> */}
-                </p>
               </div>
 
               {/* parent three */}
@@ -75,7 +68,7 @@ const NavbarLinksResponsive = () => {
               <div className={navbarlinkresponsive.links}>
 
                 <div>
-                  <NavbarAccordion />
+                  <NavbarAccordion  showhide={showhide} setshowhide={setshowhide}/>
                 </div>
               </div>
             </div>

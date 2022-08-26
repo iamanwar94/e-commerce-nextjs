@@ -1,19 +1,13 @@
-import React, { useState } from "react";
-
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-
 import styles from "../styles/Nabaraccording.module.scss";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectCategory } from "../app/features/categorySlice";
+import Link from "next/link";
 
-// new work
-// import { useEffect, useState } from "react";
-// import { useSelector } from "react-redux";
-// import { selectCategory } from "../app/features/categorySlice";
-// import Link from "next/link";
-// import navbar from "../styles/NavbarLinks.module.scss";
-// new work
 
-const NavbarAccordion = ({menulisthide , setMenulisthide}) => {
-  
+const NavbarAccordion = ({ menulisthide, setMenulisthide, showhide, setshowhide }) => {
+
   const filters = [
     {
       id: 1,
@@ -206,7 +200,7 @@ const NavbarAccordion = ({menulisthide , setMenulisthide}) => {
       ],
     },
   ];
-  
+
   // const mappedData = filters
   //   .filter((filterdData) => {
   //     filterdData.type === "checkbox";
@@ -282,25 +276,27 @@ const NavbarAccordion = ({menulisthide , setMenulisthide}) => {
     }
   };
 
-// new work
-  // const categories = useSelector(selectCategory);
+  // new work
+  const categories = useSelector(selectCategory);
 
-  // const mainCategories = categories?.categories.filter((cat) => {
-  //   return cat.parent_id === "";
-  // });
+  const mainCategories = categories?.categories.filter((cat) => {
+    return cat.parent_id === "";
+  });
   // new work
 
   return (
     <div className={styles.accordion_wrapper}>
-      {filterState?.map((filter) => (
-        <div className={styles.accordion_item} key={filter.id}>
+      {mainCategories?.map((mainCategory) => (
+        <div className={styles.accordion_item} key={mainCategory._id}>
           <div
             className={styles.accordion_heading}
-            onClick={() => toggleShowAccordion(filter.id)}
+            onClick={() => toggleShowAccordion(mainCategory._id)}
           >
-            <h4>{filter.title}</h4>
+            <Link href={`/${mainCategory._id}`}>
+              <h4>{mainCategory.title}</h4>
+            </Link>
             <div>
-              {activeCurrentIndex === filter.id ? (
+              {activeCurrentIndex === mainCategory._id ? (
                 <FiChevronUp className={styles.accordion_icon} />
               ) : (
                 <FiChevronDown className={styles.accordion_icon} />
@@ -310,34 +306,25 @@ const NavbarAccordion = ({menulisthide , setMenulisthide}) => {
 
           <div
             className={
-              activeCurrentIndex !== filter.id
+              activeCurrentIndex !== mainCategory._id
                 ? styles.accordion_content
                 : styles.accordion_content + " " + styles.show
             }
           >
-            {filter.filters.map((box, i) => (
-              <div className={styles.content_filter_wrapper} key={i}>
-                {/* <input
-                  type={box.type}
-                  name={box.input}
-                  id={box.input}
-                  value={box.type === "radio" && box.input}
-                  checked={
-                    box.type === "radio" ? radio === box.input : checkbox
-                  }
-                  onChange={(e) =>
-                    box.type === "radio"
-                      ? setRadio(e.target.value)
-                      : e.target.name===checkbox.name&& setCheckbox(e.target.checked)
-                      // setCheckbox({
-                      //     ...checkbox,
-                      //     [e.target.name]: e.target.checked,
-                      //   })
-                  }
-                /> */}
-                <h3 htmlFor={box.input}>{box.input}</h3>
-              </div>
-            ))}
+            {categories?.categories
+              .filter(
+                (filteredCats) => filteredCats.parent_id === mainCategory._id
+              )
+              .map((subCats) => (
+                <div className={styles.content_filter_wrapper} key={subCats._id}>
+                  <Link href={`/products/${subCats.slug}`} >
+                    <h3
+                      onClick={() => setshowhide(!showhide)}
+                    >{subCats.title}</h3>
+                  </Link>
+                </div>
+
+              ))}
           </div>
         </div>
       ))}

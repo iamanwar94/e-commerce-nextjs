@@ -17,11 +17,11 @@ const NavbarSearchResponsive = () => {
     setSearchbar(!serchbar);
   };
 
-  // const serachtoggle = serchbar
+  // const searchtoggle = serchbar
   //   ? responsivenavsearch.input_search
   //   : responsivenavsearch.input_search_two;
 
-  const serachtoggle = serchbar
+  const searchtoggle = serchbar
     ? responsivenavsearch.input_search_two
     : responsivenavsearch.input_search;
 
@@ -42,9 +42,12 @@ const NavbarSearchResponsive = () => {
         <button className={responsivenavsearch.btn_search}>
           <BiSearchAlt2 onClick={toggleClass} />
         </button>
-        <input type="text" 
-        className={serachtoggle} 
-        placeholder="Search" />
+        <input type="text"
+          className={serchbar
+            ? responsivenavsearch.input_search_two
+            : responsivenavsearch.input_search
+          }
+          placeholder="Search" />
       </div>
       <div className={responsivenavsearch.navbar_links_wrapper}>
         {/* one */}
