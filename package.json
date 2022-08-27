@@ -23,7 +23,8 @@
     "react-slick": "^0.29.0",
     "react-toastify": "^9.0.8",
     "redux-persist": "^6.0.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "eslint": "8.19.0",

@@ -27,6 +27,9 @@
 
     .discount_cards {
       width: 100%;
+      @include flex-between;
+      flex-wrap: wrap;
+      align-content: space-between;
       margin: 30px 0;
       display: flex;
       justify-content: space-evenly;

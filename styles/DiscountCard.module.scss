@@ -3,14 +3,14 @@
 .discount_card {
   cursor: pointer;
   box-shadow: 0 0 4px grey;
-  flex: 1;
-  margin: 0 5px;
+  margin: 10px 0;
+  width: 32%;
   border-radius: 2px;
 
   .img {
     position: relative;
     width: 100%;
-    height: 280px;
+    height: 260px;
   }
 }
 

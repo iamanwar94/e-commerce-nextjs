@@ -37,7 +37,7 @@ import ChatBot from "../components/ChatBot";
 export default function Home({ categoriesData }) {
   const [slider, setSlider] = useState([]);
   const [botShow, setBotShow] = useState(false);
-  const [discountProducts, setDiscountProducts] = useState([]);
+  const [discountCategories, setDiscountCategories] = useState([]);
   const [featProducts, setFeatProducts] = useState([]);
   const [banner, setBanner] = useState([]);
   const dispatch = useDispatch();
@@ -94,9 +94,9 @@ export default function Home({ categoriesData }) {
     async function getDisProducts() {
       try {
         const response = await axios.get(
-          "https://ashley-api.herokuapp.com/products/discounted"
+          "https://ashley-api.herokuapp.com/products/discount/categories"
         );
-        setDiscountProducts(response.data.products);
+        setDiscountCategories(response.data.categories);
       } catch (error) {
         console.error(error);
       }
@@ -176,15 +176,15 @@ export default function Home({ categoriesData }) {
             </div>
 
             <div className={styles.discount_cards}>
-              {discountProducts?.slice(0, 3).map((disproduct) => (
+              {discountCategories?.slice(0, 6).map((disproduct) => (
                 <DiscountCard products={disproduct} key={disproduct._id} />
               ))}
             </div>
-            <div className={styles.discount_cards}>
+            {/* <div className={styles.discount_cards}>
               {discountProducts?.slice(3, 6).map((disproduct) => (
                 <DiscountCard products={disproduct} key={disproduct._id} />
               ))}
-            </div>
+            </div> */}
           </div>
           <div className={styles.banner_card_wrapper}>
             {banner?.map((item) => (
