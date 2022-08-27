@@ -27,6 +27,8 @@ const Products = () => {
     return fp.category_id.slug === router.query.productslug;
   });
 
+  const catTitle = router.query.productslug.replace(/-/g, " ");
+
   const currentCategory = category?.categories.filter((currentCat) => {
     return currentCat.slug === router.query.productslug;
   });
@@ -66,12 +68,7 @@ const Products = () => {
       <div className={product.filter_products_wrapper}>
         <div className={product.filters_wrapper}>
           <div className={product.filter_heading}>
-            {/* <h3>
-              {products.products &&
-                filteredProducts &&
-                filteredProducts.length >= 1 &&
-                filteredProducts[0]?.category_id.title}
-            </h3> */}
+            <h3>{catTitle}</h3>
             <p>N of Ns Products Showing</p>
           </div>
           <div className={product.filters_cat}>

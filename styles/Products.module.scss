@@ -13,8 +13,8 @@
       width: 20%;
       @include flex-column;
 
-      .filter_cats{
-        width: 100%
+      .filter_cats {
+        width: 100%;
       }
 
       .filter_heading {
@@ -27,6 +27,7 @@
         h3 {
           font-size: 20px;
           font-weight: bold;
+          text-transform: capitalize;
           margin: 10px 0;
         }
         p {

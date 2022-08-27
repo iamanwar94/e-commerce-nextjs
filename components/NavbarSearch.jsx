@@ -4,10 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCart } from "../app/features/cartSlice";
-import {
-  // selectSearchProducts,
-  setSearchProducts,
-} from "../app/features/searchSlice";
+import { setSearchProducts } from "../app/features/searchSlice";
 import { selectProducts } from "../app/features/productSlice";
 
 import navsearch from "../styles/NavbarSearch.module.scss";
@@ -33,6 +30,7 @@ const style = {
   bgcolor: "background.paper",
   // border: "2px solid #000",
   boxShadow: 24,
+  outline: 0,
   py: 2,
   px: 4,
 };
