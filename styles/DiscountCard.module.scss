@@ -16,8 +16,15 @@
 
 @media (max-width: $breakpoint-large) {
   .discount_card {
+    cursor: pointer;
+    box-shadow: 0 0 4px grey;
+    margin: 10px 0;
+    width: 32%;
+    
+    border-radius: 2px;
+
     .img {
-      height: 250px;
+      height: 220px;
     }
   }
 }
@@ -25,21 +32,30 @@
 @media (max-width: $breakpoint-medium) {
 
   .discount_card {
-    margin-top: 10px;
-    margin-left: 15px;
-    width: 95%;
-    // width: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 4px grey;
+    margin: 10px;
+    width: 32%;
+    
+    border-radius: 2px;
 
     .img {
-      height: 150px;
+      height: 200px;
     }
   }
 }
 
 @media (max-width: $breakpoint-small) {
   .discount_card {
+    cursor: pointer;
+    box-shadow: 0 0 4px grey;
+    margin: 10px 5px;
+    width: 45%;
+    
+    border-radius: 2px;
+
     .img {
-      height: 90px;
+      height: 180px;
     }
   }
 }

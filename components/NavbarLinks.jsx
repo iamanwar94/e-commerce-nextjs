@@ -53,7 +53,7 @@ const NavbarLinks = () => {
         </p>
         <div className={navbar.dropdown}>
           {discountCategories?.map((item) => (
-            <Link href="/" className={navbar.dropdown_link}>
+            <Link href="/" className={navbar.dropdown_link} key={item._id}>
               <p className={navbar.dropdown_link}> {item.title} </p>
             </Link>
           ))}
