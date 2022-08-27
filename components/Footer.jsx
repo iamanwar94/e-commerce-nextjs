@@ -27,17 +27,17 @@ const Footer = () => {
 
       {/* for mobile */}
       <div className={footer.mobile_Links}>
-        <div className={footer.mobile}>
+        {/* <div className={footer.mobile}>
           <div><ImMobile /></div>
           <h6>Mobile apps</h6>
-        </div>
+        </div> */}
         <FooterAccordion />
-        <div className={footer.mobile_country}>
+        {/* <div className={footer.mobile_country}>
           <div className={footer.img}>
             <Image src={flag} alt="flag" />
           </div>
           <h6>United State</h6>
-        </div>
+        </div> */}
       </div>
 
       {/* footer search ends  */}
@@ -45,102 +45,63 @@ const Footer = () => {
         <div className={footer.footer_links}>
           <h3>Get To Know Us</h3>
           <Link href="/" className={footer.links}>
-            <a>About Ashley</a>
+            <a>Offers & Details</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>Our History</a>
+            <a>Terms and Condition</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>About Ashley Furniture Industries</a>
+            <a>Terms of Use</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>Careers</a>
+            <a>Privacy Policy</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>News</a>
+            <a>Interest-Based Adds</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>Social Responsibility</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Store Locations</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Trade Program</a>
+            <a>Don not sell my Personal Information</a>
           </Link>
         </div>
         <div className={footer.footer_links}>
           <h3>Customer Care</h3>
           <Link href="/" className={footer.links}>
-            <a>Help Center</a>
+            <a>Contact Us</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>Apply for Financing</a>
+            <a>Shipping & Delivery</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>Prequalify for Financing</a>
+            <a>Financing</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>Lease to Own Option</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Buy Now Pay Later</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Returns</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Accessibility</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Consumer Notifications</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>FAQ</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Price Match</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Child Safety</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Warranty Information</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Product Care & Cleaning</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Furniture Protection Plan</a>
+            <a>Terms & Conditions</a>
           </Link>
         </div>
         <div className={footer.footer_links}>
-          <h3>Get Inspired</h3>
+          <h3>About Furniture Mecca</h3>
           <Link href="/" className={footer.links}>
-            <a>Blog</a>
+            <a>About Us</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>Home Ideas</a>
+            <a>Career</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>Digital Catalog</a>
+            <a>Store Locations</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>3D Room Design</a>
+            <a>Reviews</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>Hope to Dream</a>
+            <a>My Account</a>
           </Link>
           <Link href="/" className={footer.links}>
-            <a>Refer a Friend</a>
-          </Link>
-          <Link href="/" className={footer.links}>
-            <a>Design Services</a>
+            <a>Community Giving</a>
           </Link>
         </div>
       </div>
       {/* footer links ends  */}
-      <div className={footer.footer_bottom_links}>
+      {/* <div className={footer.footer_bottom_links}>
         <div className={footer.country}>
           <Image src={flag} alt="flag" />
           <Link href="/" className={footer.links}>
@@ -167,7 +128,7 @@ const Footer = () => {
             <a>Do not sell my Personal Information</a>
           </Link>
         </div>
-      </div>
+      </div> */}
       {/* footer bottom links ends here  */}
     </div>
   );

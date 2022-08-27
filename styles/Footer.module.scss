@@ -5,6 +5,7 @@
   width: 100%;
   @include flex-column;
   font-family: $open-sans;
+  padding-bottom: 35px;
   a{
     &:hover{
       color: black;
@@ -156,6 +157,7 @@
 
 @media (max-width: $breakpoint-medium) {
   .footer_wrapper {
+    padding-bottom: 0px;
     .footer_search_wrapper {
       margin-bottom: 10px;
       .search_para_wrapper p {

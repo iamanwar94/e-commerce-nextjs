@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 import styles from "../styles/FooterAccordion.module.scss";
+import Link from 'next/link'
 
 const NavbarAccordion = () => {
   const filters = [
@@ -66,50 +67,157 @@ const NavbarAccordion = () => {
     },
   ];
 
-  const [filterState, setFilterState] = useState(filters);
-  const [activeCurrentIndex, setActiveCurrentIndex] = useState();
+  const [activeCurrentIndex, setActiveCurrentIndex] = useState(true);
+  const [activeCurrentIndextwo, setActiveCurrentIndextwo] = useState(true);
+  const [activeCurrentIndexthree, setActiveCurrentIndexthree] = useState(true);
 
-  const toggleShowAccordion = (id) => {
-    if (activeCurrentIndex === id) {
-      setActiveCurrentIndex();
-    } else {
-      setActiveCurrentIndex(id);
-    }
+  const toggleShowAccordion = () => {
+    setActiveCurrentIndex(!activeCurrentIndex)
+    // if (activeCurrentIndex === true) {
+    //   activeCurrentIndextwo == false
+    //   activeCurrentIndexthree == false
+    // }
+  };
+
+  const toggleShowAccordiontwo = () => {
+    setActiveCurrentIndextwo(!activeCurrentIndextwo);
+    // if (activeCurrentIndex === true) {
+    //   activeCurrentIndex == false
+    //   activeCurrentIndexthree == false
+    // }
+  };
+
+  const toggleShowAccordionthree = () => {
+    setActiveCurrentIndexthree(!activeCurrentIndexthree)
+    // if (activeCurrentIndex === true) {
+    //   activeCurrentIndextwo == false
+    //   activeCurrentIndexthree == false
+    // }
   };
 
   return (
     <div className={styles.accordion_wrapper}>
-      {filterState?.map((filter) => (
-        <div className={styles.accordion_item} key={filter.id}>
-          <div
-            className={styles.accordion_heading}
-            onClick={() => toggleShowAccordion(filter.id)}
-          >
-            <h4>{filter.title}</h4>
-            <div>
-              {activeCurrentIndex === filter.id ? (
-                <FiChevronUp className={styles.accordion_icon} />
-              ) : (
-                <FiChevronDown className={styles.accordion_icon} />
-              )}
-            </div>
-          </div>
-
-          <div
-            className={
-              activeCurrentIndex !== filter.id
-                ? styles.accordion_content
-                : styles.accordion_content + " " + styles.show
-            }
-          >
-            {filter.filters.map((box, i) => (
-              <div className={styles.content_filter_wrapper} key={i}>
-                <h3 htmlFor={box.input}>{box.input}</h3>
-              </div>
-            ))}
+      {/* one */}
+      <div className={styles.accordion_item}>
+        <div
+          className={styles.accordion_heading}
+          onClick={() => toggleShowAccordion(!activeCurrentIndex)}
+        >
+          <h2>Get To Know Us</h2>
+          <div>
+            {activeCurrentIndex ? (
+              <FiChevronDown className={styles.accordion_icon} />
+            ) : (
+              <FiChevronUp className={styles.accordion_icon} />
+            )}
           </div>
         </div>
-      ))}
+        <div
+          className={
+            activeCurrentIndex ? styles.accordion_content
+              : styles.accordion_content + " " + styles.show
+          }
+        >
+
+          <Link href="/">
+            <h3>Offers & Details</h3>
+          </Link>
+          <Link href="/">
+            <h3>Terms and Condition</h3>
+          </Link>
+          <Link href="/">
+            <h3>Terms of Use</h3>
+          </Link>
+          <Link href="/">
+            <h3>Privacy Policy</h3>
+          </Link>
+          <Link href="/">
+            <h3>Interest-Based Adds</h3>
+          </Link>
+          <Link href="/">
+            <h3>Don not sell my Personal Information</h3>
+          </Link>
+        </div>
+      </div>
+
+      {/* two */}
+      <div className={styles.accordion_item}>
+        <div
+          className={styles.accordion_heading}
+          onClick={() => toggleShowAccordiontwo(!activeCurrentIndextwo)}
+        >
+          <h2>Customer Care</h2>
+          <div>
+            {activeCurrentIndextwo ? (
+              <FiChevronDown className={styles.accordion_icon} />
+            ) : (
+              <FiChevronUp className={styles.accordion_icon} />
+            )}
+          </div>
+        </div>
+        <div
+          className={
+            activeCurrentIndextwo ? styles.accordion_content
+              : styles.accordion_content + " " + styles.show
+          }
+        >
+          <Link href="/">
+            <h3>Contact Us</h3>
+          </Link>
+          <Link href="/">
+            <h3>Shipping & Delivery</h3>
+          </Link>
+          <Link href="/">
+            <h3>Financing</h3>
+          </Link>
+          <Link href="/">
+            <h3>Terms & Conditions</h3>
+          </Link>
+        </div>
+      </div>
+
+      {/* three */}
+      <div className={styles.accordion_item}>
+        <div
+          className={styles.accordion_heading}
+          onClick={() => toggleShowAccordionthree(!activeCurrentIndexthree)}
+        >
+          <h2>About Furniture Mecca</h2>
+          <div>
+            {activeCurrentIndexthree ? (
+              <FiChevronDown className={styles.accordion_icon} />
+            ) : (
+              <FiChevronUp className={styles.accordion_icon} />
+            )}
+          </div>
+        </div>
+        <div
+          className={
+            activeCurrentIndexthree ? styles.accordion_content
+              : styles.accordion_content + " " + styles.show
+          }
+        >
+          <Link href="/">
+            <h3>About Us</h3>
+          </Link>
+          <Link href="/">
+            <h3>Career</h3>
+          </Link>
+          <Link href="/">
+            <h3>Store Locations</h3>
+          </Link>
+          <Link href="/">
+            <h3>Reviews</h3>
+          </Link>
+          <Link href="/">
+            <h3>My Account</h3>
+          </Link>
+          <Link href="/">
+            <h3>Community Giving</h3>
+          </Link>
+        </div>
+      </div>
+
     </div>
   );
 };

@@ -19,25 +19,32 @@
       position: relative;
     }
   }
+
   .zip {
     @include flex-column;
     cursor: pointer;
     color: $light-grey;
-    margin: 0 20px;
+    // margin: 0 20px;
+    margin: 0 2px;
+
     p {
       margin: 0;
       font-size: 12px;
     }
+
     h5 {
       margin: 0;
       font-size: 14px;
     }
   }
+
   .navbar_search_input {
     flex: 1;
     margin: 0 30px;
+    margin-left: 10px;
     position: relative;
     display: flex;
+
     // align-items: center;
     input {
       height: 40px;
@@ -75,6 +82,7 @@
       }
     }
   }
+
   .navbar_links_wrapper {
     @include flex-around;
 
@@ -87,12 +95,14 @@
       text-align: left;
       border-right: 1px solid rgba(94, 91, 91, 0.459);
       padding-right: 10px;
+
       a {
         &:hover {
           text-decoration: underline;
           color: black;
         }
       }
+
       .links {
         color: black;
         text-decoration: none;
@@ -134,12 +144,14 @@
           padding: 16px;
         }
       }
+
       .cart_icon {
         // @include flex-around;
         font-size: 20px;
         color: rgba(94, 91, 91, 0.712);
         padding: 0;
         position: relative;
+
         .icon {
           font-size: 30px;
 
@@ -147,6 +159,7 @@
             color: $red;
           }
         }
+
         .badge {
           @include flex-center;
           position: absolute;
@@ -160,7 +173,7 @@
           margin: 0;
           padding: 0;
           @include flex-center;
-          background-color: $red !important;
+          background-color: $red  !important;
           color: white;
           font-weight: 800;
         }

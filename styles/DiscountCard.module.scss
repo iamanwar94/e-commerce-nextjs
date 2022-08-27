@@ -14,25 +14,32 @@
   }
 }
 
-@media (max-width: $breakpoint-medium) {
-
+@media (max-width: $breakpoint-large) {
   .discount_card {
-    margin-top: 10px;
-    margin-left: 15px;
-    width: 95%;
-
     .img {
       height: 250px;
     }
   }
 }
 
-@media (max-width: $breakpoint-small) {
+@media (max-width: $breakpoint-medium) {
 
   .discount_card {
+    margin-top: 10px;
+    margin-left: 15px;
+    width: 95%;
+    // width: 50%;
 
     .img {
       height: 150px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .discount_card {
+    .img {
+      height: 90px;
     }
   }
 }

@@ -3,6 +3,7 @@
 .category_card {
   flex: 1;
   margin: 0 5px;
+
   .img {
     position: relative;
     width: 100%;
@@ -15,14 +16,19 @@
 
     h6 {
       font-weight: 400;
-      width: 70%;
+      // width: 70%;
       margin: 10px auto;
       font-size: 14px;
+
+      width: 80%;
+      text-align: center;
     }
+
     p {
       font-weight: 600;
       font-size: 18px;
     }
+
     button {
       font-size: 14px;
       padding: 10px 16px;
@@ -33,6 +39,39 @@
       &:hover {
         color: white;
         background-color: black;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $breakpoint-large) {
+  .category_card {
+    .img {
+      height: 250px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-medium) {
+  .category_card {
+    .img {
+      height: 200px;
+      width: 100%;
+    }
+
+    .info {
+      // margin: 10px;
+      // @include flex-column;
+
+      h6 {
+        // font-weight: 400;
+        // margin: 10px auto;
+        // font-size: 14px;
+
+        width: 80%;
+        // text-align: center;
+        // background: #000;
       }
     }
   }

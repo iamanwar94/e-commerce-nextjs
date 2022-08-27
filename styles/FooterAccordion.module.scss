@@ -5,6 +5,7 @@
 
   .accordion_item {
     padding: 10px;
+    padding-bottom: 10px;
     width: 100%;
 
     .accordion_heading {
@@ -13,7 +14,7 @@
       width: 100%;
       cursor: pointer;
 
-      h4 {
+      h2 {
         font-size: 16px;
         margin: 5px 0;
         font-weight: 600;
@@ -38,21 +39,16 @@
       max-height: 0;
       overflow: hidden;
 
-
-      .content_filter_wrapper {
-        margin: 0px;
-        h3 {
-          font-size: 14px;
-          padding-top: 5px;
-          padding-left: 10px;
-        }
+      h3 {
+        font-size: 14px;
+        padding-left: 10px;
       }
+
     }
 
     .accordion_content.show {
       max-height: 9999px;
       transition: max-height 3s ease-in-out 0s;
-
     }
   }
 }

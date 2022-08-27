@@ -366,9 +366,11 @@
       }
 
       .discount_cards {
-        flex-direction: column;
+        // flex-direction: column;
         justify-content: center;
         margin: 10px 0px;
+
+        flex-wrap: wrap;
       }
     }
 
@@ -437,7 +439,17 @@
       padding: 10px 0px;
       margin: 0px;
     }
-    
+
+    .free_shipping {
+      h4 {
+        font-size: 21px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+    }
+
     .thin_banner_wrapper {
       padding: 10px 4px;
       margin: 0px;

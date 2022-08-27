@@ -13,7 +13,6 @@ $breakpoint-large: 1024px;
         @include flex-around;
         justify-content: center;
         font-family: $open-sans;
-
         .logo {
             display: flex;
             align-items: top;

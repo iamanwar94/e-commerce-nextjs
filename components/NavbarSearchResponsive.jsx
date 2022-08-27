@@ -18,13 +18,8 @@ const NavbarSearchResponsive = () => {
   };
 
   // const searchtoggle = serchbar
-  //   ? responsivenavsearch.input_search
-  //   : responsivenavsearch.input_search_two;
-
-  const searchtoggle = serchbar
-    ? responsivenavsearch.input_search_two
-    : responsivenavsearch.input_search;
-
+  //   ? responsivenavsearch.input_search_two
+  //   : responsivenavsearch.input_search;
 
   return (
     <div className={responsivenavsearch.responsive_navbar_search_wrapper}>

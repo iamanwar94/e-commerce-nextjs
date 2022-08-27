@@ -4,11 +4,14 @@
   cursor: pointer;
   width: 100%;
   border-top: 1px solid $extra-light-grey;
+  height: 61vh;
+  overflow-y: scroll;
 
   .accordion_item {
     border-bottom: 1px solid $extra-light-grey;
     padding: 10px;
     width: 100%;
+  
     .accordion_heading {
       @include flex-between;
       align-items: center;

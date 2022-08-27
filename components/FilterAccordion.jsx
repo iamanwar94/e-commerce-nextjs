@@ -158,7 +158,6 @@ const FilterAccordion = () => {
               )}
             </span>
           </div>
-
           <div
             className={
               activeCurrentIndex !== filter.id

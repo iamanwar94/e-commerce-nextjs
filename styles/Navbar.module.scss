@@ -9,6 +9,7 @@
     height: 40px;
     margin: 0;
     @include flex-between;
+
     .header {
       // @include flex-center;
 
@@ -16,6 +17,7 @@
       height: 100%;
       display: flex;
       justify-content: center;
+
       p {
         padding: 0 20px;
         font-weight: 500;
@@ -24,26 +26,32 @@
         font-size: 14px;
         cursor: pointer;
       }
+
       .ashley {
         background-color: $dark-grey;
         color: white;
         height: 100%;
       }
+
       .baby {
         font-weight: 500;
         height: 100%;
       }
     }
+
     .mobile_app {
       width: 10%;
       @include flex-center;
+
       .icon {
         font-size: 20px;
         font-weight: lighters;
       }
+
       p {
         font-size: 13px;
         margin: 0 5px;
+
         &:hover {
           text-decoration: underline;
           cursor: pointer;
@@ -68,16 +76,19 @@
       background-color: $red;
       width: 34%;
       @include flex-center;
+
       h3 {
         margin: 0;
         font-weight: 500;
         font-size: 15px;
       }
+
       .links_div {
         @include flex-center;
         width: 100%;
         margin: 0;
         padding: 0;
+
         .links {
           color: white;
           display: none;
@@ -87,6 +98,7 @@
         }
       }
     }
+
     .grey {
       background-color: $grey;
       width: 33%;
@@ -98,6 +110,7 @@
         font-weight: 500;
         font-size: 15px;
       }
+
       .links_div {
         @include flex-center;
         width: 100%;
@@ -113,17 +126,20 @@
         }
       }
     }
+
     .light_grey {
       background-color: $extra-light-grey;
       width: 33%;
       @include flex-center;
       font-size: 15px;
       color: black;
+
       h3 {
         margin: 0;
         font-weight: 500;
         font-size: 15px;
       }
+
       .links_div {
         @include flex-center;
         width: 100%;
@@ -140,11 +156,13 @@
       }
     }
   }
+
   .navbar_chat {
     height: 40px;
     background-color: $light-grey;
     margin: 0;
     @include flex-center;
+
     p {
       margin: 0px;
       color: white;
@@ -152,6 +170,7 @@
       font-size: 16px;
       text-transform: capitalize;
       @include flex-center;
+
       .icon {
         margin: 0 10px;
       }
@@ -186,9 +205,6 @@
 
     .navbar_chat {
       background-color: $red;
-      // p {
-      //   display: none;
-      // }
 
       h6 {
         margin: 0px;
@@ -211,10 +227,9 @@
 
 @media (max-width: $breakpoint-large) {
 
-.navbar_wrapper {
+  .navbar_wrapper {
 
     .navbar_chat {
-      // display: none;
       h6 {
         font-size: 14px;
       }
@@ -223,21 +238,21 @@
     .discount_line {
       height: 40px;
       font-size: 14px;
-      // display: none;
     }
   }
 }
 
 
 @media (max-width: $breakpoint-small) {
-  .navbar_wrapper { 
+  .navbar_wrapper {
     .navbar_chat {
 
       p {
- 
+
         font-size: 14px;
+
         .icon {
-          margin: 0 5px;         
+          margin: 0 5px;
         }
       }
     }
@@ -246,6 +261,6 @@
       height: 42px;
       font-size: 14px;
     }
-  
+
   }
 }
