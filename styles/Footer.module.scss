@@ -64,6 +64,11 @@
       right: 0px;
     }
   }
+
+  // mobile_Links
+  .mobile_Links {
+    display: none;
+  }
   .footer_links_wrapper {
     width: 95%;
     @include flex-between;
@@ -123,6 +128,122 @@
         &:hover {
           text-decoration: underline;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-large) {
+  .footer_wrapper {
+    .footer_search_wrapper {
+      @include flex-column;
+
+      .search_btn {
+        margin-top: 10px;
+        width: 60%;
+
+        input {
+          width: 75%;
+        }
+
+        button {
+          width: 25%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-medium) {
+  .footer_wrapper {
+    .footer_search_wrapper {
+      margin-bottom: 10px;
+      .search_para_wrapper p {
+        padding: 0px 40px;
+        font-size: 14px;
+      }
+      .search_btn {
+        width: 70%;
+
+        input {
+          width: 80%;
+        }
+
+        button {
+          width: 20%;
+        }
+      }
+    }
+
+    .mobile_Links {
+      display: block;
+      width: 95%;
+      margin-top: 0px;
+      margin-bottom: 30px;
+
+      .mobile {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid $extra-light-grey;
+
+        h6 {
+          padding-top: 10px;
+          margin-left: 10px;
+          font-size: 14px;
+        }
+      }
+
+      .mobile_country {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        margin-top: 20px;
+
+        h6 {
+          margin-left: 10px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .footer_links_wrapper {
+      display: none;
+    }
+
+    .footer_bottom_links {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .footer_wrapper {
+    .footer_search_wrapper {
+      .search_para_wrapper p {
+        width: 95%;
+        padding: 0px;
+      }
+      .search_btn {
+        width: 95%;
+        padding: 5px 0px;
+
+        input {
+          width: 75%;
+        }
+
+        button {
+          width: 25%;
+        }
+      }
+    }
+
+    .footer_links_wrapper {
+      .footer_links {
+        width: 90%;
+        padding-left: 15px;
       }
     }
   }

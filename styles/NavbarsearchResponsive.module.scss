@@ -1,0 +1,202 @@
+@import "./Variables.module.scss";
+
+.responsive_navbar_search_wrapper {
+    display: none;
+}
+
+$breakpoint-large: 1024px;
+@media (max-width: $breakpoint-large) {
+    .responsive_navbar_search_wrapper {
+        border-bottom: 1px solid $extra-light-grey;
+        height: 100px;
+        padding: 0 15px;
+        @include flex-around;
+        justify-content: center;
+        font-family: $open-sans;
+
+        .logo {
+            display: flex;
+            align-items: top;
+            justify-content: left;
+
+            a {
+                align-items: left;
+                height: 40px;
+                width: 150px;
+            }
+        }
+
+        .search_box {
+            position: relative;
+            width: 50%;
+            flex: 1;
+            display: flex;
+            .btn_search {
+                width: 40px;
+                height: 35px;
+                border-style: none;
+                font-size: 20px;
+                font-weight: bold;
+                outline: none;
+                cursor: pointer;
+                border-radius: 50%;
+                position: absolute;
+                right: 0px;
+                color: grey;
+                background-color: transparent;
+                pointer-events: painted;
+            }
+
+            .input_search {
+                padding-right: 0px;
+                width: 100%;
+                padding: 8px;
+                border-style: none;
+                font-size: 14px;
+                letter-spacing: 2px;
+                outline: 1px solid grey;
+                transition: all 0.5s ease-in-out;
+                color: gray;
+                border-radius: 25px;
+
+                &:placeholder {
+                    font-size: 12px;
+                    letter-spacing: 2px;
+                    font-weight: 100;
+                }
+            }
+
+            .input_search_two {
+                padding-right: 0px;
+                width: 100%;
+                border-style: none;
+                padding: 8px;
+                font-size: 14px;
+                letter-spacing: 2px;
+                outline: 1px solid grey;
+                transition: all 0.5s ease-in-out;
+                color: gray;
+                border-radius: 25px;
+
+                &:placeholder {
+                    font-size: 12px;
+                    letter-spacing: 2px;
+                    font-weight: 100;
+                }
+            }
+        }
+
+        .navbar_links_wrapper {
+            @include flex-around;
+
+            .icon_wrapper {
+                margin: 0 4px;
+                .cart_icon {
+                    @include flex-around;
+                    font-size: 20px;
+                    color: rgba(94, 91, 91, 0.712);
+                    padding: 0;
+                    position: relative;
+                    .icon {
+                        font-size: 28px;
+                    }
+                    .badge {
+                        @include flex-center;
+                        position: absolute;
+                        top: -4px;
+                        right: -6px;
+                        border-radius: 50%;
+                        padding: 5px;
+                        height: 15px;
+                        width: 15px;
+                        font-size: 10px;
+                        background-color: $red !important;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .responsive_navbar_search_wrapper {
+        padding: 0 5px;
+        position: relative;
+        height: 60px;
+        .logo {
+            @include flex-center;          
+
+            a {
+                height: 20px;
+                width: 95px;
+            }
+        }
+
+        .search_box {
+            margin: 0 2px;
+            margin-top: 0px;
+            border-radius: 25px;
+            height: 30px;
+
+            .btn_search {
+                width: 30px;
+                height: 26px;
+            }
+
+            .input_search {
+                width: 0px;
+                outline: none;
+                padding-right: 20px;
+            }
+
+            .input_search_two {
+                height: 10px;
+                width: 100%;
+                border-style: none;
+                padding: 15px;
+
+                font-size: 12px;
+                letter-spacing: 2px;
+                outline: 1px solid grey;
+                transition: all 0.5s ease-in-out;
+                padding-right: 20px;
+                color: gray;
+                border-radius: 25px;
+
+                &:placeholder {
+                    font-size: 12px;
+                    letter-spacing: 1px;
+                    font-weight: 100;
+                }
+            }
+        }
+
+        .navbar_links_wrapper {
+            @include flex-around;
+
+            .icon_wrapper {
+                margin: 0 1px;
+                .cart_icon {
+                    @include flex-around;
+                    color: rgba(94, 91, 91, 0.712);
+                    padding: 0;
+                    position: relative;
+                    font-size: 20px;
+
+                    .icon {
+                        font-size: 20px;
+                    }
+                    .badge {
+                        top: -4px;
+                        right: -7px;
+                        padding: 5px;
+                        height: 10px;
+                        width: 10px;
+                        font-size: 7px;
+                    }
+                }
+            }
+        }
+    }
+}

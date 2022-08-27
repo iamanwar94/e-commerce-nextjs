@@ -9,6 +9,9 @@ $extra-light-grey: rgb(204, 205, 206);
 $xs-grey: rgb(244, 244, 244);
 $red: rgb(220, 30, 40);
 $open-sans: "Open Sans", sans-serif;
+$breakpoint-large: 1024px;
+$breakpoint-medium: 768px;
+$breakpoint-small: 480px;
 
 @mixin flex-center {
   display: flex;
@@ -21,33 +24,39 @@ $open-sans: "Open Sans", sans-serif;
   justify-content: space-around;
   align-items: center;
 }
+
 @mixin flex-around-start {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
 }
+
 @mixin flex-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 @mixin flex-between-start {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
+
 @mixin flex-column {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+
 @mixin flex-column-start {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
 }
+
 @mixin flex-start {
   display: flex;
   justify-content: flex-start;

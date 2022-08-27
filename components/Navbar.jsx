@@ -4,6 +4,7 @@ import { AiOutlineMobile } from "react-icons/ai";
 import { FaComment } from "react-icons/fa";
 import NavbarSearch from "./NavbarSearch";
 import NavbarLinks from "./NavbarLinks";
+import NavbarSearchResponsive from "./NavbarSearchResponsive"
 
 import navbar from "../styles/Navbar.module.scss";
 
@@ -24,7 +25,7 @@ const Navbar = () => {
       </div>
       {/* baby ends  */}
       <div className={navbar.navbar_features}>
-        <div className={navbar.features_items+" "+ navbar.yellow}>
+        <div className={navbar.features_items + " " + navbar.yellow}>
           <h3>In Stock and Ready to Ship</h3>
           {/* <div className={navbar.links_div}>
             <Link href="/" className={navbar.links}>
@@ -50,6 +51,7 @@ const Navbar = () => {
         </div>
       </div>
       <NavbarSearch />
+      <NavbarSearchResponsive />
       <NavbarLinks />
       <div className={navbar.navbar_chat}>
         <p>

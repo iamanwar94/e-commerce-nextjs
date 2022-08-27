@@ -1,16 +1,67 @@
 @import "./Variables.module.scss";
 
 .carousal_wrapper {
-  margin-top:10px ;
+  margin: 10px 0px;
   width: 100%;
+  height: 460px;
+
   @include flex-column;
+
   .carousal {
     width: 100%;
+    height: 460px;
+    margin: 400px 0px;
 
-    img {
+    .img {
+      position: relative;
       object-position: center;
       object-fit: contain;
       width: 100%;
+      height: 460px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-large) { 
+
+  .carousal_wrapper {
+    height: 380px;
+  
+    @include flex-column;
+  
+    .carousal {
+      height: 380px;
+      .img {
+        height: 380px;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-medium) { 
+
+  .carousal_wrapper {
+    height: 300px;
+    @include flex-column;
+    .carousal {
+      height: 300px;
+      .img {
+        height: 300px;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) { 
+
+  .carousal_wrapper {
+    height: 230px;
+  
+    .carousal {
+      height: 230px;  
+      .img {
+        height: 230px;
+      }
     }
   }
 }

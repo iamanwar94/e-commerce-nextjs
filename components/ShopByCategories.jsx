@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.scss";
-
+import { RiPlayListAddLine } from 'react-icons/ri';
 import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const ShopByCategories = ({ categoriesData }) => {
   const [catIndex, setCatIndex] = useState(0);
@@ -23,10 +25,35 @@ const ShopByCategories = ({ categoriesData }) => {
   const selectedSubCategories = newselectedCategory.children.map((item) => {
     return item;
   });
+
+
+  // add responsive work
+  const [showCategories, setshowCategories] = useState(true);
+
+  const toggleClass = () => {
+    setshowCategories(!showCategories);
+  };
+
+  const categoriestoggle = showCategories
+    ? styles.shopby_categories_headings_hidden :
+    styles.shopby_categories_headings
+    ;
+
+  // add responsive end
+
   return (
     <div className={styles.categories_wrapper}>
-      <h3>Shop By Categories</h3>
-      <div className={styles.shopby_categories_headings}>
+      <h3  onClick={toggleClass}>Shop By Categories
+        {showCategories ? (
+          <span><MdKeyboardArrowDown /></span>
+        ) : (
+          <span><MdKeyboardArrowUp /></span>
+        )}
+        {/* <span onClick={toggleClass}><MdKeyboardArrowUp /></span>
+        <span onClick={toggleClass}><MdKeyboardArrowDown /></span> */}
+        {/* <span onClick={toggleClass}><RiPlayListAddLine /></span> */}
+      </h3>
+      <div className={categoriestoggle}>
         {categoriesData?.slice(0, 6).map((item, i) => (
           <p
             key={i}
@@ -49,6 +76,7 @@ const ShopByCategories = ({ categoriesData }) => {
               alt="sofa"
               layout="fill"
               objectFit="cover"
+              priority
             />
           </div>
           <div className={styles.shopby_categories_cart_link}>

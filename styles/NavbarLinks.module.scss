@@ -70,3 +70,10 @@
     }
   }
 }
+
+
+@media (max-width: $breakpoint-large) {
+  .navbar_links_items_wrapper {
+    display: none;
+  }
+}

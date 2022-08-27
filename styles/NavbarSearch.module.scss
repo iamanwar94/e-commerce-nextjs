@@ -168,3 +168,10 @@
     }
   }
 }
+
+
+@media (max-width: $breakpoint-large) {
+  .navbar_search_wrapper {
+    display: none;
+  }
+}
