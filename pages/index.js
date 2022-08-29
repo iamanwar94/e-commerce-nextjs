@@ -73,7 +73,6 @@ export default function Home({ categoriesData }) {
   }
   // new_work_width
 
-
   const categories = useSelector(selectCategory);
   const products = useSelector(selectProducts);
 
