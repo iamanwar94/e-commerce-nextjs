@@ -6,10 +6,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectCart } from "../app/features/cartSlice";
 import { setSearchProducts } from "../app/features/searchSlice";
 import { selectProducts } from "../app/features/productSlice";
+import { selectLoginData, setLogout } from "../app/features/loginSlice";
 
 import navsearch from "../styles/NavbarSearch.module.scss";
 import logo from "../components/assets/m_logo_360.png";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 import { FiSearch } from "react-icons/fi";
 import HoverCart from "./HoverCart";
 
@@ -49,6 +51,7 @@ const NavbarSearch = () => {
   const router = useRouter();
 
   const products = selectProductDetail?.products;
+  const loginData = useSelector(selectLoginData);
 
   useEffect(() => {
     const filteredData = products?.filter((item) =>
@@ -60,6 +63,11 @@ const NavbarSearch = () => {
   const searchClickHandler = () => {
     dispatch(setSearchProducts(searchedProducts));
     router.push("/search/searchedproducts");
+  };
+
+  const logoutHandler = () => {
+    dispatch(setLogout());
+    router.push("/");
   };
 
   return (
@@ -82,7 +90,6 @@ const NavbarSearch = () => {
           <div onClick={handleOpen}>
             <p>Your closest Ashley</p>
             <h5>Please Enter Zip Code</h5>
-            {/* {console.log(products)} */}
           </div>
           <Modal
             open={open}
@@ -134,14 +141,39 @@ const NavbarSearch = () => {
         </div>
       </div>
       <div className={navsearch.navbar_links_wrapper}>
-        <p className={navsearch.links}>
-          <Link href="/login" className={navsearch.links}>
-            <a>
-              Login <br /> Account
-            </a>
-          </Link>
-        </p>
-
+        {loginData ? (
+          <>
+            <p className={navsearch.links + " " + navsearch.links_account}>
+              <Link href="/" className={navsearch.links}>
+                <a>
+                  <CgProfile
+                    style={{ fontSize: 20, color: "grey", marginLeft: "8px" }}
+                  />
+                  <br /> {loginData.last_name}
+                </a>
+              </Link>
+              <p className={navsearch.account}>
+                <Link href={"/orders"}>
+                  <p style={{ cursor: "pointer" }}>Orders</p>
+                </Link>
+                <Link href={"/wishlist"}>
+                  <p style={{ cursor: "pointer" }}>Wish List</p>
+                </Link>
+                <p style={{ cursor: "pointer" }} onClick={logoutHandler}>
+                  Logout
+                </p>
+              </p>
+            </p>
+          </>
+        ) : (
+          <p className={navsearch.links}>
+            <Link href="/login" className={navsearch.links}>
+              <a>
+                Login <br /> Account
+              </a>
+            </Link>
+          </p>
+        )}
         <p className={navsearch.links}>
           <Link href="/deliverytracking" className={navsearch.links}>
             <a>

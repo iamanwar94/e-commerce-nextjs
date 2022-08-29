@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import cardStyles from "../styles/DiscountCard.module.scss";
+import Link from "next/link";
 
 const DiscountCard = ({ products }) => {
   const imageURl = "https://ashley-api.herokuapp.com/uploads/";
@@ -14,14 +15,16 @@ const DiscountCard = ({ products }) => {
   // });
   return (
     <div className={cardStyles.discount_card}>
-      <div className={cardStyles.img}>
-        <Image
-          src={`${imageURl}categories/${products.discount_image}`}
-          alt={products.title}
-          layout="fill"
-          objectFit="fill"
-        />
-      </div>
+      <Link href={`/discountedproducts/${products.slug}`}>
+        <div className={cardStyles.img}>
+          <Image
+            src={`${imageURl}categories/${products.discount_image}`}
+            alt={products.title}
+            layout="fill"
+            objectFit="fill"
+          />
+        </div>
+      </Link>
     </div>
   );
 };

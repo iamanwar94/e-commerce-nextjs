@@ -13,11 +13,11 @@ import Slider from "react-slick";
 
 import { fetchProducts, selectProducts } from "../app/features/productSlice";
 import { fetchCategory, selectCategory } from "../app/features/categorySlice";
+import { setLogin, selectLoginData } from "../app/features/loginSlice";
 
 //from assets and styles
 
 import styles from "../styles/Home.module.scss";
-import model from "./assets/model.jpg";
 import loader from "../components/assets/loader.gif";
 
 import "slick-carousel/slick/slick.css";
@@ -41,6 +41,7 @@ export default function Home({ categoriesData }) {
   const [featProducts, setFeatProducts] = useState([]);
   const [banner, setBanner] = useState([]);
   const dispatch = useDispatch();
+  const loginData = useSelector(selectLoginData);
 
   const imgURL = "https://ashley-api.herokuapp.com/uploads/";
 
@@ -73,7 +74,6 @@ export default function Home({ categoriesData }) {
   }
   // new_work_width
 
-
   const categories = useSelector(selectCategory);
   const products = useSelector(selectProducts);
 
@@ -86,9 +86,19 @@ export default function Home({ categoriesData }) {
   });
 
   useEffect(() => {
-    dispatch(fetchCategory());
     dispatch(fetchProducts());
-  }, [dispatch]);
+  }, []);
+  useEffect(() => {
+    dispatch(fetchCategory());
+  }, []);
+
+  useEffect(() => {
+    const fetchLoginData = localStorage.getItem("user");
+    if (fetchLoginData) {
+      const data = JSON.parse(localStorage.getItem("user"));
+      dispatch(setLogin(data));
+    }
+  }, []);
 
   useEffect(() => {
     async function getDisProducts() {

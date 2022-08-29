@@ -85,7 +85,35 @@
 
   .navbar_links_wrapper {
     @include flex-around;
+    position: relative;
 
+    .links_account {
+      &:hover .account {
+        height: auto;
+        padding: 20px;
+      }
+    }
+
+    .account {
+      height: 0;
+      width: 160px;
+      overflow: hidden;
+      position: absolute;
+      box-shadow: 0 0 5px $extra-light-grey;
+      background-color: white;
+      color: black;
+      top: 66px;
+      z-index: 111000;
+      padding: 0 20px;
+      p {
+        cursor: pointer;
+
+        &:hover{
+          font-weight: 600;
+          font-size: 13px;
+        }
+      }
+    }
     p.links {
       @include flex-center;
       margin: 0 6px;
@@ -173,7 +201,7 @@
           margin: 0;
           padding: 0;
           @include flex-center;
-          background-color: $red  !important;
+          background-color: $red !important;
           color: white;
           font-weight: 800;
         }
@@ -181,7 +209,6 @@
     }
   }
 }
-
 
 @media (max-width: $breakpoint-large) {
   .navbar_search_wrapper {

@@ -144,4 +144,6 @@ const Furniture = () => {
   );
 };
 
+// this page is now cancelled by the owner
+
 export default Furniture;
