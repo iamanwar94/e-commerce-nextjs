@@ -71,6 +71,8 @@ const NavbarAccordion = () => {
   const [activeCurrentIndextwo, setActiveCurrentIndextwo] = useState(true);
   const [activeCurrentIndexthree, setActiveCurrentIndexthree] = useState(true);
 
+  // const [toggleclass, settoggleclass] = useState(1)
+
   const toggleShowAccordion = () => {
     setActiveCurrentIndex(!activeCurrentIndex)
     // if (activeCurrentIndex === true) {
@@ -95,12 +97,19 @@ const NavbarAccordion = () => {
     // }
   };
 
+  // const toggle = (index) => {
+  //   settoggleAccordion(index)
+  //   console.log(index);
+  // };
+
+
+
   return (
     <div className={styles.accordion_wrapper}>
       {/* one */}
       <div className={styles.accordion_item}>
         <div
-          className={styles.accordion_heading}
+          className={ styles.accordion_heading}
           onClick={() => toggleShowAccordion(!activeCurrentIndex)}
         >
           <h2>Get To Know Us</h2>
