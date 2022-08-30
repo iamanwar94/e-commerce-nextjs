@@ -12,6 +12,7 @@
     .filters_wrapper {
       width: 20%;
       @include flex-column;
+      overflow-y: auto;
 
       .filter_cats {
         width: 100%;
