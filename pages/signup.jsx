@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import axios from "axios";
 
 import signup from "../styles/Signup.module.scss";
@@ -15,6 +16,8 @@ const Signup = () => {
     offers: false,
   };
   const [signupData, setSignupData] = useState(data);
+
+  const router = useRouter();
 
   const checkChangeHandler = (e) => {
     const { name, checked } = e.target;
@@ -56,6 +59,7 @@ const Signup = () => {
       console.log(response.data.message);
       console.log(signupData);
       setSignupData(data);
+      router.push("/email-confirmation/confirm-email");
     }
   };
 
