@@ -12,6 +12,12 @@
     height: 460px;
     margin: 400px 0px;
 
+    .slider{
+      position: relative;
+      height: 300px;
+      width: 100%;
+    }
+
     .img {
       position: relative;
       object-position: center;

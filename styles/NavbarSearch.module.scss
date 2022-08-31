@@ -88,6 +88,15 @@
     position: relative;
 
     .links_account {
+      @include flex-center;
+      margin: 0 6px;
+      font-size: 12px;
+      font-weight: 500;
+      height: 30px;
+      text-align: left;
+      border-right: 1px solid rgba(94, 91, 91, 0.459);
+      padding-right: 10px;
+
       &:hover .account {
         height: auto;
         padding: 20px;
@@ -105,10 +114,11 @@
       top: 66px;
       z-index: 111000;
       padding: 0 20px;
+
       p {
         cursor: pointer;
 
-        &:hover{
+        &:hover {
           font-weight: 600;
           font-size: 13px;
         }

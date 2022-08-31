@@ -35,7 +35,7 @@ import ShopByCategories from "../components/ShopByCategories";
 import ChatBot from "../components/ChatBot";
 
 export default function Home({ categoriesData }) {
-  const [slider, setSlider] = useState([]);
+  // const [slider, setSlider] = useState([]);
   const [botShow, setBotShow] = useState(false);
   const [discountCategories, setDiscountCategories] = useState([]);
   const [featProducts, setFeatProducts] = useState([]);
@@ -85,6 +85,17 @@ export default function Home({ categoriesData }) {
     return cat.parent_id === "";
   });
 
+  const sliders = banner.filter((banner) => {
+    return banner.type === 'slider'
+  })
+
+  const featureBanner = banner.filter((banner) => {
+    return banner.type === 'custom'
+  })
+
+  const categoryBanner = banner.filter((banner) => {
+    return banner.type === 'category'
+  })
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
@@ -140,19 +151,19 @@ export default function Home({ categoriesData }) {
     getBanner();
   }, []);
 
-  useEffect(() => {
-    async function getSLider() {
-      try {
-        const response = await axios.get(
-          "https://ashley-api.herokuapp.com/sliders"
-        );
-        setSlider(response.data.sliders);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getSLider();
-  }, []);
+  // useEffect(() => {
+  //   async function getSLider() {
+  //     try {
+  //       const response = await axios.get(
+  //         "https://ashley-api.herokuapp.com/sliders"
+  //       );
+  //       setSlider(response.data.sliders);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+  //   getSLider();
+  // }, []);
 
   return (
     <div className="index_wrapper">
@@ -176,8 +187,8 @@ export default function Home({ categoriesData }) {
         <div className={styles.home_wrapper} style={{}}>
           <Carousal
             height={460}
-            slider={slider}
-            url="https://ashley-api.herokuapp.com/uploads/slider/"
+            slider={sliders}
+            url="https://ashley-api.herokuapp.com/uploads/banners/"
           />
           <ShopByCategories categoriesData={categoriesData} />
           <div className={styles.discount_cards_wrapper}>
@@ -197,7 +208,7 @@ export default function Home({ categoriesData }) {
             </div> */}
           </div>
           <div className={styles.banner_card_wrapper}>
-            {banner?.map((item) => (
+            {featureBanner?.slice(0, 1).map((item) => (
               <BannerCard key={item._id} banner={item} />
             ))}
           </div>
@@ -213,7 +224,7 @@ export default function Home({ categoriesData }) {
             {/* </div> */}
           </div>
           <div className={styles.thin_banner_wrapper}>
-            <ThinBannerCard data={categoriesData} />
+            <ThinBannerCard data={categoryBanner} />
           </div>
           <div className={styles.free_shipping}>
             <h4>Swith it up</h4>

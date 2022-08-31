@@ -81,6 +81,7 @@ const NavbarSearch = () => {
               className={navsearch.img}
               layout="fill"
               objectFit="contain"
+              priority
             />
           </a>
         </Link>
@@ -143,16 +144,16 @@ const NavbarSearch = () => {
       <div className={navsearch.navbar_links_wrapper}>
         {loginData ? (
           <>
-            <p className={navsearch.links + " " + navsearch.links_account}>
+            <div className={navsearch.links + " " + navsearch.links_account}>
               <Link href="/" className={navsearch.links}>
                 <a>
                   <CgProfile
-                    style={{ fontSize: 20, color: "grey", marginLeft: "8px" }}
+                    style={{ fontSize: 20, color: "grey", margin: "auto" }}
                   />
-                  <br /> {loginData.last_name}
+                  <br /> {loginData.first_name}
                 </a>
               </Link>
-              <p className={navsearch.account}>
+              <div className={navsearch.account}>
                 <Link href={"/orders"}>
                   <p style={{ cursor: "pointer" }}>Orders</p>
                 </Link>
@@ -162,8 +163,8 @@ const NavbarSearch = () => {
                 <p style={{ cursor: "pointer" }} onClick={logoutHandler}>
                   Logout
                 </p>
-              </p>
-            </p>
+              </div>
+            </div>
           </>
         ) : (
           <p className={navsearch.links}>

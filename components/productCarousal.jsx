@@ -15,13 +15,15 @@ const ProductCarousal = ({ height, slider, url }) => {
           height={height}
         >
           {slider?.map((sliderImage, i) => (
-            <Image
-              src={`${url}${sliderImage}`}
-              key={i}
-              alt={i}
-              layout="fill"
-              objectFit="contain"
-            />
+            <div className={carousal.slider} key={i} style={{ position: "relative" }}>
+              <Image
+                src={`${url}${sliderImage}`}
+                key={i}
+                alt={i}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
           ))}
         </Carousel>
       </div>

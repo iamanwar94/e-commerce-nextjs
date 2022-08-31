@@ -178,7 +178,6 @@ const ProductDetail = ({ productDetail }) => {
             <p>
               Item Code:{" "}
               {sku.slice(sizeID, sizeID + 1).map((sku) => sku[colorID])[0]}
-              {console.log(stockInHand)}
             </p>
             <div className={product.flex + " " + product.reviews}>
               <span className={product.flex}>
