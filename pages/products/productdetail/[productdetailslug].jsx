@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactStars from "react-stars";
 import Switch from "@mui/material/Switch";
 import Image from "next/image";
 import { addToCart } from "../../../app/features/cartSlice";
@@ -127,7 +128,7 @@ const ProductDetail = ({ productDetail }) => {
       title: productDetail.title,
       price: Number(
         price.slice(sizeID, sizeID + 1).map((price) => price)[0]
-      ).toFixed(0),
+      ).toFixed(2),
       size: sizes[sizeID],
       color: colors.slice(sizeID, sizeID + 1).map((color) => color[colorID])[0]
         .title,
@@ -162,6 +163,13 @@ const ProductDetail = ({ productDetail }) => {
     setActiveIndex(id);
   };
 
+  const options = {
+    edit: false,
+    color1: "rgb(20,20,20,0.1)",
+    color2: "tomato",
+    value: productDetail.rating,
+  };
+
   return (
     <div className={product.product_detail_wrapper}>
       <div className={product.img_and_detail} key={productDetail._id}>
@@ -181,11 +189,13 @@ const ProductDetail = ({ productDetail }) => {
             </p>
             <div className={product.flex + " " + product.reviews}>
               <span className={product.flex}>
+                {/* <AiFillStar className={product.icon} />
                 <AiFillStar className={product.icon} />
                 <AiFillStar className={product.icon} />
                 <AiFillStar className={product.icon} />
-                <AiFillStar className={product.icon} />
-                <AiFillStar className={product.icon} />
+                <AiFillStar className={product.icon} /> */}
+
+                <ReactStars {...options} />
               </span>
               <p>121 Reviews</p>
             </div>
@@ -314,7 +324,7 @@ const ProductDetail = ({ productDetail }) => {
               >
                 <div className={product.total_rating}>
                   <h1>
-                    5.0 <span>/5.0</span>
+                    {productDetail.rating} <span>/5.0</span>
                   </h1>
                   <span
                     style={{
@@ -323,11 +333,7 @@ const ProductDetail = ({ productDetail }) => {
                       color: "gold",
                     }}
                   >
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
+                    <ReactStars {...options} />
                   </span>
                   <span>5 Ratings</span>
                 </div>

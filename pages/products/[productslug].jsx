@@ -69,7 +69,7 @@ const Products = () => {
         <div className={product.filters_wrapper}>
           <div className={product.filter_heading}>
             <h3>{catTitle}</h3>
-            <p>N of Ns Products Showing</p>
+            {/* <p>N of Ns Products Showing</p> */}
           </div>
           <div className={product.filters_cat}>
             <h3>{parentCat.title} </h3>

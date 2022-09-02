@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ReactStars from "react-stars";
 
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 
@@ -38,6 +39,14 @@ const ProductCard = ({ products }) => {
 
   const imageURL = "https://ashley-api.herokuapp.com/uploads/";
   // const src = imageURL;
+
+  const options = {
+    edit: false,
+    color1: "rgb(20,20,20,0.1)",
+    color2: "tomato",
+    value: products.rating,
+  };
+
   return (
     <Link href={`/products/productdetail/${products.slug}`}>
       <a className={product.products_card}>
@@ -66,7 +75,9 @@ const ProductCard = ({ products }) => {
         <div className={product.card_info}>
           <h4>{products.title}</h4>
           <div className={product.ratings}>
-            <div className={product.span}>
+            <ReactStars {...options} />
+
+            {/* <div className={product.span}>
               <AiFillStar />
             </div>
             <div className={product.span}>
@@ -80,7 +91,7 @@ const ProductCard = ({ products }) => {
             </div>
             <div className={product.span}>
               <AiFillStar />
-            </div>
+            </div> */}
           </div>
           <p>
             $ {minPrice} - $ {maxPrice}
