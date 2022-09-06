@@ -6,6 +6,10 @@ import flag from "./assets/USflag.svg";
 import footer from "../styles/Footer.module.scss";
 import { ImMobile } from "react-icons/im";
 import FooterAccordion from "./FooterAccordion";
+import { GrFacebook } from "react-icons/gr";
+import { FaTwitterSquare } from "react-icons/fa";
+import { BsLinkedin } from "react-icons/bs";
+import { AiOutlineCopyrightCircle } from "react-icons/ai";
 
 const Footer = () => {
   return (
@@ -100,6 +104,33 @@ const Footer = () => {
           </Link>
         </div>
       </div>
+
+      {/* logo_links */}
+      <div className={footer.logo_links}>
+        <div className={footer.copywright}>
+          <AiOutlineCopyrightCircle className={footer.copywright_logo} />
+          Furniture Mecca. All Rights Reserved. myfurnituremecca.com
+        </div>
+        <div className={footer.logo_div}>
+          <Link href="/">
+            <a>
+              <GrFacebook className={footer.logo} />
+            </a>
+          </Link>
+
+          <Link href="/">
+            <a>
+              <FaTwitterSquare className={footer.middle_logo} />
+            </a>
+          </Link>
+          <Link href="/">
+            <a>
+              <BsLinkedin className={footer.logo} />
+            </a>
+          </Link>
+        </div>
+      </div>
+
       {/* footer links ends  */}
       {/* <div className={footer.footer_bottom_links}>
         <div className={footer.country}>

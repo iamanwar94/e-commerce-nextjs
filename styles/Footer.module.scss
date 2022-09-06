@@ -1,16 +1,14 @@
 @import "./Variables.module.scss";
 
-
 .footer_wrapper {
   width: 100%;
   @include flex-column;
   font-family: $open-sans;
   padding-bottom: 35px;
-  a{
-    &:hover{
+  a {
+    &:hover {
       color: black;
       text-decoration: underline;
-      
     }
   }
 
@@ -52,7 +50,6 @@
       &:focus {
         outline: 0;
       }
-
     }
     .search_btn button {
       height: 36px;
@@ -74,16 +71,25 @@
     width: 95%;
     @include flex-between;
     align-items: flex-start;
+    border-bottom: 3px solid $extra-light-grey;
+    padding-bottom: 30px;
 
     .footer_links {
       @include flex-column-start;
       width: 30%;
       height: 100%;
+
       h3 {
         font-size: 18px;
         font-weight: 600;
         color: black;
         margin: 8px 0;
+        font-weight: bold;
+      }
+
+      a {
+        margin: 10px 0px;
+        font-size: 14px;
       }
 
       .links {
@@ -100,6 +106,46 @@
       }
     }
   }
+
+  .logo_links {
+    margin-top: 30px;
+
+    .copywright {
+      font-size: 15px;
+      .copywright_logo {
+        cursor: pointer;
+        font-size: 15px;
+        margin-right: 5px;
+        margin-bottom: 2px;
+      }
+    }
+    .logo_div {
+      margin: 0px 80px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-evenly;
+
+      .middle_logo {
+        cursor: pointer;
+        font-size: 25px;
+        padding-bottom: 1px;
+
+        // &:hover {
+        //   color: $red;
+        // }
+      }
+
+      .logo {
+        cursor: pointer;
+        font-size: 22px;
+
+        // &:hover {
+        //   color: $yellow;
+        // }
+      }
+    }
+  }
+
   .footer_bottom_links {
     width: 100%;
     padding: 30px 0;
@@ -157,7 +203,8 @@
 
 @media (max-width: $breakpoint-medium) {
   .footer_wrapper {
-    padding-bottom: 0px;
+    padding-bottom: 10px;
+
     .footer_search_wrapper {
       margin-bottom: 10px;
       .search_para_wrapper p {
@@ -181,7 +228,6 @@
       display: block;
       width: 95%;
       margin-top: 0px;
-      margin-bottom: 30px;
 
       .mobile {
         display: flex;
@@ -212,6 +258,10 @@
     }
 
     .footer_links_wrapper {
+      display: none;
+    }
+
+    .logo_links {
       display: none;
     }
 

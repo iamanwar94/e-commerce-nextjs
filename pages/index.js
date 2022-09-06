@@ -51,7 +51,8 @@ export default function Home({ categoriesData }) {
     speed: 1000,
     slidesToShow: 4,
     slidesToScroll: 1,
-    arrows: true,
+    // arrows: true,
+    arrows: false,
     autoplay: true,
     autoplaySpeed: 3000,
   };

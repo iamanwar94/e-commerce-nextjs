@@ -3,131 +3,40 @@ import React, { useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 import styles from "../styles/FooterAccordion.module.scss";
-import Link from 'next/link'
+import Link from "next/link";
 
 const NavbarAccordion = () => {
-  const filters = [
-    {
-      id: 1,
-      title: "Get To Know Us",
-      filters: [
-        { input: "About Ashley" },
-        { input: "Our history" },
-        { input: "About Ashley Furniture History" },
-        { input: "Careers" },
-        { input: "News" },
-        { input: "Social Responsiblity" },
-        { input: "Store Locations" },
-        { input: "Trade Program" },
-      ],
-    },
-    {
-      id: 2,
-      title: "Customer Care",
-      filters: [
-        { input: "Help Center" },
-        { input: "Apply For Financing" },
-        { input: "Prequality For Financing" },
-        { input: "Lease to Own Option" },
-        { input: "Buy Now Pay Later" },
-        { input: "Returns" },
-        { input: "Accessibility" },
-        { input: "Consumer Notification" },
-        { input: "FAQ" },
-        { input: "Price Match" },
-        { input: "Child Safety" },
-        { input: "Warranty Information" },
-        { input: "Product care & Cleaning" },
-        { input: "Furniture Protection Plan" },
-      ],
-    },
-    {
-      id: 3,
-      title: "Get Inspired",
-      filters: [
-        { input: "Blogs " },
-        { input: "Home Ideas" },
-        { input: "Digital Catalog" },
-        { input: "Hope to Dream" },
-        { input: "Refer a Friend" },
-        { input: "Design services" },
-      ],
-    },
-    {
-      id: 4,
-      title: "Terms & Policies",
-      filters: [
-        { input: "Others & Details" },
-        { input: "Terms & Conditions" },
-        { input: "Term of Use" },
-        { input: "Privacy Policy" },
-        { input: "Interest-Base-Adds" },
-        { input: "Do not Sell my Personal Information" },
-      ],
-    },
-  ];
+  const [hide, sethide] = useState();
 
-  const [activeCurrentIndex, setActiveCurrentIndex] = useState(true);
-  const [activeCurrentIndextwo, setActiveCurrentIndextwo] = useState(true);
-  const [activeCurrentIndexthree, setActiveCurrentIndexthree] = useState(true);
-
-  // const [toggleclass, settoggleclass] = useState(1)
-
-  const toggleShowAccordion = () => {
-    setActiveCurrentIndex(!activeCurrentIndex)
-    // if (activeCurrentIndex === true) {
-    //   activeCurrentIndextwo == false
-    //   activeCurrentIndexthree == false
-    // }
+  const toggle = (index) => {
+    if (hide === index) {
+      sethide();
+    } else {
+      sethide(index);
+    }
   };
-
-  const toggleShowAccordiontwo = () => {
-    setActiveCurrentIndextwo(!activeCurrentIndextwo);
-    // if (activeCurrentIndex === true) {
-    //   activeCurrentIndex == false
-    //   activeCurrentIndexthree == false
-    // }
-  };
-
-  const toggleShowAccordionthree = () => {
-    setActiveCurrentIndexthree(!activeCurrentIndexthree)
-    // if (activeCurrentIndex === true) {
-    //   activeCurrentIndextwo == false
-    //   activeCurrentIndexthree == false
-    // }
-  };
-
-  // const toggle = (index) => {
-  //   settoggleAccordion(index)
-  //   console.log(index);
-  // };
-
-
 
   return (
     <div className={styles.accordion_wrapper}>
       {/* one */}
       <div className={styles.accordion_item}>
-        <div
-          className={ styles.accordion_heading}
-          onClick={() => toggleShowAccordion(!activeCurrentIndex)}
-        >
+        <div className={styles.accordion_heading} onClick={() => toggle(1)}>
           <h2>Get To Know Us</h2>
           <div>
-            {activeCurrentIndex ? (
-              <FiChevronDown className={styles.accordion_icon} />
-            ) : (
+            {hide === 1 ? (
               <FiChevronUp className={styles.accordion_icon} />
+            ) : (
+              <FiChevronDown className={styles.accordion_icon} />
             )}
           </div>
         </div>
         <div
           className={
-            activeCurrentIndex ? styles.accordion_content
-              : styles.accordion_content + " " + styles.show
+            hide === 1
+              ? styles.accordion_content + " " + styles.show
+              : styles.accordion_content
           }
         >
-
           <Link href="/">
             <h3>Offers & Details</h3>
           </Link>
@@ -151,23 +60,21 @@ const NavbarAccordion = () => {
 
       {/* two */}
       <div className={styles.accordion_item}>
-        <div
-          className={styles.accordion_heading}
-          onClick={() => toggleShowAccordiontwo(!activeCurrentIndextwo)}
-        >
+        <div className={styles.accordion_heading} onClick={() => toggle(2)}>
           <h2>Customer Care</h2>
           <div>
-            {activeCurrentIndextwo ? (
-              <FiChevronDown className={styles.accordion_icon} />
-            ) : (
+            {hide === 2 ? (
               <FiChevronUp className={styles.accordion_icon} />
+            ) : (
+              <FiChevronDown className={styles.accordion_icon} />
             )}
           </div>
         </div>
         <div
           className={
-            activeCurrentIndextwo ? styles.accordion_content
-              : styles.accordion_content + " " + styles.show
+            hide === 2
+              ? styles.accordion_content + " " + styles.show
+              : styles.accordion_content
           }
         >
           <Link href="/">
@@ -187,23 +94,21 @@ const NavbarAccordion = () => {
 
       {/* three */}
       <div className={styles.accordion_item}>
-        <div
-          className={styles.accordion_heading}
-          onClick={() => toggleShowAccordionthree(!activeCurrentIndexthree)}
-        >
+        <div className={styles.accordion_heading} onClick={() => toggle(3)}>
           <h2>About Furniture Mecca</h2>
           <div>
-            {activeCurrentIndexthree ? (
-              <FiChevronDown className={styles.accordion_icon} />
-            ) : (
+            {hide === 3 ? (
               <FiChevronUp className={styles.accordion_icon} />
+            ) : (
+              <FiChevronDown className={styles.accordion_icon} />
             )}
           </div>
         </div>
         <div
           className={
-            activeCurrentIndexthree ? styles.accordion_content
-              : styles.accordion_content + " " + styles.show
+            hide === 3
+              ? styles.accordion_content + " " + styles.show
+              : styles.accordion_content
           }
         >
           <Link href="/">
@@ -226,7 +131,6 @@ const NavbarAccordion = () => {
           </Link>
         </div>
       </div>
-
     </div>
   );
 };
