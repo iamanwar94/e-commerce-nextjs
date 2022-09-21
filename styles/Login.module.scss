@@ -128,6 +128,7 @@
             border-top: 1px solid $extra-light-grey;
             position: relative;
             padding: 20px;
+
             .or {
               position: absolute;
               background-color: rgb(247, 247, 247);
@@ -224,7 +225,6 @@
       .signup {
         width: 50%;
         padding: 40px 50px;
-
         p {
           margin: 20px 0;
         }
@@ -267,3 +267,216 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-large) {
+  .login_wrapper {
+    .login_form_wrapper {
+      .heading_para {
+        margin-top: 0px;
+        h2 {
+          font-size: 24px;
+        }
+      }
+
+      // parent two
+      .login_signup {
+        @include flex-column;
+        flex-direction: column-reverse;
+
+        // child one
+        .login_track {
+          width: 100%;
+          border-right: none;
+          border-top: 1px solid $extra-light-grey;
+
+          .login_form {
+            margin-left: 30px;
+          }
+
+        }
+
+        // child two
+        .signup {
+          width: 100%;
+          padding: 40px 28px;
+
+          p {
+            width: 80%;
+            margin: 15px 0;
+          }
+
+          .button {
+            @include flex-start;
+            margin: 40px 0;
+            width: 100%;
+
+            button {
+              padding: 16px 60px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-medium) {
+  .login_wrapper {
+    .login_form_wrapper {
+      // one parent
+
+      .heading_para {
+        text-align: center;
+      }
+      // parent two
+      .login_signup {
+        // child one
+
+        .login_track {
+
+          .login_form {
+            width: 100%;
+            margin-left: 0px;
+            margin-top: 0px;
+
+            p {
+              width: 100%;
+
+              span {
+                display: inline-block;
+              }
+            }
+
+            .hide {
+              display: none;
+            }
+
+            .input_wrapper {
+              margin-top: 0px;
+              width: 100%;
+
+              label {
+                margin-top: 10px;
+              }
+
+              input {
+                border: none;
+                border-bottom: 1px solid $grey;
+                margin-top: 5px;
+
+                &:focus {
+                  outline: 0;
+                }
+
+                &::placeholder {
+                  font-size: 12px;
+                }
+              }
+            }
+
+            .button {
+              display: none;
+            }
+
+            .mbbutton {
+              display: flex;
+              justify-content: space-evenly;
+              width: 100%;
+              margin: 20px 0;
+
+              button {
+                padding: 5px 10px;
+                background-color: $yellow;
+                color: white;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 15px;
+                letter-spacing: 2px;
+                border-radius: 8px;
+                border: 0;
+                height: 50px;
+                width: 45%;
+
+                &:hover {
+                  background-color: white;
+                  color: $yellow;
+                  border: 1px solid $yellow;
+                }
+              }
+            }
+            .forgot {
+              width: 100%;
+              justify-content: space-around;
+              .forgot_password {
+                width: 35%;
+              }
+            }
+          }
+        }
+
+        // child two
+        .signup {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+$breakpoint-small: 480px;
+
+@media (max-width: $breakpoint-small) {
+  .login_wrapper {
+    .login_form_wrapper {
+      // parent two
+      .login_signup {
+        // child one
+        .login_track {
+          .login_form {
+            p {
+              // text-align: center;
+              margin-top: 10px;
+              font-size: 14px;
+            }
+
+            .req {
+              margin-top: 15px;
+              text-align: left;
+            }
+            .mbbutton {
+              button {
+                padding: 0px;
+                font-size: 12.5px;
+                letter-spacing: 0px;
+              }
+            }
+            .forgot {
+              .forgot_password {
+                p {
+                  font-size: 13.5px;
+                }
+              }
+
+              .chex {
+                display: flex;
+                justify-content: flex-end;
+                label {
+                  font-size: 13.5px;
+                  margin: 0px;
+                }
+                input {
+                  margin-right: 6px;
+                  width: 14px;
+                  height: 14px;
+                }
+              }
+            }
+
+          
+          }
+        }
+      }
+    }
+  }
+}
+

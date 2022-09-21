@@ -92,3 +92,59 @@
     }
   }
 }
+
+
+
+@media (max-width: $breakpoint-large) {
+  .signup_wrapper {
+    .signup_form_wrapper {
+      .signup_form {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-medium) {
+  .signup_wrapper {
+    .signup_form_wrapper {
+      .heading_para {
+        // text-align: center;
+        padding-left: 10px;
+
+        h2 {
+          font-size: 27px;
+        }
+        p {
+          font-size: 13px;
+        }
+      }
+
+      .signup_form {
+        width: 95%;
+        margin-left: 10px;
+
+        .input_wrapper {
+          width: 100%;
+          input {
+            padding: 3px;
+          }
+        }
+
+        .chex {
+          width: 100%;
+        }
+
+        .button {
+          justify-content: center;
+          width: 100%;
+
+          button {
+            height: 43px;
+          }
+        }
+      }
+    }
+  }
+}
+
