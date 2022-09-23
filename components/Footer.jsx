@@ -51,7 +51,7 @@ const Footer = () => {
           <Link href="/" className={footer.links}>
             <a>Offers & Details</a>
           </Link>
-          <Link href="/" className={footer.links}>
+          <Link href="/termsCondition" className={footer.links}>
             <a>Terms and Condition</a>
           </Link>
           <Link href="/" className={footer.links}>
@@ -78,9 +78,6 @@ const Footer = () => {
           <Link href="/" className={footer.links}>
             <a>Financing</a>
           </Link>
-          <Link href="/" className={footer.links}>
-            <a>Terms & Conditions</a>
-          </Link>
         </div>
         <div className={footer.footer_links}>
           <h3>About Furniture Mecca</h3>
@@ -99,7 +96,7 @@ const Footer = () => {
           <Link href="/" className={footer.links}>
             <a>My Account</a>
           </Link>
-          <Link href="/" className={footer.links}>
+          <Link href="/comunitygiving" className={footer.links}>
             <a>Community Giving</a>
           </Link>
         </div>
