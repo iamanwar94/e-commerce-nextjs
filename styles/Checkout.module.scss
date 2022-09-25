@@ -1,0 +1,322 @@
+@import "./Variables.module.scss";
+
+.checkout_wrapper {
+  display: flex;
+  width: 100%;
+  padding: 0px 50px;
+  margin: 30px 0px;
+  .detail_wrapper {
+    margin-top: 20px;
+    width: 75%;
+    font-style: normal;
+    font-variant: normal;
+    h1 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    h2 {
+      margin-top: 20px;
+      font-size: 13px;
+      font-weight: 400;
+      span {
+        cursor: pointer;
+        text-decoration: underline;
+        font-weight: 700;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    h3 {
+      margin-top: 35px;
+      font-size: 11px;
+      font-weight: 400;
+      color: $extra-light-grey;
+    }
+
+    .names {
+      margin-top: 15px;
+      display: flex;
+      width: 60%;
+      justify-content: space-between;
+      span {
+        width: 50%;
+        font-style: normal;
+        font-variant: normal;
+        font-size: 12px;
+        font-weight: 700;
+      }
+    }
+
+    .inputs {
+      margin-top: 20px;
+      display: flex;
+      width: 60%;
+      justify-content: space-between;
+      input {
+        margin-right: 10px;
+        width: 50%;
+        font-style: normal;
+        font-variant: normal;
+        font-size: 12px;
+        font-weight: 400;
+        border: none;
+        border-bottom: 1px solid grey;
+        outline: none;
+      }
+    }
+    .address_div {
+      margin-top: 30px;
+      display: flex;
+      width: 60%;
+      justify-content: space-between;
+      span {
+        font-style: normal;
+        font-variant: normal;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .address {
+        width: 74%;
+      }
+
+      .optional {
+        width: 26%;
+      }
+    }
+
+    .address_inputs_div {
+      margin-top: 20px;
+      width: 59%;
+      display: flex;
+      input {
+        font-style: normal;
+        font-variant: normal;
+        font-size: 12px;
+        font-weight: 400;
+        border: none;
+        border-bottom: 1px solid grey;
+        outline: none;
+      }
+
+      .address_inputs {
+        width: 75%;
+      }
+
+      .optional_input {
+        width: 25%;
+        margin-left: 10px;
+      }
+    }
+
+    .city_div {
+      margin-top: 30px;
+      width: 59%;
+      display: flex;
+      flex-direction: column;
+
+      h5 {
+        width: 50%;
+        font-style: normal;
+        font-variant: normal;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      input {
+        margin-top: 15px;
+        font-style: normal;
+        font-variant: normal;
+        font-size: 12px;
+        font-weight: 400;
+        border: none;
+        border-bottom: 1px solid grey;
+        outline: none;
+      }
+
+      .address_inputs {
+        width: 75%;
+      }
+
+      .optional_input {
+        width: 25%;
+        margin-left: 10px;
+      }
+    }
+    button {
+      cursor: pointer;
+      margin-top: 25px;
+      color: #ffffff;
+      background-color: $yellow;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 700;
+      // padding: 10px 50px;
+      width: 160px;
+      height: 40px;
+      &:hover {
+        background-color: $yellow-light;
+      }
+    }
+
+    .paymen_info {
+      width: 95%;
+      margin-top: 60px;
+      padding-top: 10px;
+      border-top: 1px solid $light-grey;
+      // border-bottom: 1px solid $extra-light-grey;
+      p {
+        padding-top: 15px;
+        // color: $extra-light-grey;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .names {
+        margin-top: 30px;
+        display: flex;
+        width: 65%;
+        justify-content: space-between;
+        span {
+          width: 50%;
+          font-style: normal;
+          font-variant: normal;
+          font-size: 12px;
+          font-weight: 700;
+        }
+      }
+
+      .inputs {
+        margin-top: 20px;
+        display: flex;
+        width: 65%;
+        justify-content: space-between;
+        input {
+          margin-right: 10px;
+          width: 50%;
+          font-style: normal;
+          font-variant: normal;
+          font-size: 12px;
+          font-weight: 400;
+          border: none;
+          border-bottom: 1px solid grey;
+          outline: none;
+        }
+      }
+    }
+
+    .order_summary {
+      width: 95%;
+      margin-top: 50px;
+      border-top: 1px solid $light-grey;
+      border-bottom: 1px solid $light-grey;
+      // border-bottom: 1px solid $extra-light-grey;
+      padding-top: 15px;
+
+      h5 {
+        padding-top: 15px;
+        // color: $extra-light-grey;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .total {
+        margin: 20px 0px;
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        font-style: normal;
+        font-variant: normal;
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      .payment_info {
+        margin: 20px 0px;
+        display: flex;
+        justify-content: space-between;
+        width: 58%;
+        font-style: normal;
+        font-variant: normal;
+        font-size: 16px;
+        font-weight: 400;
+
+        .shipping {
+          p {
+            font-weight: 700;
+          }
+        }
+
+        .payment {
+          display: flex;
+          flex-direction: column;
+
+          .payment_bold {
+            font-weight: 700;
+          }
+          p {
+            span {
+              margin-left: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .checkout_summary_wrapper {
+    width: 25%;
+    height: 200px;
+    background-color: $xs-grey;
+    @include flex-column;
+    .checkout_summary {
+      width: 90%;
+      height: 90%;
+      background-color: white;
+
+      //   padding: 20px;
+      //   padding: 10px 20px;
+      //   margin: 20px 0;
+
+      padding: 20px;
+      padding-bottom: 5px;
+      margin: 20px 0;
+
+      p {
+        line-height: 13px;
+        display: flex;
+        justify-content: space-between;
+        span {
+          font-style: normal;
+          font-variant: normal;
+        }
+      }
+
+      .items {
+        font-size: 13px;
+        .Subtotal {
+          font-weight: 700;
+        }
+      }
+
+      .shipping {
+        font-weight: 700;
+        font-size: 12px;
+      }
+
+      .taxes {
+        font-size: 12px;
+        .bold {
+          font-weight: 700;
+        }
+      }
+
+      .order {
+        border-top: 1px solid $light-grey;
+        padding-top: 5px;
+        font-weight: 700;
+        font-size: 14px;
+      }
+    }
+  }
+}

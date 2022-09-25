@@ -10,7 +10,7 @@
     align-items: flex-start;
     width: 100%;
     .filters_wrapper {
-      width: 20%;
+      width: 17%;
       @include flex-column;
       overflow-y: auto;
 
@@ -60,7 +60,7 @@
       }
     }
     .products_item_wrapper {
-      width: 80%;
+      width: 83%;
 
       .categories_wrapper {
         width: 100%;
