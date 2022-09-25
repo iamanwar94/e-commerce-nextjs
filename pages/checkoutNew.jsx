@@ -31,6 +31,8 @@ const checkouttwo = () => {
       [event.target.name]: value,
     });
 
+    console.log(order);
+
   };
 
   const [payment, setPayment] = useState({
@@ -46,6 +48,7 @@ const checkouttwo = () => {
       ...payment,
       [event.target.name]: value,
     });
+    console.log(payment);
   };
 
   const [showpayment, setShowpayment] = useState(false);
@@ -334,7 +337,7 @@ const checkouttwo = () => {
         </div>
       </div>
 
-      <div className={styles.checkout_summary_wrapper}>
+      {/* <div className={styles.checkout_summary_wrapper}>
         <div className={styles.checkout_summary}>
           <p className={styles.items}>
             <span className={styles.Subtotal}>Subtotal (15 items)</span>
@@ -356,7 +359,7 @@ const checkouttwo = () => {
             <span>$643.34</span>
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
