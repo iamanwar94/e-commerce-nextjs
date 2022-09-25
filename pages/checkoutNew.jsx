@@ -1,7 +1,21 @@
 import React, { useState } from "react";
 import styles from "../styles/CheckoutNew.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addAddress,
+  addPayment,
+  selectAddress,
+  selectPayment,
+} from "../app/features/stepSlice";
+import { selectCart } from "../app/features/cartSlice";
+import { selectCheckout } from "../app/features/checkoutSlice";
 
 const checkouttwo = () => {
+  const dispatch = useDispatch();
+  const cartDetail = useSelector(selectCart);
+  const checkoutDetail = useSelector(selectCheckout);
+  const addressDetails = useSelector(selectAddress);
+  const paymentDetails = useSelector(selectPayment);
   // const [hide, sethide] = useState();
 
   // const toggle = (index) => {
@@ -32,7 +46,6 @@ const checkouttwo = () => {
     });
 
     console.log(order);
-
   };
 
   const [payment, setPayment] = useState({
@@ -193,6 +206,7 @@ const checkouttwo = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   // toggle(2);
+                  dispatch(addAddress(order));
                   setShowpayment(true);
                 }}
               >
@@ -276,6 +290,7 @@ const checkouttwo = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   // toggle(3);
+                  dispatch(addPayment(payment));
                   setShoworder(true);
                 }}
               >
@@ -306,16 +321,16 @@ const checkouttwo = () => {
           >
             <div className={styles.content_filter_wrapper}>
               <div className={styles.total}>
-                <span>Totaal</span>
-                <span>499$</span>
+                <span>Total</span>
+                <span>${checkoutDetail.total}</span>
               </div>
               <div className={styles.total}>
                 <span>Taxes</span>
-                <span>299$</span>
+                <span>${checkoutDetail.taxes}</span>
               </div>
               <div className={styles.total}>
                 <span>Grand Total</span>
-                <span>899$</span>
+                <span>${checkoutDetail.grandTotal}</span>
               </div>
 
               <div className={styles.payment_info}>
