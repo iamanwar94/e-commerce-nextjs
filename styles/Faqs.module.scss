@@ -1,0 +1,91 @@
+@import "./Variables.module.scss";
+
+.accordion_container {
+  display: flex;
+  margin: 30px 0px;
+  margin-left: 60px;
+  .accordion_wrapper {
+    // width: 100%;
+    border-top: 1px solid $extra-light-grey;
+    border: 1px solid $extra-light-grey;
+    width: 45%;
+    margin: 0px 5px;
+    .accordion_item {
+      border-bottom: 1px solid $extra-light-grey;
+      padding: 10px;
+      width: 100%;
+      // background:#ccc;
+
+      .accordion_heading {
+        @include flex-between;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+        background: #ccc;
+        padding: 0px 5px;
+        h4 {
+          font-size: 14px;
+          margin: 10px 0;
+          font-weight: 600;
+          text-transform: capitalize;
+        }
+
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 10px;
+          .accordion_icon {
+            margin: 0;
+            font-weight: 600;
+            font-size: 22px;
+          }
+        }
+      }
+
+      .accordion_content {
+        max-height: 0;
+        overflow: hidden;
+        .content_filter_wrapper {
+          margin: 10px 0;
+
+          label {
+            font-size: 14px;
+          }
+          input {
+            margin: 10px;
+            transform: scale(1.5);
+          }
+        }
+      }
+
+      .accordion_content_show {
+        max-height: 9999px;
+        transition: max-height 3s ease-in-out 0s;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-large) {
+  .accordion_container {
+    margin-left: 10px;
+
+    .accordion_wrapper {
+      width: 48%;
+    }
+  }
+}
+
+
+@media (max-width: $breakpoint-medium) {
+
+  .accordion_container {
+    display: flex;
+    flex-direction: column;
+
+    .accordion_wrapper {
+      width: 95%;
+    }
+  }
+}

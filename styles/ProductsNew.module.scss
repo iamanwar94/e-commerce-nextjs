@@ -1,0 +1,173 @@
+@import "./Variables.module.scss";
+
+.products_wrapper {
+  width: 95%;
+  margin: auto;
+  font-family: $open-sans;
+
+  .filter_products_wrapper {
+    @include flex-between;
+    align-items: flex-start;
+    width: 100%;
+    .filters_wrapper {
+      width: 20%;
+      @include flex-column;
+      overflow-y: auto;
+
+      .filter_cats {
+        width: 100%;
+      }
+
+      .filter_heading {
+        @include flex-column;
+        align-items: flex-start;
+        border-bottom: 1px solid $extra-light-grey;
+        width: 100%;
+        padding: 20px 0;
+
+        h3 {
+          font-size: 20px;
+          font-weight: bold;
+          text-transform: capitalize;
+          margin: 10px 0;
+        }
+        p {
+          font-size: 16px;
+          margin: 0;
+        }
+      }
+      .filters_cat {
+        width: 100%;
+        margin: 10px 0;
+        h3 {
+          font-size: 16px;
+          font-weight: 600;
+          margin: 10px 0;
+        }
+        p {
+          padding: 10px;
+          cursor: pointer;
+          width: 100%;
+          font-size: 16px;
+          font-weight: 500;
+          margin: 0;
+          &:hover {
+            font-weight: 600;
+            background: $yellow-light;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .products_item_wrapper {
+      width: 80%;
+
+      // sub_categories
+      // .sub_categories {
+      //   margin: 35px 0px;
+      //   margin-bottom: 20px;
+      //   display: flex;
+      //   justify-content: space-evenly;
+      //   .sub_categories_image_wrapper {
+      //     cursor: pointer;
+      //     display: flex;
+      //     align-items: center;
+      //     justify-content: center;
+      //     flex-direction: column;
+      //     .sub_categories_image_div {
+      //       width: 120px;
+      //       height: 120px;
+      //       background-color: rgb(242, 242, 242);
+      //       border-radius: 50%;
+      //       display: flex;
+      //       justify-content: center;
+      //       align-items: center;
+
+      //       .sub_categories_image {
+      //         width: 100px;
+      //         height: 65px;
+      //         position: relative;
+
+      //         .image {
+      //           width: 100%;
+      //           height: 100%;
+      //           border-radius: 30%;
+      //           // position: relative !important;
+      //           // object-fit: cover; // Optional
+      //         }
+      //       }
+      //     }
+      //     .sub_categories_name {
+      //       margin-top: 5px;
+      //       font-size: 13px;
+      //       font-weight: 700;
+      //       font-variant: normal;
+      //     }
+      //   }
+      // }
+
+      .images_fiter {
+        margin: 35px 0px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-evenly;
+        .images_fiter_wrapper {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          .sub_categories_image_div {
+            width: 120px;
+            height: 120px;
+            background-color: rgb(242, 242, 242);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .sub_categories_image {
+              width: 100px;
+              height: 65px;
+              position: relative;
+
+              .image {
+                width: 100%;
+                height: 100%;
+                border-radius: 30%;
+              }
+            }
+          }
+
+          .sub_categories_name {
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .categories_wrapper {
+        width: 100%;
+        margin: 30px auto;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-evenly;
+
+        img {
+          width: 100%;
+          margin: auto;
+        }
+      }
+
+      .products_cards_wrapper {
+        @include flex-center;
+        border-left: 1px solid $extra-light-grey;
+        border-top: 1px solid $extra-light-grey;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

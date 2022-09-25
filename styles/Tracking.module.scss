@@ -13,6 +13,7 @@
     border-top: 1px solid $extra-light-grey;
     position: relative;
     padding: 20px;
+    padding-left: 5px;
     .or {
       position: absolute;
       background-color: rgb(247, 247, 247);
@@ -103,6 +104,108 @@
           border: 1px solid $yellow;
           background-color: white;
         }
+      }
+    }
+  }
+}
+
+
+$breakpoint-large: 1024px;
+@media (max-width: $breakpoint-large) {
+  .tracking_wrapper {
+    .tracking_form {
+      width: 100%;
+      padding: 0px 30px;
+
+      .check_order {
+        width: 95%;
+      }
+
+      p {
+        width: 80%;
+      }
+
+      .inputs_wrapper {
+        width: 80%;
+      }
+    }
+  }
+}
+
+$breakpoint-medium: 769px;
+@media (max-width: $breakpoint-medium) {
+  .tracking_wrapper {
+    .tracking_form {
+      border-top: none;
+      padding: 0px 10px;
+
+      .or {
+        display: none;
+      }
+
+      .check_order {
+        margin: 0px;
+        @include flex-start;
+
+        .radio {
+          margin-left: 50px;
+
+          input {
+            margin: 0 8px;
+          }
+        }
+      }
+
+      p {
+        width: 100%;
+      }
+
+      .inputs_wrapper {
+        width: 100%;
+        .button {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+$breakpoint-small: 480px;
+@media (max-width: $breakpoint-small) {
+  .tracking_wrapper {
+    .tracking_form {
+      .check_order {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+        h4 {
+          font-size: 14px;
+          padding-top: 3px;
+        }
+
+        label {
+          font-size: 14px;
+          margin-left: 3px;
+        }
+
+        .radio {
+          display: flex;
+          justify-content: space-around;
+          margin-left: 3px;
+          input {
+            margin: 0 3px;
+          }
+        }
+      }
+
+      p {
+        text-align: center;
+      }
+
+      .req {
+        text-align: left;
       }
     }
   }

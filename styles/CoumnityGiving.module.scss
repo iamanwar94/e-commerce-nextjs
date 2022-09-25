@@ -1,0 +1,130 @@
+@import "./Variables.module.scss";
+
+.comunitygiving_wrapper {
+  width: 95%;
+  margin: 40px 0px;
+  padding-left: 50px;
+
+  .small_heading {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .comunitygiving_div {
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+    h6 {
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 29px;
+    }
+  }
+  .allimages_wrapper {
+    display: flex;
+    .imagediv_wrapper {
+      margin-top: 50px;
+
+      .imagediv {
+        width: 100%;
+        height: 350px;
+        position: relative;
+        .image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      p {
+        width: 95%;
+        margin: auto;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 29px;
+        .span_bold {
+          font-weight: 700;
+          margin: 0px 4px;
+          font-size: 16.2px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-large) {
+  .comunitygiving_wrapper {
+    .comunitygiving_div {
+      width: 70%;
+    }
+    .allimages_wrapper {
+      .imagediv_wrapper {
+        .imagediv {
+          height: 250px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-medium) {
+  .comunitygiving_wrapper {
+    padding-left: 20px;
+    margin: 20px 0px;
+
+    .small_heading {
+      font-size: 11.5px;
+    }
+
+    .comunitygiving_div {
+      width: 100%;
+      h6 {
+        font-size: 30px;
+        font-weight: 700;
+      }
+      p {
+        line-height: 24px;
+        font-size: 15px;
+      }
+    }
+
+    .allimages_wrapper {
+      flex-direction: column;
+      .imagediv_wrapper {
+        margin-top: 20px;
+        .imagediv {
+          height: 320px;
+        }
+        p {
+          text-align: center;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .comunitygiving_wrapper {
+    .comunitygiving_div {
+      h6 {
+        font-size: 22px;
+      }
+    }
+
+    .allimages_wrapper {
+      .imagediv_wrapper {
+        .imagediv {
+          height: 230px;
+        }
+      }
+    }
+  }
+}

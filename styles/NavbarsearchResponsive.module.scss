@@ -99,6 +99,10 @@ $breakpoint-large: 1024px;
                     .icon {
                         font-size: 28px;
                     }
+
+                    .hearticon {
+                        font-size: 28px;
+                    }
                     .badge {
                         @include flex-center;
                         position: absolute;
@@ -176,6 +180,7 @@ $breakpoint-large: 1024px;
 
             .icon_wrapper {
                 margin: 0 1px;
+
                 .cart_icon {
                     @include flex-around;
                     color: rgba(94, 91, 91, 0.712);
@@ -186,6 +191,12 @@ $breakpoint-large: 1024px;
                     .icon {
                         font-size: 20px;
                     }
+
+                    .hearticon {
+                        font-size: 20px;
+                        margin-left: 5px;
+                    }
+
                     .badge {
                         top: -4px;
                         right: -7px;

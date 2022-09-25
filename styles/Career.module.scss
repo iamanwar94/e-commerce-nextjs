@@ -1,0 +1,133 @@
+@import "./Variables.module.scss";
+.carrer_wrapper {
+  background-color: rgb(250, 250, 252);
+  margin: 0px 0px;
+  padding-top: 10px;
+
+  h1 {
+    font-size: 19px;
+    margin: 20px 0px;
+    padding-left: 35px;
+    color: $red;
+  }
+
+  .carrer_detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    h4 {
+      margin-top: 15px;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: $yellow-light;
+
+      span {
+        font-size: 28px;
+        font-weight: bold;
+        color: $yellow-light;
+        margin-left: 10px;
+      }
+    }
+
+    .email {
+      span {
+        color: $red;
+      }
+    }
+
+    .logo {
+      height: 100px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-medium) {
+  .carrer_wrapper {
+
+    .carrer_detail {
+        
+      h4 {
+        margin-top: 15px;
+        padding: 0px;
+        padding-left: 10px;
+        font-size: 17px;
+      }
+
+      p {
+        font-size: 26px;
+
+        span {
+          font-size: 26px;
+        }
+      }
+
+      .email {
+        padding: 0px 5px;
+        font-size: 17px;
+        text-align: center;
+        span {
+          color: $red;
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .carrer_wrapper {
+    padding-bottom: 25px;
+    padding-top: 1px;
+
+    h1 {
+      padding-left: 10px;
+    }
+
+    .carrer_detail {
+
+      h4 {
+        margin-top: 15px;
+        font-size: 15px;
+        padding: 0px;
+        padding-left: 10px;
+      }
+
+      p {
+        padding: 0px 5px;
+        font-size: 22px;
+
+        span {
+          font-size: 22px;
+        }
+      }
+
+      .logo {
+        height: 70px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 335px) {
+  .carrer_wrapper {
+    .carrer_detail {
+      h4 {
+        margin-top: 14px;
+        font-size: 14.5px;
+      }
+    }
+  }
+}
