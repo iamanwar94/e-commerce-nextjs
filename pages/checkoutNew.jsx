@@ -30,6 +30,7 @@ const checkouttwo = () => {
       ...order,
       [event.target.name]: value,
     });
+
   };
 
   const [payment, setPayment] = useState({
@@ -54,21 +55,22 @@ const checkouttwo = () => {
     <div className={styles.accordion_container}>
       <div className={styles.accordion_wrapper}>
         <div className={styles.accordion_item}>
-          <div className={styles.accordion_heading}
-          //  onClick={() => toggle(1)}
-           >
+          <div
+            className={styles.accordion_heading}
+            //  onClick={() => toggle(1)}
+          >
             <h4>Deliver my order to</h4>
           </div>
 
           <div
             className={
               // hide === 1
-              //   ? 
-                // ? styles.accordion_content + " " + styles.accordion_content_show
-                  // : styles.accordion_content
-                  // styles.accordion_content
-                // :
-                 styles.accordion_content + " " + styles.accordion_content_show
+              //   ?
+              // ? styles.accordion_content + " " + styles.accordion_content_show
+              // : styles.accordion_content
+              // styles.accordion_content
+              // :
+              styles.accordion_content + " " + styles.accordion_content_show
             }
           >
             <div className={styles.content_filter_wrapper}>
@@ -93,7 +95,7 @@ const checkouttwo = () => {
                 <input
                   type="text"
                   placeholder="Enter Last name"
-                  name="lasttname"
+                  name="lastname"
                   value={order.lastname}
                   onChange={orderonChange}
                 />
@@ -187,7 +189,6 @@ const checkouttwo = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log(order);
                   // toggle(2);
                   setShowpayment(true);
                 }}
@@ -271,7 +272,6 @@ const checkouttwo = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log(payment);
                   // toggle(3);
                   setShoworder(true);
                 }}

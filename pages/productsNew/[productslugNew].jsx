@@ -37,10 +37,12 @@ const Products = () => {
   const catTitle = router.query.productslug?.replace(/-/g, " ");
 
   const currentCategory = category?.categories.filter((currentCat) => {
-    return currentCat.slug === router.query.productslug;
+    return currentCat.slug === router.query.productslugNew;
   });
 
-  const curCat = currentCategory ? currentCategory[0] : "";
+  console.log('current category', currentCategory);
+
+  const curCat = currentCategory && currentCategory[0] ;
 
   const parentCategory = category?.categories.filter((parentCat) => {
     return parentCat._id === curCat.parent_id;

@@ -12,6 +12,9 @@ import { fetchProducts, selectProducts } from "../../app/features/productSlice";
 import FilterAccordion from "../../components/FilterAccordion";
 import ProductCard from "../../components/ProductCard";
 
+
+
+
 import product from "../../styles/Products.module.scss";
 
 const Products = () => {
@@ -63,6 +66,8 @@ const Products = () => {
 
   const url = process.env.NEXT_PUBLIC_BASE_URL;
 
+  console.log("these are products",products);
+
   return (
     <div className={product.products_wrapper}>
       <div className={product.filter_products_wrapper}>
@@ -89,13 +94,6 @@ const Products = () => {
         </div>
         {/* filters ends here  */}
         <div className={product.products_item_wrapper}>
-          {/* <div className={product.categories_wrapper}>
-            <CategoriesCard img={catchair} title="" />
-            <CategoriesCard img={catchair} title="" />
-            <CategoriesCard img={catchair} title="" />
-            <CategoriesCard img={catchair} title="" />
-            <CategoriesCard img={catchair} title="" />
-          </div> */}
           {/* cats ends here  */}
           <div className={product.products_cards_wrapper}>
             {!filteredProducts ? (

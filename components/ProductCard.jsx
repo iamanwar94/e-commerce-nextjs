@@ -48,7 +48,7 @@ const ProductCard = ({ products }) => {
   };
 
   return (
-    <Link href={`/products/productdetail/${products.slug}`}>
+    <Link href={`/productsNew/productdetailNew/${products.slug}`}>
       <a className={product.products_card}>
         <div className={product.heart}>
           <h4 className={product.icon}>

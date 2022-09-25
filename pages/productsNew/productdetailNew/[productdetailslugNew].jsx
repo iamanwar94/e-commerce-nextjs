@@ -1247,10 +1247,10 @@ const ProductDetail = ({ productDetail }) => {
 };
 
 export async function getServerSideProps(context) {
-  const { productdetailslug } = context.query;
+  const { productdetailslugNew } = context.query;
 
   const res = await fetch(
-    `https://ashley-api.herokuapp.com/products/${productdetailslug}`
+    `https://ashley-api.herokuapp.com/products/${productdetailslugNew}`
   );
   const data = await res.json();
   const productDetail = data.product;
