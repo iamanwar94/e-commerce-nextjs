@@ -93,7 +93,7 @@ const checkouttwo = () => {
                 <input
                   type="text"
                   placeholder="Enter Last name"
-                  name="lasttname"
+                  name="lastname"
                   value={order.lastname}
                   onChange={orderonChange}
                 />

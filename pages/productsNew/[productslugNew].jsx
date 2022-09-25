@@ -12,7 +12,7 @@ import { fetchProducts, selectProducts } from "../../app/features/productSlice";
 import FilterAccordion from "../../components/FilterAccordion";
 import ProductCard from "../../components/ProductCard";
 
-import product from "../../styles/Products.module.scss";
+import product from "../../styles/ProductsNew.module.scss";
 
 import bed from "../assets/bed.webp";
 import Image from "next/image";
@@ -31,13 +31,13 @@ const Products = () => {
   const category = useSelector(selectCategory);
 
   const filteredProducts = products?.products.filter((fp) => {
-    return fp.category_id.slug === router.query.productslug;
+    return fp.category_id.slug === router.query.productslugnew;
   });
 
-  const catTitle = router.query.productslug?.replace(/-/g, " ");
+  const catTitle = router.query.productslugnew?.replace(/-/g, " ");
 
   const currentCategory = category?.categories.filter((currentCat) => {
-    return currentCat.slug === router.query.productslug;
+    return currentCat.slug === router.query.productslugnew;
   });
 
   const curCat = currentCategory ? currentCategory[0] : "";
