@@ -38,9 +38,12 @@ const Products = () => {
 
   const currentCategory = category?.categories.filter((currentCat) => {
     return currentCat.slug === router.query.productslugnew;
+
   });
 
-  const curCat = currentCategory ? currentCategory[0] : "";
+  console.log('current category', currentCategory);
+
+  const curCat = currentCategory && currentCategory[0] ;
 
   const parentCategory = category?.categories.filter((parentCat) => {
     return parentCat._id === curCat.parent_id;

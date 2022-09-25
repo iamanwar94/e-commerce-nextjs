@@ -5,7 +5,7 @@ const stepSlice = createSlice({
   initialState: { count: 0, address: {}, payment: {} },
   reducers: {
     next(state) {
-      state.count += 1;
+      state.count >= 3 ? state.count = 0 : state.count += 1;
     },
     back(state) {
       state.count -= 1;

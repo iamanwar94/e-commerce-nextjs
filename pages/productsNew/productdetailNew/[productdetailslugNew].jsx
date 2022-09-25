@@ -1266,7 +1266,8 @@ export async function getServerSideProps(context) {
 
   const res = await fetch(
     `https://ashley-api.herokuapp.com/products/${productdetailslugnew}`
-  );
+  )
+
   const data = await res.json();
   const productDetail = data.product;
 

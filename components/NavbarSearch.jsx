@@ -188,7 +188,7 @@ const NavbarSearch = () => {
           </Link>
         </p>
         <div className={navsearch.icon_wrapper}>
-          <Link href="/cart">
+          <Link href="/cartnew">
             <a>
               <span className={navsearch.cart_icon}>
                 <AiOutlineShoppingCart className={navsearch.icon} />

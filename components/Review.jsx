@@ -7,6 +7,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import axios from "axios";
 
 // import { useDispatch, useSelector } from "react-redux";
 import { next, back, selectStep } from "../app/features/stepSlice";
@@ -69,14 +70,30 @@ export default function Review() {
     // console.log(selectCartDetail);
   }, [selectCartDetail]);
 
+  const userInfo = JSON.parse(localStorage.getItem("user"));
+
+  const data = { ...selectCartDetail[0], user_id: userInfo.user_id };
+  console.log("this is cart detail", selectCartDetail[0]);
+
   const handleNext = () => {
     // setActiveStep(activeStep + 1);
     // console.log("object");
     dispatch(next());
+
+    if (activeStep === 2) {
+      fetch("https://ashley-api.herokuapp.com/orders", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => console.log("this is resp", json));
+    }
   };
 
   const handleBack = () => {
-    // setActiveStep(activeStep - 1);
     dispatch(back());
   };
 

@@ -14,7 +14,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import ProductCarousal from "../../../components/productCarousal.jsx";
 import product from "../../../styles/ProductDetail.module.scss";
 
-const ProductDetail = ({ productDetail }) => {
+const ProductDetail = ({ productDetail, reviews }) => {
   const cartData = {
     _id: "",
     title: "",
@@ -170,6 +170,8 @@ const ProductDetail = ({ productDetail }) => {
     value: productDetail.rating,
   };
 
+  const review = reviews.length >= 1 && reviews[0];
+
   return (
     <div className={product.product_detail_wrapper}>
       <div className={product.img_and_detail} key={productDetail._id}>
@@ -189,15 +191,9 @@ const ProductDetail = ({ productDetail }) => {
             </p>
             <div className={product.flex + " " + product.reviews}>
               <span className={product.flex}>
-                {/* <AiFillStar className={product.icon} />
-                <AiFillStar className={product.icon} />
-                <AiFillStar className={product.icon} />
-                <AiFillStar className={product.icon} />
-                <AiFillStar className={product.icon} /> */}
-
                 <ReactStars {...options} />
               </span>
-              <p>121 Reviews</p>
+              <p>{reviews.length} Reviews </p>
             </div>
             <div className={product.flex + " " + product.price}>
               <h3>${price.slice(sizeID, sizeID + 1)}</h3>
@@ -312,7 +308,7 @@ const ProductDetail = ({ productDetail }) => {
             </div>
           )}
 
-          {activeIndex === 2 && (
+          {activeIndex === 2 && reviews.length >= 1 && (
             <div className={product.reviews}>
               <div
                 className={product.overall_ratings}
@@ -335,9 +331,9 @@ const ProductDetail = ({ productDetail }) => {
                   >
                     <ReactStars {...options} />
                   </span>
-                  <span>5 Ratings</span>
+                  <span> {reviews.length} Ratings</span>
                 </div>
-                <div>
+                {/* <div>
                   <div
                     className={product.rating_by_stars}
                     style={{ display: "flex" }}
@@ -410,7 +406,6 @@ const ProductDetail = ({ productDetail }) => {
                       <AiFillStar />
                       <AiFillStar />
                       <AiFillStar />
-
                       <AiFillStar />
                     </span>
                     <div
@@ -444,25 +439,19 @@ const ProductDetail = ({ productDetail }) => {
                     ></div>
                     <span>5</span>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className={product.review_by_customer}>
-                <h5>Reviews</h5>
-                <div>
-                  <span style={{ margin: "", color: "gold" }}>
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                  </span>
+                <h5 style={{ margin: "10px 0" }}>Reviews</h5>
+                <div style={{ margin: "10px 0" }}>
+                  <ReactStars value={review.rating} {...options} />
                 </div>
-                <h6>By Customer Name</h6>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-                  iusto quos quibusdam totam officiis, ipsa aliquid quas
-                  doloribus enim! Quidem.
-                </p>
+
+                <h6>
+                  {" "}
+                  {review.user_id.first_name} {review.user_id.last_name}{" "}
+                </h6>
+                <p>{review.description}</p>
               </div>
             </div>
           )}
@@ -589,9 +578,10 @@ export async function getServerSideProps(context) {
   );
   const data = await res.json();
   const productDetail = data.product;
+  const reviews = data.reviews;
 
   return {
-    props: { productDetail }, // will be passed to the page component as props
+    props: { productDetail, reviews }, // will be passed to the page component as props
   };
 }
 

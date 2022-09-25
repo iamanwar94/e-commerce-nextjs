@@ -12,17 +12,24 @@ const CategoryCard = ({ products }) => {
       });
     });
   });
-  const imageToShow = images && images[0][0][0];
+
+  const imageToShow = images[0]?.map((item) => {
+    return item[0];
+  });
+
+  // console.log("imageToShow", imageToShow);
 
   return (
     <div className={category.category_card}>
       <div className={category.img}>
-        <Image
-          src={`${imageURl}products/${imageToShow}`}
-          alt={products?.title.slice(0, 20)}
-          layout="fill"
-          objectFit="cover"
-        />
+        {imageToShow && (
+          <Image
+            src={`${imageURl}products/${imageToShow[0]}`}
+            alt={products?.title.slice(0, 20)}
+            layout="fill"
+            objectFit="cover"
+          />
+        )}
       </div>
       <div className={category.info}>
         <h6>{products && products.title}</h6>

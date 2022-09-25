@@ -30,6 +30,9 @@ const checkouttwo = () => {
       ...order,
       [event.target.name]: value,
     });
+
+    console.log(order);
+
   };
 
   const [payment, setPayment] = useState({
@@ -45,6 +48,7 @@ const checkouttwo = () => {
       ...payment,
       [event.target.name]: value,
     });
+    console.log(payment);
   };
 
   const [showpayment, setShowpayment] = useState(false);
@@ -54,21 +58,22 @@ const checkouttwo = () => {
     <div className={styles.accordion_container}>
       <div className={styles.accordion_wrapper}>
         <div className={styles.accordion_item}>
-          <div className={styles.accordion_heading}
-          //  onClick={() => toggle(1)}
-           >
+          <div
+            className={styles.accordion_heading}
+            //  onClick={() => toggle(1)}
+          >
             <h4>Deliver my order to</h4>
           </div>
 
           <div
             className={
               // hide === 1
-              //   ? 
-                // ? styles.accordion_content + " " + styles.accordion_content_show
-                  // : styles.accordion_content
-                  // styles.accordion_content
-                // :
-                 styles.accordion_content + " " + styles.accordion_content_show
+              //   ?
+              // ? styles.accordion_content + " " + styles.accordion_content_show
+              // : styles.accordion_content
+              // styles.accordion_content
+              // :
+              styles.accordion_content + " " + styles.accordion_content_show
             }
           >
             <div className={styles.content_filter_wrapper}>
@@ -187,7 +192,6 @@ const checkouttwo = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log(order);
                   // toggle(2);
                   setShowpayment(true);
                 }}
@@ -271,7 +275,6 @@ const checkouttwo = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log(payment);
                   // toggle(3);
                   setShoworder(true);
                 }}
@@ -334,7 +337,7 @@ const checkouttwo = () => {
         </div>
       </div>
 
-      <div className={styles.checkout_summary_wrapper}>
+      {/* <div className={styles.checkout_summary_wrapper}>
         <div className={styles.checkout_summary}>
           <p className={styles.items}>
             <span className={styles.Subtotal}>Subtotal (15 items)</span>
@@ -356,7 +359,7 @@ const checkouttwo = () => {
             <span>$643.34</span>
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
