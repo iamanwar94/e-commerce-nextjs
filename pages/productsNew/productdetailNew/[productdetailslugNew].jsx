@@ -12,7 +12,8 @@ import { AiFillStar } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
 
 import ProductCarousal from "../../../components/productCarousal.jsx";
-import product from "../../../styles/ProductDetail.module.scss";
+// import product from "../../../styles/ProductDetail.module.scss";
+import product from "../../../styles/ProductDetailNew.module.scss"
 
 import { Link } from "@mui/material";
 import { MdOutlinePhotoCameraBack } from "react-icons/md";
@@ -1246,12 +1247,27 @@ const ProductDetail = ({ productDetail }) => {
   );
 };
 
+// export async function getServerSideProps(context) {
+//   const { productdetailslug } = context.query;
+
+//   const res = await fetch(
+//     `https://ashley-api.herokuapp.com/products/${productdetailslug}`
+//   );
+//   const data = await res.json();
+//   const productDetail = data.product;
+
+//   return {
+//     props: { productDetail }, // will be passed to the page component as props
+//   };
+// }
+
 export async function getServerSideProps(context) {
-  const { productdetailslugNew } = context.query;
+  const { productdetailslugnew } = context.query;
 
   const res = await fetch(
-    `https://ashley-api.herokuapp.com/products/${productdetailslugNew}`
-  );
+    `https://ashley-api.herokuapp.com/products/${productdetailslugnew}`
+  )
+
   const data = await res.json();
   const productDetail = data.product;
 
