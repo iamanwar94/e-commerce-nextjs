@@ -186,7 +186,7 @@ const ProductDetail = ({ productDetail, reviews }) => {
           <div className={product.name_price}>
             <h2> {productDetail.title} </h2>
             <p>
-              Item Code:{" "}
+              Item Code:{" "} 
               {sku.slice(sizeID, sizeID + 1).map((sku) => sku[colorID])[0]}
             </p>
             <div className={product.flex + " " + product.reviews}>

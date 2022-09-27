@@ -36,13 +36,13 @@
     .accordion_content {
       max-height: 0;
       overflow: hidden;
-      .content_filter_wrapper {
-        margin: 10px 0;
-        input {
-          margin: 10px;
-          transform: scale(1.5);
-        }
-      }
+      // .content_filter_wrapper {
+      //   margin: 10px 0;
+      //   input {
+      //     margin: 10px;
+      //     transform: scale(1.5);
+      //   }
+      // }
     }
     .accordion_content.show {
       max-height: 9999px;

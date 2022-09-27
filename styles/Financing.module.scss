@@ -81,7 +81,6 @@
         text-align: center;
       }
       ul {
-        // margin-top: 10px;
         padding-left: 50px;
         font-style: normal;
         li {
@@ -109,66 +108,18 @@
   .Financing_wrapper {
     margin: 30px 0px;
     .imagediv {
-      // margin-top: 40px;
-      // width: 100%;
-      // height: 420px;
-      // position: relative;
-      // border-radius: 20px;
       height: 380px;
-      .image {
-        // width: 100%;
-        // height: 100%;
-      }
     }
 
     .differenceimagediv {
-      // margin: auto;
-      // margin-top: 50px;
-      // width: 70%;
-      // height: 250px;
-      // position: relative;
       width: 90%;
       height: 230px;
-      .image {
-        // width: 100%;
-        // height: 100%;
-      }
     }
 
     .creditOptions_wrapper {
-      // margin-top: 40px;
-      // display: flex;
-      // justify-content: space-between;
-      // font-style: normal;
       .creditOptions_div {
-        // width: 48%;
-        // display: flex;
-        // flex-direction: column;
-        h3 {
-          // color: $red;
-          // font-size: 24px;
-          // text-align: center;
-        }
-        ul {
-          // padding-left: 50px;
-          // font-style: normal;
-          li {
-            // font-weight: 500;
-            // line-height: 36px;
-            // font-size: 16px;
-          }
-        }
-
         .creditOptionsimg_div {
-          // margin: auto;
-          // width: 90%;
-          // height: 280px;
-          // position: relative;
           height: 230px;
-          .image {
-            // width: 100%;
-            // height: 100%;
-          }
         }
       }
     }
@@ -178,110 +129,56 @@
 @media (max-width: $breakpoint-medium) {
   .Financing_wrapper {
     padding-left: 20px;
-    // margin: 40px 0px;
-    // margin: 20px;
     margin-top: 30px;
     margin-bottom: 0px;
 
     .heading_red {
-      // margin-top: 40px;
-      // color: $red;
-      // text-align: center;
       margin-top: 20px;
       font-size: 30px;
     }
 
     .imagediv {
-      // margin-top: 40px;
-      // width: 100%;
-      // height: 420px;
-      // position: relative;
-      // border-radius: 20px;
       margin-top: 20px;
       height: 250px;
-      .image {
-        // width: 100%;
-        // height: 100%;
-      }
     }
 
     .getstart_wrapper {
-      // margin-top: 40px;
-      // display: flex;
-      // justify-content: space-between;
       flex-direction: column;
       margin-top: 20px;
       .getstart_div {
-        // width: 32%;
         width: 80%;
         margin: auto;
-        h4 {
-          // text-align: center;
-          // color: #2c3092;
-          // font-weight: 700;
-        }
         p {
-          // margin-top: 20px;
-          // text-align: center;
-          // font-weight: 500;
           margin-top: 0px;
         }
       }
     }
 
     .differenceimagediv {
-      // margin: auto;
-      // margin-top: 50px;
-      // width: 70%;
-      // height: 250px;
-      // position: relative;
       margin-top: 10px;
       width: 100%;
       height: 150px;
-      .image {
-        // width: 100%;
-        // height: 100%;
-      }
     }
 
     .heading {
       margin-top: 30px;
-      // text-align: center;
       font-size: 32px;
     }
 
     .creditOptions_wrapper {
-      // margin-top: 40px;
-      // display: flex;
-      // justify-content: space-between;
-      // font-style: normal;
       flex-direction: column;
       margin-top: 20px;
       .creditOptions_div {
-        // width: 48%;
-        // display: flex;
-        // flex-direction: column;
         width: 100%;
         border-bottom: 3px solid $extra-light-grey;
         padding-bottom: 20px;
         h3 {
-          // color: $red;
-          // font-size: 24px;
-          // text-align: center;
-          // font-size: 20px;
           text-align: center;
           margin-top: 10px;
         }
         ul {
-          // margin-top: 10px;
-          // padding-left: 50px;
-          // font-style: normal;
-          // margin-top: 0px;
           padding-left: 30px;
           li {
-            // font-weight: 500;
-            // line-height: 36px;
-            // font-size: 16px;
             line-height: 29px;
           }
         }
@@ -296,117 +193,43 @@
 
 @media (max-width: $breakpoint-small) {
   .Financing_wrapper {
-    // width: 95%;
-    // margin: 40px 0px;
-    // padding-left: 50px;
-
     .heading_red {
-      // margin-top: 40px;
-      // color: $red;
-      // text-align: center;
       font-size: 24.5px;
     }
 
     .imagediv {
-      // margin-top: 40px;
-      // width: 100%;
-      // height: 420px;
-      // position: relative;
-      // border-radius: 20px;
       height: 220px;
-      .image {
-        // width: 100%;
-        // height: 100%;
-      }
     }
 
     .getstart_wrapper {
-      // margin-top: 40px;
-      // display: flex;
-      // justify-content: space-between;
       flex-direction: column;
       margin-top: 20px;
       .getstart_div {
-        // width: 32%;
-
-        // width: 80%;
-        // margin: auto;
         width: 100%;
-        h4 {
-          // text-align: center;
-          // color: #2c3092;
-          // font-weight: 700;
-        }
-        p {
-          // margin-top: 20px;
-          // text-align: center;
-          // font-weight: 500;
-
-          // margin-top: 0px;
-        }
       }
     }
 
     .heading {
-      // margin-top: 60px;
-      // text-align: center;
-      // margin-top: 20px;
       font-size: 22px;
     }
 
     .creditOptions_wrapper {
-      // margin-top: 40px;
-      // display: flex;
-      // justify-content: space-between;
-      // font-style: normal;
       flex-direction: column;
       margin-top: 20px;
       .creditOptions_div {
-        // width: 48%;
-        // display: flex;
-        // flex-direction: column;
-
-        // width: 100%;
-        // border-bottom: 3px solid $extra-light-grey;
-        // padding-bottom: 20px;
-        // background: #000;
         h3 {
-          // color: $red;
-          // font-size: 24px;
-          // text-align: center;
-          // font-size: 20px;
-
-          // text-align: center;
-          // margin-top: 10px;
           margin-top: 5px;
           font-size: 19px;
         }
         ul {
-          // margin-top: 10px;
-          // padding-left: 50px;
-          // font-style: normal;
-          // margin-top: 0px;
           padding-left: 20px;
           li {
-            // font-weight: 500;
-            // line-height: 36px;
-            // font-size: 16px;
-
-            // line-height: 29px;
             line-height: 26px;
           }
         }
 
         .creditOptionsimg_div {
-          // margin: auto;
-          // width: 90%;
-          // height: 280px;
-          // position: relative;
           height: 170px;
-          .image {
-            // width: 100%;
-            // height: 100%;
-          }
         }
       }
     }

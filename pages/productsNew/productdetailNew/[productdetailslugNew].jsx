@@ -13,7 +13,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 
 import ProductCarousal from "../../../components/productCarousal.jsx";
 // import product from "../../../styles/ProductDetail.module.scss";
-import product from "../../../styles/ProductDetailNew.module.scss"
+import product from "../../../styles/ProductDetailNew.module.scss";
 
 import { Link } from "@mui/material";
 import { MdOutlinePhotoCameraBack } from "react-icons/md";
@@ -1266,7 +1266,7 @@ export async function getServerSideProps(context) {
 
   const res = await fetch(
     `https://ashley-api.herokuapp.com/products/${productdetailslugnew}`
-  )
+  );
 
   const data = await res.json();
   const productDetail = data.product;

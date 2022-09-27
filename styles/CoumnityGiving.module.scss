@@ -33,7 +33,7 @@
       margin-top: 50px;
 
       .imagediv {
-        width: 100%;
+        width: 96%;
         height: 350px;
         position: relative;
         .image {
@@ -76,7 +76,7 @@
 
 @media (max-width: $breakpoint-medium) {
   .comunitygiving_wrapper {
-    padding-left: 20px;
+    padding-left: 25px;
     margin: 20px 0px;
 
     .small_heading {
@@ -101,6 +101,7 @@
         margin-top: 20px;
         .imagediv {
           height: 320px;
+          width: 100%;
         }
         p {
           text-align: center;
