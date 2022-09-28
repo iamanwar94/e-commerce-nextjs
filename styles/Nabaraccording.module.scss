@@ -11,7 +11,7 @@
     border-bottom: 1px solid $extra-light-grey;
     padding: 10px;
     width: 100%;
-  
+
     .accordion_heading {
       @include flex-between;
       align-items: center;
@@ -40,22 +40,52 @@
     .accordion_content {
       max-height: 0;
       overflow: hidden;
-   
 
       .content_filter_wrapper {
         margin: 0px;
 
         h3 {
-         font-size: 14px;
-         padding-top: 5px;
-         padding-left: 10px;
+          font-size: 14px;
+          padding-top: 5px;
+          padding-left: 10px;
         }
       }
     }
     .accordion_content.show {
       max-height: 9999px;
       transition: max-height 3s ease-in-out 0s;
+    }
+  }
 
+  .discount_heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3px 10px;
+    margin-top: 10px;
+    h3 {
+      color: $red;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
+  .discount_categories {
+    display: none;
+  }
+
+  .discount_categories_show {
+    display: block;
+    margin-top: 0px;
+    max-height: 9999px;
+    transition: max-height 3s ease-in-out 0s;
+    margin-bottom: 10spx;
+
+    h5 {
+      margin-top: 0px;
+      margin-left: 20px;
+      font-size: 14px;
+      font-weight: 500;
     }
   }
 }

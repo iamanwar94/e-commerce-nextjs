@@ -72,3 +72,49 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-large) {
+  .wishlist_wrapper {
+    width: 80%;
+
+    .wishlist_cards_wrapper {
+      .wishlist_card {
+        padding: 10px 0px;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-medium) {
+  .wishlist_wrapper {
+    // width: 80%;
+    width: 95%;
+    .wishlist_cards_wrapper {
+      .wishlist_card {
+        // padding: 10px 0px;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .wishlist_wrapper {
+    .wishlist_cards_wrapper {
+      .wishlist_card {
+        .wishlist_card_img {
+          width: 38%;
+        }
+
+        .wishlist_card_info {
+          h3 {
+            font-size: 17px;
+            width: 100%;
+          }
+          h6 {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

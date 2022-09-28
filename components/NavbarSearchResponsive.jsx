@@ -13,14 +13,39 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectCart } from "../app/features/cartSlice";
 // for search end
 
+
+import { useRouter } from "next/router";
+import { selectProducts } from "../app/features/productSlice";
+import { setSearchProducts } from "../app/features/searchSlice";
+
 const NavbarSearchResponsive = () => {
   const selectCartDetail = useSelector(selectCart);
   const cartCount = selectCartDetail.length;
 
-  const [serchbar, setSearchbar] = useState(false);
+  // const [serchbar, setSearchbar] = useState(false);
 
-  const toggleClass = () => {
-    setSearchbar(!serchbar);
+  // const toggleClass = () => {
+  //   setSearchbar(!serchbar);
+  // };
+
+  const [searchedProducts, setSearchedProducts] = useState([]);
+  const selectProductDetail = useSelector(selectProducts);
+  const products = selectProductDetail?.products;
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  useEffect(() => {
+    const filteredData = products?.filter((item) =>
+      item.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+    );
+    setSearchedProducts(filteredData);
+  }, [products, searchTerm]);
+
+  const searchClickHandler = () => {
+    dispatch(setSearchProducts(searchedProducts));
+    router.push("/search/searchedproducts");
   };
 
   return (
@@ -37,9 +62,7 @@ const NavbarSearchResponsive = () => {
               // priority="low"
               // rel="preload"
               // layout="fill"
-              // objectFit="contain"
-              // priority
-              priority="low"
+              priority
             />
           </a>
         </Link>
@@ -47,16 +70,21 @@ const NavbarSearchResponsive = () => {
 
       <div className={responsivenavsearch.search_box}>
         <button className={responsivenavsearch.btn_search}>
-          <BiSearchAlt2 onClick={toggleClass} />
+          <BiSearchAlt2
+          //  onClick={toggleClass}
+          onClick={searchClickHandler}
+            />
         </button>
         <input
           type="text"
           className={
-            serchbar
-              ? responsivenavsearch.input_search_two
-              : responsivenavsearch.input_search
+            responsivenavsearch.input_search_two
+            // serchbar
+            //   ? responsivenavsearch.input_search_two
+            //   : responsivenavsearch.input_search
           }
           placeholder="Search"
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
       <div className={responsivenavsearch.navbar_links_wrapper}>
