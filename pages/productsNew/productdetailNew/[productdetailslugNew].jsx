@@ -8,10 +8,17 @@ import { fetchProducts } from "../../../app/features/productSlice";
 import { fetchCategory } from "../../../app/features/categorySlice";
 import { addToWishlist } from "../../../app/features/wishlistSlice";
 
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
 
 import ProductCarousal from "../../../components/productCarousal.jsx";
+// import Accordion from "../../../components/Accordion";
 // import product from "../../../styles/ProductDetail.module.scss";
 import product from "../../../styles/ProductDetailNew.module.scss";
 
@@ -24,7 +31,6 @@ import { IoChatbubblesOutline } from "react-icons/io";
 // import Slider from "react-slick";
 // import bed from "../../../pages/assets/bed.webp";
 
-import { Component } from "react";
 import Slider from "react-slick";
 // import styles from "../styles/Practiceslider.module.scss";
 import "slick-carousel/slick/slick.css";
@@ -428,22 +434,27 @@ const ProductDetail = ({ productDetail }) => {
             </div>
             {/* changes work end */}
           </div>
-          <div className={product.color_size}>
-            <div className={product.color + " " + product.flex}>
-              <h4>Colors:</h4>
-              {colors[sizeID].map((color, i) => (
-                <p
-                  key={i}
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                  }}
-                  onClick={() => colorChangeHandler(i)}
-                >
-                  <span>{color.title}</span>
+          <div style={{ width: "100%" }}>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography sx={{ display: "flex", alignItems: "center" }}>
+                  Color:{" "}
+                  {
+                    colors
+                      .slice(sizeID, sizeID + 1)
+                      .map((color) => color[colorID])[0].title
+                  }
                   <span
                     style={{
-                      backgroundImage: `url(${imgURL}colors/${color.image})`,
+                      backgroundImage: `url(${imgURL}colors/${
+                        colors
+                          .slice(sizeID, sizeID + 1)
+                          .map((color) => color[colorID])[0].image
+                      })`,
                       height: 24,
                       width: 24,
                       fontWeight: 600,
@@ -458,29 +469,105 @@ const ProductDetail = ({ productDetail }) => {
                       backgroundSize: "cover",
                     }}
                   ></span>
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails sx={{ display: "flex", cursor: "pointer" }}>
+                {colors[sizeID].map((color, i) => (
+                  <Typography
+                    sx={{
+                      display: "flex",
+                      cursor: "pointer",
+                      marginRight: "8px",
+                      fontWeight: "500",
+                    }}
+                    key={i}
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                    }}
+                    onClick={() => colorChangeHandler(i)}
+                  >
+                    <span>{color.title}</span>
+                  </Typography>
+                ))}
+              </AccordionDetails>
+            </Accordion>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel2a-content"
+                id="panel2a-header"
+              >
+                <Typography>Size: {sizes[sizeID]}</Typography>
+              </AccordionSummary>
+              <AccordionDetails sx={{ display: "flex", cursor: "pointer" }}>
+                {sizes.map((size, i) => (
+                  <Typography
+                    sx={{
+                      display: "flex",
+                      cursor: "pointer",
+                      marginRight: "8px",
+                      fontWeight: "500",
+                    }}
+                    key={i}
+                    onClick={() => sizeChangeHandler(i)}
+                    // style={{
+                    //   height: 36,
+                    //   width: 36,
+                    //   display: "flex",
+                    //   alignItems: "center",
+                    //   borderRadius: "50%",
+                    //   boxShadow: "0 0 5px grey",
+                    //   justifyContent: "center",
+                    // }}
+                  >
+                    {size}
+                  </Typography>
+                ))}
+                {/* <Typography>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                  eget.
+                </Typography> */}
+              </AccordionDetails>
+            </Accordion>
+          </div>
+          <div className={product.color_size}>
+            {/* <div className={product.color + " " + product.flex}>
+              <h4>Colors:</h4>
+              {colors[sizeID].map((color, i) => (
+                <p
+                  key={i}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                  }}
+                  onClick={() => colorChangeHandler(i)}
+                >
+                  <span>{color.title}</span>
                 </p>
               ))}
-            </div>
-            <div className={product.size + " " + product.flex}>
+            </div> */}
+            {/* <div className={product.size + " " + product.flex}>
               <h4>Sizes:</h4>
               {sizes.map((size, i) => (
                 <p
                   key={i}
                   onClick={() => sizeChangeHandler(i)}
-                  style={{
-                    height: 36,
-                    width: 36,
-                    display: "flex",
-                    alignItems: "center",
-                    borderRadius: "50%",
-                    boxShadow: "0 0 5px grey",
-                    justifyContent: "center",
-                  }}
+                  // style={{
+                  //   height: 36,
+                  //   width: 36,
+                  //   display: "flex",
+                  //   alignItems: "center",
+                  //   borderRadius: "50%",
+                  //   boxShadow: "0 0 5px grey",
+                  //   justifyContent: "center",
+                  // }}
                 >
                   {size}
                 </p>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -1262,14 +1349,15 @@ const ProductDetail = ({ productDetail }) => {
 // }
 
 export async function getServerSideProps(context) {
-  const { productdetailslugnew } = context.query;
+  const { productdetailslugNew } = context.query;
 
   const res = await fetch(
-    `https://ashley-api.herokuapp.com/products/${productdetailslugnew}`
+    `https://ashley-api.herokuapp.com/products/${productdetailslugNew}`
   );
 
   const data = await res.json();
   const productDetail = data.product;
+  console.log("p detail", productDetail);
 
   return {
     props: { productDetail }, // will be passed to the page component as props
