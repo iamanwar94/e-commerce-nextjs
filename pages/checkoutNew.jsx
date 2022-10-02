@@ -50,7 +50,7 @@ const checkouttwo = () => {
 
   const [payment, setPayment] = useState({
     cardname: "",
-    cardnumber: "",
+    cardnumber: "", 
     date: "",
     cvv: "",
   });
@@ -336,15 +336,20 @@ const checkouttwo = () => {
               <div className={styles.payment_info}>
                 <div className={styles.shipping}>
                   <p>Shipping</p>
+                  <p>{addressDetails.firstname+" "+addressDetails.lastname}</p>
+                  <p>{addressDetails.address}</p>
+                  <p>{addressDetails.city}</p>
+                  <p>{addressDetails.state}</p>
+                  <p>{addressDetails.zipcode}</p>
                 </div>
                 <div className={styles.payment}>
                   <p className={styles.payment_bold}>Payment details</p>
                   <p>
                     Card type <span> Visa</span>
                   </p>
-                  <p>Card holder</p>
-                  <p>Card number</p>
-                  <p>Expiry Date</p>
+                  <p>{paymentDetails.cardname}</p>
+                  <p>{paymentDetails.cardnumber}</p>
+                  <p>{paymentDetails.cvv}</p>
                 </div>
               </div>
             </div>

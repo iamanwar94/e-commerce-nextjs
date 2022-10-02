@@ -33,6 +33,9 @@ const Products = () => {
   const filteredProducts = products?.products.filter((fp) => {
     return fp.category_id.slug === router.query.productslugnew;
   });
+  console.log('routerrrrr',router.query.productslugnew);
+
+  console.log("filtered Prossss", filteredProducts);
 
   const catTitle = router.query.productslugnew?.replace(/-/g, " ");
 
@@ -41,15 +44,19 @@ const Products = () => {
 
   });
 
-  console.log('current category', currentCategory);
+  console.log('current categorysss', currentCategory);
 
   const curCat = currentCategory && currentCategory[0] ;
+
+  console.log('curCatsss', curCat);
 
   const parentCategory = category?.categories.filter((parentCat) => {
     return parentCat._id === curCat.parent_id;
   });
 
   const parentCat = parentCategory ? parentCategory[0] : "";
+
+  console.log("parentCat", parentCat);
 
   const siblingCategory = category?.categories.filter((siblingsCats) => {
     return siblingsCats.parent_id === parentCat._id;
