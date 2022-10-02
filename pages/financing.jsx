@@ -58,7 +58,6 @@ const financing = () => {
       </div>
 
       {/* No Credit Nedded Options */}
-      {/* <h5 className={Financing.heading}>No Credit Nedded Options</h5> */}
       <h5 className={Financing.heading}>No Credit Nedded Options</h5>
 
       {/* no creditOptions_wrapper one */}

@@ -4,6 +4,7 @@
   width: 100%;
   border-top: 1px solid $extra-light-grey;
 
+
   .accordion_item {
     border-bottom: 1px solid $extra-light-grey;
     padding: 10px;
@@ -13,6 +14,7 @@
       align-items: center;
       width: 100%;
       cursor: pointer;
+
       h4 {
         font-size: 18px;
         margin: 10px 0;
@@ -25,6 +27,7 @@
         justify-content: center;
         align-items: center;
         margin: 0 10px;
+
         .accordion_icon {
           margin: 0;
           font-weight: 600;
@@ -36,6 +39,7 @@
     .accordion_content {
       max-height: 0;
       overflow: hidden;
+
       .content_filter_wrapper {
         margin: 10px 0;
         input {

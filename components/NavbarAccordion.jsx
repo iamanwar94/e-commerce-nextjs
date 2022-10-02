@@ -5,9 +5,13 @@ import { useSelector } from "react-redux";
 import { selectCategory } from "../app/features/categorySlice";
 import Link from "next/link";
 
-
-const NavbarAccordion = ({ menulisthide, setMenulisthide, showhide, setshowhide }) => {
-
+import axios from "axios";
+const NavbarAccordion = ({
+  menulisthide,
+  setMenulisthide,
+  showhide,
+  setshowhide,
+}) => {
   const filters = [
     {
       id: 1,
@@ -90,7 +94,7 @@ const NavbarAccordion = ({ menulisthide, setMenulisthide, showhide, setshowhide 
         { type: "checkbox", input: "shop By Room" },
         { type: "checkbox", input: "Closet Storage" },
         { type: "checkbox", input: "Garage" },
-        { type: "checkbox", input: "Featured" }
+        { type: "checkbox", input: "Featured" },
       ],
     },
     {
@@ -267,7 +271,6 @@ const NavbarAccordion = ({ menulisthide, setMenulisthide, showhide, setshowhide 
   const [filterState, setFilterState] = useState(filters);
   const [activeCurrentIndex, setActiveCurrentIndex] = useState();
 
-
   const toggleShowAccordion = (id) => {
     if (activeCurrentIndex === id) {
       setActiveCurrentIndex();
@@ -275,6 +278,8 @@ const NavbarAccordion = ({ menulisthide, setMenulisthide, showhide, setshowhide 
       setActiveCurrentIndex(id);
     }
   };
+
+  const [showDiscount, setshowDiscount] = useState(true);
 
   // new work
   const categories = useSelector(selectCategory);
@@ -284,6 +289,22 @@ const NavbarAccordion = ({ menulisthide, setMenulisthide, showhide, setshowhide 
   });
   // new work
 
+  const [discountCategories, setDiscountCategories] = useState([]);
+
+  useEffect(() => {
+    async function getDisCats() {
+      try {
+        const response = await axios.get(
+          "https://ashley-api.herokuapp.com/products/discount/categories"
+        );
+        setDiscountCategories(response.data.categories);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getDisCats();
+  }, []);
+
   return (
     <div className={styles.accordion_wrapper}>
       {mainCategories?.map((mainCategory) => (
@@ -292,9 +313,10 @@ const NavbarAccordion = ({ menulisthide, setMenulisthide, showhide, setshowhide 
             className={styles.accordion_heading}
             onClick={() => toggleShowAccordion(mainCategory._id)}
           >
-            <Link href={`/${mainCategory._id}`}>
+            {/* <Link href={`/${mainCategory._id}`}>
               <h4>{mainCategory.title}</h4>
-            </Link>
+            </Link> */}
+            <h4>{mainCategory.title}</h4>
             <div>
               {activeCurrentIndex === mainCategory._id ? (
                 <FiChevronUp className={styles.accordion_icon} />
@@ -316,18 +338,51 @@ const NavbarAccordion = ({ menulisthide, setMenulisthide, showhide, setshowhide 
                 (filteredCats) => filteredCats.parent_id === mainCategory._id
               )
               .map((subCats) => (
-                <div className={styles.content_filter_wrapper} key={subCats._id}>
-                  <Link href={`/products/${subCats.slug}`} >
-                    <h3
-                      onClick={() => setshowhide(!showhide)}
-                    >{subCats.title}</h3>
+                <div
+                  className={styles.content_filter_wrapper}
+                  key={subCats._id}
+                >
+                  <Link href={`/products/${subCats.slug}`}>
+                    <h3 onClick={() => setshowhide(!showhide)}>
+                      {subCats.title}
+                    </h3>
                   </Link>
                 </div>
-
               ))}
           </div>
         </div>
       ))}
+
+      {/* new work */}
+
+      <div
+        className={styles.discount_heading}
+        onClick={() => {
+          setshowDiscount(!showDiscount);
+        }}
+      >
+        <h3>Discount</h3>
+        <div>
+          {showDiscount ? (
+            <FiChevronDown className={styles.accordion_icon} />
+          ) : (
+            <FiChevronUp className={styles.accordion_icon} />
+          )}
+        </div>
+      </div>
+      <div
+        className={
+          showDiscount
+            ? styles.discount_categories
+            : styles.discount_categories_show
+        }
+      >
+        {discountCategories?.map((item) => (
+          <Link href={`/discountedproducts/${item.slug}`} key={item._id}>
+            <h5 onClick={() => setshowhide(!showhide)}>{item.title}</h5>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

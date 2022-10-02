@@ -11,10 +11,6 @@ import { fetchProducts, selectProducts } from "../../app/features/productSlice";
 
 import FilterAccordion from "../../components/FilterAccordion";
 import ProductCard from "../../components/ProductCard";
-
-
-
-
 import product from "../../styles/Products.module.scss";
 
 const Products = () => {

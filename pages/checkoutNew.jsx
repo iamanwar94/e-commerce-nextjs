@@ -352,6 +352,16 @@ const checkouttwo = () => {
                   <p>{paymentDetails.cvv}</p>
                 </div>
               </div>
+
+              <button
+                // onClick={(e) => {
+                //   e.preventDefault();
+                //   // toggle(3);
+                //   setShoworder(true);
+                // }}
+              >
+                Order
+              </button>
             </div>
           </div>
         </div>

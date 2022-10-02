@@ -5,13 +5,14 @@
   margin: 30px 60px;
   margin-left: 60px;
   .accordion_wrapper {
-
-    width: 75%;
+    width: 95%;
+    // width: 90%;
     margin: 0px 5px;
     .accordion_item {
-      border-bottom: 1px solid $extra-light-grey;
+      border-bottom: 3px solid $extra-light-grey;
       padding: 10px;
-      width: 100%;
+      // width: 100%;
+      width: 60%;
 
       .accordion_heading {
         @include flex-between;
@@ -19,6 +20,7 @@
         width: 100%;
         cursor: pointer;
         padding: 0px 5px;
+        padding-left: 0px;
         h4 {
           font-size: 14px;
           margin: 10px 0;
@@ -58,7 +60,7 @@
           .names {
             margin-top: 15px;
             display: flex;
-            width: 60%;
+            // width: 60%;
             justify-content: space-between;
             span {
               width: 50%;
@@ -72,7 +74,7 @@
           .inputs {
             margin-top: 20px;
             display: flex;
-            width: 60%;
+            // width: 60%;
             justify-content: space-between;
             input {
               margin-right: 10px;
@@ -89,7 +91,7 @@
           .address_div {
             margin-top: 30px;
             display: flex;
-            width: 60%;
+            // width: 60%;
             justify-content: space-between;
             span {
               font-style: normal;
@@ -97,11 +99,11 @@
               font-size: 12px;
               font-weight: 700;
             }
-      
+
             .address {
               width: 74%;
             }
-      
+
             .optional {
               width: 26%;
             }
@@ -109,7 +111,7 @@
 
           .address_inputs_div {
             margin-top: 20px;
-            width: 59%;
+            // width: 59%;
             display: flex;
             input {
               font-style: normal;
@@ -120,23 +122,23 @@
               border-bottom: 1px solid grey;
               outline: none;
             }
-      
+
             .address_inputs {
               width: 75%;
             }
-      
+
             .optional_input {
               width: 25%;
               margin-left: 10px;
             }
           }
-      
+
           .city_div {
             margin-top: 30px;
-            width: 59%;
+            // width: 59%;
             display: flex;
             flex-direction: column;
-      
+
             h5 {
               width: 50%;
               font-style: normal;
@@ -154,11 +156,11 @@
               border-bottom: 1px solid grey;
               outline: none;
             }
-      
+
             .address_inputs {
               width: 75%;
             }
-      
+
             .optional_input {
               width: 25%;
               margin-left: 10px;
@@ -188,38 +190,41 @@
             font-size: 18px;
             font-weight: 700;
           }
-    
+
           .total {
             margin: 20px 0px;
             display: flex;
             justify-content: space-between;
-            width: 50%;
+            // width: 50%;
+            width: 70%;
             font-style: normal;
             font-variant: normal;
             font-size: 16px;
             font-weight: 400;
           }
-    
+
           .payment_info {
+            // width: 58%;
+            width: 78%;
             margin: 20px 0px;
             display: flex;
             justify-content: space-between;
-            width: 58%;
+            margin-bottom: 0px;
             font-style: normal;
             font-variant: normal;
             font-size: 16px;
             font-weight: 400;
-    
+
             .shipping {
               p {
                 font-weight: 700;
               }
             }
-    
+
             .payment {
               display: flex;
               flex-direction: column;
-    
+
               .payment_bold {
                 font-weight: 700;
               }
@@ -230,7 +235,6 @@
               }
             }
           }
-
         }
       }
 
@@ -239,7 +243,7 @@
         transition: max-height 3s ease-in-out 0s;
       }
 
-      #showpaymentinfo{
+      #showpaymentinfo {
         background: #000;
       }
     }
@@ -297,4 +301,98 @@
   }
 }
 
+@media (max-width: $breakpoint-large) {
+  .accordion_container {
+    margin: 10px 0px;
+    margin-left: 15px;
+    width: 95%;
 
+    .accordion_wrapper {
+      margin: 0px;
+      width: 100%;
+
+      .accordion_item {
+        border-bottom: 3px solid $extra-light-grey;
+        padding: 10px;
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-medium) {
+  .accordion_container {
+    margin-left: 5px;
+    .accordion_wrapper {
+      .accordion_item {
+        width: 100%;
+
+        .accordion_content {
+          .content_filter_wrapper {
+            .total {
+              width: 67%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .accordion_container {
+    .accordion_wrapper {
+      .accordion_item {
+        .accordion_heading {
+          h4 {
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+          }
+        }
+
+        .accordion_content {
+          .content_filter_wrapper {
+            .address_div {
+              .address {
+                width: 65%;
+              }
+
+              .optional {
+                width: 35%;
+              }
+            }
+
+            .address_inputs_div {
+              .address_inputs {
+                width: 65%;
+              }
+
+              .optional_input {
+                width: 35%;
+              }
+            }
+
+            .city_div {
+              h5 {
+                width: 90%;
+              }
+            }
+
+            .total {
+              width: 100%;
+            }
+
+            .payment_info {
+              width: 100%;
+
+              .payment {
+                margin-left: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

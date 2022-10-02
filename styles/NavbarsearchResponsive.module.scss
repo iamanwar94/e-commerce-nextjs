@@ -18,6 +18,12 @@ $breakpoint-large: 1024px;
             align-items: top;
             justify-content: left;
 
+            .img {
+                align-items: left;
+                height: 40px;
+                width: 150px;
+            }
+
             a {
                 align-items: left;
                 height: 40px;

@@ -5,6 +5,11 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import styles from "../styles/FooterAccordion.module.scss";
 import Link from "next/link";
 
+import { GoLocation } from "react-icons/go";
+import { BsTelephone } from "react-icons/bs";
+import { GoMail } from "react-icons/go";
+import { display } from "@mui/system";
+
 const NavbarAccordion = () => {
   const [hide, sethide] = useState();
 
@@ -37,24 +42,62 @@ const NavbarAccordion = () => {
               : styles.accordion_content
           }
         >
-          <Link href="/">
-            <h3>Offers & Details</h3>
-          </Link>
-          <Link href="/">
-            <h3>Terms and Condition</h3>
-          </Link>
-          <Link href="/">
-            <h3>Terms of Use</h3>
-          </Link>
-          <Link href="/">
-            <h3>Privacy Policy</h3>
-          </Link>
-          <Link href="/">
-            <h3>Interest-Based Adds</h3>
-          </Link>
-          <Link href="/">
-            <h3>Don not sell my Personal Information</h3>
-          </Link>
+          <div
+            className={styles.aaa}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              margin: "10px 0px",
+              fontSize: "14px",
+            }}
+          >
+            <GoLocation />
+            <span
+              style={{
+                marginLeft: "5px",
+              }}
+            >
+              Philadelphia
+            </span>
+          </div>
+
+          <div
+            className={styles.aaa}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              margin: "10px 0px",
+              fontSize: "14px",
+            }}
+          >
+            <BsTelephone />
+            <span
+              style={{
+                marginLeft: "5px",
+              }}
+            >
+              215-352-1600
+            </span>
+          </div>
+
+          <div
+            className={styles.aaa}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              margin: "10px 0px",
+              fontSize: "14px",
+            }}
+          >
+            <GoMail />
+            <span
+              style={{
+                marginLeft: "5px",
+              }}
+            >
+              meccacustomercare@gmail.com
+            </span>
+          </div>
         </div>
       </div>
 
@@ -77,17 +120,20 @@ const NavbarAccordion = () => {
               : styles.accordion_content
           }
         >
-          <Link href="/">
+          <Link href="/contact">
             <h3>Contact Us</h3>
           </Link>
-          <Link href="/">
+          <Link href="/shipping">
             <h3>Shipping & Delivery</h3>
           </Link>
-          <Link href="/">
+          <Link href="/financing">
             <h3>Financing</h3>
           </Link>
-          <Link href="/">
+          <Link href="/termsCondition">
             <h3>Terms & Conditions</h3>
+          </Link>
+          <Link href="/faqs">
+            <h3>FAQ</h3>
           </Link>
         </div>
       </div>
@@ -111,22 +157,19 @@ const NavbarAccordion = () => {
               : styles.accordion_content
           }
         >
-          <Link href="/">
+          <Link href="/about">
             <h3>About Us</h3>
           </Link>
-          <Link href="/">
+          <Link href="/career">
             <h3>Career</h3>
           </Link>
-          <Link href="/">
+          <Link href="/location">
             <h3>Store Locations</h3>
           </Link>
-          <Link href="/">
-            <h3>Reviews</h3>
-          </Link>
-          <Link href="/">
+          <Link href="/login">
             <h3>My Account</h3>
           </Link>
-          <Link href="/">
+          <Link href="/comunitygiving">
             <h3>Community Giving</h3>
           </Link>
         </div>
