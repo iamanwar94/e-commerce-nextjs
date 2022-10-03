@@ -64,8 +64,8 @@ const About = () => {
         </h1>
       </div>
       <div className={about.history}>
-        <div className={about.img}>
-          <Image className={about.img} src={banner} alt="banner" />
+        <div className={about.img_div}>
+          <Image layout="fill" className={about.img} src={banner} alt="banner" />
         </div>
         <div className={about.info}>
           <h3>The legacy</h3>

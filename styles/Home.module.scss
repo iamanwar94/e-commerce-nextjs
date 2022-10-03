@@ -66,7 +66,7 @@
       }
     }
 
-
+    
     .shopby_categories_headings_hidden {
       width: 100%;
       @include flex-center;
@@ -265,11 +265,8 @@
   }
 }
 
-
 @media (max-width: $breakpoint-large) {
-
   .home_wrapper {
-
     .categories_wrapper {
       .shopby_categories_headings {
         p {
@@ -279,9 +276,7 @@
       }
 
       .shopby_categories_content {
-
         .shopby_categories_small_cards {
-
           .shopby_categories_small_card {
             p {
               font-size: 14px;
@@ -291,45 +286,17 @@
       }
     }
     .discount_cards_wrapper {
-      // width: 95%;
-      // margin: 10px 0;
-      // background-color: white;
-      // padding: 20px 0;
-  
-      .discount_cards_heading {
-        // width: 100%;
-        // margin: 20px auto;
-        // @include flex-center;
-  
-        h2 {
-          // font-weight: 600;
-          // text-transform: capitalize;
-          // text-shadow: 0 0 10px $extra-light-grey;
-        }
-      }
-  
       .discount_cards {
-
-        // width: 100%;
-        // @include flex-between;
-        // flex-wrap: wrap;
-        // align-content: space-between;
-        // margin: 30px 0;
-        // display: flex;
-        // justify-content: space-evenly;
         width: 98.5%;
         justify-content: space-between;
         margin: 30px 7px;
-  
       }
     }
   }
 }
 
 @media (max-width: $breakpoint-medium) {
-
   .home_wrapper {
-
     .categories_wrapper {
       h3 {
         cursor: pointer;
@@ -345,7 +312,6 @@
 
       .shopby_categories_headings_hidden {
         display: none;
-
         p {
           display: none;
         }
@@ -394,36 +360,10 @@
     }
 
     .discount_cards_wrapper {
-      // width: 95%;
-      // margin: 10px 0;
-      // background-color: white;
-      // padding: 20px 0;
-  
-      .discount_cards_heading {
-        // width: 100%;
-        // margin: 20px auto;
-        // @include flex-center;
-  
-        h2 {
-          // font-weight: 600;
-          // text-transform: capitalize;
-          // text-shadow: 0 0 10px $extra-light-grey;
-        }
-      }
-  
       .discount_cards {
-
-        // width: 100%;
-        // @include flex-between;
-        // flex-wrap: wrap;
-        // align-content: space-between;
-        // margin: 30px 0;
-        // display: flex;
-        // justify-content: space-evenly;
         width: 96%;
         justify-content: space-between;
         margin: 30px 12px;
-  
       }
     }
 
@@ -435,43 +375,20 @@
 }
 
 @media (max-width: $breakpoint-small) {
-
   .home_wrapper {
     .discount_cards_wrapper {
-      // width: 95%;
-      // margin: 10px 0;
-      // background-color: white;
-      // padding: 20px 0;
       margin: 10px 5px;
-  
-      .discount_cards_heading {
-        // width: 100%;
-        // margin: 20px auto;
-        // @include flex-center;
-        margin:0px;
-  
-        h2 {
-          // font-weight: 600;
-          // text-transform: capitalize;
-          // text-shadow: 0 0 10px $extra-light-grey;
-        }
-      }
-  
-      .discount_cards {
 
-        // width: 100%;
-        // @include flex-between;
-        // flex-wrap: wrap;
-        // align-content: space-between;
-        // margin: 30px 0;
-        // display: flex;
-        // justify-content: space-evenly;
+      .discount_cards_heading {
+        margin: 0px;
+      }
+
+      .discount_cards {
         width: 97%;
         justify-content: space-between;
         margin: 5px 5px;
       }
     }
-
 
     .categories_wrapper {
       margin-top: 35px;
@@ -536,6 +453,21 @@
     .thin_banner_wrapper {
       padding: 10px 4px;
       margin: 0px;
+    }
+
+    .chatbot_wrapper {
+      right: 10px;
+      width: 40px;
+      height: 40px;
+
+      .chatbot_icon {
+        font-size: 18px;
+      }
+
+      .chatbot {
+        right: 5px;
+        bottom: 45px;
+      }
     }
   }
 }
